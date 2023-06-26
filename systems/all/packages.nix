@@ -14,7 +14,7 @@
       fwupd
       clinfo
       glxinfo
-      vulkantools
+      vulkan-tools
     ];
   };
 
