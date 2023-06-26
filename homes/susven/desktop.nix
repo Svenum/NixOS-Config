@@ -3,7 +3,7 @@
 {
   qt = {
     enable = true;
-    platformTheme = "kde";
+    #platformTheme = "kde";
     style = {
       package = pkgs.breath-theme;
       name = "breath-dark";
