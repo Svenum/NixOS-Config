@@ -14,6 +14,7 @@
       clinfo
       glxinfo
       vulkan-tools
+      nvtop
     ];
   };
 
