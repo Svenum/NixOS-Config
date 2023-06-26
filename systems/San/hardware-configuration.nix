@@ -49,7 +49,7 @@
     driSupport32Bit = true;
   };
 
-  services.xserver.videoDriver = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -61,7 +61,7 @@
         enable = true;
         enableOffloadCmd = true;
       };
-      amdBusId = "PCI:5:0:0";
+      amdgpuBusId = "PCI:5:0:0";
       nvidiaBusId = "PCI:1:0:0";
     };
     powerManagement.enable = true;
