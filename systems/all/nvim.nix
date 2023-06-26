@@ -1,0 +1,38 @@
+{ pkgs, ... }:
+
+{
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withNodeJs = true;
+    configure = {
+#      customRC = builtins.readFile ../../config/nvim/init.vim;
+      packages.nix = {
+        start = with pkgs.vimPlugins; [
+          # Plugins
+          vim-plug
+          # CoC
+          coc-sh coc-git coc-css coc-yaml
+          coc-nvim coc-json coc-html coc-tslint
+          coc-eslint coc-docker coc-tabnine
+          coc-tsserver coc-prettier coc-highlight
+          coc-markdownlint coc-spell-checker
+          vim-nix
+          # Explorer
+          nnn-vim
+          # Syntax highlighter
+          rainbow
+          # IDE
+          auto-pairs
+          surround-nvim
+          # Theme
+          papercolor-theme
+          # Terminal
+          toggleterm-nvim
+        ];
+      };
+    };
+  };
+}
