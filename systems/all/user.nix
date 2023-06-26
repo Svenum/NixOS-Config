@@ -9,6 +9,6 @@
   users.users.sven = {
     isNormalUser = true;
     description = "Sven";
-    extraGroups = [ "networkmanager" ];
+    extraGroups = [ "networkmanager" "libvirtd" ];
   };
 }
