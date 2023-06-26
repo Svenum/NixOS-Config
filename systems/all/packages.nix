@@ -11,12 +11,14 @@
       nerdfonts
       kate
       pciutils
-      fwupd
       clinfo
       glxinfo
       vulkan-tools
     ];
   };
+
+  # Enable fwupd
+  services.fwupd.enable = true;
 
   # Enable Flatpak
   services.flatpak.enable = true;
