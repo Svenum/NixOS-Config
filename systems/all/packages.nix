@@ -11,6 +11,11 @@
       nerdfonts
       kate
       pciutils
+      fwupd
+      clinfo
+      glxinfo
+      eglinfo
+      vulkantools
     ];
   };
 
