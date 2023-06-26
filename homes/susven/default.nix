@@ -6,7 +6,6 @@
 
   imports = [
     ./flatpak.nix
-    ./desktop.nix
   ];
 
   home.stateVersion = "22.11";
