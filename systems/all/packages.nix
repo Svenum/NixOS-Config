@@ -10,6 +10,7 @@
       (nnn.override { withNerdIcons = true; })
       nerdfonts
       kate
+      pciutils
     ];
   };
 
