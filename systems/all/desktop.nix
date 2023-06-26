@@ -15,11 +15,6 @@
     kwrited
   ];   
 
-  qt = {
-    enable = true;
-    platformTheme = "kde";
-  }
-
   services.printing.enable = true;
 
   sound.enable = true;
