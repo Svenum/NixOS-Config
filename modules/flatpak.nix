@@ -16,11 +16,11 @@ in
     home.activation = {
       addFlatpakRemots = ''
         #!/usr/bin/env bash
-        ${pkgs.flatpak}/bin/flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        ${pkgs.flatpak}/bin/flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &
       '';
       installFlatpakPackages = ''
         #!/usr/bin/env bash
-        ${pkgs.flatpak}/bin/flatpak --user ${if (length flatpakPackages > 0) then "install --or-update ${toString flatpakPackages}" else "remove --all"} -y
+        ${pkgs.flatpak}/bin/flatpak --user ${if (length flatpakPackages > 0) then "install --or-update ${toString flatpakPackages}" else "remove --all"} -y &
       '';
     };
   };
