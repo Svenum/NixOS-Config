@@ -6,7 +6,6 @@
       solaar
       rsync
       timeshift
-      primus
     ];
   };
 }
