@@ -7,6 +7,7 @@
       rsync
       timeshift
       nvtop-amd
+      nvtop-nvidia
     ];
   };
 }
