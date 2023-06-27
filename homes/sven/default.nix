@@ -8,6 +8,9 @@
     enable = true;
     userName = "Svenum";
     userEmail = "s.ziegler@holypenguin.net";
+    extraConfig = {
+      safe.directory = "/etc/nixos";
+    };
   };
 
   imports = [

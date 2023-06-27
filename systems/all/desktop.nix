@@ -28,8 +28,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    breath-theme
     papirus-maia-icon-theme
-    marwaita-manjaro
+    artim-dark
   ];
 }
