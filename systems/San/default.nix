@@ -7,5 +7,6 @@
     ./hardware-configuration.nix
     ./virtualisation.nix
     ./nvidia.nix
+    ./bluetooth.nix
   ];
 }
