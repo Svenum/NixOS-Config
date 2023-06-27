@@ -22,5 +22,7 @@
     "org.gimp.GIMP"
     # Office
     "org.libreoffice.LibreOffice"
+    # Flatpak
+    "com.github.tchx84.Flatseal"
   ];
 }
