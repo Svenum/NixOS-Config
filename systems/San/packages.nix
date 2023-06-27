@@ -6,8 +6,7 @@
       solaar
       rsync
       timeshift
-      nvtop-amd
-      nvtop-nvidia
+      nvtop
     ];
   };
 }
