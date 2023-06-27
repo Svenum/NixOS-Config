@@ -7,12 +7,12 @@
       modesetting.enable = true;
       powerManagement.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      #prime = {
+      prime = {
       #  offload = {
       #    enable = true;
       #    enableOffloadCmd = true;
       #  };
-      reverseSync.enable = true;
+        reverseSync.enable = true;
         amdgpuBusId = "PCI:5:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
