@@ -6,5 +6,6 @@
     ./packages.nix
     ./hardware-configuration.nix
     ./virtualisation.nix
+    ./nvidia.nix
   ];
 }
