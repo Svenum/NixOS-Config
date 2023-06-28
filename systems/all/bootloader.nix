@@ -10,4 +10,7 @@
     efi.canTouchEfiVariables = true;
     timeout = 1;
   };
+
+  boot.initrd.systemd.enable = true;
+  boot.kernelParams = [ "quiet" ];
 }
