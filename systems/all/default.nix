@@ -5,6 +5,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ./bootloader.nix
     ./packages.nix
+    ./plymouth.nix
     ./desktop.nix
     ./language.nix
     ./user.nix
