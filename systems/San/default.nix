@@ -9,6 +9,7 @@
     ./hardware.nix
     ./kernel.nix
     ./fs.nix
+    ./tlp.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
