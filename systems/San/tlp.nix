@@ -32,5 +32,5 @@
       USB_AUTOSUSPEND = 1;
     };
   };
-
+  services.power-profiles-daemon.enable = false;
 }
