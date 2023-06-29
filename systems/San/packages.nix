@@ -9,4 +9,5 @@
       nvtop
     ];
   };
+  hardware.tuxedo-control-center.enable = true;
 }
