@@ -19,9 +19,15 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tuxedo-nixos = {
+      url = "github:blitz/tuxedo-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, tuxedo-nixos, ... }:
     # Specific system configurations
     let 
     	defaultModules = [
@@ -71,6 +77,7 @@
         modules = defaultModules ++ [
 	  # System
           ./systems/San/default.nix
+          tuxedo-nixos.nixosModules.default
         ];
       };
     };
