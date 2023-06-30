@@ -29,7 +29,25 @@
 
   environment.systemPackages = with pkgs; [
     papirus-maia-icon-theme
-    artim-dark
-    libsForQt5.kde-gtk-config
+    (catppuccin-kde.override {
+      flavour = [ "mocha" ];
+      accents = [ "teal" ];
+      winDecStyles = [ "modern" ];
+    })
+    (catppuccin-kde.override {
+      flavour = [ "latte" ];
+      accents = [ "teal" ];
+      winDecStyles = [ "modern" ];
+    })
+    (catppuccin-gtk.override {
+      flavour = [ "mocha" ];
+      accents = [ "teal" ];
+      winDecStyles = [ "modern" ];
+    })
+    (catppuccin-gtk.override {
+      flavour = [ "latte" ];
+      accents = [ "teal" ];
+      winDecStyles = [ "modern" ];
+    })
   ];
 }
