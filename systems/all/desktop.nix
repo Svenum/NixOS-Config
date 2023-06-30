@@ -40,14 +40,12 @@
       winDecStyles = [ "modern" ];
     })
     (catppuccin-gtk.override {
-      flavour = [ "mocha" ];
+      variant = "mocha";
       accents = [ "teal" ];
-      winDecStyles = [ "modern" ];
     })
     (catppuccin-gtk.override {
-      flavour = [ "latte" ];
+      variant = "latte";
       accents = [ "teal" ];
-      winDecStyles = [ "modern" ];
     })
   ];
 }
