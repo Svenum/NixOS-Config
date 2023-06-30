@@ -24,5 +24,7 @@
     "org.libreoffice.LibreOffice"
     # Flatpak
     "com.github.tchx84.Flatseal"
+    "org.gtk.Gtk3theme.Catppuccin-Mocha-Teal"
+    "org.gtk.Gtk3theme.Catppuccin-Latte-Teal"
   ];
 }
