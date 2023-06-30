@@ -71,7 +71,6 @@
         modules = defaultModules ++ [
 	  # System
           ./systems/San/default.nix
-          tuxedo-nixos.nixosModules.default
         ];
       };
     };
