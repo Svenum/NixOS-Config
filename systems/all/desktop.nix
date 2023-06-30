@@ -30,5 +30,6 @@
   environment.systemPackages = with pkgs; [
     papirus-maia-icon-theme
     artim-dark
+    libsForQt5.kde-gtk-config
   ];
 }

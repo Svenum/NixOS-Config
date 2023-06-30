@@ -14,6 +14,11 @@
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    
+    tuxedo-nixos = {
+      url = "github:blitz/tuxedo-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -21,7 +26,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, tuxedo-nixos, ... }:
     # Specific system configurations
     let 
     	defaultModules = [
@@ -71,6 +76,8 @@
         modules = defaultModules ++ [
 	  # System
           ./systems/San/default.nix
+          # Tuxedo
+          tuxedo-nixos.nixosModules.default
         ];
       };
     };
