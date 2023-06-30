@@ -6,5 +6,6 @@
     kernelModules = [];
   };
   boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelParams = [ "amd_iommu=pt" ];
   boot.extraModulePackages = [];
 }
