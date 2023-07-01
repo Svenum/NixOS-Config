@@ -13,6 +13,8 @@
     ".config/kcminputrc".source = ../../config_files/config/kcminputrc;
     ".config/kwinrc".source = ../../config_files/config/kwinrc;
     ".config/kdeglobals".source = ../../config_files/config/kdeglobals;
+    # Latte
+    ".config/latte/custom_layout.layout.latte".source = ../../config_files/config/latte/Manjaro.layout.latte
     # Flatapk overrides
     ".local/share/flatpak/overrides".source = ../../config_files/local/share/flatpak/overrides;
   };
