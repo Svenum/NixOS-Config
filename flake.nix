@@ -31,20 +31,20 @@
     let 
       homeDefaultConfig = {
         # Zsh
-        ".zshrc".source = ../../config_files/zshrc;
-        ".p10k.zsh".source = ../../config_files/p10k.zsh;
+        ".zshrc".source = ./config_files/zshrc;
+        ".p10k.zsh".source = ./config_files/p10k.zsh;
         
         # Flatpak overrides
-        ".local/share/flatpak/overrides".source = ../../config_files/local/share/flatpak/overrides;
+        ".local/share/flatpak/overrides".source = ./config_files/local/share/flatpak/overrides;
           
         # Latte-Dock
-        ".config/latte/custom.layout.latte".source = ../../config_files/config/latte/custom.layout.latte;
+        ".config/latte/custom.layout.latte".source = ./config_files/config/latte/custom.layout.latte;
 
         # KDE
-        ".config/kglobalshortcutsrc".source = ../../config_files/config/kglobalshortcutsrc;
-        ".config/kcminputrc".source = ../../config_files/config/kcminputrc;
-        ".config/kwinrc".source = ../../config_files/config/kwinrc;
-        ".config/kdedefaults/kglobals".source = ../../config_files/config/kdedefaults/kglobals;
+        ".config/kglobalshortcutsrc".source = ./config_files/config/kglobalshortcutsrc;
+        ".config/kcminputrc".source = ./config_files/config/kcminputrc;
+        ".config/kwinrc".source = ./config_files/config/kwinrc;
+        ".config/kdedefaults/kglobals".source = ./config_files/config/kdedefaults/kglobals;
       };
     	defaultModules = [
           # All
