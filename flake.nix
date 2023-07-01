@@ -44,7 +44,7 @@
         ".config/kglobalshortcutsrc".source = ./config_files/config/kglobalshortcutsrc;
         ".config/kcminputrc".source = ./config_files/config/kcminputrc;
         ".config/kwinrc".source = ./config_files/config/kwinrc;
-        ".config/kdedefaults/kglobals".source = ./config_files/config/kdedefaults/kglobals;
+        ".config/kdedefaults/kglobals".source = ./config_files/config/kdedefaults/kdeglobals;
       };
     	defaultModules = [
           # All
