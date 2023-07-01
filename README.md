@@ -4,9 +4,24 @@
 
 ```
 /etc/nixos/
+├── config_files
+│   ├── config
+│   │   ├── kcminputrc
+│   │   ├── kdedefaults
+│   │   │   └── kdeglobals
+│   │   ├── kglobalshortcutsrc
+│   │   ├── kwinrc
+│   │   └── latte
+│   │       └── Manjaro.layout.latte
+│   ├── local
+│   │   └── share
+│   │       └── flatpak
+│   │           └── overrides
+│   │               └── global
+│   ├── p10k.zsh
+│   └── zshrc
 ├── flake.lock
 ├── flake.nix
-├── home.nix
 ├── homes
 │   ├── susven
 │   │   ├── default.nix
@@ -27,6 +42,7 @@
     │   ├── nvim.nix
     │   ├── packages.nix
     │   ├── plymouth.nix
+    │   ├── shell.nix
     │   └── user.nix
     ├── Ni
     │   ├── network.nix
@@ -39,6 +55,7 @@
     │   ├── network.nix
     │   ├── nvidia.nix
     │   ├── packages.nix
+    │   ├── tlp.nix
     │   └── virtualisation.nix
     └── srv-nixostest
         ├── default.nix
@@ -50,6 +67,6 @@
 ## ToDo
 
 ### Sven
-1. KDE Settings -> Applications -> Flatpak Permission Settings -> Steam -> Advanced Permissions -> Enable Direct Graphic Rendering
-2. add "nvidia-offload" to var.valvesoftware.Steam.desktop
-
+1. add "nvidia-offload" to var.valvesoftware.Steam.desktop
+2. Apply in Latte-Dock ~/.config/latte/custom.layout.latte
+3. Apply KDE-Themes
