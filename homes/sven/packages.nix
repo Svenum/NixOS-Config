@@ -3,6 +3,5 @@
 {
   home.packages = with pkgs; [
     caffeine-ng
-    latte-dock
   ];
 }
