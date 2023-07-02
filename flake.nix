@@ -38,7 +38,7 @@
         ".local/share/flatpak/overrides".source = ./config_files/local/share/flatpak/overrides;
           
         # Latte-Dock
-        ".config/latte/custom.layout.latte".source = ./config_files/config/latte/custom.layout.latte;
+        ".config/latte/custom.layout.latte".source = ./config_files/config/latte/default.layout.latte;
 
         # KDE
         ".config/kglobalshortcutsrc".source = ./config_files/config/kglobalshortcutsrc;
