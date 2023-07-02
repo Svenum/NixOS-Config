@@ -46,7 +46,7 @@
         ".config/ksplashrc".source = ./config_files/config/ksplashrc;
         ".config/plasma-localerc".source = ./config_files/config/plasma-localerc;
         ".config/plasmashellrc".source = ./config_files/config/plasmashellrc;
-        ".config/plasma-org.kde.plasma.desktop-appletsrc".source = ./config_files/config/plasma-org.kde.plasma.desktop-appletsrc
+        ".config/plasma-org.kde.plasma.desktop-appletsrc".source = ./config_files/config/plasma-org.kde.plasma.desktop-appletsrc;
         ".config/kdedefaults/kglobals".source = ./config_files/config/kdedefaults/kdeglobals;
         ".local/share/plasma/plasmoids".source = ./config_files/local/share/plasma/plasmoids;
       };
