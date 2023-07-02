@@ -37,13 +37,15 @@
         # Flatpak overrides
         ".local/share/flatpak/overrides".source = ./config_files/local/share/flatpak/overrides;
           
-        # Latte-Dock
-        ".config/latte/Default.layout.latte".source = ./config_files/config/latte/Default.layout.latte;
-
         # KDE
         ".config/kglobalshortcutsrc".source = ./config_files/config/kglobalshortcutsrc;
         ".config/kcminputrc".source = ./config_files/config/kcminputrc;
         ".config/kwinrc".source = ./config_files/config/kwinrc;
+        ".config/kdeglobals".source = ./config_files/config/kdeglobals;
+        ".config/kscreenlockerrc".source = ./config_files/config/kscreenlockerrc;
+        ".config/ksplashrc".source = ./config_files/config/ksplashrc;
+        ".config/plasma-localerc".source = ./config_files/config/plasma-localerc;
+        ".config/plasmashellrc".source = ./config_files/config/plasmashellrc;
         ".config/kdedefaults/kglobals".source = ./config_files/config/kdedefaults/kdeglobals;
       };
     	defaultModules = [
