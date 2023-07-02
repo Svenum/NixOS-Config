@@ -48,6 +48,8 @@
         ".config/plasmashellrc".source = ./config_files/config/plasmashellrc;
         ".config/plasma-org.kde.plasma.desktop-appletsrc".source = ./config_files/config/plasma-org.kde.plasma.desktop-appletsrc;
         ".config/kdedefaults".source = ./config_files/config/kdedefaults;
+        ".config/auroraerc".source = ./config_files/config/auroraerc;
+        ".config/systemsettingsrc".source = ./config_files/config/systemsettingsrc;
         ".local/share/plasma/plasmoids".source = ./config_files/local/share/plasma/plasmoids;
       };
     	defaultModules = [
