@@ -19,12 +19,6 @@
       clinfo
       glxinfo
       vulkan-tools
-      libsForQt5.qt5.qtwebsockets
-      python311Packages.docopt
-      python311Packages.numpy
-      python311Packages.pyaudio
-      python311Packages.cffi
-      python311Packages.websockets
     ];
   };
 
