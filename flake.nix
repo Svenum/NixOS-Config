@@ -46,6 +46,7 @@
         ".config/ksplashrc".source = ./config_files/config/ksplashrc;
         ".config/plasma-localerc".source = ./config_files/config/plasma-localerc;
         ".config/plasmashellrc".source = ./config_files/config/plasmashellrc;
+        ".config/plasmarc".source = ./config_files/config/plasmarc;
         ".config/plasma-org.kde.plasma.desktop-appletsrc".source = ./config_files/config/plasma-org.kde.plasma.desktop-appletsrc;
         ".config/kdedefaults".source = ./config_files/config/kdedefaults;
         ".config/auroraerc".source = ./config_files/config/auroraerc;
