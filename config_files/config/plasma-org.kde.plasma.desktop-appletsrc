@@ -77,12 +77,16 @@ SystrayContainmentId=39
 immutability=1
 plugin=org.kde.plasma.pager
 
+[Containments][24][Applets][54]
+immutability=1
+plugin=panon
+
 [Containments][24][ConfigDialog]
 DialogHeight=84
 DialogWidth=1920
 
 [Containments][24][General]
-AppletOrder=35;33;36;53;32;38;37
+AppletOrder=35;33;36;53;32;54;38;37
 
 [Containments][25]
 activityId=
