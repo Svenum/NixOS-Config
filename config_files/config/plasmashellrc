@@ -1,39 +1,14 @@
-[PlasmaTransientsConfig]
-PreloadWeight=0
+[PlasmaViews][Panel 25]
+alignment=2
 
-[PlasmaViews][Panel 2]
-floating=0
-panelVisibility=2
+[PlasmaViews][Panel 25][Defaults]
+maxLength=833
+minLength=829
+thickness=50
 
-[PlasmaViews][Panel 2][Defaults]
-thickness=44
-
-[PlasmaViews][Panel 24]
-alignment=132
-floating=0
-panelVisibility=2
-
-[PlasmaViews][Panel 24][Defaults]
-maxLength=1848
-minLength=1842
-thickness=36
-
-[PlasmaViews][Panel 24][Horizontal1920]
-maxLength=1848
-minLength=1842
-
-[PlasmaViews][Panel 46]
-alignment=132
-panelVisibility=2
-
-[PlasmaViews][Panel 46][Defaults]
-maxLength=982
-minLength=982
-thickness=64
-
-[PlasmaViews][Panel 46][Vertical1080]
-maxLength=982
-minLength=982
+[PlasmaViews][Panel 25][Vertical864]
+maxLength=833
+minLength=829
 
 [Updates]
 performed=/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/move_desktop_layout_config.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/no_middle_click_paste_on_panels.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_rename_timezonedisplay_key.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/systemloadviewer_systemmonitor.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/mediaframe_migrate_useBackground_setting.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/containmentactions_middlebutton.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/keyboardlayout_remove_shortcut.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/digitalclock_migrate_font_settings.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/klipper_clear_config.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/unlock_widgets.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/keyboardlayout_migrateiconsetting.js,/run/current-system/sw/share/plasma/shells/org.kde.plasma.desktop/contents/updates/maintain_existing_desktop_icon_sizes.js
