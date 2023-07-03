@@ -1,5 +1,6 @@
 { pkgs, config, lib, ... }:
 
+with lib;
 let
   cfg = config.flatpak;
 in

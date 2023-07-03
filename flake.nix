@@ -26,9 +26,9 @@
     };
 
     flatpak = {
-      url = ./modules/flatpak;
+      url = "path:./modules/flatpak";
       inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, tuxedo-nixos, flatpak, ... }:
@@ -91,6 +91,8 @@
         modules = defaultModules ++ [
 	  # System
           ./systems/srv-nixostest/default.nix
+          # Flatpak
+          flatpak.nixosModules.default
         ];
       };
       Ni = nixpkgs.lib.nixosSystem {
@@ -99,6 +101,8 @@
         modules = defaultModules ++ [
 	  # System
           ./systems/Ni/default.nix
+          # Flatpak
+          flatpak.nixosModules.default
         ];
       };
       San = nixpkgs.lib.nixosSystem {
@@ -109,6 +113,8 @@
           ./systems/San/default.nix
           # Tuxedo
           tuxedo-nixos.nixosModules.default
+          # Flatpak
+          flatpak.nixosModules.default
         ];
       };
     };

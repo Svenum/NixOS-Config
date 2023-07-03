@@ -3,6 +3,6 @@
 
   outputs = inputs@{ nixpkgs, ... }:
   {
-    nixosModules.default = import ./default.nix
-  }
+    nixosModules.default = import ./default.nix;
+  };
 }
