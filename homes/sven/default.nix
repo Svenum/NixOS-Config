@@ -14,7 +14,7 @@
   };
 
   imports = [
-    ./flatpak.nix
+    #./flatpak.nix
     ./packages.nix
   ];
 

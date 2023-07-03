@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/susven";
 
   imports = [
-    ./flatpak.nix
+    #./flatpak.nix
   ];
 
   home.stateVersion = "23.05";
