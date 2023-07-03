@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, flatpak, ... }:
 
 {
   system.autoUpgrade = {
@@ -26,7 +26,9 @@
   services.fwupd.enable = true;
 
   # Enable Flatpak
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #services.flatpak.enable = true;
+  #xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  flatpak.enable = true;
 }

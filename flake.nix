@@ -24,9 +24,14 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flatpak = {
+      url = ./modules/flatpak;
+      inputs.nixpkgs.follows = "nixpkgs";
+    }
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, tuxedo-nixos, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, tuxedo-nixos, flatpak, ... }:
     # Specific system configurations
     let 
       homeDefaultConfig = {
