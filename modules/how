@@ -1,0 +1,603 @@
+    [93m  | [0m[1mWarning[0m 
+    [93m  | [0mThis program is [1mexperimental[0m and its interface is subject to change.
+
+[1;91m[0m[1;91mName[0m
+
+    [1;94mnix flake[0m - manage Nix flakes
+
+[1;91m[0m[1;91mSynopsis[0m
+
+    [1;94mnix flake[0m [[3moption[0m...] [3msubcommand[0m
+
+    where [3msubcommand[0m is one of the following:
+
+    [93m  · [0m[1;93mnix flake archive[0m - copy a flake and all its inputs to a store 
+    [93m  · [0m[1;93mnix flake check[0m - check whether the flake evaluates and run its tests 
+    [93m  · [0m[1;93mnix flake clone[0m - clone flake repository 
+    [93m  · [0m[1;93mnix flake info[0m - show flake metadata 
+    [93m  · [0m[1;93mnix flake init[0m - create a flake in the current directory from a template 
+    [93m  · [0m[1;93mnix flake lock[0m - create missing lock file entries 
+    [93m  · [0m[1;93mnix flake metadata[0m - show flake metadata 
+    [93m  · [0m[1;93mnix flake new[0m - create a flake in the specified directory from a template 
+    [93m  · [0m[1;93mnix flake prefetch[0m - download the source tree denoted by a flake reference
+        into the Nix store 
+    [93m  · [0m[1;93mnix flake show[0m - show the outputs provided by a flake 
+    [93m  · [0m[1;93mnix flake update[0m - update flake lock file 
+
+[1;91m[0m[1;91mDescription[0m
+
+    [1;94mnix flake[0m provides subcommands for creating, modifying and querying [3mNix flakes[0m.
+    Flakes are the unit for packaging Nix code in a reproducible and discoverable
+    way. They can have dependencies on other flakes, making it possible to have
+    multi-repository Nix projects.
+
+    A flake is a filesystem tree (typically fetched from a Git repository or a
+    tarball) that contains a file named [1;94mflake.nix[0m in the root directory. [1;94mflake.nix[0m
+    specifies some metadata about the flake such as dependencies (called [3minputs[0m), as
+    well as its [3moutputs[0m (the Nix values such as packages or NixOS modules provided by
+    the flake).
+
+[1;91m[0m[1;91mFlake references[0m
+
+    Flake references ([3mflakerefs[0m) are a way to specify the location of a flake. These
+    have two different forms:
+
+[1;36m## [0m[1;36mAttribute set representation[0m
+
+    Example:
+
+    [1;94m  | [0m[1m{[0m
+    [1;94m  | [0m[1m  type = "github";[0m
+    [1;94m  | [0m[1m  owner = "NixOS";[0m
+    [1;94m  | [0m[1m  repo = "nixpkgs";[0m
+    [1;94m  | [0m[1m}[0m
+
+    The only required attribute is [1;94mtype[0m. The supported types are listed below.
+
+[1;36m## [0m[1;36mURL-like syntax[0m
+
+    Example:
+
+    [1;94m  | [0m[1mgithub:NixOS/nixpkgs[0m
+
+    These are used on the command line as a more convenient alternative to the
+    attribute set representation. For instance, in the command
+
+    [1;94m  | [0m[1m# nix build github:NixOS/nixpkgs#hello[0m
+
+    [1;94mgithub:NixOS/nixpkgs[0m is a flake reference (while [1;94mhello[0m is an output attribute).
+    They are also allowed in the [1;94minputs[0m attribute of a flake, e.g.
+
+    [1;94m  | [0m[1minputs.nixpkgs.url = "github:NixOS/nixpkgs";[0m
+
+    is equivalent to
+
+    [1;94m  | [0m[1minputs.nixpkgs = {[0m
+    [1;94m  | [0m[1m  type = "github";[0m
+    [1;94m  | [0m[1m  owner = "NixOS";[0m
+    [1;94m  | [0m[1m  repo = "nixpkgs";[0m
+    [1;94m  | [0m[1m};[0m
+
+[1;36m### [0m[1;36mExamples[0m
+
+    Here are some examples of flake references in their URL-like representation:
+
+    [93m  · [0m[1;94m.[0m: The flake in the current directory. 
+    [93m  · [0m[1;94m/home/alice/src/patchelf[0m: A flake in some other directory. 
+    [93m  · [0m[1;94mnixpkgs[0m: The [1;94mnixpkgs[0m entry in the flake registry. 
+    [93m  · [0m[1;94mnixpkgs/a3a3dda3bacf61e8a39258a0ed9c924eeca8e293[0m: The [1;94mnixpkgs[0m entry in the
+        flake registry, with its Git revision overridden to a specific value. 
+    [93m  · [0m[1;94mgithub:NixOS/nixpkgs[0m: The [1;94mmaster[0m branch of the [1;94mNixOS/nixpkgs[0m repository on
+        GitHub. 
+    [93m  · [0m[1;94mgithub:NixOS/nixpkgs/nixos-20.09[0m: The [1;94mnixos-20.09[0m branch of the [1;94mnixpkgs[0m
+        repository. 
+    [93m  · [0m[1;94mgithub:NixOS/nixpkgs/a3a3dda3bacf61e8a39258a0ed9c924eeca8e293[0m: A specific
+        revision of the [1;94mnixpkgs[0m repository. 
+    [93m  · [0m[1;94mgithub:edolstra/nix-warez?dir=blender[0m: A flake in a subdirectory of a GitHub
+        repository. 
+    [93m  · [0m[1;94mgit+https://github.com/NixOS/patchelf[0m: A Git repository. 
+    [93m  · [0m[1;94mgit+https://github.com/NixOS/patchelf?ref=master[0m: A specific branch of a Git
+        repository. 
+    [93m  · [0m[1;94mgit+https://github.com/NixOS/patchelf?ref=master&rev=f34751b88bd07d7f44f5cd3200fb4122bf916c7e[0m:
+        A specific branch [3mand[0m revision of a Git repository. 
+    [93m  · [0m[1;94mhttps://github.com/NixOS/patchelf/archive/master.tar.gz[0m: A tarball flake. 
+
+[1;36m## [0m[1;36mFlake reference attributes[0m
+
+    The following generic flake reference attributes are supported:
+
+    [93m  · [0m[1;94mdir[0m: The subdirectory of the flake in which [1;94mflake.nix[0m is located. This
+        parameter enables having multiple flakes in a repository or tarball. The
+        default is the root directory of the flake.
+    
+    [93m  · [0m[1;94mnarHash[0m: The hash of the NAR serialisation (in SRI format) of the contents of
+        the flake. This is useful for flake types such as tarballs that lack a unique
+        content identifier such as a Git commit hash.
+
+    In addition, the following attributes are common to several flake reference
+    types:
+
+    [93m  · [0m[1;94mrev[0m: A Git or Mercurial commit hash.
+    
+    [93m  · [0m[1;94mref[0m: A Git or Mercurial branch or tag name.
+
+    Finally, some attribute are typically not specified by the user, but can occur in
+    [3mlocked[0m flake references and are available to Nix code:
+
+    [93m  · [0m[1;94mrevCount[0m: The number of ancestors of the commit [1;94mrev[0m.
+    
+    [93m  · [0m[1;94mlastModified[0m: The timestamp (in seconds since the Unix epoch) of the last
+        modification of this version of the flake. For Git/Mercurial flakes, this is
+        the commit time of commit [3mrev[0m, while for tarball flakes, it's the most recent
+        timestamp of any file inside the tarball.
+
+[1;36m## [0m[1;36mTypes[0m
+
+    Currently the [1;94mtype[0m attribute can be one of the following:
+
+    [93m  · [0m[1;94mpath[0m: arbitrary local directories, or local Git trees. The required attribute
+        [1;94mpath[0m specifies the path of the flake. The URL form is
+        
+        [1;94m  | [0m[1m[path:]<path>(\?<params)?[0m
+        
+        where [3mpath[0m is an absolute path.
+        
+        [3mpath[0m must be a directory in the file system containing a file named [0m
+        [1;94mflake.nix[0m.
+        
+        [3mpath[0m generally must be an absolute path. However, on the command line, it can
+        be a relative path (e.g. [1;94m.[0m or [1;94m./foo[0m) which is interpreted as relative to the
+        current directory. In this case, it must start with [1;94m.[0m to avoid ambiguity with
+        registry lookups (e.g. [1;94mnixpkgs[0m is a registry lookup; [1;94m./nixpkgs[0m is a relative
+        path).
+    
+    [93m  · [0m[1;94mgit[0m: Git repositories. The location of the repository is specified by the
+        attribute [1;94murl[0m.
+        
+        They have the URL form
+        
+        [1;94m  | [0m[1mgit(+http|+https|+ssh|+git|+file|):(//<server>)?<path>(\?<params>)?[0m
+        
+        The [1;94mref[0m attribute defaults to resolving the [1;94mHEAD[0m reference.
+        
+        The [1;94mrev[0m attribute must denote a commit that exists in the branch or tag
+        specified by the [1;94mref[0m attribute, since Nix doesn't do a full clone of the
+        remote repository by default (and the Git protocol doesn't allow fetching a [0m
+        [1;94mrev[0m without a known [1;94mref[0m). The default is the commit currently pointed to by [0m
+        [1;94mref[0m.
+        
+        When [1;94mgit+file[0m is used without specifying [1;94mref[0m or [1;94mrev[0m, files are fetched
+        directly from the local [1;94mpath[0m as long as they have been added to the Git
+        repository. If there are uncommitted changes, the reference is treated as
+        dirty and a warning is printed.
+        
+        For example, the following are valid Git flake references:
+        
+        [93m  · [0m[1;94mgit+https://example.org/my/repo[0m 
+        [93m  · [0m[1;94mgit+https://example.org/my/repo?dir=flake1[0m 
+        [93m  · [0m[1;94mgit+ssh://git@github.com/NixOS/nix?ref=v1.2.3[0m 
+        [93m  · [0m[1;94mgit://github.com/edolstra/dwarffs?ref=unstable&rev=e486d8d40e626a20e06d792db8cc5ac5aba9a5b4[0m
+        [93m  · [0m[1;94mgit+file:///home/my-user/some-repo/some-repo[0m 
+    
+    [93m  · [0m[1;94mmercurial[0m: Mercurial repositories. The URL form is similar to the [1;94mgit[0m type,
+        except that the URL schema must be one of [1;94mhg+http[0m, [1;94mhg+https[0m, [1;94mhg+ssh[0m or [0m
+        [1;94mhg+file[0m.
+    
+    [93m  · [0m[1;94mtarball[0m: Tarballs. The location of the tarball is specified by the attribute [0m
+        [1;94murl[0m.
+        
+        In URL form, the schema must be [1;94mtarball+http://[0m, [1;94mtarball+https://[0m or [0m
+        [1;94mtarball+file://[0m. If the extension corresponds to a known archive format ([1;94m.zip[0m,
+        [1;94m.tar[0m, [1;94m.tgz[0m, [1;94m.tar.gz[0m, [1;94m.tar.xz[0m, [1;94m.tar.bz2[0m or [1;94m.tar.zst[0m), then the [1;94mtarball+[0m can be
+        dropped.
+    
+    [93m  · [0m[1;94mfile[0m: Plain files or directory tarballs, either over http(s) or from the
+        local disk.
+        
+        In URL form, the schema must be [1;94mfile+http://[0m, [1;94mfile+https://[0m or [1;94mfile+file://[0m.
+        If the extension doesn’t correspond to a known archive format (as defined
+        by the [1;94mtarball[0m fetcher), then the [1;94mfile+[0m prefix can be dropped.
+    
+    [93m  · [0m[1;94mgithub[0m: A more efficient way to fetch repositories from GitHub. The following
+        attributes are required:
+        
+        [93m  · [0m[1;94mowner[0m: The owner of the repository.
+
+        [93m  · [0m[1;94mrepo[0m: The name of the repository.
+        
+        These are downloaded as tarball archives, rather than through Git. This is
+        often much faster and uses less disk space since it doesn't require fetching
+        the entire history of the repository. On the other hand, it doesn't allow
+        incremental fetching (but full downloads are often faster than incremental
+        fetches!).
+        
+        The URL syntax for [1;94mgithub[0m flakes is:
+        
+        [1;94m  | [0m[1mgithub:<owner>/<repo>(/<rev-or-ref>)?(\?<params>)?[0m
+        
+        [1;94m<rev-or-ref>[0m specifies the name of a branch or tag ([1;94mref[0m), or a commit hash ([1;94mrev[0m).
+        Note that unlike Git, GitHub allows fetching by commit hash without
+        specifying a branch or tag.
+        
+        You can also specify [1;94mhost[0m as a parameter, to point to a custom GitHub
+        Enterprise server.
+        
+        Some examples:
+        
+        [93m  · [0m[1;94mgithub:edolstra/dwarffs[0m 
+        [93m  · [0m[1;94mgithub:edolstra/dwarffs/unstable[0m 
+        [93m  · [0m[1;94mgithub:edolstra/dwarffs/d3f2baba8f425779026c6ec04021b2e927f61e31[0m 
+        [93m  · [0m[1;94mgithub:internal/project?host=company-github.example.org[0m 
+    
+    [93m  · [0m[1;94mgitlab[0m: Similar to [1;94mgithub[0m, is a more efficient way to fetch GitLab
+        repositories. The following attributes are required:
+        
+        [93m  · [0m[1;94mowner[0m: The owner of the repository.
+
+        [93m  · [0m[1;94mrepo[0m: The name of the repository.
+        
+        Like [1;94mgithub[0m, these are downloaded as tarball archives.
+        
+        The URL syntax for [1;94mgitlab[0m flakes is:
+        
+        [1;94mgitlab:<owner>/<repo>(/<rev-or-ref>)?(\?<params>)?[0m
+        
+        [1;94m<rev-or-ref>[0m works the same as [1;94mgithub[0m. Either a branch or tag name ([1;94mref[0m), or
+        a commit hash ([1;94mrev[0m) can be specified.
+        
+        Since GitLab allows for self-hosting, you can specify [1;94mhost[0m as a parameter, to
+        point to any instances other than [1;94mgitlab.com[0m.
+        
+        Some examples:
+        
+        [93m  · [0m[1;94mgitlab:veloren/veloren[0m 
+        [93m  · [0m[1;94mgitlab:veloren/veloren/master[0m 
+        [93m  · [0m[1;94mgitlab:veloren/veloren/80a4d7f13492d916e47d6195be23acae8001985a[0m 
+        [93m  · [0m[1;94mgitlab:openldap/openldap?host=git.openldap.org[0m 
+        
+        When accessing a project in a (nested) subgroup, make sure to URL-encode any
+        slashes, i.e. replace [1;94m/[0m with [1;94m%2F[0m:
+        
+        [93m  · [0m[1;94mgitlab:veloren%2Fdev/rfcs[0m 
+    
+    [93m  · [0m[1;94msourcehut[0m: Similar to [1;94mgithub[0m, is a more efficient way to fetch SourceHut
+        repositories. The following attributes are required:
+        
+        [93m  · [0m[1;94mowner[0m: The owner of the repository (including leading [1;94m~[0m).
+
+        [93m  · [0m[1;94mrepo[0m: The name of the repository.
+        
+        Like [1;94mgithub[0m, these are downloaded as tarball archives.
+        
+        The URL syntax for [1;94msourcehut[0m flakes is:
+        
+        [1;94msourcehut:<owner>/<repo>(/<rev-or-ref>)?(\?<params>)?[0m
+        
+        [1;94m<rev-or-ref>[0m works the same as [1;94mgithub[0m. Either a branch or tag name ([1;94mref[0m), or
+        a commit hash ([1;94mrev[0m) can be specified.
+        
+        Since SourceHut allows for self-hosting, you can specify [1;94mhost[0m as a parameter,
+        to point to any instances other than [1;94mgit.sr.ht[0m.
+        
+        Currently, [1;94mref[0m name resolution only works for Git repositories. You can refer
+        to Mercurial repositories by simply changing [1;94mhost[0m to [1;94mhg.sr.ht[0m (or any other
+        Mercurial instance). With the caveat that you must explicitly specify a
+        commit hash ([1;94mrev[0m).
+        
+        Some examples:
+        
+        [93m  · [0m[1;94msourcehut:~misterio/nix-colors[0m 
+        [93m  · [0m[1;94msourcehut:~misterio/nix-colors/main[0m 
+        [93m  · [0m[1;94msourcehut:~misterio/nix-colors?host=git.example.org[0m 
+        [93m  · [0m[1;94msourcehut:~misterio/nix-colors/182b4b8709b8ffe4e9774a4c5d6877bf6bb9a21c[0m 
+        [93m  · [0m[1;94msourcehut:~misterio/nix-colors/21c1a380a6915d890d408e9f22203436a35bb2de?host=hg.sr.ht[0m
+    
+    [93m  · [0m[1;94mindirect[0m: Indirections through the flake registry. These have the form
+        
+        [1;94m  | [0m[1m[flake:]<flake-id>(/<rev-or-ref>(/rev)?)?[0m
+        
+        These perform a lookup of [1;94m<flake-id>[0m in the flake registry. For example, [0m
+        [1;94mnixpkgs[0m and [1;94mnixpkgs/release-20.09[0m are indirect flake references. The
+        specified [1;94mrev[0m and/or [1;94mref[0m are merged with the entry in the registry; see [1;93mnix[0m
+        [1;93mregistry[0m for details.
+
+[1;91m[0m[1;91mFlake format[0m
+
+    As an example, here is a simple [1;94mflake.nix[0m that depends on the Nixpkgs flake and
+    provides a single package (i.e. an [1;93minstallable[0m derivation):
+
+    [1;94m  | [0m[1m{[0m
+    [1;94m  | [0m[1m  description = "A flake for building Hello World";[0m
+    [1;94m  | [0m[1m[0m
+    [1;94m  | [0m[1m  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.03";[0m
+    [1;94m  | [0m[1m[0m
+    [1;94m  | [0m[1m  outputs = { self, nixpkgs }: {[0m
+    [1;94m  | [0m[1m[0m
+    [1;94m  | [0m[1m    packages.x86_64-linux.default =[0m
+    [1;94m  | [0m[1m      # Notice the reference to nixpkgs here.[0m
+    [1;94m  | [0m[1m      with import nixpkgs { system = "x86_64-linux"; };[0m
+    [1;94m  | [0m[1m      stdenv.mkDerivation {[0m
+    [1;94m  | [0m[1m        name = "hello";[0m
+    [1;94m  | [0m[1m        src = self;[0m
+    [1;94m  | [0m[1m        buildPhase = "gcc -o hello ./hello.c";[0m
+    [1;94m  | [0m[1m        installPhase = "mkdir -p $out/bin; install -t $out/bin hello";[0m
+    [1;94m  | [0m[1m      };[0m
+    [1;94m  | [0m[1m[0m
+    [1;94m  | [0m[1m  };[0m
+    [1;94m  | [0m[1m}[0m
+
+    The following attributes are supported in [1;94mflake.nix[0m:
+
+    [93m  · [0m[1;94mdescription[0m: A short, one-line description of the flake.
+    
+    [93m  · [0m[1;94minputs[0m: An attrset specifying the dependencies of the flake (described
+        below).
+    
+    [93m  · [0m[1;94moutputs[0m: A function that, given an attribute set containing the outputs of
+        each of the input flakes keyed by their identifier, yields the Nix values
+        provided by this flake. Thus, in the example above, [1;94minputs.nixpkgs[0m contains
+        the result of the call to the [1;94moutputs[0m function of the [1;94mnixpkgs[0m flake.
+        
+        In addition to the outputs of each input, each input in [1;94minputs[0m also contains
+        some metadata about the inputs. These are:
+        
+        [93m  · [0m[1;94moutPath[0m: The path in the Nix store of the flake's source tree. This way,
+            the attribute set can be passed to [1;94mimport[0m as if it was a path, as in the
+            example above ([1;94mimport nixpkgs[0m).
+
+        [93m  · [0m[1;94mrev[0m: The commit hash of the flake's repository, if applicable.
+
+        [93m  · [0m[1;94mrevCount[0m: The number of ancestors of the revision [1;94mrev[0m. This is not
+            available for [1;94mgithub[0m repositories, since they're fetched as tarballs
+            rather than as Git repositories.
+
+        [93m  · [0m[1;94mlastModifiedDate[0m: The commit time of the revision [1;94mrev[0m, in the format [0m
+            [1;94m%Y%m%d%H%M%S[0m (e.g. [1;94m20181231100934[0m). Unlike [1;94mrevCount[0m, this is available
+            for both Git and GitHub repositories, so it's useful for generating
+            (hopefully) monotonically increasing version strings.
+
+        [93m  · [0m[1;94mlastModified[0m: The commit time of the revision [1;94mrev[0m as an integer denoting
+            the number of seconds since 1970.
+
+        [93m  · [0m[1;94mnarHash[0m: The SHA-256 (in SRI format) of the NAR serialization of the
+            flake's source tree.
+        
+        The value returned by the [1;94moutputs[0m function must be an attribute set. The
+        attributes can have arbitrary values; however, various [1;94mnix[0m subcommands
+        require specific attributes to have a specific value (e.g. [0m
+        [1;94mpackages.x86_64-linux[0m must be an attribute set of derivations built for the [0m
+        [1;94mx86_64-linux[0m platform).
+    
+    [93m  · [0m[1;94mnixConfig[0m: a set of [1;94mnix.conf[0m options to be set when evaluating any part of a
+        flake. In the interests of security, only a small set of whitelisted options
+        (currently [1;94mbash-prompt[0m, [1;94mbash-prompt-prefix[0m, [1;94mbash-prompt-suffix[0m, and [0m
+        [1;94mflake-registry[0m) are allowed to be set without confirmation so long as [0m
+        [1;94maccept-flake-config[0m is not set in the global configuration.
+
+[1;36m## [0m[1;36mFlake inputs[0m
+
+    The attribute [1;94minputs[0m specifies the dependencies of a flake, as an attrset mapping
+    input names to flake references. For example, the following specifies a
+    dependency on the [1;94mnixpkgs[0m and [1;94mimport-cargo[0m repositories:
+
+    [1;94m  | [0m[1m# A GitHub repository.[0m
+    [1;94m  | [0m[1minputs.import-cargo = {[0m
+    [1;94m  | [0m[1m  type = "github";[0m
+    [1;94m  | [0m[1m  owner = "edolstra";[0m
+    [1;94m  | [0m[1m  repo = "import-cargo";[0m
+    [1;94m  | [0m[1m};[0m
+    [1;94m  | [0m[1m[0m
+    [1;94m  | [0m[1m# An indirection through the flake registry.[0m
+    [1;94m  | [0m[1minputs.nixpkgs = {[0m
+    [1;94m  | [0m[1m  type = "indirect";[0m
+    [1;94m  | [0m[1m  id = "nixpkgs";[0m
+    [1;94m  | [0m[1m};[0m
+
+    Alternatively, you can use the URL-like syntax:
+
+    [1;94m  | [0m[1minputs.import-cargo.url = "github:edolstra/import-cargo";[0m
+    [1;94m  | [0m[1minputs.nixpkgs.url = "nixpkgs";[0m
+
+    Each input is fetched, evaluated and passed to the [1;94moutputs[0m function as a set of
+    attributes with the same name as the corresponding input. The special input named
+    [1;94mself[0m refers to the outputs and source tree of [3mthis[0m flake. Thus, a typical [0m
+    [1;94moutputs[0m function looks like this:
+
+    [1;94m  | [0m[1moutputs = { self, nixpkgs, import-cargo }: {[0m
+    [1;94m  | [0m[1m  ... outputs ...[0m
+    [1;94m  | [0m[1m};[0m
+
+    It is also possible to omit an input entirely and [3monly[0m list it as expected
+    function argument to [1;94moutputs[0m. Thus,
+
+    [1;94m  | [0m[1moutputs = { self, nixpkgs }: ...;[0m
+
+    without an [1;94minputs.nixpkgs[0m attribute is equivalent to
+
+    [1;94m  | [0m[1minputs.nixpkgs = {[0m
+    [1;94m  | [0m[1m  type = "indirect";[0m
+    [1;94m  | [0m[1m  id = "nixpkgs";[0m
+    [1;94m  | [0m[1m};[0m
+
+    Repositories that don't contain a [1;94mflake.nix[0m can also be used as inputs, by
+    setting the input's [1;94mflake[0m attribute to [1;94mfalse[0m:
+
+    [1;94m  | [0m[1minputs.grcov = {[0m
+    [1;94m  | [0m[1m  type = "github";[0m
+    [1;94m  | [0m[1m  owner = "mozilla";[0m
+    [1;94m  | [0m[1m  repo = "grcov";[0m
+    [1;94m  | [0m[1m  flake = false;[0m
+    [1;94m  | [0m[1m};[0m
+    [1;94m  | [0m[1m[0m
+    [1;94m  | [0m[1moutputs = { self, nixpkgs, grcov }: {[0m
+    [1;94m  | [0m[1m  packages.x86_64-linux.grcov = stdenv.mkDerivation {[0m
+    [1;94m  | [0m[1m    src = grcov;[0m
+    [1;94m  | [0m[1m    ...[0m
+    [1;94m  | [0m[1m  };[0m
+    [1;94m  | [0m[1m};[0m
+
+    Transitive inputs can be overridden from a [1;94mflake.nix[0m file. For example, the
+    following overrides the [1;94mnixpkgs[0m input of the [1;94mnixops[0m input:
+
+    [1;94m  | [0m[1minputs.nixops.inputs.nixpkgs = {[0m
+    [1;94m  | [0m[1m  type = "github";[0m
+    [1;94m  | [0m[1m  owner = "my-org";[0m
+    [1;94m  | [0m[1m  repo = "nixpkgs";[0m
+    [1;94m  | [0m[1m};[0m
+
+    It is also possible to "inherit" an input from another input. This is useful to
+    minimize flake dependencies. For example, the following sets the [1;94mnixpkgs[0m input of
+    the top-level flake to be equal to the [1;94mnixpkgs[0m input of the [1;94mdwarffs[0m input of the
+    top-level flake:
+
+    [1;94m  | [0m[1minputs.nixpkgs.follows = "dwarffs/nixpkgs";[0m
+
+    The value of the [1;94mfollows[0m attribute is a [1;94m/[0m-separated sequence of input names
+    denoting the path of inputs to be followed from the root flake.
+
+    Overrides and [1;94mfollows[0m can be combined, e.g.
+
+    [1;94m  | [0m[1minputs.nixops.inputs.nixpkgs.follows = "dwarffs/nixpkgs";[0m
+
+    sets the [1;94mnixpkgs[0m input of [1;94mnixops[0m to be the same as the [1;94mnixpkgs[0m input of [1;94mdwarffs[0m.
+    It is worth noting, however, that it is generally not useful to eliminate
+    transitive [1;94mnixpkgs[0m flake inputs in this way. Most flakes provide their
+    functionality through Nixpkgs overlays or NixOS modules, which are composed into
+    the top-level flake's [1;94mnixpkgs[0m input; so their own [1;94mnixpkgs[0m input is usually
+    irrelevant.
+
+[1;91m[0m[1;91mLock files[0m
+
+    Inputs specified in [1;94mflake.nix[0m are typically "unlocked" in the sense that they
+    don't specify an exact revision. To ensure reproducibility, Nix will
+    automatically generate and use a [3mlock file[0m called [1;94mflake.lock[0m in the flake's
+    directory. The lock file contains a graph structure isomorphic to the graph of
+    dependencies of the root flake. Each node in the graph (except the root node)
+    maps the (usually) unlocked input specifications in [1;94mflake.nix[0m to locked input
+    specifications. Each node also contains some metadata, such as the dependencies
+    (outgoing edges) of the node.
+
+    For example, if [1;94mflake.nix[0m has the inputs in the example above, then the resulting
+    lock file might be:
+
+    [1;94m  | [0m[1m{[0m
+    [1;94m  | [0m[1m  "version": 7,[0m
+    [1;94m  | [0m[1m  "root": "n1",[0m
+    [1;94m  | [0m[1m  "nodes": {[0m
+    [1;94m  | [0m[1m    "n1": {[0m
+    [1;94m  | [0m[1m      "inputs": {[0m
+    [1;94m  | [0m[1m        "nixpkgs": "n2",[0m
+    [1;94m  | [0m[1m        "import-cargo": "n3",[0m
+    [1;94m  | [0m[1m        "grcov": "n4"[0m
+    [1;94m  | [0m[1m      }[0m
+    [1;94m  | [0m[1m    },[0m
+    [1;94m  | [0m[1m    "n2": {[0m
+    [1;94m  | [0m[1m      "inputs": {},[0m
+    [1;94m  | [0m[1m      "locked": {[0m
+    [1;94m  | [0m[1m        "owner": "edolstra",[0m
+    [1;94m  | [0m[1m        "repo": "nixpkgs",[0m
+    [1;94m  | [0m[1m        "rev": "7f8d4b088e2df7fdb6b513bc2d6941f1d422a013",[0m
+    [1;94m  | [0m[1m        "type": "github",[0m
+    [1;94m  | [0m[1m        "lastModified": 1580555482,[0m
+    [1;94m  | [0m[1m        "narHash": "sha256-OnpEWzNxF/AU4KlqBXM2s5PWvfI5/BS6xQrPvkF5tO8="[0m
+    [1;94m  | [0m[1m      },[0m
+    [1;94m  | [0m[1m      "original": {[0m
+    [1;94m  | [0m[1m        "id": "nixpkgs",[0m
+    [1;94m  | [0m[1m        "type": "indirect"[0m
+    [1;94m  | [0m[1m      }[0m
+    [1;94m  | [0m[1m    },[0m
+    [1;94m  | [0m[1m    "n3": {[0m
+    [1;94m  | [0m[1m      "inputs": {},[0m
+    [1;94m  | [0m[1m      "locked": {[0m
+    [1;94m  | [0m[1m        "owner": "edolstra",[0m
+    [1;94m  | [0m[1m        "repo": "import-cargo",[0m
+    [1;94m  | [0m[1m        "rev": "8abf7b3a8cbe1c8a885391f826357a74d382a422",[0m
+    [1;94m  | [0m[1m        "type": "github",[0m
+    [1;94m  | [0m[1m        "lastModified": 1567183309,[0m
+    [1;94m  | [0m[1m        "narHash": "sha256-wIXWOpX9rRjK5NDsL6WzuuBJl2R0kUCnlpZUrASykSc="[0m
+    [1;94m  | [0m[1m      },[0m
+    [1;94m  | [0m[1m      "original": {[0m
+    [1;94m  | [0m[1m        "owner": "edolstra",[0m
+    [1;94m  | [0m[1m        "repo": "import-cargo",[0m
+    [1;94m  | [0m[1m        "type": "github"[0m
+    [1;94m  | [0m[1m      }[0m
+    [1;94m  | [0m[1m    },[0m
+    [1;94m  | [0m[1m    "n4": {[0m
+    [1;94m  | [0m[1m      "inputs": {},[0m
+    [1;94m  | [0m[1m      "locked": {[0m
+    [1;94m  | [0m[1m        "owner": "mozilla",[0m
+    [1;94m  | [0m[1m        "repo": "grcov",[0m
+    [1;94m  | [0m[1m        "rev": "989a84bb29e95e392589c4e73c29189fd69a1d4e",[0m
+    [1;94m  | [0m[1m        "type": "github",[0m
+    [1;94m  | [0m[1m        "lastModified": 1580729070,[0m
+    [1;94m  | [0m[1m        "narHash": "sha256-235uMxYlHxJ5y92EXZWAYEsEb6mm+b069GAd+BOIOxI="[0m
+    [1;94m  | [0m[1m      },[0m
+    [1;94m  | [0m[1m      "original": {[0m
+    [1;94m  | [0m[1m        "owner": "mozilla",[0m
+    [1;94m  | [0m[1m        "repo": "grcov",[0m
+    [1;94m  | [0m[1m        "type": "github"[0m
+    [1;94m  | [0m[1m      },[0m
+    [1;94m  | [0m[1m      "flake": false[0m
+    [1;94m  | [0m[1m    }[0m
+    [1;94m  | [0m[1m  }[0m
+    [1;94m  | [0m[1m}[0m
+
+    This graph has 4 nodes: the root flake, and its 3 dependencies. The nodes have
+    arbitrary labels (e.g. [1;94mn1[0m). The label of the root node of the graph is specified
+    by the [1;94mroot[0m attribute. Nodes contain the following fields:
+
+    [93m  · [0m[1;94minputs[0m: The dependencies of this node, as a mapping from input names (e.g. [0m
+        [1;94mnixpkgs[0m) to node labels (e.g. [1;94mn2[0m).
+    
+    [93m  · [0m[1;94moriginal[0m: The original input specification from [1;94mflake.lock[0m, as a set of [0m
+        [1;94mbuiltins.fetchTree[0m arguments.
+    
+    [93m  · [0m[1;94mlocked[0m: The locked input specification, as a set of [1;94mbuiltins.fetchTree[0m
+        arguments. Thus, in the example above, when we build this flake, the input [0m
+        [1;94mnixpkgs[0m is mapped to revision [1;94m7f8d4b088e2df7fdb6b513bc2d6941f1d422a013[0m of the
+        [1;94medolstra/nixpkgs[0m repository on GitHub.
+        
+        It also includes the attribute [1;94mnarHash[0m, specifying the expected contents of
+        the tree in the Nix store (as computed by [1;94mnix hash-path[0m), and may include
+        input-type-specific attributes such as the [1;94mlastModified[0m or [1;94mrevCount[0m. The main
+        reason for these attributes is to allow flake inputs to be substituted from a
+        binary cache: [1;94mnarHash[0m allows the store path to be computed, while the other
+        attributes are necessary because they provide information not stored in the
+        store path.
+    
+    [93m  · [0m[1;94mflake[0m: A Boolean denoting whether this is a flake or non-flake dependency.
+        Corresponds to the [1;94mflake[0m attribute in the [1;94minputs[0m attribute in [1;94mflake.nix[0m.
+
+    The [1;94moriginal[0m and [1;94mlocked[0m attributes are omitted for the root node. This is because
+    we cannot record the commit hash or content hash of the root flake, since
+    modifying [1;94mflake.lock[0m will invalidate these.
+
+    The graph representation of lock files allows circular dependencies between
+    flakes. For example, here are two flakes that reference each other:
+
+    [1;94m  | [0m[1m{[0m
+    [1;94m  | [0m[1m  inputs.b = ... location of flake B ...;[0m
+    [1;94m  | [0m[1m  # Tell the 'b' flake not to fetch 'a' again, to ensure its 'a' is[0m
+    [1;94m  | [0m[1m  # *this* 'a'.[0m
+    [1;94m  | [0m[1m  inputs.b.inputs.a.follows = "";[0m
+    [1;94m  | [0m[1m  outputs = { self, b }: {[0m
+    [1;94m  | [0m[1m    foo = 123 + b.bar;[0m
+    [1;94m  | [0m[1m    xyzzy = 1000;[0m
+    [1;94m  | [0m[1m  };[0m
+    [1;94m  | [0m[1m}[0m
+
+    and
+
+    [1;94m  | [0m[1m{[0m
+    [1;94m  | [0m[1m  inputs.a = ... location of flake A ...;[0m
+    [1;94m  | [0m[1m  inputs.a.inputs.b.follows = "";[0m
+    [1;94m  | [0m[1m  outputs = { self, a }: {[0m
+    [1;94m  | [0m[1m    bar = 456 + a.xyzzy;[0m
+    [1;94m  | [0m[1m  };[0m
+    [1;94m  | [0m[1m}[0m
+
+    Lock files transitively lock direct as well as indirect dependencies. That is, if
+    a lock file exists and is up to date, Nix will not look at the lock files of
+    dependencies. However, lock file generation itself [3mdoes[0m use the lock files of
+    dependencies by default.
+
