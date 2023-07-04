@@ -26,9 +26,7 @@
   services.fwupd.enable = true;
 
   # Enable Flatpak
-  #services.flatpak.enable = true;
-  #xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-  flatpak.enable = true;
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

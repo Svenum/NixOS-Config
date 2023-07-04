@@ -16,23 +16,6 @@
         "type": "github"
       }
     },
-    "flatpak": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-uDDqv9YHpuy0uijosBIw143VmrCyOlwb0v36RnkKldM=",
-        "path": "./modules/flatpak",
-        "type": "path"
-      },
-      "original": {
-        "path": "./modules/flatpak",
-        "type": "path"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -72,7 +55,6 @@
     },
     "root": {
       "inputs": {
-        "flatpak": "flatpak",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "tuxedo-nixos": "tuxedo-nixos"

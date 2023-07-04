@@ -3,23 +3,7 @@
 ## Directories
 
 ```
-/etc/nixos/
-├── config_files
-│   ├── config
-│   │   ├── kcminputrc
-│   │   ├── kdedefaults
-│   │   │   └── kdeglobals
-│   │   ├── kglobalshortcutsrc
-│   │   ├── kwinrc
-│   │   └── latte
-│   │       └── Manjaro.layout.latte
-│   ├── local
-│   │   └── share
-│   │       └── flatpak
-│   │           └── overrides
-│   │               └── global
-│   ├── p10k.zsh
-│   └── zshrc
+/etc/nixos
 ├── flake.lock
 ├── flake.nix
 ├── homes
@@ -30,9 +14,8 @@
 │       ├── default.nix
 │       ├── flatpak.nix
 │       └── packages.nix
-├── modules
-│   └── flatpak.nix
 ├── README.md
+├── skel
 └── systems
     ├── all
     │   ├── bootloader.nix
@@ -68,5 +51,3 @@
 
 ### Sven
 1. add "nvidia-offload" to var.valvesoftware.Steam.desktop
-2. Apply in Latte-Dock ~/.config/latte/custom.layout.latte
-3. Apply KDE-Themes
