@@ -50,5 +50,5 @@
   ];
 
   # Enable Numlock
-  services.xserver.displayManager.sddm.autoNumlock;
+  services.xserver.displayManager.sddm.autoNumlock = true;
 }
