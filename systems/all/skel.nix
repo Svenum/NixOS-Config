@@ -18,7 +18,7 @@ in
           fi
         done
       '';
-      deps = [ pkgs ];
+      deps = [ "pkgs" "environment.etc" ];
     };
   };
 }
