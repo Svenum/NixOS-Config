@@ -48,4 +48,7 @@
       accents = [ "teal" ];
     })
   ];
+
+  # Enable Numlock
+  services.xserver.displayManager.sddm.autoNumlock;
 }
