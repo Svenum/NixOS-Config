@@ -19,6 +19,7 @@
       clinfo
       glxinfo
       vulkan-tools
+      neofetch
     ];
   };
 
