@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  users = [ "sven", "susven" ];
+  users = [ "sven" "susven" ];
 in
 {
   # Create Dir
