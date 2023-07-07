@@ -18,7 +18,7 @@ in
             chmod -R 640 /home/$user/
           fi
         done
-        if [ ! -f /home/$user/.skel.lock ]; then
+        if [ ! -f /root/.skel.lock ]; then
           cp -r /etc/skel/. /root/ && touch /root/.skel.lock
           chmod -R 640 /root/
         fi
