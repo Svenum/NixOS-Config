@@ -19,5 +19,6 @@ in
         done
       '';
       deps = [ environment.etc ];
+    };
   };
 }
