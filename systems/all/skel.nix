@@ -15,12 +15,12 @@ in
           if [ ! -f /home/$user/.skel.lock ]; then
             cp -r /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
             chown -R $user:users /home/$user/
-            chmod -R 640 /home/$user/
+            chmod -R 755 /home/$user/
           fi
         done
         if [ ! -f /root/.skel.lock ]; then
           cp -r /etc/skel/. /root/ && touch /root/.skel.lock
-          chmod -R 640 /root/
+          chmod -R 755 /root/
         fi
       '';
       deps = [ ];
