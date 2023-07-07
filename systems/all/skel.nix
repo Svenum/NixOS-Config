@@ -14,6 +14,7 @@ in
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
             cp -r /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
+            chown -R $user /home/$user/
             chmod -R 640 /home/$user/
           fi
         done
