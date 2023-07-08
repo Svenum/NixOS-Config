@@ -121,7 +121,7 @@
     };
   plugins = [
     {
-      plugin = nnn-vim;
+      plugin = "nnn-vim";
       config = ''
         local builtin = require("nnn").builtin
         require("nnn").setup({
