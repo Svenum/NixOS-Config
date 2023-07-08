@@ -19,7 +19,7 @@
   ];
 
   qt.enable = true;
-  qt.style.package = (pkgs.catppuccin.override { flavour = [ "mocha"]; accents = [ "teal"]};
+  qt.style.package = (pkgs.catppuccin.override { flavour = [ "mocha"]; accents = [ "teal"];});
 
   home.stateVersion = "23.05";
 
