@@ -28,7 +28,8 @@
           auto-pairs
           surround-nvim
           # Theme
-          papercolor-theme
+          #papercolor-theme
+          catppuccin-nvim
           # Terminal
           toggleterm-nvim
         ];
