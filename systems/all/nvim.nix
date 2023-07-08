@@ -10,13 +10,13 @@
     configure = {
       customRC = ''
         " NNN
-        autocmd VimEnter * call nnn#picker()
+        autocmd VimEnter * call nnn#pick()
         lua << EOF
           require("nnn").setup({
             replace_netrw = nil,
             action = {
-              ["<C-s>"] = "split",
-              ["<C-v>"] = "vsplit",
+              ["<S-s>"] = "split",
+              ["<S-v>"] = "vsplit",
             },
           })
         EOF
