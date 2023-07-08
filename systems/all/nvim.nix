@@ -17,8 +17,8 @@
             },
             replace_netrw = nil,
             mappings = {
-              { "<C-s>", builtin.open_in_split },
-                { "<C-v>", builtin.open_in_vsplit },
+              { "<C-s>", open_in_split },
+                { "<C-v>", open_in_vsplit },
               },
             auto_close = true,
             auto_open = {
