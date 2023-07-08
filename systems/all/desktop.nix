@@ -14,6 +14,7 @@
     khelpcenter
     kwrited
   ];   
+  programs.dconf.enable = true;
 
   services.printing.enable = true;
 
@@ -29,14 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     catppuccin-cursors
-    (catppuccin-papirus-folders.override {
-      flavor = "mocha";
-      accent = "teal";
-    })
-    (catppuccin-papirus-folders.override {
-      flavor = "latte";
-      accent = "teal";
-    })
+    catppuccin-papirus-folders
     (catppuccin-kde.override {
       flavour = [ "mocha" "latte" ];
       accents = [ "teal" ];
