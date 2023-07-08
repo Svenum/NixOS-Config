@@ -10,19 +10,14 @@
     configure = {
       customRC = ''
         " NNN
+        autocmd VimEnter * call nnn#picker()
         lua << EOF
           require("nnn").setup({
             replace_netrw = nil,
-            mappings = {
-              { "<C-s>", open_in_split },
-                { "<C-v>", open_in_vsplit },
-              },
-            auto_close = true,
-            auto_open = {
-              setup = "picker",
-              tabpage = "pcker",
-              empty = true
-            }  
+            action = {
+              ["<C-s>"] = "split",
+              ["<C-v>"] = "vsplit",
+            },
           })
         EOF
         "autocmd VimEnter * NnnExplorer
