@@ -119,7 +119,7 @@
         ];
       };
     };
-  plugins: = [
+  plugins = [
     {
       plugin = nnn-vim
       config = ''
