@@ -29,14 +29,16 @@
 
   environment.systemPackages = with pkgs; [
     catppuccin-cursors
-    catppuccin-papirus-folders
-    (catppuccin-kde.override {
-      flavour = [ "mocha" ];
-      accents = [ "teal" ];
-      winDecStyles = [ "modern" ];
+    (catppuccin-papirus-folders.override {
+      flavour = "mocha";
+      accent = "teal";
+    })
+    (catppuccin-papirus-folders.override {
+      flavour = "latte";
+      accent = "teal";
     })
     (catppuccin-kde.override {
-      flavour = [ "latte" ];
+      flavour = [ "mocha" "latte" ];
       accents = [ "teal" ];
       winDecStyles = [ "modern" ];
     })
