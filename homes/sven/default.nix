@@ -20,6 +20,8 @@
 
   qt.enable = true;
   qt.style.package = (pkgs.catppuccin.override { flavour = [ "mocha"]; accents = [ "teal"];});
+  qt.platformTheme = "kde";
+  qt.style.name = "catppuccin-latte-teal";
 
   home.stateVersion = "23.05";
 
