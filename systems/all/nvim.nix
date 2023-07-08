@@ -11,7 +11,7 @@
       customRC = ''
         " NNN
         lua << EOF
-          local builtin = require("nnn").builtin
+          require("nnn").builtin
           require("nnn").setup({
             explorer = {
               width = 40
