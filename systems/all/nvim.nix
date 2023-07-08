@@ -12,9 +12,6 @@
         " NNN
         lua << EOF
           require("nnn").setup({
-            explorer = {
-              width = 40
-            },
             replace_netrw = nil,
             mappings = {
               { "<C-s>", open_in_split },
