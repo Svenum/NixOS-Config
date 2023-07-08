@@ -22,8 +22,24 @@
           return !col || getline('.')[col -1] =~# '\s'
         endfunction
 
+        " Set Alt+Enter
         inoremap <silent><expr> <A-CR> coc#pum#visible() ? coc#pum#confirm()
                   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+        " Cursor
+        set tabstop=2
+        set shiftwidth=2
+        set expandtab
+          
+        " Add CTRL+D
+        nmap <expr> <silent> <C-d> <SID>select_current_word()
+        function! s:select_current_word()
+          if !get(b:, 'coc_cursors_activated', 0)
+            return "\<Plug>(coc-cursors-word)"
+          endif
+          return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+        endfunc
+
 
       '';
       packages.nix = {
