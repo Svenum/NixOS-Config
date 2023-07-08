@@ -33,6 +33,9 @@
         " Airline
         let g:airline_theme='luna'
 
+        " Rainbow
+        let g:rainbow_active=1
+
         " Coc
         set nobackup
         set nowritebackup
