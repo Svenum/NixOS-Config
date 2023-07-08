@@ -28,7 +28,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    papirus-maia-icon-theme
+    catppuccin-cursors
+    catppuccin-papirus-folders
     (catppuccin-kde.override {
       flavour = [ "mocha" ];
       accents = [ "teal" ];
