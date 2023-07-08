@@ -14,7 +14,7 @@
 
         " Coc
         set nobackup
-        set nowriteback
+        set nowritebackup
         set updatetime=300
         set signcolumn=yes
         function! CheckBackspace() abort
