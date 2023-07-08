@@ -9,9 +9,6 @@
     withNodeJs = true;
     configure = {
       customRC = ''
-        " Theme
-          colorscheme catppuccin
-
         " NNN
         autocmd VimEnter * call nnn#pick()
         lua << EOF

@@ -11,6 +11,7 @@
     ./fs.nix
     ./tlp.nix
     ./desktop.nix
+    ./nvim.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
