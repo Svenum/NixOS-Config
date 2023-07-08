@@ -18,6 +18,9 @@
     ./packages.nix
   ];
 
+  qt.enable = true;
+  qt.style.package = (pkgs.catppuccin.override { flavour = [ "mocha"]; accents = [ "teal"]};
+
   home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
