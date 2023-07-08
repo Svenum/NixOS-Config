@@ -8,7 +8,11 @@
     vimAlias = true;
     withNodeJs = true;
     configure = {
-#      customRC = builtins.readFile ../../config/nvim/init.vim;
+      customRC = ''
+        " Airline
+        let g:airline_theme='luna'
+
+      '';
       packages.nix = {
         start = with pkgs.vimPlugins; [
           # Plugins
@@ -35,5 +39,6 @@
         ];
       };
     };
+  #plugins: = [];
   };
 }
