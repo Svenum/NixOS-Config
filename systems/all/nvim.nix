@@ -32,11 +32,6 @@
 
         " ToggleTerm
         lua << EOF
-          require('smart-term-esc').setup({
-              key = '<Esc>',
-              except = {'nvim', 'fzf'}
-          })
-      
           require("toggleterm").setup{
               direction = 'vertical',
               shell = '/bin/zsh',
