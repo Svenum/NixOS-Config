@@ -13,13 +13,13 @@ in
       text = ''
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
-            cp -r /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
+            cp -rf /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
             chown -R $user:users /home/$user/
             chmod -R 755 /home/$user/
           fi
         done
         if [ ! -f /root/.skel.lock ]; then
-          cp -r /etc/skel/. /root/ && touch /root/.skel.lock
+          cp -rf /etc/skel/. /root/ && touch /root/.skel.lock
           chmod -R 755 /root/
         fi
       '';
