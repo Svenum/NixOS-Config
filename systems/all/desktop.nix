@@ -29,6 +29,11 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # Cursor
+    (catppuccin-cursors.override {
+      palette = "Mocha";
+      color = "Teal";
+    })
     # Icons
     (catppuccin-papirus-folders.override {
         flavor = "latte";
