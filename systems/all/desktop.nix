@@ -39,7 +39,7 @@
         flavor = "latte";
         accent = "teal";
       }
-    ];)
+    ])
     # KDE Themes
     (catppuccin-kde.override {
       flavour = [ "mocha" "latte" ];
