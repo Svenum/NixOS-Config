@@ -34,6 +34,10 @@ tnoremap <C-Space> <C-\><C-n> :ToggleTerm<CR>
 " Airline
 let g:airline_theme='luna'
 
+" Enable line number
+set number
+set laststatus=2
+
 " Rainbow
 let g:rainbow_active=1
 
