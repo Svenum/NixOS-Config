@@ -53,7 +53,7 @@
     nixosConfigurations = {
       srv-nixostest = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs + hostname = "srv-nixostest";
+        specialArgs = inputs;
         modules = defaultModules ++ [
 	  # System
           ./systems/srv-nixostest/default.nix
@@ -61,7 +61,7 @@
       };
       Ni = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs + hostname = "Ni";
+        specialArgs = inputs;
         modules = defaultModules ++ [
 	  # System
           ./systems/Ni/default.nix
