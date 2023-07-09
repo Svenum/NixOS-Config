@@ -29,21 +29,30 @@
   };
 
   environment.systemPackages = with pkgs; [
-    catppuccin-cursors
-    catppuccin-papirus-folders
+    # Icons
+    (catppuccin-papirus-folders.override {
+      flavor = "mocha";
+      accent = "teal";
+    })
+    (catppuccin-papirus-folders.override {
+      flavor = "latte";
+      accent = "teal";
+    })
+    # KDE Themes
     (catppuccin-kde.override {
       flavour = [ "mocha" "latte" ];
       accents = [ "teal" ];
       winDecStyles = [ "modern" ];
     })
+    # GTK Themes
     (catppuccin-gtk.override {
-      variant = [ "mocha" "latte" ];
+      variant = "mocha";
       accents = [ "teal" ];
     })
-    #(catppuccin-gtk.override {
-    #  variant = "latte";
-    #  accents = [ "teal" ];
-    #})
+    (catppuccin-gtk.override {
+      variant = "latte";
+      accents = [ "teal" ];
+    })
   ];
 
   # Enable Numlock
