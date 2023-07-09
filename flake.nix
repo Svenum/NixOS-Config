@@ -69,7 +69,7 @@
       };
       San = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs + (hostname = "San");
+        specialArgs = inputs + {hostname = "San"};
         modules = defaultModules ++ [
 	  # System
           ./systems/San/default.nix
