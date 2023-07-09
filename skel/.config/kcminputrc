@@ -3,7 +3,7 @@ update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize,kcminp
 
 [Mouse]
 X11LibInputXAccelProfileFlat=false
-cursorTheme=Breeze_Snow
+cursorTheme=Catppuccin-Latte-Teal-Cursors
 
 [Tmp]
 update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize

@@ -122,10 +122,10 @@ ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
 [General]
-ColorSchemeHash=730fb7060cb7d01dceec5f55e1432dfe8c597c27
+ColorSchemeHash=64df8364d5700425bf4c31188f2d858745ae20b5
 
 [Icons]
-Theme=Papirus-Light-Maia
+Theme=Papirus
 
 [KDE]
 LookAndFeelPackage=Catppuccin-Mocha-Teal
