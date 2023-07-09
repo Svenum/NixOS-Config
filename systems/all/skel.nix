@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, hostname ... }:
 let
   users = [ "sven" "susven" ];
 in
