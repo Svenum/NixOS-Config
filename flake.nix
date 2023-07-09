@@ -54,6 +54,7 @@
       srv-nixostest = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
+        hostname = "srv-nixostest";
         modules = defaultModules ++ [
 	  # System
           ./systems/srv-nixostest/default.nix
@@ -62,6 +63,7 @@
       Ni = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
+        hostname = "Ni";
         modules = defaultModules ++ [
 	  # System
           ./systems/Ni/default.nix
@@ -70,6 +72,7 @@
       San = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
+        hostname = "San";
         modules = defaultModules ++ [
 	  # System
           ./systems/San/default.nix
