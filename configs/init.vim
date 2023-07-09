@@ -1,5 +1,5 @@
 " NNN
-autocmd VimEnter * call nnn#pick()
+autocmd VimEnter * call nnn#explorer()
 lua << EOF
   require("nnn").setup({
     replace_netrw = nil,
