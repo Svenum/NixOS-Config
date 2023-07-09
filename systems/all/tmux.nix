@@ -9,6 +9,7 @@
     clock24 = true;
     extraConfig = ''
       set -g mouse on
+      set -g default-terminal "screen-256color"
     '';
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
