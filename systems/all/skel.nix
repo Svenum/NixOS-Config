@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config ... }:
 let
   users = [ "sven" "susven" ];
 in
