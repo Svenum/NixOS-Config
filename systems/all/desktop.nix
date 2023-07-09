@@ -37,13 +37,13 @@
       winDecStyles = [ "modern" ];
     })
     (catppuccin-gtk.override {
-      variant = "mocha";
+      variant = [ "mocha" "latte" ];
       accents = [ "teal" ];
     })
-    (catppuccin-gtk.override {
-      variant = "latte";
-      accents = [ "teal" ];
-    })
+    #(catppuccin-gtk.override {
+    #  variant = "latte";
+    #  accents = [ "teal" ];
+    #})
   ];
 
   # Enable Numlock
