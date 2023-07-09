@@ -10,6 +10,7 @@
     ./language.nix
     ./user.nix
     ./nvim.nix
+    ./tmux.nix
     ./shell.nix
     ./skel.nix
   ];
