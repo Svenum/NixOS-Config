@@ -1,0 +1,20 @@
+[Desktop Entry]
+DefaultProfile=Cattpuccin-Dark.profile
+
+[General]
+ConfigVersion=1
+
+[KFileDialog Settings]
+detailViewIconSize=16
+
+[MainWindow]
+1536x864 screen: Height=419
+1536x864 screen: Width=911
+1536x864 screen: Window-Maximized=true
+2 screens: Height=524
+2 screens: Width=911
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAARUBAAAD+wAAACIAUQB1AGkAYwBrAEMAbwBtAG0AYQBuAGQAcwBEAG8AYwBrAAAAAAD/////AAABfAEAAAMAAAYAAAADFQAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAQAAAOj/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+
+[UiSettings]
+ColorScheme=
