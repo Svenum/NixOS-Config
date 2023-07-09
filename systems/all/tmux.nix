@@ -7,9 +7,9 @@
     keyMode = "vi";
     historyLimit = 5000;
     clock24 = true;
+    terminal = "screen-256color";
     extraConfig = ''
       set -g mouse on
-      set -g default-terminal "screen-256color"
     '';
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
