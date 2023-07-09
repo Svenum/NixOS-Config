@@ -30,14 +30,16 @@
 
   environment.systemPackages = with pkgs; [
     # Icons
-    (catppuccin-papirus-folders.override {
-      flavor = "mocha";
-      accent = "teal";
-    })
-    (catppuccin-papirus-folders.override {
-      flavor = "latte";
-      accent = "teal";
-    })
+    (catppuccin-papirus-folders.override [
+      {
+        flavor = "mocha";
+        accent = "teal";
+      }
+      {
+        flavor = "latte";
+        accent = "teal";
+      }
+    ];)
     # KDE Themes
     (catppuccin-kde.override {
       flavour = [ "mocha" "latte" ];
