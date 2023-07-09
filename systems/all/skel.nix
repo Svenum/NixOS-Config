@@ -4,7 +4,7 @@ let
 in
 {
   # Create Dir
-  environment.etc."skel".source = ../../skel/${config.networking.hostName};
+  environment.etc."skel".source = ../../skel + "/${config.networking.hostName}";
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
 
   # Copy items
