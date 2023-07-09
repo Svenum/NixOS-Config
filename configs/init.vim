@@ -1,5 +1,4 @@
 " NNN
-autocmd VimEnter * call nnn#explorer()
 lua << EOF
   require("nnn").setup({
     replace_netrw = nil,
@@ -11,7 +10,9 @@ lua << EOF
 EOF
 
 if @% != "" && @% != "." && @% != "./"
-        autocmd VimEnter * execute  "normal \<C-w>\<right>" | stopinsert
+  autocmd VimEnter * execute  "normal \<C-w>\<right>" | stopinsert
+else
+  autocmd VimEnter * call nnn#pick()
 endif
 
 autocmd BufWinLeave,WinLeave term://* startinsert
