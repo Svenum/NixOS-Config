@@ -1,8 +1,8 @@
 [General]
-ColorScheme=Catppuccin-Mocha-Teal
+ColorScheme=Catppuccin-Latte-Teal
 
 [Icons]
-Theme=Papirus-Dark-Maia
+Theme=Papirus
 
 [KDE]
 widgetStyle=Breeze
