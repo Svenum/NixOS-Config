@@ -12,8 +12,7 @@
       set -g mouse on
     '';
     plugins = with pkgs.tmuxPlugins; [
-      #catppuccin;
-      better-mouse-mode
+      catppuccin
     ];
   };
 }
