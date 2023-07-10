@@ -10,12 +10,12 @@
     terminal = "screen-256color";
     extraConfig = ''
       set -g mouse on
+      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/catppuccin/tmux/catppuccin.tmux
       set -g @catppuccin_powerline_icons_theme_enabled on
     '';
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
       better-mouse-mode
-      power-theme
     ];
   };
 }
