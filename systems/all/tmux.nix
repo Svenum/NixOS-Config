@@ -18,6 +18,8 @@
       set @catppuccin_l_right_separator ""
       set @catppuccin_r_left_separator ""
       set @catppuccin_r_right_separator ""
+
+      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
     '';
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
