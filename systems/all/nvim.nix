@@ -30,7 +30,7 @@
           #papercolor-theme
           catppuccin-nvim
           # Terminal
-          toggleterm-nvim
+          tmux-nvim
         ];
       };
     };
