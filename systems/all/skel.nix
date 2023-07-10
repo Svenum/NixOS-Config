@@ -1,10 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   users = [ "sven" "susven" ];
 in
 {
   # Create Dir
-  environment.etc."skel".source = ../../skel + "/${config.networking.hostName}";
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
 
   # Copy items
