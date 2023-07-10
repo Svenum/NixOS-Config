@@ -15,6 +15,7 @@
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
       better-mouse-mode
+      power-theme
     ];
   };
 }
