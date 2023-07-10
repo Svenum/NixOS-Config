@@ -1,8 +1,8 @@
 [Appearance]
-ColorScheme=Breeze Light
+ColorScheme=Catppuccin-Light
 DimmValue=255
 
 [General]
 Command=/run/current-system/sw/bin/tmux
-Name=Cattpuccin-Light
+Name=Catppuccin-Light
 Parent=FALLBACK/

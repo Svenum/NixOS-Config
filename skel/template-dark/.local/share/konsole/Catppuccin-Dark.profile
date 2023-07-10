@@ -1,9 +1,9 @@
 [Appearance]
-ColorScheme=Breeze
+ColorScheme=Catppuccin-Dark
 DimmValue=255
 
 [General]
 Command=/run/current-system/sw/bin/tmux
 DimWhenInactive=false
-Name=Cattpuccin-Dark
+Name=Catppuccin-Dark
 Parent=FALLBACK/
