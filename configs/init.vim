@@ -20,6 +20,11 @@ nnoremap <C-n> :NnnPicker<CR>
 inoremap <C-n> <Esc> :NnnPicker<CR>
 tnoremap <C-n> <C-\><C-n> :NnnPicker<CR>
 
+" tmux-nvim
+lua << EOF
+  require("tmux").setup()
+EOF
+
 " Airline
 let g:airline_theme='luna'
 
