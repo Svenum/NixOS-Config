@@ -16,7 +16,6 @@
       set -g @catppuccin_l_right_separator ""
       set -g @catppuccin_r_left_separator ""
       set -g @catppuccin_r_right_separator ""
-      source-file /etc/tmux.conf
     '';
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
