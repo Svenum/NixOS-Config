@@ -20,18 +20,6 @@ nnoremap <C-n> :NnnPicker<CR>
 inoremap <C-n> <Esc> :NnnPicker<CR>
 tnoremap <C-n> <C-\><C-n> :NnnPicker<CR>
 
-" ToggleTerm
-lua << EOF
-  require("toggleterm").setup{
-      direction = 'vertical',
-      shell = '/bin/zsh',
-      size = vim.o.columns * 0.2
-  }
-EOF
-
-nnoremap <C-Space> :ToggleTerm<CR><CR>
-tnoremap <C-Space> <C-\><C-n> :ToggleTerm<CR>
-
 " Airline
 let g:airline_theme='luna'
 
