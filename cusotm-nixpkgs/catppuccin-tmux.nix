@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, pkgs, stdenv, ... }:
+{ lib, fetchFromGitHub, pkgs, stdenv }:
 
 let
   rtpPath = "share/tmux-plugins";
