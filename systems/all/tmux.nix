@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  catppuccin-tmux = pkgs.callPackage (import ../../custom-nixpkgs/catppuccin-tmux) {};
-in
 {
   programs.tmux = {
     enable = true;
@@ -11,8 +8,8 @@ in
     historyLimit = 5000;
     clock24 = true;
     terminal = "screen-256color";
-    plugins = [
-      catppuccin-tmux
+    plugins = with pkgs; [
+      (callPackage ../../custom-nixpkgs/catppuccin-tmux {})
     ];
   };
 }
