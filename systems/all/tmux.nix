@@ -8,7 +8,7 @@
     historyLimit = 5000;
     clock24 = true;
     terminal = "screen-256color";
-    plugins = pkgs.tmuxPlugins; [
+    plugins = with pkgs.tmuxPlugins; [
       (with import <nixpkgs>; callPackage ../../custom-nixpkgs/catppuccin-tmux {})
     ];
   };
