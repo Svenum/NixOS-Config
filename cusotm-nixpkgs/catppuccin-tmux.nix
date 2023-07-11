@@ -1,7 +1,7 @@
 { pkgs, stdenv, lib, fetchFromGitHub }:
 
 {
-  catppuccin = tmuxPlugins.mkTmuxPlugin {
+  catppuccin = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "catppuccin";
     version = "unstable-2023-04-03";
     src = fetchFromGitHub {
