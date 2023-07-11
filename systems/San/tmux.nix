@@ -12,7 +12,7 @@
       set -g @catppuccin_r_left_separator ""
       set -g @catppuccin_r_right_separator ""
 
-      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
+      run-shell ${pkgs.callPackage ../../custom-nixpkgs/catppuccin-tmux {}}/share/tmux-plugins/catppuccin/catppuccin.tmux
     '';
   };
 }
