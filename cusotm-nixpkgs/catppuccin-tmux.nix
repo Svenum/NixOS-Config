@@ -1,4 +1,4 @@
-{ pkgs, stdenv, lib, fetchFromGitHub }:
+{ pkgs ? import <nixpkgs> {}, stdenv, lib, fetchFromGitHub }:
 
 {
   catppuccin = pkgs.tmuxPlugins.mkTmuxPlugin {
