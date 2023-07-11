@@ -47,7 +47,7 @@ in rec {
   inherit mkTmuxPlugin;
 
   mkDerivation = throw "tmuxPlugins.mkDerivation is deprecated, use tmuxPlugins.mkTmuxPlugin instead"; # added 2021-03-14
-{
+
   catppuccin = mkTmuxPlugin {
     pluginName = "catppuccin";
     version = "unstable-2023-04-03";
