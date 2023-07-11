@@ -1,4 +1,3 @@
-with import <nixpkgs>;
 { pkgs, stdenvk, lib , fetchFromGitHub }:
 
 {
