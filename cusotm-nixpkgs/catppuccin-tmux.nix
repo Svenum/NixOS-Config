@@ -1,9 +1,3 @@
-{ 
-fetchFromGitHub
-, pkgs
-, stdenv
-}:
-
 let
   rtpPath = "share/tmux-plugins";
 
@@ -23,10 +17,10 @@ let
     addonInfo ? null,
     preInstall ? "",
     postInstall ? "",
-    path ? stdenv.lib.getName pluginName,
+    path ? lib.getName pluginName,
     ...
   }:
-    if stdenv.lib.hasAttr "dependencies" a then
+    if lib.hasAttr "dependencies" a then
       throw "dependencies attribute is obselete. see NixOS/nixpkgs#118034" # added 2021-04-01
     else addRtp "${rtpPath}/${path}" rtpFilePath a (stdenv.mkDerivation (a // {
       pname = namePrefix + pluginName;
@@ -64,7 +58,7 @@ in rec {
     postInstall = ''
       sed -i -e 's|''${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme|''${TMUX_TMPDIR}/catppuccin-selected-theme.tmuxtheme|g' $target/catppuccin.tmux
     '';
-    meta = with stdenv.lib; {
+    meta = with lib; {
       homepage = "https://github.com/catppuccin/tmux";
       description = "Soothing pastel theme for Tmux!";
       license = licenses.mit;
