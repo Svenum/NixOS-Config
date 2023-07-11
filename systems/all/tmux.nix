@@ -9,7 +9,7 @@
     clock24 = true;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
-      (with pkgs; callPackage ../../custom-nixpkgs/catppuccin-tmux { })
+      (import ../../custom-nixpkgs/catppuccin-tmux)
     ];
   };
 }
