@@ -2,6 +2,7 @@
 
 let
   catppuccin-tmux = pkgs.callPackage (import ../../custom-nixpkgs/catppuccin-tmux) {};
+in
 {
   programs.tmux = {
     enable = true;
