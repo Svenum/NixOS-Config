@@ -1,4 +1,8 @@
-{ lib , fetchFromGitHub , pkgs , stdenv }:
+{ lib
+, fetchFromGitHub
+, pkgs
+, stdenv
+}:
 
 let
   rtpPath = "share/tmux-plugins";
@@ -54,7 +58,7 @@ in rec {
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "tmux";
-      rev = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
+      rev = "4e48b09a76829edc7b55fbb15467cf0411f07931";
       sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
     };
     postInstall = ''
