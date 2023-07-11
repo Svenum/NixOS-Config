@@ -1,4 +1,4 @@
-#{ lib, fetchFromGitHub }:
+{ lib, fetchFromGitHub }:
 
 let
   pkgs = import <nixpkgs> { };
