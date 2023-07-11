@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  catppuccin-tmux = pkgs.callPackage ../../custom-nixpkgs/catppuccin-tmux {};
+in
 {
   programs.tmux = {
     extraConfig = ''
@@ -12,7 +15,7 @@
       set -g @catppuccin_r_left_separator ""
       set -g @catppuccin_r_right_separator ""
 
-      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
+      run-shell ${catppuccin-tmux}/share/tmux-plugins/catppuccin/catppuccin.tmux
     '';
   };
 }
