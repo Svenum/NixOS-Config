@@ -2,6 +2,7 @@
 
 let
   catppuccin-tmux = pkgs.callPackage ../../custom-nixpkgs/catppuccin-tmux {};
+in
 {
   programs.tmux = {
     extraConfig = ''
