@@ -3,11 +3,11 @@
 {
   catppuccin = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "catppuccin";
-    version = "unstable-2023-04-03";
+    version = "unstable-2023-07-11";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "tmux";
-      rev = "4e48b09a76829edc7b55fbb15467cf0411f07931";
+      rev = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
       sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
     };
     postInstall = ''
