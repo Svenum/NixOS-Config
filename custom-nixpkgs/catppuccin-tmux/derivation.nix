@@ -7,7 +7,7 @@ pkgs.tmuxPlugins.mkTmuxPlugin {
     owner = "catppuccin";
     repo = "tmux";
     rev = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
-    sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
+    sha256 = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
   };
   postInstall = ''
     sed -i -e 's|''${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme|''${TMUX_TMPDIR}/catppuccin-selected-theme.tmuxtheme|g' $target/catppuccin.tmux
