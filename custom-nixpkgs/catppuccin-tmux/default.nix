@@ -1,5 +1,8 @@
-{ pkgs, lib, fetchFromGitHub }:
+{ lib, fetchFromGitHub }:
 
+let
+  pkgs = import <nixpkgs> { };
+in
 {
   catppuccin = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "catppuccin";
