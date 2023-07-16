@@ -6,8 +6,7 @@
       solaar
       rsync
       timeshift
+      gamemode
     ];
   };
-
-  hardware.logitech.wireless.enable = true;
 }

@@ -7,11 +7,9 @@
       rsync
       timeshift
       nvtop
+      gamemode
     ];
   };
-
-  # Logitech
-  hardware.logitech.wireless.enable = true;
 
   # Tuxedo Control Center
   nixpkgs.config.permittedInsecurePackages = [

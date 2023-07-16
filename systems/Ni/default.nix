@@ -7,6 +7,7 @@
     ./nvim.nix
     ./tmux.nix
     ./skel.nix
+    ./devices.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
