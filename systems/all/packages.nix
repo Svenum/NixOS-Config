@@ -15,7 +15,6 @@
       (nnn.override { withNerdIcons = true; })
       nerdfonts
       kate
-      partition-manager
       pciutils
       clinfo
       glxinfo
@@ -23,6 +22,8 @@
       neofetch
     ];
   };
+  # Enable partitionmanager
+  programs.partition-manager.enable = true;
 
   # Enable fwupd
   services.fwupd.enable = true;
