@@ -1,11 +1,18 @@
 { pkgs, lib, ... }:
 
 with lib;
-
-mkIf (pathExists "${pkgs.solaar}/share/applications/solaar.desktop"){
-  xdg.configFile."autostart/solaar.desktop".source = "${pkgs.solaar}/share/applications/solaar.desktop";
+let
+  app_list_full = [ "brave" "solaar" ];
+  app_list_final = mapAttrs (name: item:
+    (if (pathExists "${pkgs.${item}}/share/applications/${item}.desktop") then
+      "autostart/${item}.desktop.source" = "${pkgs.${item}}/share/applications/${item}.desktop");
+    )
+  );
+  
+in
+{
+  xdg.configFile = {
+    app_list_final;
+  }
 }
 
-mkIf (pathExists "${pkgs.brave}/share/applications/solaar.desktop"){
-  xdg.configFile."autostart/brave.desktop".source = "${pkgs.brave}/share/applications/solaar.desktop";
-}
