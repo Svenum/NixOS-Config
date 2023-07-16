@@ -13,6 +13,10 @@ in
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
             cp -rf /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
+            mkdir /home/$user/Downloads \
+                  /home/$user/Documents \
+                  /home/$user/Videos \
+                  /home/$user/Pictures
             chown -R $user:users /home/$user/
             chmod -R 755 /home/$user/
           fi
