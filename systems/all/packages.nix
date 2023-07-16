@@ -20,6 +20,7 @@
       glxinfo
       vulkan-tools
       neofetch
+      killall
     ];
   };
   # Enable partitionmanager
