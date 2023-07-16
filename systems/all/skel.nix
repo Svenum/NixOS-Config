@@ -8,7 +8,7 @@ in
 
   # Copy items
   system.activationScripts = {
-    copySkelDir = lib.stringAfter [ "environment.etc.skel.source" ] {
+    copySkelDir = {
       text = ''
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
@@ -16,7 +16,12 @@ in
             mkdir /home/$user/Downloads \
                   /home/$user/Documents \
                   /home/$user/Videos \
-                  /home/$user/Pictures
+                  /home/$user/Pictures \
+                  /home/$user/Games
+            echo "
+              [Desktop Entry]
+              Icon=folder-games
+            " > /home/$user/Games/.directory
             chown -R $user:users /home/$user/
             chmod -R 755 /home/$user/
           fi
