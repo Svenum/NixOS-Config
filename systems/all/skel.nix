@@ -26,7 +26,7 @@ in
           chmod -R 755 /root/
         fi
       '';
-      deps = [ ];
+      deps = [ "environment.etc."skel".source" ];
     };
   };
 }
