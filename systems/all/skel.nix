@@ -7,7 +7,7 @@ in
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
 
   # Copy items
-  system.activationScripts = lib.stringAfter environment.etc.skel.source {
+  system.activationScripts = lib.stringAfter "environment.etc.skel.source" {
     copySkelDir = {
       text = ''
         for user in ${toString users}; do
