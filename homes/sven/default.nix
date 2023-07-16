@@ -13,6 +13,9 @@
     };
   };
 
+  xdg.userDirs.enable = true;
+  xdg.userDirs.createDirectories = true;
+
   imports = [
     #./flatpak.nix
     ./autostart.nix
