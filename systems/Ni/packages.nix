@@ -6,7 +6,9 @@
       solaar
       rsync
       timeshift
-      gamemode
     ];
   };
+
+  # Gamemode
+  programs.gamemode.enable = true;
 }

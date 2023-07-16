@@ -7,9 +7,11 @@
       rsync
       timeshift
       nvtop
-      gamemode
     ];
   };
+
+  # Gamemode
+  programs.gamemode.enable = true;
 
   # Tuxedo Control Center
   nixpkgs.config.permittedInsecurePackages = [
