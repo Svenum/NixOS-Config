@@ -8,8 +8,8 @@ in
 
   # Copy items
   system.activationScripts = {
-    copySkelDir = {
-      text = lib.stringAfter "environment.etc.skel.source" ''
+    copySkelDir = lib.stringAfter "environment.etc.skel.source" {
+      text = ''
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
             cp -rf /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
