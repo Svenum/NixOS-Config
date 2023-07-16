@@ -13,11 +13,11 @@ in
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
             cp -rf /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
-            mkdir /home/$user/Downloads \
-                  /home/$user/Documents \
-                  /home/$user/Videos \
-                  /home/$user/Pictures \
-                  /home/$user/Games
+            mkdir -p /home/$user/Downloads \
+                     /home/$user/Documents \
+                     /home/$user/Videos \
+                     /home/$user/Pictures \
+                     /home/$user/Games
             echo "
               [Desktop Entry]
               Icon=folder-games
