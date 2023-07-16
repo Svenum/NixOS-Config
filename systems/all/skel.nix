@@ -7,9 +7,9 @@ in
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
 
   # Copy items
-  system.activationScripts = lib.stringAfter "environment.etc.skel.source" {
+  system.activationScripts = {
     copySkelDir = {
-      text = ''
+      text = lib.stringAfter "environment.etc.skel.source" ''
         for user in ${toString users}; do
           if [ ! -f /home/$user/.skel.lock ]; then
             cp -rf /etc/skel/. /home/$user/ && touch /home/$user/.skel.lock
