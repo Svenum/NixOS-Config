@@ -2,7 +2,7 @@
 
 {
   # Logitech
-  hardware.logitech.wireless.enabled = true;
+  hardware.logitech.wireless.enable = true;
   # Steam
-  hardware.steam-hardware.enabled = true;
+  hardware.steam-hardware.enable = true;
 }
