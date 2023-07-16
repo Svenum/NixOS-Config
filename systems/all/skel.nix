@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   users = [ "sven" "susven" ];
 in
@@ -7,7 +7,8 @@ in
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
 
   # Copy items
-  system.activationScripts = {
+  system.activationScripts = lib.stringAfter = "environment.etc.skel.source" {
+      deps = [ "environment.etc.skel.source" ];
     copySkelDir = {
       text = ''
         for user in ${toString users}; do
@@ -26,7 +27,6 @@ in
           chmod -R 755 /root/
         fi
       '';
-      deps = [ "environment.etc.skel.source" ];
     };
   };
 }
