@@ -1,5 +1,5 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, ... }:
 
 {
-  home.file."autostart/solaar.desktop".source = builtins.elem pkgs.solaar config.environment.systemPackages "${pkgs.solaar}/share/applications/solaar.desktop";
+  home.file."autostart/solaar.desktop".source = lib.mkIf pkgs.solaar "${pkgs.solaar}/share/applications/solaar.desktop";
 }
