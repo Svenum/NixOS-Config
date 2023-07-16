@@ -56,4 +56,7 @@
 
   # Enable Numlock
   services.xserver.displayManager.sddm.autoNumlock = true;
+
+  # Enable XWayland
+  programs.xwayland.enable = true;
 }
