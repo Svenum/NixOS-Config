@@ -17,8 +17,6 @@
   xdg.userDirs.createDirectories = true;
 
   imports = [
-    #./flatpak.nix
-    ./autostart.nix
     ./packages.nix
   ];
   home.stateVersion = "23.05";
