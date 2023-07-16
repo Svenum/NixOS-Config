@@ -8,4 +8,6 @@
       timeshift
     ];
   };
+
+  hardware.logitech.wireless.enable = true;
 }

@@ -10,6 +10,9 @@
     ];
   };
 
+  # Logitech
+  hardware.logitech.wireless.enable = true;
+
   # Tuxedo Control Center
   nixpkgs.config.permittedInsecurePackages = [
       "electron-13.6.9"
