@@ -15,6 +15,7 @@
       (nnn.override { withNerdIcons = true; })
       nerdfonts
       kate
+      partition-manager
       pciutils
       clinfo
       glxinfo
