@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+# Install spotify
+flatpak install --user com.spotify.Client -y
 # Prepare config
 echo "prepare config ..."
 sed -i 's,spotify_path *=.*,spotify_path = '"$HOME"'/.local/share/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/,g' $HOME/.config/spicetify/config-xpui.ini
