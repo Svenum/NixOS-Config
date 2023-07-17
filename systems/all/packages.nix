@@ -1,7 +1,7 @@
 { pkgs, flatpak, ... }:
 
 let
-  prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (readFile ../../scripts/prepare_spotify.sh);
+  prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ../../scripts/prepare_spotify.sh);
 in
 {
   system.autoUpgrade = {
