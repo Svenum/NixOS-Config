@@ -21,6 +21,8 @@
       vulkan-tools
       neofetch
       killall
+      spicetify-cli
+      betterdiscordctl
     ];
   };
   # Enable partitionmanager
