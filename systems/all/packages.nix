@@ -12,21 +12,27 @@ in
   nixpkgs.config.allowUnfree = true;
   environment = {
     systemPackages = with pkgs; [
+      # CLI Packages
       git
       wget
       tree
-      (nnn.override { withNerdIcons = true; })
-      nerdfonts
-      kate
+      unzip
       pciutils
       clinfo
-      glxinfo
-      vulkan-tools
-      neofetch
       killall
+      neofetch
+      # Vim
+      (nnn.override { withNerdIcons = true; })
+      nerdfonts
+      # Theming
       spicetify-cli
       betterdiscordctl
       prepare_spotify
+      # GUI TOols
+      kate
+      # Other
+      glxinfo
+      vulkan-tools
     ];
   };
   # Enable partitionmanager
