@@ -11,8 +11,4 @@
       plugins = [ "git" ];
     };
   };
-
-  environment.shellAliases = {
-    spicetify = "spicetify-cli";
-  };
 }

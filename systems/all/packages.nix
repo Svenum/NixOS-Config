@@ -25,7 +25,7 @@ in
       (nnn.override { withNerdIcons = true; })
       nerdfonts
       # Theming
-      spicetify-cli
+      (pkgs.writeShellScriptBin "spicetify" "exec -a $0 ${spicetify-cli}/bin/spicetify-cli $@")
       betterdiscordctl
       prepare_spotify
       # GUI TOols
