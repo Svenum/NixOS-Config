@@ -2,6 +2,7 @@
 
 let
   prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ../../scripts/prepare_spotify.sh);
+  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.readFile ../../scripts/prepare_discord.sh);
 in
 {
   system.autoUpgrade = {
@@ -28,6 +29,7 @@ in
       (pkgs.writeShellScriptBin "spicetify" "exec -a $0 ${spicetify-cli}/bin/spicetify-cli $@")
       betterdiscordctl
       prepare_spotify
+      prepare_discord
       # GUI TOols
       kate
       # Other
