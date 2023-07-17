@@ -11,4 +11,8 @@
       plugins = [ "git" ];
     };
   };
+
+  environment.interactiveShellInit = ''
+    alias spicetify=spicetify-cli
+  ''
 }
