@@ -12,7 +12,7 @@
     };
   };
 
-  environment.interactiveShellInit = ''
-    alias spicetify=spicetify-cli
-  '';
+  environment.shellAliases = {
+    spicetify = spicetify-cli;
+  };
 }
