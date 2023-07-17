@@ -13,6 +13,6 @@
   };
 
   environment.shellAliases = {
-    spicetify = spicetify-cli;
+    spicetify = "spicetify-cli";
   };
 }
