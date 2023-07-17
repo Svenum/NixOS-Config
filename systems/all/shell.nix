@@ -14,5 +14,5 @@
 
   environment.interactiveShellInit = ''
     alias spicetify=spicetify-cli
-  ''
+  '';
 }
