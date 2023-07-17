@@ -26,6 +26,7 @@ in
       killall
       spicetify-cli
       betterdiscordctl
+      prepare_spotify
     ];
   };
   # Enable partitionmanager
