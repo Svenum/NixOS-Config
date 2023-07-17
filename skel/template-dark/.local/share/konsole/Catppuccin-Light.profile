@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Catppuccin-Light
+ColorScheme=Catppuccin-Latte
 DimmValue=255
 
 [General]

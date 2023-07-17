@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Catppuccin-Dark
+ColorScheme=Catppuccin-Mocha
 DimmValue=255
 
 [General]
