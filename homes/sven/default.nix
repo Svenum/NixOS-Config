@@ -13,11 +13,13 @@
     };
   };
 
-  xdg.userDirs.enable = true;
-  xdg.userDirs.createDirectories = true;
-  xdg.extraConfig = {
-    XDG_GAMES_DIR = "${config.home.homeDirectory}/Games";
-    XDG_GITHUB_DIR = "${config.home.homeDirectory}/GitHub";
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    extraConfig = {
+      XDG_GAMES_DIR = "${config.home.homeDirectory}/Games";
+      XDG_GITHUB_DIR = "${config.home.homeDirectory}/GitHub";
+    };
   };
 
   imports = [
