@@ -43,9 +43,6 @@ in
   # Enable partitionmanager
   programs.partition-manager.enable = true;
 
-  # Setuid for mount
-  security.wrappers."${pkgs.cifs-utils}".setuid = true; 
-
   # Enable fwupd
   services.fwupd.enable = true;
 
