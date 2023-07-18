@@ -19,7 +19,7 @@
   fileSystems."/mnt/sven" = {
     device = "//srv-unraid.intra.holypenguin.net/sven";
     fsType = "cifs";
-    options = ["uid=sven" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "noauto" "user" "_netdev" "credentials=${config.home-manager.nixosModules.home-manager.home-manager.users.sven.home.homeDirectory}/.smb"];
+    options = ["uid=sven" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "noauto" "user" "_netdev" "credentials=${config.home-manager.users.sven.home.homeDirectory}/.smb"];
   };
 
   swapDevices = [ ];
