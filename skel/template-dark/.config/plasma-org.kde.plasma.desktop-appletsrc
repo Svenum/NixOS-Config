@@ -19,7 +19,7 @@ immutability=1
 plugin=org.kde.shutdownOrSwitch
 
 [Containments][1][Applets][21][Configuration]
-PreloadWeight=5
+PreloadWeight=10
 
 [Containments][1][Applets][21][Configuration][Appearance]
 widgetListIconSize=2
@@ -75,7 +75,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][6][Configuration]
-PreloadWeight=9
+PreloadWeight=14
 SystrayContainmentId=24
 
 [Containments][1][ConfigDialog]
@@ -135,7 +135,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][24][Applets][26][Configuration]
-PreloadWeight=10
+PreloadWeight=15
 
 [Containments][24][Applets][27]
 immutability=1
@@ -194,7 +194,7 @@ immutability=1
 plugin=org.kde.plasma.nightcolorcontrol
 
 [Containments][24][Applets][34][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][24][Applets][35]
 immutability=1
@@ -209,6 +209,13 @@ plugin=org.kde.plasma.networkmanagement
 
 [Containments][24][Applets][36][Configuration]
 PreloadWeight=10
+
+[Containments][24][Applets][51]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
+[Containments][24][Applets][51][Configuration]
+PreloadWeight=42
 
 [Containments][24][Configuration]
 PreloadWeight=2
@@ -255,7 +262,7 @@ plugin=org.kde.plasma.icontasks
 PreloadWeight=2
 
 [Containments][25][Applets][29][Configuration][General]
-launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser
+launchers=preferred://filemanager,preferred://browser,file:///home/sven/.local/share/applications/com.valvesoftware.Steam.desktop,applications:net.lutris.Lutris.desktop,applications:org.remmina.Remmina.desktop
 
 [Containments][25][Applets][30]
 immutability=1
@@ -281,7 +288,7 @@ favoritesPortedToKAstats=true
 useCustomButtonImage=true
 
 [Containments][25][ConfigDialog]
-DialogHeight=864
+DialogHeight=1080
 DialogWidth=168
 
 [Containments][25][Configuration]
@@ -290,86 +297,31 @@ PreloadWeight=10
 [Containments][25][General]
 AppletOrder=26;29;30;37;27
 
-[Containments][41]
-activityId=
-formfactor=2
-immutability=1
-lastScreen=1
-location=3
-plugin=org.kde.panel
-wallpaperplugin=org.kde.image
-
-[Containments][41][Applets][42]
-immutability=1
-plugin=org.kde.plasma.appmenu
-
-[Containments][41][Applets][43]
-immutability=1
-plugin=org.kde.plasma.panelspacer
-
-[Containments][41][Applets][44]
-immutability=1
-plugin=org.kde.plasma.panelspacer
-
-[Containments][41][Applets][45]
-immutability=1
-plugin=org.kde.plasma.betterinlineclock
-
-[Containments][41][Applets][46]
-immutability=1
-plugin=org.kde.plasma.pager
-
-[Containments][41][ConfigDialog]
-DialogHeight=84
-DialogWidth=1536
-
-[Containments][41][General]
-AppletOrder=42;44;45;46;43
-
-[Containments][47]
-activityId=a26c2b97-a6f1-434f-a052-232f3215dd95
-formfactor=0
-immutability=1
-lastScreen=1
-location=0
-plugin=org.kde.desktopcontainment
-wallpaperplugin=org.kde.image
-
-[Containments][47][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][47][General]
-ToolBoxButtonState=topcenter
-ToolBoxButtonX=252
-ToolBoxButtonY=30
-
-[Containments][47][Wallpaper][org.kde.image][General]
-SlidePaths=/nix/store/b4nk5iaxig5cbj2as3l5ms7c60n0b2n3-breeze-qt5-5.27.6-bin/share/wallpapers/,/run/current-system/sw/share/wallpapers/
-
-[Containments][48]
-activityId=a26c2b97-a6f1-434f-a052-232f3215dd95
+[Containments][49]
+ItemGeometries-1920x1080=
+ItemGeometriesHorizontal=
+activityId=f70429ab-0a5b-425c-879c-659ae5cae881
 formfactor=0
 immutability=1
 lastScreen=0
 location=0
-plugin=org.kde.desktopcontainment
+plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
-[Containments][48][ConfigDialog]
+[Containments][49][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
-[Containments][48][Configuration]
-PreloadWeight=26
-
-[Containments][48][General]
+[Containments][49][General]
 ToolBoxButtonState=topcenter
-ToolBoxButtonX=252
+ToolBoxButtonX=559
 ToolBoxButtonY=30
 
-[Containments][48][Wallpaper][org.kde.image][General]
-SlidePaths=/nix/store/b4nk5iaxig5cbj2as3l5ms7c60n0b2n3-breeze-qt5-5.27.6-bin/share/wallpapers/,/run/current-system/sw/share/wallpapers/
+[Containments][52][Applets][65][Configuration]
+PreloadWeight=18
+
+[Containments][52][Applets][68][Configuration]
+PreloadWeight=26
 
 [Containments][7]
 activityId=
@@ -456,6 +408,13 @@ plugin=org.kde.plasma.bluetooth
 
 [Containments][7][Applets][20][Configuration]
 PreloadWeight=0
+
+[Containments][7][Applets][50]
+immutability=1
+plugin=org.kde.plasma.mediacontroller
+
+[Containments][7][Applets][50][Configuration]
+PreloadWeight=42
 
 [Containments][7][Applets][8]
 immutability=1
