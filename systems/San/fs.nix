@@ -21,7 +21,7 @@
     fsType = "cifs";
     options = let
       automount_opts = ["noauto" "x-systemd.idle-timeout=60" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s"];
-    in automount_opts ++ [ "uid=sven" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "user" "_netdev" "credentials=${config.home-manager.users.sven.home.homeDirectory}/.smb"];
+    in automount_opts ++ [ "uid=sven" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "users" "user" "_netdev" "credentials=${config.home-manager.users.sven.home.homeDirectory}/.smb"];
   };
 
   swapDevices = [ ];
