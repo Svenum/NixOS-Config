@@ -43,6 +43,10 @@ in
   # Enable partitionmanager
   programs.partition-manager.enable = true;
 
+  # Setuid for mount
+  security.wrappers."mount".setuid = true; 
+  security.wrappers."umount".setuid = true; 
+
   # Enable fwupd
   services.fwupd.enable = true;
 
