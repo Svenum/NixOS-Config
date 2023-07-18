@@ -83,7 +83,7 @@ DialogHeight=84
 DialogWidth=1536
 
 [Containments][1][Configuration]
-PreloadWeight=10
+PreloadWeight=42
 
 [Containments][1][General]
 AppletOrder=5;4;22;23;3;6;21
@@ -297,25 +297,26 @@ PreloadWeight=10
 [Containments][25][General]
 AppletOrder=26;29;30;37;27
 
-[Containments][49]
-ItemGeometries-1920x1080=
-ItemGeometriesHorizontal=
+[Containments][50]
 activityId=f70429ab-0a5b-425c-879c-659ae5cae881
 formfactor=0
 immutability=1
 lastScreen=0
 location=0
-plugin=org.kde.plasma.folder
+plugin=org.kde.desktopcontainment
 wallpaperplugin=org.kde.image
 
-[Containments][49][ConfigDialog]
+[Containments][50][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
-[Containments][49][General]
+[Containments][50][General]
 ToolBoxButtonState=topcenter
 ToolBoxButtonX=559
 ToolBoxButtonY=30
+
+[Containments][50][Wallpaper][org.kde.image][General]
+SlidePaths=/nix/store/b4nk5iaxig5cbj2as3l5ms7c60n0b2n3-breeze-qt5-5.27.6-bin/share/wallpapers/,/run/current-system/sw/share/wallpapers/
 
 [Containments][52][Applets][65][Configuration]
 PreloadWeight=18

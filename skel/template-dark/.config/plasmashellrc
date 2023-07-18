@@ -3,19 +3,26 @@
 1536x864 screen: Width=482
 
 [PlasmaTransientsConfig]
-PreloadWeight=10
+PreloadWeight=42
 
 [PlasmaViews][Panel 1]
 panelVisibility=2
+
+[PlasmaViews][Panel 2][Defaults]
+thickness=44
 
 [PlasmaViews][Panel 25]
 alignment=2
 panelVisibility=2
 
 [PlasmaViews][Panel 25][Defaults]
-maxLength=833
-minLength=829
+maxLength=1049
+minLength=1048
 thickness=50
+
+[PlasmaViews][Panel 25][Vertical1080]
+maxLength=1049
+minLength=1048
 
 [PlasmaViews][Panel 25][Vertical864]
 maxLength=833
