@@ -3,6 +3,7 @@
 let
   prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ../../scripts/prepare_spotify.sh);
   prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.readFile ../../scripts/prepare_discord.sh);
+  home-backup = pkgs.writeShellScriptBin "home-backup" (builtins.readFile ../../scripts/home-backup.sh);
 in
 {
   system.autoUpgrade = {
@@ -22,6 +23,7 @@ in
       clinfo
       killall
       neofetch
+      cifs-utils
       # Vim
       (nnn.override { withNerdIcons = true; })
       nerdfonts
@@ -35,6 +37,7 @@ in
       # Other
       glxinfo
       vulkan-tools
+      home-backup
     ];
   };
   # Enable partitionmanager
