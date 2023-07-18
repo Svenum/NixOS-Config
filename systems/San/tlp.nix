@@ -23,8 +23,8 @@
       SCHED_POWERSAVE_ON_AC = 0;
       SCHED_POWERSAVE_ON_BAT = 1;
       RESTORE_DEVICE_STATE_ON_STARTUP = 0;
-      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wifi wwan";
-      DEVICES_TO_ENABLE_ON_AC = "wifi wwan";
+      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wifi";
+      DEVICES_TO_ENABLE_ON_AC = "wifi";
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
       PCIE_ASPM_ON_AC = "default";
