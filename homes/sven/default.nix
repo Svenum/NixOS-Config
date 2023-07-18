@@ -15,6 +15,10 @@
 
   xdg.userDirs.enable = true;
   xdg.userDirs.createDirectories = true;
+  xdg.extraConfig = {
+    XDG_GAMES_DIR = "${config.home.homeDirecotry}/Games";
+    XDG_GITHUB_DIR = "${config.home.homeDirecotry}/GitHub";
+  };
 
   imports = [
     ./packages.nix
