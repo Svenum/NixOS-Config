@@ -11,8 +11,8 @@ start=$(date +%s)
 
 # Check if share is mounted
 if ! grep -qs "/mnt/$USER" /proc/mounts; then
-	echo "Mounting /mnt/$USER ..."
-	mount /mnt/$USER
+	echo "/mnt/$USER is not mounted! Please mount first!"
+  exit 1;
 fi
 
 # Check if Needed folders exist
