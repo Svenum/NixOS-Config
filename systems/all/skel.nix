@@ -5,7 +5,7 @@ in
 {
   # Create Dir
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
-  environment.etc.skel.mode = "0755";
+  environment.etc.skel.mode = "0600";
 
   # Copy items
   system.activationScripts = {
