@@ -35,7 +35,7 @@ lua << EOF
       dotfiles = true,
     }
   })
-EOF 
+EOF
 
 " tmux-nvim
 lua << EOF
