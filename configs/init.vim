@@ -31,7 +31,7 @@ lua << EOF
 
   require("nvim-tree").setup({
     sort_by = "case_sensitive",
-    filter = {
+    filters = {
       dotfiles = true,
     }
   })
