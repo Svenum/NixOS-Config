@@ -43,7 +43,7 @@ lua << EOF
     local directory = vim.fn.isdirectory(data.file) == 1
 
       -- buffer is a [No Name]
-    local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+    local no_name = vim.fn.expand('%') == ""
 
     if not directory or not no_name then
       return
