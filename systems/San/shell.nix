@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  programs.zsh.shellInit = (builtin.readFile ../../configs/catppuccin_latte-zsh-syntax-highlighting.zsh);
+  programs.zsh.shellInit = (builtins.readFile ../../configs/catppuccin_latte-zsh-syntax-highlighting.zsh);
 }
