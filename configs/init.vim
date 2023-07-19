@@ -29,7 +29,7 @@ lua << EOF
   -- enable termguicolors highlights
   vim.opt.termguicolors = true
 
-  requrie("nvim-tree").setup({
+  require("nvim-tree").setup({
     sort_by = "case_sensitive",
     filter = {
       dotfiles = true,
