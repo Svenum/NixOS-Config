@@ -22,7 +22,7 @@
           # Explorer
           #nnn-vim
           nvim-web-devicons
-          nvim-tree_lua
+          nvim-tree-lua
           # Syntax highlighter
           rainbow
           # IDE
