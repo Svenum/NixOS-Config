@@ -20,14 +20,15 @@
           coc-markdownlint coc-spell-checker
           vim-nix
           # Explorer
-          nnn-vim
+          #nnn-vim
+          nvim-web-devicons
+          nvim-tree_lua
           # Syntax highlighter
           rainbow
           # IDE
           auto-pairs
           surround-nvim
           # Theme
-          #papercolor-theme
           catppuccin-nvim
           # Terminal
           tmux-nvim

@@ -1,24 +1,41 @@
 " NNN
+"lua << EOF
+"  require("nnn").setup({
+"    replace_netrw = nil,
+"    action = {
+"      ["<S-s>"] = "split",
+"      ["<S-v>"] = "vsplit",
+"    },
+"  })
+"EOF
+"
+"if @% != "" && @% != "." && @% != "./"
+"  autocmd VimEnter * execute  "normal \<C-w>\<right>" | stopinsert
+"else
+"  autocmd VimEnter * call nnn#pick()
+"endif
+"
+"autocmd BufWinLeave,WinLeave term://* startinsert
+"nnoremap <C-n> :NnnPicker<CR>
+"inoremap <C-n> <Esc> :NnnPicker<CR>
+"tnoremap <C-n> <C-\><C-n> :NnnPicker<CR>
+
+" Nvim-Tree
 lua << EOF
-  require("nnn").setup({
-    replace_netrw = nil,
-    action = {
-      ["<S-s>"] = "split",
-      ["<S-v>"] = "vsplit",
-    },
+  -- Disable netrw
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+
+  -- enable termguicolors highlights
+  vim.opt.termguicolors = true
+
+  requrie("nvim-tree").setup({
+    sort_by = "case_sensitive",
+    filter = {
+      dotfiles = true,
+    }
   })
-EOF
-
-if @% != "" && @% != "." && @% != "./"
-  autocmd VimEnter * execute  "normal \<C-w>\<right>" | stopinsert
-else
-  autocmd VimEnter * call nnn#pick()
-endif
-
-autocmd BufWinLeave,WinLeave term://* startinsert
-nnoremap <C-n> :NnnPicker<CR>
-inoremap <C-n> <Esc> :NnnPicker<CR>
-tnoremap <C-n> <C-\><C-n> :NnnPicker<CR>
+EOF 
 
 " tmux-nvim
 lua << EOF
