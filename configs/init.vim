@@ -42,7 +42,10 @@ lua << EOF
     -- buffer is a directory
     local directory = vim.fn.isdirectory(data.file) == 1
 
-    if not directory then
+      -- buffer is a [No Name]
+    local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+    if not directory and not no_name then
       return
     end
 
