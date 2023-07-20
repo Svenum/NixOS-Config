@@ -53,7 +53,7 @@ lua << EOF
     vim.cmd.cd(data.file)
 
     -- open the tree
-    require("nvim-tree.api").tree.open()
+    --require("nvim-tree.api").tree.open()
   end
 EOF
 
