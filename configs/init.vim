@@ -37,8 +37,6 @@ lua << EOF
     }
   })
   -- Autostart
-  vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
-
   local function open_nvim_tree(data)
 
     -- buffer is a directory
@@ -57,6 +55,8 @@ lua << EOF
     -- open the tree
     require("nvim-tree.api").tree.open()
   end
+
+  vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 EOF
 
 " tmux-nvim
