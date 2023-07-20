@@ -45,7 +45,7 @@ lua << EOF
       -- buffer is a [No Name]
     local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
-    print("befor return")
+    print("no_name:" + no_name)
 
     if not directory or not no_name then
       return
@@ -60,7 +60,6 @@ lua << EOF
     require("nvim-tree.api").tree.open()
   end
 
-  print("befor function")
   vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 EOF
 
