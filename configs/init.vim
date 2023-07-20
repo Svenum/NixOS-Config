@@ -45,7 +45,7 @@ lua << EOF
       -- buffer is a [No Name]
     local no_name = vim.api.nvim_buf_get_name(0) == ""
 
-    if not directory or not no_name then
+    if not directory or no_name then
       return
     end
 
