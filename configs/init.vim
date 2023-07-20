@@ -36,6 +36,8 @@ lua << EOF
       custom = { "^.git$" },
     }
   })
+  -- Autostart
+  vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
   local function open_nvim_tree(data)
 
@@ -45,7 +47,7 @@ lua << EOF
       -- buffer is a [No Name]
     local no_name = vim.api.nvim_buf_get_name(0) == ""
 
-    if not directory or no_name then
+    if not directory or not no_name then
       return
     end
 
@@ -53,7 +55,7 @@ lua << EOF
     vim.cmd.cd(data.file)
 
     -- open the tree
-    --require("nvim-tree.api").tree.open()
+    require("nvim-tree.api").tree.open()
   end
 EOF
 
