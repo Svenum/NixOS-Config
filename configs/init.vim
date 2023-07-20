@@ -45,7 +45,7 @@ lua << EOF
       -- buffer is a [No Name]
     local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
-    print("no_name:" + no_name)
+    print("no_name: " .. no_name)
 
     if not directory or not no_name then
       return
