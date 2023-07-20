@@ -50,7 +50,9 @@ lua << EOF
     end
 
     -- change to the directory
-    vim.cmd.cd(data.file)
+    if directory then
+      vim.cmd.cd(data.file)
+    end
 
     -- open the tree
     require("nvim-tree.api").tree.open()
