@@ -11,6 +11,7 @@
     ./shell.nix
     ./fs.nix
     ./kernel.nix
+    ./nvidia.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
