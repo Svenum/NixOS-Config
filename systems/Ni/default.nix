@@ -12,6 +12,8 @@
     ./fs.nix
     ./kernel.nix
     ./nvidia.nix
+    ./hardware.nix
+    ./virtualisation.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
