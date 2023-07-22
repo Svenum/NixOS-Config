@@ -7,7 +7,9 @@
       rsync
       timeshift
       nvtop
-      handbrake
+      (handbrake.override = {
+        nv-codec-headers
+      };)
     ];
   };
 
