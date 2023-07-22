@@ -3,6 +3,6 @@
 {
   home.packages = with pkgs; [
     caffeine-ng
-    handbrake
+    #handbrake
   ];
 }

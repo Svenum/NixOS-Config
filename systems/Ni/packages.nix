@@ -7,6 +7,7 @@
       rsync
       timeshift
       nvtop
+      handbrake
     ];
   };
 
