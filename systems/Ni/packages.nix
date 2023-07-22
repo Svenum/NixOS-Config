@@ -8,7 +8,9 @@
       timeshift
       nvtop
       (handbrake.override {
-        stdenv.isLinux = mkForce true;
+        stdenv = stdenv + {
+          isLinux = mkForce true;
+        }
       })
     ];
   };
