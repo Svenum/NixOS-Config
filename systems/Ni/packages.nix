@@ -1,4 +1,4 @@
-{ pkgs, stdenv, ... }:
+{ pkgs, lib, ... }:
 
 {
   environment = {
@@ -12,5 +12,5 @@
   };
 
   # Gamemode
-  programs.gamemode.enable = stdenv.isLinux;
+  programs.gamemode.enable = lib.stdenv.isLinux;
 }
