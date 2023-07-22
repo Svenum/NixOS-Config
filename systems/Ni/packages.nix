@@ -8,7 +8,7 @@
       timeshift
       nvtop
       (handbrake.overrideAttrs (oldAttrs: rec {
-        self.buildInputs = oldAttrs.self.buildInputs ++ [numactl nv-codec-headers];
+        buildInputs = oldAttrs.self.buildInputs ++ [numactl nv-codec-headers];
       }))
     ];
   };
