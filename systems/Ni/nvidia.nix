@@ -4,8 +4,9 @@
   hardware = {
     opengl = {
       enable = true;
-      #driSupport = true;
-      #driSupport32Bit = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      hardware.opengl.extraPackages = with pkgs;[ cudatoolkit ];
     };
     nvidia = {
       modesetting.enable = true;
