@@ -61,7 +61,6 @@
       };
       Ni = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        stdenv.isLinux = true;
         specialArgs = inputs;
         modules = defaultModules ++ [
 	  # System
