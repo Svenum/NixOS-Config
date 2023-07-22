@@ -7,7 +7,7 @@
       rsync
       timeshift
       nvtop
-      (handbrake.overrideAttrs (_: { buildInputs = [ pkgs.nv-codec-headers ]; }))
+      (handbrake.overrideAttrs (_: { buildInputs = buildInputs ++ [ pkgs.nv-codec-headers ]; }))
     ];
   };
 
