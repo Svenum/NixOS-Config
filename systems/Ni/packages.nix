@@ -12,5 +12,5 @@
   };
 
   # Gamemode
-  programs.gamemode.enable = lib.stdenv.isLinux;
+  programs.gamemode.enable = pkgs.stdenv.isLinux;
 }
