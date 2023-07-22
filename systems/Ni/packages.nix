@@ -8,8 +8,8 @@
       timeshift
       nvtop
       (handbrake.override {
-        nv-codec-headers
-      };)
+        pkgs.nv-codec-headers;
+      })
     ];
   };
 
