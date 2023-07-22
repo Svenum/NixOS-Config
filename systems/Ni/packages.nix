@@ -10,7 +10,7 @@
       (handbrake.override {
         stdenv = stdenv + {
           isLinux = mkForce true;
-        }
+        };
       })
     ];
   };
