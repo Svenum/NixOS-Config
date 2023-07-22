@@ -7,7 +7,38 @@
       rsync
       timeshift
       nvtop
-      (handbrake.overrideAttrs (_: { buildInputs = buildInputs ++ [ pkgs.nv-codec-headers ]; }))
+      (handbrake.overrideAttrs (_: { buildInputs = with pkgs;[
+        nv-codec-headers
+        a52dec
+        dav1d
+        ffmpeg-hb
+        fontconfig
+        freetype
+        fribidi
+        harfbuzz
+        jansson
+        lame
+        libass
+        libbluray
+        libdvdcss
+        libdvdnav
+        libdvdread
+        libiconv
+        libjpeg_turbo
+        libogg
+        libopus
+        libsamplerate
+        libtheora
+        libvorbis
+        libvpx
+        libxml2
+        speex
+        svt-av1
+        x264
+        x265
+        xz
+        zimg
+      ]; }))
     ];
   };
 
