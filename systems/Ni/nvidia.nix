@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   hardware = {
@@ -18,3 +18,4 @@
   environment.systemPackages = with pkgs; [
     nv-codec-headers-11
   ];
+}
