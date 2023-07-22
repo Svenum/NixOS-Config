@@ -8,7 +8,7 @@
       timeshift
       nvtop
       (handbrake.override {
-        stdenv = stdenv // { isLinux = true; };
+        buildInputs = buildInputs ++ [ "nv-encodec-headers" ];
       })
     ];
   };
