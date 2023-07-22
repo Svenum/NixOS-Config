@@ -9,7 +9,6 @@
       nvtop
       (handbrake.override {
         stdenv = mkOverride config.stdenv { isLinux = true; };
-        };
       })
     ];
   };
