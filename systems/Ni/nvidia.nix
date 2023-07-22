@@ -16,6 +16,6 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   environment.systemPackages = with pkgs; [
-    nv-codec-headers-11
+    nv-codec-headers
   ];
 }
