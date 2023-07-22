@@ -8,7 +8,7 @@
       timeshift
       nvtop
       (handbrake.override {
-        stdenv = mkOverride config.stdenv { isLinux = true };
+        stdenv = mkOverride config.stdenv { isLinux = true; };
         };
       })
     ];
