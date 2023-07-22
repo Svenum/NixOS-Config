@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   environment = {
@@ -8,7 +8,7 @@
       timeshift
       nvtop
       (handbrake.override {
-        stdenv = mkOverride config.stdenv { isLinux = true; };
+        stdenv = lib.mkOverride config.stdenv { isLinux = true; };
       })
     ];
   };
