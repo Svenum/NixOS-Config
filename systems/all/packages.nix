@@ -38,6 +38,7 @@ in
       glxinfo
       vulkan-tools
       home-backup
+      playerctl
     ];
   };
   # Enable partitionmanager
