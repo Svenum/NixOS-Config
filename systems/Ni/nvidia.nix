@@ -9,7 +9,7 @@
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
-        (nvidia_x11.override { enableGeforce1050Ti = true; })
+        (pkgs.nvidia_x11.override { enableGeforce1050Ti = true; })
       ];
     };
     nvidia = {
