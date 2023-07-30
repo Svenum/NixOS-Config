@@ -16,6 +16,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   environment.systemPackages = with pkgs; [
+    cudaPackages.nvidia_driver
     cudaPackages.cudatoolkit
   ];
 }
