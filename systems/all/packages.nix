@@ -26,7 +26,6 @@ in
       cifs-utils
       btop
       # Vim
-      (nnn.override { withNerdIcons = true; })
       nerdfonts
       # Theming
       (pkgs.writeShellScriptBin "spicetify" "exec -a $0 ${spicetify-cli}/bin/spicetify-cli $@")

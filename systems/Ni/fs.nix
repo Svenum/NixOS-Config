@@ -17,7 +17,7 @@
     };
 
     fileSystems."/home/sven/Games/SSD" = {
-      device = "/dev/disk/by-uuid/7526339f-7828-43e7-81e5-f19eec22f9e5";
+      device = "/dev/disk/by-uuid/0efe8c88-b10c-4ef8-8ca0-49df2c10d389";
       fsType = "btrfs";
       options = ["subvol=/@games" "auto" "defaults" "discard=async" "ssd"];
     };
