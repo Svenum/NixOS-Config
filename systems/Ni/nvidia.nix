@@ -22,8 +22,8 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.systemPackages = with pkgs; [
+  #environment.systemPackages = with pkgs; [
     #cudaPackages.cudatoolkit
-    vaapiVdpau
-  ];
+    #vaapiVdpau
+  #];
 }
