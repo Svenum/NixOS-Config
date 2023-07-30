@@ -24,6 +24,7 @@ in
       killall
       neofetch
       cifs-utils
+      btop
       # Vim
       (nnn.override { withNerdIcons = true; })
       nerdfonts
