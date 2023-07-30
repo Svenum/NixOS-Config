@@ -10,12 +10,12 @@
     nvidia = {
       modesetting.enable = true;
       #powerManagement.enable = true;
-      #package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.systemPackages = with pkgs; [
-    cudaPackages.cudatoolkit
-  ];
+  #environment.systemPackages = with pkgs; [
+  #  cudaPackages.cudatoolkit
+  #];
 }
