@@ -9,7 +9,6 @@
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
-        linuxPackages.nvidia_x11
       ];
     };
     nvidia = {
@@ -20,7 +19,8 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  #environment.systemPackages = with pkgs; [
-  #  cudaPackages.cudatoolkit
-  #];
+  environment.systemPackages = with pkgs; [
+    #cudaPackages.cudatoolkit
+    vaapiVdpau
+  ];
 }
