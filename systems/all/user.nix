@@ -11,7 +11,7 @@
   users.users.sven = {
     isNormalUser = true;
     description = "Sven";
-    extraGroups = [ "networkmanager" "libvirtd" ];
+    extraGroups = [ "networkmanager" "libvirtd" "video" ];
     useDefaultShell = true;
   };
 }
