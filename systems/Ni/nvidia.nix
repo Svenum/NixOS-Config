@@ -9,7 +9,7 @@
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
-        nvidia_x11
+        nvidia-x11
       ];
     };
     nvidia = {
