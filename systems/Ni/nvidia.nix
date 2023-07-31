@@ -18,14 +18,14 @@
       modesetting.enable = true;
       #powerManagement.enable = true;
       #package = config.boot.kernelPackages.nvidiaPackages.beta;
-      open = true;
+      open = false;
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Uncomment if system does boot to terminal
-  boot.initrd.kernelModules = [ "nvidia" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  #boot.initrd.kernelModules = [ "nvidia" ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   
   #environment.systemPackages = with pkgs; [
     #cudaPackages.cudatoolkit
