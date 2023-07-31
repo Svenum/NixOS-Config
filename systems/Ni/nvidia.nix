@@ -24,8 +24,8 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Uncomment if system does boot to terminal
-  #boot.initrd.kernelModules = [ "nvidia" ];
-  #boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  boot.initrd.kernelModules = [ "nvidia" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   
   #environment.systemPackages = with pkgs; [
     #cudaPackages.cudatoolkit
