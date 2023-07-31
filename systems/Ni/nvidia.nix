@@ -24,6 +24,8 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  boot.initrd.kernelModules = [ "nvidia" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   #environment.systemPackages = with pkgs; [
     #cudaPackages.cudatoolkit
     #vaapiVdpau
