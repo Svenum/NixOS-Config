@@ -18,7 +18,8 @@
       modesetting.enable = true;
       #powerManagement.enable = true;
       #package = config.boot.kernelPackages.nvidiaPackages.beta;
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
+      open = true;
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
