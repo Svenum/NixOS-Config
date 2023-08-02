@@ -1,5 +1,10 @@
 { ... }:
 
 {
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      Experimental = true;
+    };
+  }
 }
