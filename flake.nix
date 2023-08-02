@@ -55,7 +55,7 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = defaultModules ++ [
-	  # System
+	        # System
           ./systems/srv-nixostest/default.nix
         ];
       };
@@ -63,7 +63,7 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = defaultModules ++ [
-	  # System
+	        # System
           ./systems/Ni/default.nix
         ];
       };
@@ -71,10 +71,10 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = defaultModules ++ [
-	  # System
+	        # System
           ./systems/San/default.nix
           # Tuxedo
-          #tuxedo-nixos.nixosModules.default
+          tuxedo-nixos.nixosModules.default
         ];
       };
     };
