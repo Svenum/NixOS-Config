@@ -1,4 +1,4 @@
-{ congi, ... }:
+{ config, ... }:
 
 {
   boot.initrd = {
