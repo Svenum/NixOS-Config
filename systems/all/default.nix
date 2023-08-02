@@ -13,6 +13,7 @@
     ./tmux.nix
     ./shell.nix
     ./skel.nix
+    ./kernel.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.05";
