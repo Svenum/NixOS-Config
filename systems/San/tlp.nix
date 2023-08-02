@@ -24,7 +24,7 @@
       SCHED_POWERSAVE_ON_BAT = 1;
       RESTORE_DEVICE_STATE_ON_STARTUP = 0;
       DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wifi";
-      Devices_TO_ENABLE_ON_STARTUP = "wwan"
+      DEVICES_TO_ENABLE_ON_STARTUP = "wwan";
       DEVICES_TO_ENABLE_ON_AC = "wifi wwan";
       DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "wifi bluetooth";
       RUNTIME_PM_ON_AC = "on";
