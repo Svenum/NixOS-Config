@@ -1,9 +1,11 @@
 { home, pkgs, ... }:
 
+let
+  tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
 {
   home.packages = with pkgs; [
     caffeine-ng
-    haskellPackages.tetris
+    tetris
     #handbrake
   ];
 }
