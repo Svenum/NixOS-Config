@@ -25,6 +25,7 @@ in
       neofetch
       cifs-utils
       btop
+      dig
       # Vim
       nerdfonts
       # Theming
