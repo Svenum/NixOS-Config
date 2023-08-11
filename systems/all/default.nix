@@ -14,6 +14,7 @@
     ./shell.nix
     ./skel.nix
     ./kernel.nix
+    ./hardware.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.05";
