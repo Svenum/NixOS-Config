@@ -12,4 +12,7 @@
 
   # Gamemode
   programs.gamemode.enable = true;
+  
+  # KDEConnect
+  programs.kdeconnect.enable = true;
 }
