@@ -19,6 +19,7 @@
   services.printing.enable = true;
 
   sound.enable = true;
+  sound.extraConfig = builtins.readFile ../../configs/asound.conf;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

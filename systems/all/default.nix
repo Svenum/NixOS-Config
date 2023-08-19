@@ -14,7 +14,6 @@
     ./shell.nix
     ./skel.nix
     ./kernel.nix
-    ./hardware.nix
     ./flatpak-fix.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
