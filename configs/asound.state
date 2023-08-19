@@ -140,8 +140,8 @@ state.Katana {
 	control.12 {
 		iface MIXER
 		name 'Speakers Playback Volume'
-		value.0 107
-		value.1 107
+		value.0 92
+		value.1 92
 		comment {
 			access 'read write'
 			type INTEGER
@@ -149,8 +149,8 @@ state.Katana {
 			range '0 - 128'
 			dbmin -6400
 			dbmax 0
-			dbvalue.0 -1050
-			dbvalue.1 -1050
+			dbvalue.0 -1800
+			dbvalue.1 -1800
 		}
 	}
 	control.13 {
@@ -182,7 +182,7 @@ state.Katana {
 	control.15 {
 		iface MIXER
 		name 'What U Hear Capture Switch'
-		value false
+		value true
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -192,8 +192,8 @@ state.Katana {
 	control.16 {
 		iface MIXER
 		name 'What U Hear Capture Volume'
-		value.0 48
-		value.1 48
+		value.0 57
+		value.1 57
 		comment {
 			access 'read write'
 			type INTEGER
@@ -201,8 +201,8 @@ state.Katana {
 			range '0 - 57'
 			dbmin -4800
 			dbmax 900
-			dbvalue.0 0
-			dbvalue.1 0
+			dbvalue.0 900
+			dbvalue.1 900
 		}
 	}
 	control.17 {
