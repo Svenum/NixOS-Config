@@ -16,7 +16,6 @@
     ./skel.nix
     ./devices.nix
     ./shell.nix
-    ./specification.nix
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
