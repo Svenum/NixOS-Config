@@ -10,6 +10,9 @@
     ];
   };
 
+  # Configure Timeshift
+  environment.etc."timeshift/timeshift.json".source = ./configs/timeshift.json;
+
   # Gamemode
   programs.gamemode.enable = true;
   
