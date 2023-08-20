@@ -26,6 +26,7 @@ in
       cifs-utils
       btop
       dig
+      bup
       # Vim
       nerdfonts
       # Theming
