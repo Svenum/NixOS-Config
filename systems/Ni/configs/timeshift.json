@@ -20,8 +20,10 @@
   "snapshot_count" : "",
   "date_format" : "%Y-%m-%d %H:%M:%S",
   "exclude" : [
-    "+ /.var/app/**/data/***",
-    "+ /.var/app/**/config/***",
+    "+ /home/sven/.var/app/**/data/***",
+    "+ /home/sven/.var/app/**/config/***",
+    "+ /home/sven/**",
+    "/***",
     "/home/susven/**",
     ".[Cc]ache",
     "[Cc]ache",
@@ -45,7 +47,6 @@
     "/home/sven/Downloads/***",
     "/home/sven/Games/***",
     "/mnt/***",
-    "+ /home/sven/**",
     "/root/**"
   ],
   "exclude-apps" : []
