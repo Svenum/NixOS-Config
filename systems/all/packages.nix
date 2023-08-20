@@ -33,8 +33,9 @@ in
       betterdiscordctl
       prepare_spotify
       prepare_discord
-      # GUI TOols
+      # GUI Tools
       kate
+      kup
       # Other
       glxinfo
       vulkan-tools
