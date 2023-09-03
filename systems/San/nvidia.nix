@@ -29,7 +29,7 @@
   };
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
 
-  specification = {
+  specialisation = {
     performance-mode.configuration = {
       system.nixos.tags = [ "performance-mode" ];
       hardware.nvidia = {
