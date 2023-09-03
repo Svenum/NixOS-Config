@@ -22,11 +22,21 @@
           enable = true;
           enableOffloadCmd = true;
         };
-        reverseSync.enable = true;
         amdgpuBusId = "PCI:5:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
   };
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+
+  specification = {
+    performance-mode.configuration = {
+      system.nixos.tags = [ "performance-mode" ]
+      hardware.nvidia = {
+        prime = {
+          sync.enable = lib.mkForce true;
+        };
+      };
+    };
+  };
 }
