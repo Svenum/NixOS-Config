@@ -36,7 +36,6 @@
         prime = {
           offload = {
             enable = lib.mkForce false;
-            enableOffloadCmd = lib.mkForce false;
           };
           sync.enable = lib.mkForce true;
         };
