@@ -31,7 +31,7 @@
 
   specification = {
     performance-mode.configuration = {
-      system.nixos.tags = [ "performance-mode" ]
+      system.nixos.tags = [ "performance-mode" ];
       hardware.nvidia = {
         prime = {
           sync.enable = lib.mkForce true;
