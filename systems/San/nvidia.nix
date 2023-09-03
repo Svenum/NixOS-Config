@@ -19,27 +19,13 @@
       powerManagement.enable = true;
       prime = {
         offload = {
-          enable = true;
           enableOffloadCmd = true;
         };
+        reverseSync.enable = lib.mkForce true;
         amdgpuBusId = "PCI:5:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };
     };
   };
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
-
-  specialisation = {
-    performance-mode.configuration = {
-      system.nixos.tags = [ "performance-mode" ];
-      hardware.nvidia = {
-        prime = {
-          offload = {
-            enable = lib.mkForce false;
-          };
-          sync.enable = lib.mkForce true;
-        };
-      };
-    };
-  };
 }
