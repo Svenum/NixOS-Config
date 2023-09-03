@@ -6,6 +6,7 @@
       solaar
       rsync
       nvtop
+      powertop
     ];
   };
   # Gamemode
