@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  hardware.nvidiaOptimus.disable;
+  hardware.nvidiaOptimus.disable = true;
 
   specialisation = {
   enable-nvidia.configuration = {
