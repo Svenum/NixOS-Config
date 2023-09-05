@@ -2,7 +2,7 @@
 
 {
   hardware.nvidiaOptimus.disable = true;
-  services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   specialisation = {
   enable-nvidia.configuration = {
