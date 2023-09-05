@@ -33,6 +33,6 @@
       };
     };
     services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
-    }
-  }
+    };
+  };
 }
