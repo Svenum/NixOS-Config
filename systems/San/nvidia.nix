@@ -2,11 +2,12 @@
 
 {
   hardware.nvidiaOptimus.disable = true;
+  services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
 
   specialisation = {
   enable-nvidia.configuration = {
     system.nixos.tags = [ "enable-nvidia" ];
-    hardware = {
+    hardware = lib.mkForce {
       nvidiaOptimus.disable = lib.mkForce false;
       opengl = {
         enable = true;
@@ -33,7 +34,7 @@
         };
       };
     };
-    services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+    services.xserver.videoDrivers = lib.mkForce [ "nvidia" "amdgpu" ];
     };
   };
 }
