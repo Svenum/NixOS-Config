@@ -7,6 +7,7 @@
   enable-nvidia.configuration = {
     system.nixos.tags = [ "enable-nvidia" ];
     hardware = {
+      nvidiaOptimus.disable = false;
       opengl = {
         enable = true;
         driSupport = true;
