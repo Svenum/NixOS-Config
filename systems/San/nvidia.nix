@@ -8,7 +8,7 @@
   enable-nvidia.configuration = {
     system.nixos.tags = [ "enable-nvidia" ];
     hardware = lib.mkForce {
-      nvidiaOptimus.disable = lib.mkForce false;
+      nvidiaOptimus.disable = false;
       opengl = {
         enable = true;
         driSupport = true;
