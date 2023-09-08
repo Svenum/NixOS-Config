@@ -102,6 +102,7 @@ nnoremap <C-g><p> :GitGutterPreviewHunk<CR>
 nnormeap <C-g><f> :GitGutterNextHunk<CR>
 nnoremap <C-g><S-f> :GitGutterPrevHunk<CR>
 nnormeap <C-g><u> :GitGutterUndoHunk<CR>
+nnormeap <C-g><t> :GitGutterToggle<CR>
 
 """"""""""""""""""""""""""""""
 "            other           "
