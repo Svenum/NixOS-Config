@@ -98,7 +98,8 @@ let g:gitgutter_signs=1
 
 " shotcuts
 nnoremap <C-g> <Nop>
-nnoremap <C-g>p :GitGutterPreviewHunk<CR>
+nnoremap <C-g><p> :GitGutterPreviewHunk<CR>
+nnoremap <C-g><n>
 nnormeap <C-g>n :GitGutterNextHunk<CR>
 nnoremap <C-g><S-n> :GitGutterPrevHunk<CR>
 
@@ -120,6 +121,7 @@ function! s:select_current_word()
 endfunc
 
 " Shortcuts
+nnoremap <n> <Nop>
 nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 nnoremap <silent> <C-Down> :tabclose<CR> 
