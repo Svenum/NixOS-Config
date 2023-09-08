@@ -6,6 +6,7 @@
     newSession = true;
     keyMode = "vi";
     historyLimit = 5000;
+    resizeAmount = 15;
     clock24 = true;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
