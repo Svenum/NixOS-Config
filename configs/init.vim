@@ -90,6 +90,10 @@ inoremap <silent><expr> <A-CR> coc#pum#visible() ? coc#pum#confirm()
 "         gitgutter          "
 """"""""""""""""""""""""""""""
 " Plugin Config
+lua << EOF
+  require("vim-gitgutter").setup()
+EOF
+
 let g:gitgutter_highlight_linenrs=1
 let g:gitgutter_highlight_lines=1
 let g:gitgutter_highlight_lines=1
@@ -98,11 +102,11 @@ let g:gitgutter_signs=1
 
 " shotcuts
 nnoremap <C-g> <Nop>
-nnoremap <silent> <C-g><p> <Plug>(GitGutterPreviewHunk)
-nnormeap <silent> <C-g><f> <Plug>(GitGutterNextHunk)
-nnoremap <silent> <C-g><S-f> <Plug>(GitGutterPrevHunk)
-nnormeap <silent> <C-g><u> <Plug>(GitGutterUndoHunk)
-nnormeap <silent> <C-g><t> <Plug>(GitGutterToggle)
+nnoremap <silent> <C-g><p> :GitGutterPreviewHunk
+nnormeap <silent> <C-g><f> :GitGutterNextHunk
+nnoremap <silent> <C-g><S-f> :GitGutterPrevHunk
+nnormeap <silent> <C-g><u> :GitGutterUndoHunk
+nnormeap <silent> <C-g><t> :GitGutterToggle
 
 """"""""""""""""""""""""""""""
 "            other           "
