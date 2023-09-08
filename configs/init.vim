@@ -99,8 +99,8 @@ let g:gitgutter_signs=1
 " shotcuts
 nnoremap <C-g> <Nop>
 nnoremap <C-g><p> :GitGutterPreviewHunk<CR>
-nnormeap <C-g><s> :GitGutterNextHunk<CR>
-nnoremap <C-g><S-s> :GitGutterPrevHunk<CR>
+nnormeap <C-g><f> :GitGutterNextHunk<CR>
+nnoremap <C-g><S-f> :GitGutterPrevHunk<CR>
 nnormeap <C-g><u> :GitGutterUndoHunk<CR>
 
 """"""""""""""""""""""""""""""
