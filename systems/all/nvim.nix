@@ -20,7 +20,6 @@
           coc-markdownlint coc-spell-checker
           vim-nix
           # Explorer
-          #nnn-vim
           nvim-web-devicons
           nvim-tree-lua
           # Syntax highlighter
@@ -32,6 +31,8 @@
           catppuccin-nvim
           # Terminal
           tmux-nvim
+          # Git
+          vim-gitgutter
         ];
       };
     };

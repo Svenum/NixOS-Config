@@ -1,26 +1,8 @@
-" NNN
-"lua << EOF
-"  require("nnn").setup({
-"    replace_netrw = nil,
-"    action = {
-"      ["<S-s>"] = "split",
-"      ["<S-v>"] = "vsplit",
-"    },
-"  })
-"EOF
-"
-"if @% != "" && @% != "." && @% != "./"
-"  autocmd VimEnter * execute  "normal \<C-w>\<right>" | stopinsert
-"else
-"  autocmd VimEnter * call nnn#pick()
-"endif
-"
-"autocmd BufWinLeave,WinLeave term://* startinsert
-"nnoremap <C-n> :NnnPicker<CR>
-"inoremap <C-n> <Esc> :NnnPicker<CR>
-"tnoremap <C-n> <C-\><C-n> :NnnPicker<CR>
+""""""""""""""""""""""""""""""
+"         Nvim-Tree          "
+""""""""""""""""""""""""""""""
 
-" Nvim-Tree
+" Plugin Config
 lua << EOF
   -- Disable netrw
   vim.g.loaded_netrw = 1
@@ -61,22 +43,36 @@ lua << EOF
   vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 EOF
 
-" tmux-nvim
+" Shortcuts
+nnoremap <silent> <C-n> :NvimTreeToggle<CR>
+
+
+""""""""""""""""""""""""""""""
+"         tmux-nvim          "
+""""""""""""""""""""""""""""""
+" Plugin Config
 lua << EOF
   require("tmux").setup()
 EOF
 
-" Airline
+""""""""""""""""""""""""""""""
+"          airline           "
+""""""""""""""""""""""""""""""
+" Plugin Config
 let g:airline_theme='luna'
 
 " Enable line number
 set number
 set laststatus=2
 
-" Rainbow
+""""""""""""""""""""""""""""""
+"          rainbow           "
+""""""""""""""""""""""""""""""
 let g:rainbow_active=1
 
-" Coc
+""""""""""""""""""""""""""""""
+"            coc             "
+""""""""""""""""""""""""""""""
 set nobackup
 set nowritebackup
 set updatetime=300
