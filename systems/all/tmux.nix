@@ -13,6 +13,6 @@
     ];
     extraConfig = ''
       setw -g repeat-time 300
-    ''
+    '';
   };
 }
