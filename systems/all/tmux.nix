@@ -12,7 +12,7 @@
       (pkgs.callPackage ../../custom-nixpkgs/catppuccin-tmux {})
     ];
     extraConfig = ''
-      set -g repeat-time 300
+      set -g repeat-time 700
     '';
   };
 }
