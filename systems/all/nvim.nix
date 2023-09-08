@@ -18,7 +18,7 @@
           coc-eslint coc-docker coc-tabnine
           coc-tsserver coc-prettier coc-highlight
           coc-markdownlint coc-spell-checker
-          coc-vimlsp coc-vimtex
+          coc-vimlsp coc-vimtex coc-lua
           vim-nix 
           # Explorer
           nvim-web-devicons
