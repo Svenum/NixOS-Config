@@ -86,6 +86,24 @@ endfunction
 inoremap <silent><expr> <A-CR> coc#pum#visible() ? coc#pum#confirm()
           \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+""""""""""""""""""""""""""""""
+"         gitgutter          "
+""""""""""""""""""""""""""""""
+" Plugin Config
+let g:gitgutter_highlight_linenrs=1
+let g:gitgutter_highlight_lines=1
+let g:gitgutter_highlight_lines=1
+let g:gitgutter_enabled=1
+let g:gitgutter_signs=1
+
+" shotcuts
+nnoremap <C-g><p> :GitGutterPreviewHunk<CR>
+nnormeap <C-g><n> :GitGutterNextHunk<CR>
+nnoremap <C-g><S-n> :GitGutterPrevHunk<CR>
+
+""""""""""""""""""""""""""""""
+"            other           "
+""""""""""""""""""""""""""""""
 " Cursor
 set tabstop=2
 set shiftwidth=2
