@@ -90,10 +90,7 @@ inoremap <silent><expr> <A-CR> coc#pum#visible() ? coc#pum#confirm()
 "         gitgutter          "
 """"""""""""""""""""""""""""""
 " Plugin Config
-lua << EOF
-  require("vim-gitgutter").setup()
-EOF
-
+runtime! plugin/gitgutter.vim
 let g:gitgutter_highlight_linenrs=1
 let g:gitgutter_highlight_lines=1
 let g:gitgutter_highlight_lines=1
