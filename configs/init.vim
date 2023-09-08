@@ -99,11 +99,13 @@ let g:gitgutter_signs=1
 
 " shotcuts
 nnoremap <C-g> <Nop>
-nnoremap <silent> <C-g><p> :silent! GitGutterPreviewHunk
-nnormeap <silent> <C-g><f> :silent! GitGutterNextHunk
-nnoremap <silent> <C-g><S-f> :silent! GitGutterPrevHunk
-nnormeap <silent> <C-g><u> :silent! GitGutterUndoHunk
-nnormeap <silent> <C-g><t> :silent! GitGutterToggle
+if exists(':GitGutterEnable') == 2
+  nnoremap <silent> <C-g><p> :silent! GitGutterPreviewHunk
+  nnormeap <silent> <C-g><f> :silent! GitGutterNextHunk
+  nnoremap <silent> <C-g><S-f> :silent! GitGutterPrevHunk
+  nnormeap <silent> <C-g><u> :silent! GitGutterUndoHunk
+  nnormeap <silent> <C-g><t> :silent! GitGutterToggle
+endif
 
 """"""""""""""""""""""""""""""
 "            other           "
