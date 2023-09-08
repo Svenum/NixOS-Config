@@ -5,14 +5,14 @@
     enable = true;
     newSession = true;
     historyLimit = 5000;
-    escapeTime = 200;
+    escapeTime = 100;
     clock24 = true;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
       (pkgs.callPackage ../../custom-nixpkgs/catppuccin-tmux {})
     ];
     extraConfig = ''
-      setw -g repeat-time 300
+      set -g repeat-time 300
     '';
   };
 }
