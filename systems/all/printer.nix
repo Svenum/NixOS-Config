@@ -16,7 +16,7 @@
         ppdOptions.PageSize = "A4";
       }
     ];
-    ensureDefaultPritner = "Epson_ET-2720-Series";
+    ensureDefaultPrinter = "Epson_ET-2720-Series";
   };
 
   environment.systemPackages = with pkgs; [
