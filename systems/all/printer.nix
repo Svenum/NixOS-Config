@@ -13,6 +13,7 @@
         name = "Epson_ET-2720-Series";
         deviceUri = "https://pr-epson.intra.holypenguin.net:631/ipp/print";
         description = "Epson ET-2720";
+        model = ""
         ppdOptions.PageSize = "A4";
       }
     ];
