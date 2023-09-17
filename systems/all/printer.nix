@@ -17,7 +17,7 @@
       }
     ];
     ensureDefaultPritner = "Epson_ET-2720-Series";
-  }
+  };
 
   environment.systemPackages = with pkgs; [
     libinklevel
