@@ -11,7 +11,6 @@
       deviceUri = "https://pr-epson.intra.holypenguin.net:631/ipp/print";
       description = "Epson ET-2720";
     };
-  };
 
   environment.systemPackages = with pkgs; [
     libinklevel
