@@ -16,13 +16,6 @@
   ];   
   programs.dconf.enable = true;
 
-  # Enable printer
-  services.printing.enable = true;
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
-  # for a WiFi printer
-  services.avahi.openFirewall = true;
-
   sound.enable = true;
   sound.extraConfig = builtins.readFile ../../configs/asound.conf;
   hardware.pulseaudio.enable = false;

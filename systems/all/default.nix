@@ -16,6 +16,7 @@
     ./kernel.nix
     ./flatpak-fix.nix
     ./network.nix
+    ./printer.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.05";
