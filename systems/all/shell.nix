@@ -12,9 +12,13 @@
     };
   };
 
-  environment.shellAliases = {
-    su = ''
-      if [[ $1 != "" ]]; then su $@; else sudo -s; fi
+  environment.shellInit = ''
+      su() {
+        if [[ $1 != "" ]]; then
+          su $@
+        else
+          sudo -s
+        fi
+      }
     '';
-  };
 }
