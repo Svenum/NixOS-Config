@@ -2,7 +2,7 @@
 
 {
   # Disable root
-  users.users.root.hashedPassword = "!"
+  users.users.root.hashedPassword = "!";
 
   users.defaultUserShell = pkgs.zsh;
   #users.users.susven = {
