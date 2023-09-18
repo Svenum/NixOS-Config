@@ -36,11 +36,11 @@
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.susven = {
-          imports = [
-            ./homes/susven/default.nix
-          ];
-        };
+        #home-manager.users.susven = {
+        #  imports = [
+        #    ./homes/susven/default.nix
+        #  ];
+        #};
         home-manager.users.sven = {
           imports = [
             ./homes/sven/default.nix
