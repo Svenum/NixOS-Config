@@ -24,13 +24,23 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    solaar = {
+      url = "github:Svenum/solaar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, tuxedo-nixos, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }:
   let
     defaultModules = [
       # All
       ./systems/all/default.nix
+
+      # Solaar
+      ({pkgs, ...}: {
+        environment.systemPackages = [solaar.package.solaar];
+      })
       
       # Home
       home-manager.nixosModules.home-manager {
