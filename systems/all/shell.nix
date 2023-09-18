@@ -13,6 +13,6 @@
   };
 
   environment.shellAliases = {
-    su = "if [[ $1 != "" ]]; then su $@; else sudo -s; fi"
+    su = "if [[ $1 != "" ]]; then su $@; else sudo -s; fi";
   };
 }
