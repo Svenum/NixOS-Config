@@ -39,7 +39,7 @@
 
       # Solaar
       ({pkgs, ...}: {
-        environment.systemPackages = [solaar.packages.${pkgs.system}.default;
+        environment.systemPackages = [solaar.packages.${pkgs.system}.default];
       })
       
       # Home
