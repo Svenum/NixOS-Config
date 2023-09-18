@@ -26,7 +26,7 @@
     };
 
     solaar = {
-      url = "github:Svenum/solaar";
+      url = "github:Svenum/Solaar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -39,7 +39,7 @@
 
       # Solaar
       ({pkgs, ...}: {
-        environment.systemPackages = [solaar.packages.solaar];
+        environment.systemPackages = [solaar.packages.${pkgs.system}.solaar];
       })
       
       # Home
