@@ -1,12 +1,8 @@
 { pkgs, lib, ... }:
 
-#let 
-#  solaar = pkgs.callPackage ../../custom-nixpkgs/solaar {};
-#in
 {
   environment = {
     systemPackages = with pkgs; [
-      #solaar
       rsync
       nvtop
     ];

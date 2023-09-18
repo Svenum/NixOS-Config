@@ -36,11 +36,6 @@
     defaultModules = [
       # All
       ./systems/all/default.nix
-
-      # Solaar
-      ({pkgs, ...}: {
-        environment.systemPackages = [solaar.packages.${pkgs.system}.default];
-      })
       
       # Home
       home-manager.nixosModules.home-manager {
@@ -75,6 +70,11 @@
         modules = defaultModules ++ [
 	        # System
           ./systems/Ni/default.nix
+
+          # Solaar
+          ({pkgs, ...}: {
+            environment.systemPackages = [solaar.packages.${pkgs.system}.default];
+          })
         ];
       };
       San = nixpkgs.lib.nixosSystem {
@@ -83,8 +83,14 @@
         modules = defaultModules ++ [
 	        # System
           ./systems/San/default.nix
+
           # Tuxedo
           tuxedo-nixos.nixosModules.default
+
+          # Solaar
+          ({pkgs, ...}: {
+            environment.systemPackages = [solaar.packages.${pkgs.system}.default];
+          })
         ];
       };
     };
