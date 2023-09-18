@@ -15,7 +15,7 @@
   environment.shellInit = ''
       su() {
         if [[ $1 != "" ]]; then
-          su $@
+          ${pkgs.su}/bin/su $@
         else
           sudo -s
         fi
