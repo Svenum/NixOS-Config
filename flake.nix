@@ -27,7 +27,6 @@
 
     solaar = {
       url = "github:Svenum/Solaar-Flake/release-1.1.10rc3";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
