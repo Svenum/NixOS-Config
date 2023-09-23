@@ -49,7 +49,7 @@ if [ ! "$num_backups" -le "$max_backups" ]; then
     echo "Delete $oldest_backup"
     rm -rf "$oldest_backup"
     rm -rf "$oldest_log"
-    num_subdirs=$(find "$dest_path/old" -mindepth 1 -maxdepth 1 -type d | wc -l)
+    num_backups=$(find "$dest_path/old" -mindepth 1 -maxdepth 1 -type d | wc -l)
   done
 fi
 
