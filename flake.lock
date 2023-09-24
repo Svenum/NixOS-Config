@@ -91,7 +91,6 @@
       },
       "original": {
         "owner": "Svenum",
-        "ref": "release-1.1.10",
         "repo": "Solaar-Flake",
         "type": "github"
       }

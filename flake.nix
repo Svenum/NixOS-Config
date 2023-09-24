@@ -26,7 +26,7 @@
     };
 
     solaar = {
-      url = "github:Svenum/Solaar-Flake/release-1.1.10";
+      url = "github:Svenum/Solaar-Flake";
     };
   };
 
