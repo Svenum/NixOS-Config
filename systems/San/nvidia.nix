@@ -56,6 +56,8 @@
       boot.postBootCommands = ''
         echo 0 > /sys/bus/pci/devices/0000:01:00.0/enable
         echo 0 > /sys/bus/pci/devices/0000:01:00.1/enable
+        echo 1 > /sys/bus/pci/devices/0000:01:00.0/remove 
+        echo 1 > /sys/bus/pci/devices/0000:01:00.1/remove 
       '';
     };
   };
