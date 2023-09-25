@@ -2,7 +2,7 @@
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.kernelParams = [ "module_blacklist=amdgpu,nouveau" ];
+  boot.kernelParams = [ "module_blacklist=amdgpu" ];
 
   hardware = {
     opengl = {
@@ -18,6 +18,8 @@
       ];
     };
     nvidia = {
+      nvidiaSettings = true;
+      open = false;
       modesetting.enable = true;
       powerManagement.enable = true;
       powerManagement.finegrained = true;
