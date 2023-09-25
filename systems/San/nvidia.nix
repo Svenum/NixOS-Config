@@ -1,11 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  # Dont start to Text Mode
-  boot.initrd.kernelModules = [ "nvidia" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-
+  services.xserver.videoDrivers = [ "nvidia" ];
+  boot.extraModprobeConfig = ''
+    blacklist vga16fb
+    blacklist nouveau
+    blacklist rivafb
+    blacklist nvidiafb
+    blacklist rivatv
+  '';
 
   hardware = {
     opengl = {
