@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  hardware.nvidiaOptimus.disable = true;
+  hardware.bumblebee.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   specialisation = {
