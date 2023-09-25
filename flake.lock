@@ -102,11 +102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1692439529,
-        "narHash": "sha256-5ps5RsCAzNWGXxd2XwPPuMKhJrkiRUwS0nZ2TeEVWFE=",
+        "lastModified": 1695619816,
+        "narHash": "sha256-nMlx9L5SaaRRzKeixx2TtRtE8RrWdK7h1jXba1TZcNs=",
         "owner": "Svenum",
         "repo": "tuxedo-nixos",
-        "rev": "2a2fd21c5fab18420112e746cb15110322387281",
+        "rev": "216a5c70f79cf80a974b764d43820887afb53862",
         "type": "github"
       },
       "original": {
