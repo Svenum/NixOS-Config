@@ -2,6 +2,10 @@
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
+  # Dont start to Text Mode
+  boot.initrd.kernelModules = [ "nvidia" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+
 
   hardware = {
     opengl = {
