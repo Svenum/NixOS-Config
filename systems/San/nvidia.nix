@@ -2,7 +2,6 @@
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.kernelParams = [ "module_blacklist=amdgpu" ];
 
   hardware = {
     opengl = {
