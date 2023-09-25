@@ -3,6 +3,7 @@
 {
   hardware.bumblebee.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  boot.kernelParams = [ "module_blacklist=amdgpu,nouveau" ];
 
   hardware = {
     opengl = {
