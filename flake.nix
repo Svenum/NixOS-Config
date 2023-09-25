@@ -15,7 +15,6 @@
   inputs = {
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
-      allowUnfree = true;
     };
     
     tuxedo-nixos = {
