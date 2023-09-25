@@ -68,22 +68,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1688392541,
-        "narHash": "sha256-lHrKvEkCPTUO+7tPfjIcb7Trk6k31rz18vkyqmkeJfY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ea4c80b39be4c09702b0cb3b42eab59e2ba4f24b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-22.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -113,18 +97,20 @@
     "tuxedo-nixos": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1692543521,
-        "narHash": "sha256-/a6U3HkADtAZJq716PB4bxIw/7h5oEG6N7bvw8vTQtE=",
-        "owner": "blitz",
+        "lastModified": 1692439529,
+        "narHash": "sha256-5ps5RsCAzNWGXxd2XwPPuMKhJrkiRUwS0nZ2TeEVWFE=",
+        "owner": "Svenum",
         "repo": "tuxedo-nixos",
-        "rev": "91f7d9ba249f5fd1357f8d55bc510c1641d54a52",
+        "rev": "2a2fd21c5fab18420112e746cb15110322387281",
         "type": "github"
       },
       "original": {
-        "owner": "blitz",
+        "owner": "Svenum",
         "repo": "tuxedo-nixos",
         "type": "github"
       }
