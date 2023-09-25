@@ -53,6 +53,10 @@
         blacklist rivatv
         blacklist nvidia
       '';
+      boot.postBootCommands = ''
+        echo 0 > /sys/bus/pci/devices/0000:01:00.0/enable
+        echo 0 > /sys/bus/pci/devices/0000:01:00.1/enable
+      '';
     };
   };
 }
