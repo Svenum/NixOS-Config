@@ -6,7 +6,6 @@
       rsync
       nvtop
       powertop
-      linuxKernel.packages.linux_latest_libre.bbswitch
     ];
   };
   # Gamemode
