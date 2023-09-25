@@ -13,7 +13,10 @@
     ];
   };
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+      config.allowUnfree = true;
+    };
     
     tuxedo-nixos = {
       url = "github:Svenum/tuxedo-nixos";
