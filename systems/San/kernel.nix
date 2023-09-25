@@ -2,7 +2,7 @@
 
 {
   boot.initrd = {
-    availableKernelModules = [ "nvme" "xhci_pci" "ahci" "sd_mod" ];
+    availableKernelModules = [ "nvme" "xhci_pci" "ahci" "sd_mod" "bbswitch" ];
     kernelModules = [ ];
   };
   boot.kernelModules = [ "kvm-amd" "sg" ];
