@@ -18,6 +18,7 @@
     tuxedo-nixos = {
       url = "github:blitz/tuxedo-nixos";
       #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     };
 
     home-manager = {
