@@ -33,15 +33,19 @@
     sddm-catppuccin = {
       url = "github:khaneliman/sddm-catppuccin";
       nixpkgs.follows = "nixpkgs";
-      packages.${pkgs.hostPlatform.system}.sddm-catppuccin;
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, sddm-catppuccin, ... }:
   let
     defaultModules = [
       # All
       ./systems/all/default.nix
+      ({pkgs, ...}: {
+        environment.systemPackages = [
+          catppuccin-sddm.packages.${pkgs.system}.default
+        ];
+      })
       
       # Home
       home-manager.nixosModules.home-manager {
