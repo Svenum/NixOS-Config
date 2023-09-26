@@ -3,7 +3,14 @@
 {
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      settings = {
+        General = {
+          DisplayServer = "wayland";
+        };
+      };
+    };
     desktopManager.plasma5 = {
       enable = true;
     };
