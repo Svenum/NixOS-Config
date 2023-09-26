@@ -36,11 +36,14 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, sddm-catppuccin, ... }:
   let
     defaultModules = [
       # All
       ./systems/all/default.nix
+      ({pkgs, ...}: {
+        environment.systemPackages = [sddm-catppuccin.packages.${pkgs.system}.sddm-catppuccin];
+      })
 
       # Home
       home-manager.nixosModules.home-manager {

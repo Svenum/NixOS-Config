@@ -1,4 +1,4 @@
-{ pkgs, sddm-catppuccin, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver = {
@@ -40,8 +40,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # SDDM
-    sddm-catppuccin.packages."${pkgs.system}"
     # Cursor
     catppuccin-cursors.latteTeal
     catppuccin-cursors.mochaTeal
