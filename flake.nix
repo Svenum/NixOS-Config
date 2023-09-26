@@ -41,9 +41,7 @@
     defaultModules = [
       # All
       ./systems/all/default.nix
-      ({pkgs, ...}:
-        inputs.sddm-catppuccin.packages.${pkgs.system}.sddm-catppuccin
-      )
+      inputs.sddm-catppuccin.packages.${system}.sddm-catppuccin
 
       
       # Home
