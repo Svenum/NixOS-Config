@@ -41,9 +41,7 @@
     defaultModules = [
       # All
       ./systems/all/default.nix
-      ({pkgs, ...}: {
-        environment.systemPackages = [catppuccin-sddm.packages.${pkgs.system}.default];
-      })
+      catppuccin-sddm.nixosModules.default
 
       # Home
       home-manager.nixosModules.home-manager {
