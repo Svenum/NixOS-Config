@@ -43,7 +43,7 @@
       ./systems/all/default.nix
       ({pkgs, ...}: {
         environment.systemPackages = [
-          catppuccin-sddm.packages.${pkgs.system}.default
+          sddm-catppuccin.packages.${pkgs.system}.default
         ];
       })
       
