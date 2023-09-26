@@ -32,7 +32,7 @@
     };
     sddm-catppuccin = {
       url = "github:khaneliman/sddm-catppuccin";
-      nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
