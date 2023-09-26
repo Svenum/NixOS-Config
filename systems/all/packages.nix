@@ -37,6 +37,7 @@ in
       # GUI Tools
       kate
       kup
+      libsForQt5.kcmutils
       # Other
       glxinfo
       vulkan-tools
