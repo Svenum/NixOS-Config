@@ -44,7 +44,9 @@
       ({pkgs, ...}:
       {
         environment.systemPackages = [
-          (catppuccin-sddm.packages.${pkgs.system}.default)
+          (catppuccin-sddm.packages.${pkgs.system}.default.override {
+            background = "\\/etc\\/wallpaper\\/Catppuccin-Mocha.jpg";
+          })
         ];
       }
       )
