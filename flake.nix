@@ -30,6 +30,11 @@
     solaar = {
       url = "github:Svenum/Solaar-Flake";
     };
+    sddm-catppuccin = {
+      url = "github:khaneliman/sddm-catppuccin";
+      nixpkgs.follows = "nixpkgs";
+      packages.${pkgs.hostPlatform.system}.sddm-catppuccin;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }:
