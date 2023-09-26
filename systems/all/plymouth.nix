@@ -3,7 +3,7 @@
 {
   boot.plymouth = {
     enable = true;
-    theme = "bgrt";
+    #theme = "bgrt";
     theme = "catppuccin";
     themePackages = with pkgs; [
       catppuccin-plymouth
