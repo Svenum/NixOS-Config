@@ -41,11 +41,7 @@
     defaultModules = [
       # All
       ./systems/all/default.nix
-      ({pkgs, ...}: {
-        environment.systemPackages = [
-          sddm-catppuccin.packages.${pkgs.system}
-        ];
-      })
+      inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
       
       # Home
       home-manager.nixosModules.home-manager {
