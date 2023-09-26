@@ -11,9 +11,9 @@
           DisplayServer = "wayland";
           GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
         };
-        #Wayland = {
-        #  CompositorCommand = "kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1";
-        #};
+        Wayland = {
+          CompositorCommand = "${pkgs.libsForQt5.kwin}/bin/kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1";
+        };
       };
     };
     desktopManager.plasma5 = {
