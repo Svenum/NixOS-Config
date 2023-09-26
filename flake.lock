@@ -1,22 +1,26 @@
 {
   "nodes": {
-    "flake-compat": {
-      "flake": false,
+    "catppuccin-sddm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1673956053,
-        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
+        "lastModified": 1695741989,
+        "narHash": "sha256-g7AHsz+//2of/fUYyfeL+Hj7AmHKFAqkav5XySlw+5s=",
+        "owner": "Svenum",
+        "repo": "catppuccin-sddm",
+        "rev": "0ccbeb0871c69b5eec35de71d5585dc34ca534b9",
         "type": "github"
       },
       "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
+        "owner": "Svenum",
+        "repo": "catppuccin-sddm",
         "type": "github"
       }
     },
-    "flake-compat_2": {
+    "flake-compat": {
       "flake": false,
       "locked": {
         "lastModified": 1673956053,
@@ -86,32 +90,11 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-sddm": "catppuccin-sddm",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "sddm-catppuccin": "sddm-catppuccin",
         "solaar": "solaar",
         "tuxedo-nixos": "tuxedo-nixos"
-      }
-    },
-    "sddm-catppuccin": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1685468525,
-        "narHash": "sha256-CaCMrXlwt7JfSycB8WH3XCWUu+i7bPSfFv3duo7ZlZo=",
-        "owner": "khaneliman",
-        "repo": "sddm-catppuccin",
-        "rev": "ffaad5c8964b52ccd92a80dfd3a7931c8b68c446",
-        "type": "github"
-      },
-      "original": {
-        "owner": "khaneliman",
-        "repo": "sddm-catppuccin",
-        "type": "github"
       }
     },
     "solaar": {
@@ -134,7 +117,7 @@
     },
     "tuxedo-nixos": {
       "inputs": {
-        "flake-compat": "flake-compat_2",
+        "flake-compat": "flake-compat",
         "nixpkgs": [
           "nixpkgs"
         ]
