@@ -34,6 +34,7 @@ in
       betterdiscordctl
       prepare_spotify
       prepare_discord
+      catppuccin-sddm-corners
       # GUI Tools
       kate
       kup

@@ -30,20 +30,14 @@
     solaar = {
       url = "github:Svenum/Solaar-Flake";
     };
-    sddm-catppuccin = {
-      url = "github:khaneliman/sddm-catppuccin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, sddm-catppuccin, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }:
   let
     defaultModules = [
       # All
       ./systems/all/default.nix
 
-      ({pkgs, ...}: sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin)
-      
       # Home
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
