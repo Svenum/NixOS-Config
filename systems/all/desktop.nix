@@ -9,7 +9,8 @@
       settings = {
         General = {
           DisplayServer = "wayland";
-        #  GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
+          InputMethod = "";
+          GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
         };
         #Wayland = {
         #  CompositorCommand = "${pkgs.libsForQt5.kwin}/bin/kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1";
