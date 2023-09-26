@@ -37,7 +37,7 @@ in
       # GUI Tools
       kate
       kup
-      libsForQt5.kcmutils
+      libsForQt5.sddm-kcm
       # Other
       glxinfo
       vulkan-tools
