@@ -42,7 +42,7 @@
       # All
       ./systems/all/default.nix
       ({pkgs, ...}:
-        inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
+        inputs.sddm-catppuccin.packages.${pkgs.system}.sddm-catppuccin
       )
 
       
