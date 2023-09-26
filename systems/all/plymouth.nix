@@ -6,7 +6,9 @@
     #theme = "bgrt";
     theme = "catppuccin-mocha";
     themePackages = with pkgs; [
-      catppuccin-plymouth
+      (catppuccin-plymouth.override {
+        variant = "mocha";
+      })
       #nixos-bgrt-plymouth
     ];
   };
