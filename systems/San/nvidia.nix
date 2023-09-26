@@ -44,15 +44,6 @@
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
       services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
-      boot.blacklistedKernelModules = [ "nouveau" "nvidiafb" "nvidia" ];
-      boot.extraModprobeConfig = ''
-        blacklist vga16fb
-        blacklist nouveau
-        blacklist rivafb
-        blacklist nvidiafb
-        blacklist rivatv
-        blacklist nvidia
-      '';
       boot.postBootCommands = ''
         echo 0 > /sys/bus/pci/devices/0000:01:00.0/enable
         echo 0 > /sys/bus/pci/devices/0000:01:00.1/enable
