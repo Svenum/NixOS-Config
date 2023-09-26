@@ -5,7 +5,7 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      theme = "catppuccin-sddm-corners";
+      theme = "catppuccin";
       settings = {
         General = {
           DisplayServer = "wayland";
