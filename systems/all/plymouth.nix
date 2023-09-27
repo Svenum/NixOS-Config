@@ -4,7 +4,7 @@
   boot.plymouth = {
     enable = true;
     #theme = "bgrt";
-    theme = "catppuccin-mocha";
+    theme = "catppuccin-${config.systemConfig.theme.flavour}";
     themePackages = with pkgs; [
       (catppuccin-plymouth.override {
         variant = "${config.systemConfig.theme.flavour}";
