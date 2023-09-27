@@ -32,7 +32,7 @@
 
       set -g @catppuccin_window_current_text "#{pane_current_path}"
       set -g @catppuccin_window_number_position "right"
-      set -g @catppuccin_window_default_fill "all"
+      set -g @catppuccin_window_default_fill "number"
 
       run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
     '';
