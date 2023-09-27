@@ -5,7 +5,7 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      theme = "catppuccin-mocha";
+      theme = "catppuccin-${config.systemConfig.theme.flavour}";
       settings = {
         General = {
           #DisplayServer = "wayland";
@@ -51,17 +51,13 @@
     })
     # KDE Themes
     (catppuccin-kde.override {
-      flavour = [ "mocha" "latte" ];
+      flavour = [ "${config.systemConfig.theme.flavour}" ];
       accents = [ "${config.systemConfig.theme.accent}" ];
       winDecStyles = [ "modern" ];
     })
     # GTK Themes
     (catppuccin-gtk.override {
-      variant = "mocha";
-      accents = [ "${config.systemConfig.theme.accent}" ];
-    })
-    (catppuccin-gtk.override {
-      variant = "latte";
+      variant = "${config.systemConfig.theme.flavour}";
       accents = [ "${config.systemConfig.theme.accent}" ];
     })
   ];
