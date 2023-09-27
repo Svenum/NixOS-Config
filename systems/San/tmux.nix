@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.tmux = {
     extraConfig = ''
       set -g mouse on
-      set -g @catppuccin_flavour 'latte'
+      set -g @catppuccin_flavour '${config.systemConfig.theme.flavour}'
       set -g @catppuccin_date_time_text "%d.%m.%Y %H:%M"
       set -g @catppuccin_status_modules "application user date_time"
       

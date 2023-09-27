@@ -41,6 +41,7 @@
     defaultModules = [
       # All
       ./systems/all/default.nix
+      self.nixosModules.default
       ({pkgs, ...}:
       {
         environment.systemPackages = [
@@ -67,6 +68,31 @@
     ];
   in
     {
+    nixosModules.default = { config, lib, ... }:
+    with lib;
+    let 
+      cfg = config.systemConfig;
+    in
+    {
+      options.systemConfig = {
+        enable = mkEnableOption {
+          type = types.boolean;
+          default = true;
+        };
+        theme = {
+          variant = mkOption {
+            type = types.str;
+            default = "mocha";
+          };
+          flavour = mkOption {
+            type = types.str;
+            default = "teal";
+          };
+        };
+      };
+      config = mkIf cfg.enable {
+      };
+    };
     nixosConfigurations = {
       srv-nixostest = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
