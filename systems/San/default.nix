@@ -1,6 +1,13 @@
 { lib, config, ... }:
 
 {
+  systemConfig = {
+    theme = {
+      flavour = "latte";
+      variant = "teal";
+    };
+  };
+
   imports = [
     ./network.nix
     ./packages.nix
