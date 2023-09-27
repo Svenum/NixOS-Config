@@ -8,9 +8,9 @@
       theme = "catppuccin-mocha";
       settings = {
         General = {
-          DisplayServer = "wayland";
+          #DisplayServer = "wayland";
           InputMethod = "";
-          GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
+          #GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
         };
         #Wayland = {
         #  CompositorCommand = "${pkgs.libsForQt5.kwin}/bin/kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1";
