@@ -9,7 +9,7 @@
       set -g @catppuccin_status_modules "application user date_time"
       
       set -g @catppuccin_window_right_separator " "
-      set -g @catppuccin_window_middle_separator "█"
+      set -g @catppuccin_window_middle_separator " █"
       
       set -g @catppuccin_status_left_separator " "
       set -g @catppuccin_status_right_separator "█"
