@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   boot.plymouth = {
@@ -7,7 +7,7 @@
     theme = "catppuccin-mocha";
     themePackages = with pkgs; [
       (catppuccin-plymouth.override {
-        variant = "mocha";
+        variant = "${config.systemConfig.theme.flavour}";
       })
       #nixos-bgrt-plymouth
     ];
