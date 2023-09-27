@@ -6,7 +6,6 @@
     ./packages.nix
     ./skel.nix
     ./devices.nix
-    ./shell.nix
     ./fs.nix
     ./kernel.nix
     ./nvidia.nix
