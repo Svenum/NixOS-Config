@@ -5,7 +5,6 @@
     ./network.nix
     ./kernel.nix
     ./nvim.nix
-    ./tmux.nix
     ./skel.nix
     ./fs.nix
     ./shell.nix
