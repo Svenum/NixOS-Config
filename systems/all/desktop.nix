@@ -8,13 +8,9 @@
       theme = "catppuccin-${config.systemConfig.theme.flavour}";
       settings = {
         General = {
-          #DisplayServer = "wayland";
+          DisplayServer = "wayland";
           InputMethod = "";
-          #GreeterEnvironment = "QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
         };
-        #Wayland = {
-        #  CompositorCommand = "${pkgs.libsForQt5.kwin}/bin/kwin_wayland --drm --no-lockscreen --no-global-shortcuts --locale1";
-        #};
       };
     };
     desktopManager.plasma5 = {
@@ -60,6 +56,8 @@
       variant = "${config.systemConfig.theme.flavour}";
       accents = [ "${config.systemConfig.theme.accent}" ];
     })
+    # Wayland
+    weston
   ];
 
   # Add Catppuccin wallpaper
