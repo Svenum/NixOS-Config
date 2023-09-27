@@ -88,6 +88,10 @@
             type = types.str;
             default = "mocha";
           };
+          mode = mkOption {
+            type = types.str;
+            default = "dark";
+          };
         };
       };
       config = mkIf cfg.enable {

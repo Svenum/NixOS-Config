@@ -1,8 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config ... }:
 let
   users = [ "sven" "susven" ];
 in
 {
+  environment.etc.skel.source = ../../skel/template-${config.systemConfig.theme.mode};
+
   # Create Dir
   security.pam.makeHomeDir.skelDirectory = "/etc/skel";
 

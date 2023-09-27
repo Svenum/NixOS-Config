@@ -5,6 +5,7 @@
     theme = {
       flavour = "latte";
       variant = "teal";
+      mode = "light";
     };
   };
 
@@ -18,7 +19,6 @@
     ./fs.nix
     ./tlp.nix
     ./desktop.nix
-    ./skel.nix
     ./devices.nix
   ];
 
