@@ -18,7 +18,6 @@
     ./fs.nix
     ./tlp.nix
     ./desktop.nix
-    ./nvim.nix
     ./skel.nix
     ./devices.nix
     ./shell.nix
