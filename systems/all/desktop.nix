@@ -5,7 +5,7 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      theme = "catppuccin-${config.systemConfig.theme.flavour}";
+      #theme = "catppuccin-${config.systemConfig.theme.flavour}";
       settings = {
         General = {
           DisplayServer = "wayland";
