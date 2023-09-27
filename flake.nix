@@ -80,7 +80,7 @@
           default = true;
         };
         theme = {
-          variant = mkOption {
+          accent = mkOption {
             type = types.str;
             default = "teal";
           };

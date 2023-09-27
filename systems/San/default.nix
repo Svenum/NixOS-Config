@@ -4,7 +4,7 @@
   systemConfig = {
     theme = {
       flavour = "latte";
-      variant = "teal";
+      accent = "teal";
       mode = "light";
     };
   };

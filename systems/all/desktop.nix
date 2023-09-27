@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   services.xserver = {
@@ -47,22 +47,22 @@
     # Icons
     (catppuccin-papirus-folders.override {
         flavor = "latte";
-        accent = "teal";
+        accent = "${config.systemConfig.theme.accent}";
     })
     # KDE Themes
     (catppuccin-kde.override {
       flavour = [ "mocha" "latte" ];
-      accents = [ "teal" ];
+      accents = [ "${config.systemConfig.theme.accent}" ];
       winDecStyles = [ "modern" ];
     })
     # GTK Themes
     (catppuccin-gtk.override {
       variant = "mocha";
-      accents = [ "teal" ];
+      accents = [ "${config.systemConfig.theme.accent}" ];
     })
     (catppuccin-gtk.override {
       variant = "latte";
-      accents = [ "teal" ];
+      accents = [ "${config.systemConfig.theme.accent}" ];
     })
   ];
 
