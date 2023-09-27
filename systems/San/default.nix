@@ -19,7 +19,6 @@
     ./tlp.nix
     ./desktop.nix
     ./nvim.nix
-    ./tmux.nix
     ./skel.nix
     ./devices.nix
     ./shell.nix
