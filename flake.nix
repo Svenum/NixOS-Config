@@ -44,7 +44,7 @@
       ({pkgs, ...}:
       {
         environment.systemPackages = [
-          (catppuccin-sddm.packages.${pkgs.system}.default.extend)
+          (catppuccin-sddm.packages.${pkgs.system}.default)
         ];
       }
       )
