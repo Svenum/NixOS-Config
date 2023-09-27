@@ -5,9 +5,20 @@
 ```
 /etc/nixos
 ├── configs
-│   └── init.vim
+│   ├── asound.conf
+│   ├── catppuccin_frappe-zsh-syntax-highlighting.zsh
+│   ├── catppuccin_latte-zsh-syntax-highlighting.zsh
+│   ├── catppuccin_macchiato-zsh-syntax-highlighting.zsh
+│   ├── catppuccin_mocha-zsh-syntax-highlighting.zsh
+│   ├── init.vim
+│   └── wallpaper
+│       ├── Catppuccin-Latte.jpg
+│       └── Catppuccin-Mocha.jpg
 ├── custom-nixpkgs
-│   └── catppuccin-tmux
+│   ├── solaar
+│   │   ├── default.nix
+│   │   └── derivation.nix
+│   └── tetris
 │       ├── default.nix
 │       └── derivation.nix
 ├── flake.lock
@@ -21,6 +32,10 @@
 │       ├── flatpak.nix
 │       └── packages.nix
 ├── README.md
+├── scripts
+│   ├── home-backup.sh
+│   ├── prepare_discord.sh
+│   └── prepare_spotify.sh
 ├── skel
 │   ├── template-dark
 │   └── template-light
@@ -29,24 +44,21 @@
     │   ├── bootloader.nix
     │   ├── default.nix
     │   ├── desktop.nix
+    │   ├── flatpak-fix.nix
+    │   ├── kernel.nix
     │   ├── language.nix
+    │   ├── network.nix
     │   ├── nvim.nix
     │   ├── packages.nix
     │   ├── plymouth.nix
+    │   ├── printer.nix
     │   ├── shell.nix
     │   ├── skel.nix
     │   ├── tmux.nix
     │   └── user.nix
     ├── Ni
     │   ├── default.nix
-    │   ├── network.nix
-    │   ├── nvim.nix
-    │   ├── packages.nix
-    │   ├── skel.nix
-    │   └── tmux.nix
-    ├── San
-    │   ├── default.nix
-    │   ├── desktop.nix
+    │   ├── devices.nix
     │   ├── fs.nix
     │   ├── hardware.nix
     │   ├── kernel.nix
@@ -54,6 +66,22 @@
     │   ├── nvidia.nix
     │   ├── nvim.nix
     │   ├── packages.nix
+    │   ├── shell.nix
+    │   ├── skel.nix
+    │   ├── tmux.nix
+    │   └── virtualisation.nix
+    ├── San
+    │   ├── default.nix
+    │   ├── desktop.nix
+    │   ├── devices.nix
+    │   ├── fs.nix
+    │   ├── hardware.nix
+    │   ├── kernel.nix
+    │   ├── network.nix
+    │   ├── nvidia.nix
+    │   ├── nvim.nix
+    │   ├── packages.nix
+    │   ├── shell.nix
     │   ├── skel.nix
     │   ├── tlp.nix
     │   ├── tmux.nix
@@ -64,6 +92,7 @@
         ├── kernel.nix
         ├── network.nix
         ├── nvim.nix
+        ├── shell.nix
         ├── skel.nix
         └── tmux.nix
 ```
