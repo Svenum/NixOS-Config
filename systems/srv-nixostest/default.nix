@@ -4,7 +4,6 @@
   imports = [
     ./network.nix
     ./kernel.nix
-    ./nvim.nix
     ./skel.nix
     ./fs.nix
     ./shell.nix

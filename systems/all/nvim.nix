@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.neovim = {
@@ -8,6 +8,7 @@
     vimAlias = true;
     withNodeJs = true;
     configure = {
+      customRC = (builtins.readFile ../../configs/init.vim) + "colorscheme catppuccin-${config.systemConfig.theme.flavour}";
       packages.nix = {
         start = with pkgs.vimPlugins; [
           # Plugins
