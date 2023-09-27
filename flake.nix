@@ -82,11 +82,11 @@
         theme = {
           variant = mkOption {
             type = types.str;
-            default = "mocha";
+            default = "teal";
           };
           flavour = mkOption {
             type = types.str;
-            default = "teal";
+            default = "mocha";
           };
         };
       };
