@@ -13,7 +13,7 @@
           GreeterEnvironment="QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
         };
         Wayland = {
-          CompositorCommand = "kwin_wayland --no-lockscreen --no-global-shortcuts --locale1";
+          CompositorCommand = "kwin_wayland";
         };
       };
     };
