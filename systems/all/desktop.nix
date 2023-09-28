@@ -9,11 +9,6 @@
       settings = {
         General = {
           DisplayServer = "wayland";
-          InputMethod = "";
-          GreeterEnvironment="QT_WAYLAND_SHELL_INTEGRATION=layer-shell";
-        };
-        Wayland = {
-          CompositorCommand = "kwin_wayland";
         };
       };
     };
