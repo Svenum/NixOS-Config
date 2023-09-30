@@ -4,6 +4,12 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
+    displayManager.sddm.settings = {
+      General = {
+        GreeterEnvironments = "QT_SCREEN_SCALE_FACTOR=2,QT_FONT_DPI=192";
+        DisplayServer = "wayland";
+      };
+    };
     desktopManager.plasma5 = {
       enable = true;
     };
