@@ -163,13 +163,7 @@ if has('nvim')
 endif
 
 " Open on last line opened befor closed
-vim.api.nvim_create_autocmd({"BufReadPost"}, {
-    pattern = {"*"},
-    callback = function()
-        if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
-            vim.fn.nvim_exec("normal! g'\"",false)
-        end
-    end
-})
+autocmd BufRead * autocmd FileType <buffer> ++once
+  \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
 autocmd BufWinEnter,WinEnter term://* startinsert
