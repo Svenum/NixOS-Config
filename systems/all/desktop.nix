@@ -3,9 +3,7 @@
 {
   services.xserver = {
     enable = true;
-    displayManager.sddm = {
-      enable = true;
-    };
+    displayManager.sddm.enable = true;
     desktopManager.plasma5 = {
       enable = true;
     };
@@ -49,8 +47,6 @@
       variant = "${config.systemConfig.theme.flavour}";
       accents = [ "${config.systemConfig.theme.accent}" ];
     })
-    # Wayland
-    weston
   ];
 
   # Add Catppuccin wallpaper
