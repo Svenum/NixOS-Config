@@ -24,9 +24,6 @@
 ├── flake.lock
 ├── flake.nix
 ├── homes
-│   ├── susven
-│   │   ├── default.nix
-│   │   └── flatpak.nix
 │   └── sven
 │       ├── default.nix
 │       ├── flatpak.nix
@@ -64,11 +61,8 @@
     │   ├── kernel.nix
     │   ├── network.nix
     │   ├── nvidia.nix
-    │   ├── nvim.nix
     │   ├── packages.nix
-    │   ├── shell.nix
     │   ├── skel.nix
-    │   ├── tmux.nix
     │   └── virtualisation.nix
     ├── San
     │   ├── default.nix
@@ -79,20 +73,12 @@
     │   ├── kernel.nix
     │   ├── network.nix
     │   ├── nvidia.nix
-    │   ├── nvim.nix
     │   ├── packages.nix
-    │   ├── shell.nix
-    │   ├── skel.nix
     │   ├── tlp.nix
-    │   ├── tmux.nix
     │   └── virtualisation.nix
     └── srv-nixostest
         ├── default.nix
         ├── fs.nix
         ├── kernel.nix
-        ├── network.nix
-        ├── nvim.nix
-        ├── shell.nix
-        ├── skel.nix
-        └── tmux.nix
+        └── network.nix
 ```

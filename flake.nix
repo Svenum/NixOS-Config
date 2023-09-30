@@ -30,10 +30,6 @@
     solaar = {
       url = "github:Svenum/Solaar-Flake";
     };
-    catppuccin-sddm = {
-      url = "github:Svenum/catppuccin-sddm";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, catppuccin-sddm, ... }:
@@ -42,23 +38,11 @@
       # All
       ./systems/all/default.nix
       self.nixosModules.default
-      ({pkgs, ...}:
-      {
-        environment.systemPackages = [
-          (catppuccin-sddm.packages.${pkgs.system}.default)
-        ];
-      }
-      )
 
       # Home
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        #home-manager.users.susven = {
-        #  imports = [
-        #    ./homes/susven/default.nix
-        #  ];
-        #};
         home-manager.users.sven = {
           imports = [
             ./homes/sven/default.nix

@@ -5,12 +5,6 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      #theme = "catppuccin-${config.systemConfig.theme.flavour}";
-      settings = {
-        General = {
-          DisplayServer = "wayland";
-        };
-      };
     };
     desktopManager.plasma5 = {
       enable = true;
