@@ -1,7 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
+  boot.extraModprobeConfig = ''
+    blacklist vga16fb
+    blacklist nouveau
+    blacklist rivafb
+    blacklist nvidiafb
+    blacklist rivatv
+  '';
 
   hardware = {
     opengl = {
