@@ -162,7 +162,7 @@ if has('nvim')
     augroup end
 endif
 
-" Open on last line opened befor closed
+" Open on last line opened before closed
 autocmd BufRead * autocmd FileType <buffer> ++once
   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
