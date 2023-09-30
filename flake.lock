@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "catppuccin-sddm": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1695745133,
-        "narHash": "sha256-qgZumrG0I21ut2CNFbpIGtjVXyldFZxF9dtfc70mbZo=",
-        "owner": "Svenum",
-        "repo": "catppuccin-sddm",
-        "rev": "bcfbf94c40b8dca1365fda73bd6447d4e799c706",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Svenum",
-        "repo": "catppuccin-sddm",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {

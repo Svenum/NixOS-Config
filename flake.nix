@@ -32,7 +32,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, catppuccin-sddm, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }:
   let
     defaultModules = [
       # All
