@@ -370,7 +370,7 @@ ToolBoxButtonX=1069
 ToolBoxButtonY=30
 
 [Containments][58][Wallpaper][org.kde.image][General]
-Image=/etc/wallpaper/Catppuccin-Mocha.jpg
+Image=/etc/wallpaper/catppuccin-mocha.jpg
 SlidePaths=/nix/store/b4nk5iaxig5cbj2as3l5ms7c60n0b2n3-breeze-qt5-5.27.6-bin/share/wallpapers/,/run/current-system/sw/share/wallpapers/
 
 [Containments][59]
@@ -399,7 +399,7 @@ ToolBoxButtonX=764
 ToolBoxButtonY=30
 
 [Containments][59][Wallpaper][org.kde.image][General]
-Image=/etc/wallpaper/Catppuccin-Mocha.jpg
+Image=/etc/wallpaper/catppuccin-mocha.jpg
 SlidePaths=/nix/store/b4nk5iaxig5cbj2as3l5ms7c60n0b2n3-breeze-qt5-5.27.6-bin/share/wallpapers/,/run/current-system/sw/share/wallpapers/
 
 [Containments][60]

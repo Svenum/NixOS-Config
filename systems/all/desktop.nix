@@ -4,9 +4,6 @@
   services.xserver = {
     enable = true;
     displayManager = {
-      setupCommands = ''
-        echo -e '[Genearl]\nbackground=/etc/wallpaper/catppuccin-${config.systemConfig.theme.flavour}.jpg' > ${pkgs.sddm}/share/sddm/themes/${config.services.xserver.displayManager.sddm.theme}/theme.conf.user
-      '';
       sddm = {
         enable = true;
         theme = "breeze";
