@@ -3,16 +3,22 @@
 {
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.settings = {
-      General = {
-        GreeterEnvironments = "QT_SCREEN_SCALE_FACTOR=2,QT_FONT_DPI=192";
-        DisplayServer = "wayland";
+    displayManager = {
+      setupCommands = ''
+        echo -e '[Genearl]\nbackground=/etc/wallpaper/catppuccin-${config.systemConfig.theme.flavour}.jpg' > ${pkgs.sddm}/share/sddm/themes/${config.services.xserver.displayManager.sddm.theme}/theme.conf.user
+      '';
+      sddm = {
+        enable = true;
+        theme = "breeze";
+        settings = {
+          General = {
+            GreeterEnvironments = "QT_SCREEN_SCALE_FACTOR=2,QT_FONT_DPI=192";
+            DisplayServer = "wayland";
+          };
+        };
       };
     };
-    desktopManager.plasma5 = {
-      enable = true;
-    };
+    desktopManager.plasma5.enable = true;
   };
   environment.plasma5.excludePackages = with pkgs; [
     oxygen
