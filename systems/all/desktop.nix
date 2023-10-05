@@ -56,17 +56,6 @@
       variant = "${config.systemConfig.theme.flavour}";
       accents = [ "${config.systemConfig.theme.accent}" ];
     })
-
-    # sddm
-    (libsForQt5.sddm.overrideAttrs (attrs: {
-        postInstall = ''
-          # remove empty scripts
-          rm "$out/share/sddm/scripts/Xsetup" "$out/share/sddm/scripts/Xstop"
-          for f in $out/share/sddm/themes/**/theme.conf ; do
-            sed -i "/^background=.*/c\background=/etc/wallpaper/catppuccin-${config.systemConfig.theme.flavour}.jpg" $f
-          done
-        '';
-    }))
   ];
 
   # Add Catppuccin wallpaper
