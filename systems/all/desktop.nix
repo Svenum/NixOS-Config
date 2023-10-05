@@ -63,8 +63,7 @@
           # remove empty scripts
           rm "$out/share/sddm/scripts/Xsetup" "$out/share/sddm/scripts/Xstop"
           for f in $out/share/sddm/themes/**/theme.conf ; do
-            substituteInPlace $f \
-              --replace 'background=.*$' "background=/etc/wallpaper/catppuccin-${config.systemConfig.theme.flavour}.jpg"
+            sed -i "/^background=.*/c\background=/etc/wallpaper/catppuccin-${config.systemConfig.theme.flavour}.jpg" $f
           done
         '';
     }))
