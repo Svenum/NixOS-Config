@@ -3,7 +3,7 @@
 {
   fileSystems."/" =
     { 
-      lable = "NixOS";
+      label = "NixOS";
       fsType = "ext4";
     };
 
