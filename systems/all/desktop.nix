@@ -2,27 +2,15 @@
 
 {
   services.xserver = {
-    enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-        theme = "breeze";
-        settings = {
-          General = {
-            GreeterEnvironments = "QT_SCREEN_SCALE_FACTOR=2,QT_FONT_DPI=192";
-            DisplayServer = "wayland";
-          };
-        };
-      };
+    displayManager.lightdm = {
+      enable = true;
     };
-    desktopManager.plasma5.enable = true;
+    windowManager.i3 = {
+      enable = true;
+    };
   };
-  environment.plasma5.excludePackages = with pkgs; [
-    oxygen
-    elisa
-    khelpcenter
-    kwrited
-  ];   
+  programs.i3clock.enable = true;
+
   programs.dconf.enable = true;
 
   sound.enable = true;
@@ -60,9 +48,6 @@
 
   # Add Catppuccin wallpaper
   environment.etc.wallpaper.source = ../../configs/wallpaper;
-
-  # Enable Numlock
-  services.xserver.displayManager.sddm.autoNumlock = true;
 
   # Enable XWayland
   programs.xwayland.enable = true;
