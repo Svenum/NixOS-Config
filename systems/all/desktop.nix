@@ -9,7 +9,7 @@
       enable = true;
     };
   };
-  programs.i3clock.enable = true;
+  programs.i3lock.enable = true;
 
   programs.dconf.enable = true;
 
