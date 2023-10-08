@@ -43,7 +43,7 @@
   specialisation = {
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
-      services.xserver.videoDrivers = lib.mkForce [ "amdgpu" "nvidia" ];
+      services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
       boot.postBootCommands = ''
         echo 0 > /sys/bus/pci/devices/0000:01:00.0/enable
         echo 0 > /sys/bus/pci/devices/0000:01:00.1/enable
