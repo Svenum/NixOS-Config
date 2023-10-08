@@ -7,12 +7,7 @@
       sddm = {
         enable = true;
         theme = "breeze";
-        settings = {
-          General = {
-            GreeterEnvironments = "QT_SCREEN_SCALE_FACTOR=2,QT_FONT_DPI=192";
-            DisplayServer = "wayland";
-          };
-        };
+        wayland.enable = true;
       };
     };
     desktopManager.plasma5.enable = true;
