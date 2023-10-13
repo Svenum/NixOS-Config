@@ -4,6 +4,6 @@
   networking = {
     hostName = "San";
     networkmanager.enable = true;
-    useDHCP = lib.mkDefault true;
+    useDHCP = false;
   };
 }
