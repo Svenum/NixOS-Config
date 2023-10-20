@@ -15,7 +15,7 @@
     };
     aggregatedThemes = pkgs.buildEnv {
       name = "system-themes";
-      paths = pkgs.catppuccin-gtk;
+      paths = with pkgs; [ catppuccin-gtk ];
       pathsToLink = [ "/share/themes" ];
     };
   in {
