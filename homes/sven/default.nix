@@ -24,6 +24,7 @@
 
   imports = [
     ./packages.nix
+    ./links.nix
   ];
   home.stateVersion = "23.05";
 
