@@ -25,9 +25,9 @@ in
     copyThemeDir = {
       text = ''
         for user in ${toString users}; do
-          ${pkgs.rsync}/bin/rsync -a --chmod=744 --chown=$user:users -I /run/current-system/sw/share/themes/ /home/$user/.themes
+          ${pkgs.rsync}/bin/rsync -a --chmod=744 --chown=$user:users --copy-links -I /run/current-system/sw/share/themes/ /home/$user/.themes
         done
-        ${pkgs.rsync}/bin/rsync -a --chmod=744 --chown=root:root -I /run/current-system/sw/share/themes/ /root/.themes
+        ${pkgs.rsync}/bin/rsync -a --chmod=744 --chown=root:root --copy-links -I /run/current-system/sw/share/themes/ /root/.themes
       '';
     };
   };
