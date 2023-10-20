@@ -11,7 +11,7 @@
     plugins = with pkgs.tmuxPlugins; [
       catppuccin
     ];
-    extraConfig = ''
+    extraConfigBeforePlugins = ''
       set -g repeat-time 700
       set -g mouse on
       set -g @catppuccin_flavour '${config.systemConfig.theme.flavour}'
@@ -33,8 +33,6 @@
       set -g @catppuccin_window_current_text "#{pane_current_path}"
       set -g @catppuccin_window_number_position "right"
       set -g @catppuccin_window_default_fill "number"
-
-      run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
     '';
   };
 }
