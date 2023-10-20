@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  users = [ "sven" "susven" ];
+  users = [ "sven" ];
 in
 {
   environment.etc.skel.source = ../../skel/template-${config.systemConfig.theme.mode};
@@ -25,10 +25,10 @@ in
     copyThemeDir = {
       text = ''
         for user in ${toString users}; do
-          mkdir /home/$user/.themes
+          mkdir /home/$user/.themes 2> /dev/zero
           ${pkgs.rsync}/bin/rsync -a --chmod=744 --chown=$user:users -I /run/current-system/sw/share/themes /home/$user/.themes
         done
-        mkdir /root/.themes
+        mkdir /root/.themes 2> /dev/zero
         ${pkgs.rsync}/bin/rsync -a --chmod=744 --chown=root:root -I /run/current-system/sw/share/themes /home/root/.themes
       '';
     };
