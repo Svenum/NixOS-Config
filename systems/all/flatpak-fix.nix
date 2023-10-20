@@ -15,12 +15,17 @@
     };
     aggregatedThemes = pkgs.buildEnv {
       name = "system-themes";
-      paths = with pkgs; [ catppuccin-gtk ];
+      paths = with pkgs; [
+        (catppuccin-gtk.override {
+          variant = "${config.systemConfig.theme.flavour}";
+          accents = [ "${config.systemConfig.theme.accent}" ];
+        })
+      ];
       pathsToLink = [ "/share/themes" ];
     };
   in {
     # Create an FHS mount to support flatpak host icons/fonts
-    #"/usr/share/icons" = mkRoSymBind "${config.system.path}/share/icons";
+    "/usr/share/icons" = mkRoSymBind "${config.system.path}/share/icons";
     #"/usr/share/fonts" = mkRoSymBind "${aggregatedFonts}/share/fonts";
     "/usr/share/themes" = mkRoSymBind "${aggregatedThemes}/share/themes";
   };
