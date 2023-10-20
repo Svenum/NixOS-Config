@@ -7,6 +7,5 @@ in
   home.packages = with pkgs; [
     caffeine-ng
     tetris
-    #handbrake
   ];
 }
