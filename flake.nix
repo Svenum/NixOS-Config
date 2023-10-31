@@ -30,7 +30,6 @@
               gui = true;
             }
           ];
-          inherit self;
           inherit (inputs) home-manager;
         };
         system = "x86_64-linux";
