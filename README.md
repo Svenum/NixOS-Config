@@ -85,9 +85,10 @@
 
 ## Variables
 
-| Variable | Description | Default | Valid Values |
-| -------- | ----------- | ------- | ------------ |
-| themeAccent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] |
-| themeFlavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] |
-| themeMode | Mode of the Theme | none | [ "dark", "light" ] |
-
+| Variable | Description | Default | Valid Values | Type |
+| -------- | ----------- | ------- | ------------ | ---- |
+| themeAccent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] | string |
+| themeFlavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] | string |
+| themeMode | Mode of the Theme | none | [ "dark", "light" ] | string |
+| guiUsers | Users witch use the GUI | none | | list |
+| sudoUsers | Users witch get sudo rights | none | | list |

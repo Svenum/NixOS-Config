@@ -2,15 +2,36 @@
   description = "Sven's NixOS Flake";
 
   outputs = { self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }@inputs:
+  let
+    lib = nixpkgs.lib;
+  in
   {
     nixosConfigurations = {
-      srv-nixostest = nixpkgs.lib.nixosSystem {
+      srv-nixostest = lib.nixosSystem {
         specialArgs = {
           themeAccent = "teal";
           themeFlavour = "mocha";
           themeMode = "dark";
-          hostname = "Ni";
+          users = [
+            {
+              name = "sven";
+              gui = true;
+              git = {
+                enable = true;
+                userName = "Svenum";
+                userEmail = "s.ziegler@holypenguin.net";
+                gameDir = true;
+                githubDir = true;
+              };
+            }
+            {
+              name = "susven";
+              sudo = true;
+              gui = true;
+            }
+          ];
           inherit self;
+          inherit (inputs) home-manager;
         };
         system = "x86_64-linux";
         modules = [

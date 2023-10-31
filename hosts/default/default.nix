@@ -14,7 +14,6 @@
     ./shell.nix
     ./skel.nix
     ./kernel.nix
-    ./flatpak-fix.nix
     ./network.nix
     ./printer.nix
   ];
