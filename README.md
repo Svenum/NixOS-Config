@@ -82,3 +82,12 @@
         ├── kernel.nix
         └── network.nix
 ```
+
+## Variables
+
+| Variable | Description | Default | Valid Values |
+| -------- | ----------- | ------- | ------------ |
+| themeAccent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] |
+| themeFlavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] |
+| themeMode | Mode of the Theme | none | [ "dark", "light" ] |
+
