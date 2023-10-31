@@ -5,5 +5,5 @@
   users.users.root.hashedPassword = "!";
 
   # Config other users
-  lib.forEach = userList: user: lib.import ./userConfig.nix;
+  lib.lists.forEach = userList: user: lib.import ./userConfig.nix;
 }
