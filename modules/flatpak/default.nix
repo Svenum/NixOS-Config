@@ -26,7 +26,7 @@
   };
 
   # Add repo and add overrides for guiUsers
-  lib.forEach = users: user: import ./userConfig.nix;
+  lib.forEach = users: user: lib.import ./userConfig.nix;
 }
 
 
