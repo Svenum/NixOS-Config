@@ -3,12 +3,12 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ../../modules/user
     ./bootloader.nix
     ./packages.nix
     ./plymouth.nix
     ./desktop.nix
     ./language.nix
-    ./user.nix
     ./nvim.nix
     ./tmux.nix
     ./shell.nix
