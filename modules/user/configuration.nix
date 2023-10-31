@@ -1,5 +1,9 @@
-{ users, lib, ... }:
+{ userList, lib, ... }:
 
 {
-  lib.forEach = users: user: import ./userConfig.nix;
+  # Disable root
+  users.users.root.hashedPassword = "!";
+
+  # Config other users
+  lib.forEach = userList: user: import ./userConfig.nix;
 }

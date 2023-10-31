@@ -12,7 +12,7 @@
           themeAccent = "teal";
           themeFlavour = "mocha";
           themeMode = "dark";
-          users = [
+          userList = [
             {
               name = "sven";
               gui = true;
