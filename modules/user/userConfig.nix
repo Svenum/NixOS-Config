@@ -1,4 +1,5 @@
 { user, home-manager, lib, pkgs, ... }:
+
 {
   # Create user
   users.defaultUserShell = pkgs.zsh;

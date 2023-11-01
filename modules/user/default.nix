@@ -1,6 +1,6 @@
 { userList, lib, ... }:
 
-{
+rec {
   # Disable root
   users.users.root.hashedPassword = "!";
 
