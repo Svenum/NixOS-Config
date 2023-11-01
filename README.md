@@ -90,10 +90,10 @@
 | themeAccent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] | string |
 | themeFlavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] | string |
 | themeMode | Mode of the Theme | none | [ "dark", "light" ] | string |
-| userAttrs.<name>.isGuiUser | Enable gui settings for user | false | [ false true ] | boolean |
-| userAttrs.<name>.isSudoUser | Enable sudo for this user | false | [ false true ] | boolean |
-| userAttrs.<name>.git.userName | Git userName | none | | string |
-| userAttrs.<name>.git.userEmail | Git userEmail | none | | string |
+| userAttrs.\<name\>.isGuiUser | Enable gui settings for user | false | [ false true ] | boolean |
+| userAttrs.\<name\>.isSudoUser | Enable sudo for this user | false | [ false true ] | boolean |
+| userAttrs.\<name\>.git.userName | Git userName | none | | string |
+| userAttrs.\<name\>.git.userEmail | Git userEmail | none | | string |
 
 
 
