@@ -18,8 +18,6 @@
               git = {
                 userName = "Svenum";
                 userEmail = "s.ziegler@holypenguin.net";
-                gameDir = true;
-                githubDir = true;
               };
             };
             susven = {

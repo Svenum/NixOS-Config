@@ -2,7 +2,7 @@
 
 let
   mkUserConfig = name: user: {
-    home.activation = {
+    home.activation = lib.mkIf (if builtins.hasAttr "isGuiUser" user then user.isGuiUser else false){
       configureFlatpak = ''
         ${pkgs.flatpak}/bin/flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
         ${pkgs.flatpak}/bin/flatpak remote-add --user --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
