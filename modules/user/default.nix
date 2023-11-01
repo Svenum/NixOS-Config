@@ -1,15 +1,11 @@
-{ userList, lib, pkgs, ... }:
+{ userAttrs, lib, pkgs, ... }:
 
 let
-  createUserConfig = {user}: { 
-    # Create user
-    user.name = {
-      isNormalUser = true;
-      description = user.name;
-      # Add user to default groups
-      extraGroups = [ "networkmanager" "libvirtd" "network" "video" "sys" "audio" "kvm" "optical" "scanner" "lp" (lib.mkIf (user.sudo ? false) [ "wheel" ])];
-      useDefaultShell = true;
-    };
+  mkUser = name: user: {
+    isNormalUser = true;
+    description = name;
+    extraGroups = [ "networkmanager" "libvirtd" "network" "video" "sys" "audio" "kvm" "optical" "scanner" "lp" (lib.mkIf (if builtins.hasAttr "isSudo" user then user.isSudo else false) "wheel")];
+    useDefaultShell = true;
   };
 in
 {
@@ -18,8 +14,5 @@ in
   #users.defaultUserShell = pkgs.zsh;
 
   # Create user
-  lib.lists.forEach = userList: user: createUserConfig user;
-
-  # Config other users
-  #lib.lists.forEach = userList: user: import ./userConfig.nix;
+  users.users = lib.mapAttrs mkUser userAttrs;
 }

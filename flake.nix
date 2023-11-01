@@ -12,9 +12,8 @@
           themeAccent = "teal";
           themeFlavour = "mocha";
           themeMode = "dark";
-          userList = [
-            {
-              name = "sven";
+          userAttrs = {
+            sven = {
               gui = true;
               git = {
                 enable = true;
@@ -23,13 +22,12 @@
                 gameDir = true;
                 githubDir = true;
               };
-            }
-            {
-              name = "susven";
-              sudo = true;
+            };
+            susven = {
               gui = true;
-            }
-          ];
+              isSudo = true;
+            };
+          };
           inherit (inputs) home-manager;
         };
         system = "x86_64-linux";
