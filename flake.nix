@@ -14,9 +14,8 @@
           themeMode = "dark";
           userAttrs = {
             sven = {
-              gui = true;
+              isGuiUser = true;
               git = {
-                enable = true;
                 userName = "Svenum";
                 userEmail = "s.ziegler@holypenguin.net";
                 gameDir = true;
@@ -24,8 +23,8 @@
               };
             };
             susven = {
-              gui = true;
-              isSudo = true;
+              isGuiUser = true;
+              isSudoUser = true;
             };
           };
           inherit (inputs) home-manager;
