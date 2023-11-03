@@ -6,9 +6,9 @@
     ../../modules/user
     ../../modules/boot
     ../../modules/nvim
+    ../../modules/locale
+    ../../modules/desktop
     ./packages.nix
-    ./desktop.nix
-    ./language.nix
     ./tmux.nix
     ./shell.nix
     ./skel.nix

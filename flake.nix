@@ -12,6 +12,10 @@
           themeAccent = "teal";
           themeFlavour = "mocha";
           themeMode = "dark";
+          locale = "en_DE";
+          tz = "Europe/Berlin";
+          kbLayout = "de";
+          de = "plasma";
           userAttrs = {
             sven = {
               isGuiUser = true;

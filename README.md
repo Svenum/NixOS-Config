@@ -94,15 +94,8 @@
 | userAttrs.\<name\>.isSudoUser | Enable sudo for this user | false | [ false true ] | boolean |
 | userAttrs.\<name\>.git.userName | Git userName | none | | string |
 | userAttrs.\<name\>.git.userEmail | Git userEmail | none | | string |
-
-
-
-
-
-
-
-
-
-
-
+| locale | locale to use | none | [ "de_DE" "en_DE" "en_US" ] | string |
+| tz | timezone of the system | none | | string |
+| kbLayout | Keyboard layout | none | | string |
+| de | Desctop Environment to use | none | [ "plasma" ] | string |
 
