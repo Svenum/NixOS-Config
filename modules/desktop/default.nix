@@ -1,4 +1,4 @@
-{ kbLayout, de, ... }:
+{ lib, kbLayout, de, ... }:
 
 {
   # Configure xserver keyboard
