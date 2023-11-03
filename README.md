@@ -12,75 +12,65 @@
 │   ├── catppuccin_mocha-zsh-syntax-highlighting.zsh
 │   ├── init.vim
 │   └── wallpaper
-│       ├── Catppuccin-Latte.jpg
-│       └── Catppuccin-Mocha.jpg
+│       ├── catppuccin-latte.jpg
+│       └── catppuccin-mocha.jpg
 ├── custom-nixpkgs
-│   ├── solaar
-│   │   ├── default.nix
-│   │   └── derivation.nix
 │   └── tetris
 │       ├── default.nix
 │       └── derivation.nix
 ├── flake.lock
 ├── flake.nix
+├── flake.nix.bak
 ├── homes
 │   └── sven
 │       ├── default.nix
-│       ├── flatpak.nix
 │       └── packages.nix
+├── hosts
+│   ├── default
+│   │   ├── default.nix
+│   │   ├── desktop.nix
+│   │   ├── language.nix
+│   │   ├── network.nix
+│   │   ├── packages.nix
+│   │   ├── printer.nix
+│   │   ├── shell.nix
+│   │   ├── skel.nix
+│   │   └── tmux.nix
+│   └── srv-nixostest
+│       ├── default.nix
+│       ├── desktop.nix
+│       ├── fs.nix
+│       ├── kernel.nix
+│       └── network.nix
+├── modules
+│   ├── boot
+│   │   └── default.nix
+│   ├── desktop
+│   │   ├── default.nix
+│   │   └── plasma.nix
+│   ├── flatpak
+│   │   └── default.nix
+│   ├── locale
+│   │   ├── de_DE.nix
+│   │   ├── default.nix
+│   │   ├── en_DE.nix
+│   │   └── en_US.nix
+│   ├── nvim
+│   │   └── default.nix
+│   ├── rdp
+│   │   └── default.nix
+│   ├── tmux
+│   └── user
+│       └── default.nix
 ├── README.md
 ├── scripts
 │   ├── home-backup.sh
 │   ├── prepare_discord.sh
-│   └── prepare_spotify.sh
-├── skel
-│   ├── template-dark
-│   └── template-light
-└── systems
-    ├── all
-    │   ├── bootloader.nix
-    │   ├── default.nix
-    │   ├── desktop.nix
-    │   ├── flatpak-fix.nix
-    │   ├── kernel.nix
-    │   ├── language.nix
-    │   ├── network.nix
-    │   ├── nvim.nix
-    │   ├── packages.nix
-    │   ├── plymouth.nix
-    │   ├── printer.nix
-    │   ├── shell.nix
-    │   ├── skel.nix
-    │   ├── tmux.nix
-    │   └── user.nix
-    ├── Ni
-    │   ├── default.nix
-    │   ├── devices.nix
-    │   ├── fs.nix
-    │   ├── hardware.nix
-    │   ├── kernel.nix
-    │   ├── network.nix
-    │   ├── nvidia.nix
-    │   ├── packages.nix
-    │   ├── skel.nix
-    │   └── virtualisation.nix
-    ├── San
-    │   ├── default.nix
-    │   ├── desktop.nix
-    │   ├── devices.nix
-    │   ├── fs.nix
-    │   ├── hardware.nix
-    │   ├── kernel.nix
-    │   ├── network.nix
-    │   ├── nvidia.nix
-    │   ├── packages.nix
-    │   ├── tlp.nix
-    │   └── virtualisation.nix
-    └── srv-nixostest
-        ├── default.nix
-        ├── fs.nix
-        ├── kernel.nix
-        └── network.nix
+│   ├── prepare_spotify.sh
+│   └── san_toggle_gpu.sh
+└── skel
+    ├── template-dark
+    └── template-light
 ```
 
 ## Variables
@@ -98,4 +88,5 @@
 | tz | timezone of the system | none | | string |
 | kbLayout | Keyboard layout | none | | string |
 | de | Desctop Environment to use | none | [ "plasma" ] | string |
+
 
