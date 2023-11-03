@@ -4,16 +4,14 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../modules/user
-    ./bootloader.nix
+    ../../modules/boot
     ./packages.nix
-    ./plymouth.nix
     ./desktop.nix
     ./language.nix
     ./nvim.nix
     ./tmux.nix
     ./shell.nix
     ./skel.nix
-    ./kernel.nix
     ./network.nix
     ./printer.nix
   ];
