@@ -16,6 +16,7 @@
           tz = "Europe/Berlin";
           kbLayout = "de";
           de = "plasma";
+          shell = "zsh";
           userAttrs = {
             sven = {
               isGuiUser = true;

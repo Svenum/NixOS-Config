@@ -1,6 +1,7 @@
 { pkgs, config, themeAccent, themeFlavour, ... }:
 
 {
+  # Enable SDDM and Plasma
   services.xserver = {
     enable = true;
     displayManager = {
@@ -12,6 +13,8 @@
     };
     desktopManager.plasma5.enable = true;
   };
+
+  # Disable packages
   environment.plasma5.excludePackages = with pkgs; [
     oxygen
     elisa
@@ -20,7 +23,17 @@
   ];   
   programs.dconf.enable = true;
 
+  # Install Needed packages
   environment.systemPackages = with pkgs; [
+    # Bup for kup
+    bup
+    # GUI Tools
+    kate
+    kup
+    libsForQt5.sddm-kcm
+    # Other
+    glxinfo
+    vulkan-tools
     # Cursor
     catppuccin-cursors.latteTeal
     catppuccin-cursors.mochaTeal
@@ -41,6 +54,9 @@
       accents = [ themeAccent ];
     })
   ];
+
+  # Enable partitionmanager
+  programs.partition-manager.enable = true;
 
   # Add Catppuccin wallpaper
   environment.etc.wallpaper.source = ../../configs/wallpaper;

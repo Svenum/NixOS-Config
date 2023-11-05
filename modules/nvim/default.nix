@@ -1,6 +1,7 @@
 { pkgs, config, themeFlavour, ... }:
 
 {
+  # Install and Configure nvim
   programs.neovim = {
     enable = true;
     defaultEditor = true;

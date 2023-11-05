@@ -1,6 +1,9 @@
-{ pkgs, config, themeFlavour, ... }:
+{ pkgs, themeFlavour, ... }:
 
 {
+  # Set users default shell
+  users.defaultUserShell = pkgs.zsh;
+
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -12,14 +15,4 @@
       plugins = [ "git" ];
     };
   };
-
-  environment.shellInit = ''
-      su() {
-        if [[ $1 != "" ]]; then
-          ${pkgs.su}/bin/su $@
-        else
-          sudo -s
-        fi
-      }
-    '';
 }

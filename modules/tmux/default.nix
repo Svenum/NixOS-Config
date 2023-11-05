@@ -1,4 +1,4 @@
-{ pkgs, config, themeFlavour, ... }:
+{ pkgs, themeFlavour, ... }:
 
 {
   programs.tmux = {

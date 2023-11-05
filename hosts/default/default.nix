@@ -8,11 +8,11 @@
     ../../modules/nvim
     ../../modules/locale
     ../../modules/desktop
+    ../../modules/wireguard
+    ../../modules/tmux 
+    ../../modules/shell
     ./packages.nix
-    ./tmux.nix
-    ./shell.nix
     ./skel.nix
-    ./network.nix
     ./printer.nix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
