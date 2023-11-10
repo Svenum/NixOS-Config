@@ -18,7 +18,7 @@
           de = "plasma";
           shell = "zsh";
           userAttrs = {
-            sven = {
+            "sven" = {
               isGuiUser = true;
               git = {
                 userName = "Svenum";
@@ -30,6 +30,15 @@
               isSudoUser = true;
             };
           };
+          printerAttrs =[
+            {
+              name = "Epson_ET-2720-Series";
+              deviceUri = "https://pr-epson.intra.holypenguin.net:631/ipp/print";
+              model = "epson-inkjet-printer-escpr/Epson-ET-2720_Series-epson-escpr-en.ppd";
+              description = "Epson ET-2720";
+              isDefault = true;
+            }
+          ]; 
           inherit (inputs) home-manager;
         };
         system = "x86_64-linux";

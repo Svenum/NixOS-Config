@@ -90,5 +90,11 @@
 | kbLayout | Keyboard layout | none | | string |
 | de | Desctop Environment to use | none | [ "plasma" ] | string |
 | shell | System default shell | none | [ "zsh" ] | string |
+| printerAttrs.*.name | Cups name for printer| none | | string |
+| printerAttrs.*.deviceUri | Uri of printer | none |  | string |
+| printerAttrs.*.model | Model of printer | none |  | string |
+| printerAttrs.*.pageSize | Default Size of Page | "A4" |  | string |
+| printerAttrs.*.description | Printer Name in GUI | none |  | string |
+| printerAttrs.*.isDefault | Set Printer as default | false | [ true false ] | boolean |
 
 

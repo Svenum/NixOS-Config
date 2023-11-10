@@ -13,7 +13,7 @@
     ../../modules/shell
     ./packages.nix
     ./skel.nix
-    ./printer.nix
+    ../../modules/printer
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config = {
