@@ -40,4 +40,9 @@
       };
     };
   };
+
+  # Install dependencis
+  environment.systemPackages = with pkgs; [
+    nerdfonts
+  ];
 }
