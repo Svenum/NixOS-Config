@@ -1,5 +1,9 @@
-{ pkgs, config, themeAccent, themeFlavour, ... }:
+{ pkgs, config, themeAccent, themeFlavour, userAttrs, ... }:
 
+let
+  # Get GUIUser
+  users = (builtins.partition (x: builtins.isString x) (builtins.attrValues (builtins.mapAttrs (name: user: if((if builtins.hasAttr "isGuiUser" user then user.isGuiUser else false)) then "${name}" else null) userAttrs))).right;
+in
 {
   # Enable SDDM and Plasma
   services.xserver = {
@@ -34,6 +38,7 @@
     # Other
     glxinfo
     vulkan-tools
+    playerctl
     # Cursor
     catppuccin-cursors.latteTeal
     catppuccin-cursors.mochaTeal
