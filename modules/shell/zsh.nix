@@ -1,5 +1,11 @@
-{ pkgs, themeFlavour, ... }:
+{ lib, pkgs, themeFlavour, home-manager, userAttrs, ... }:
 
+let
+  mkUserConfig = name: user: {
+    home.file.".p10k.zsh".source = ./config/zsh/p10k.zsh;
+    home.file.".zshrc".source = ./config/zsh/zshrc;
+  };
+in
 {
   # Set users default shell
   users.defaultUserShell = pkgs.zsh;
@@ -15,4 +21,8 @@
       plugins = [ "git" ];
     };
   };
+  
+  # Setup zshrc and p10k
+  imports = [ home-manager.nixosModules.home-manager ];
+  home-manager.users = lib.mapAttrs mkUserConfig userAttrs;
 }

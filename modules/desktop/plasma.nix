@@ -35,6 +35,13 @@ in
     kate
     kup
     libsForQt5.sddm-kcm
+    (
+      libsForQt5.konsole.overrideAttrs (old: {
+        postInstall = ''
+          cp ./config/plasma/konsole/* $out/share/konsole/
+        '';
+      })
+    )
     # Other
     glxinfo
     vulkan-tools
@@ -44,9 +51,9 @@ in
     catppuccin-cursors.mochaTeal
     # Icons
     (catppuccin-papirus-folders.override {
-        flavor = "latte";
-        accent = themeAccent;
-    })
+      flavor = "latte";
+      accent = themeAccent;
+      })
     # KDE Themes
     (catppuccin-kde.override {
       flavour = [ themeFlavour ];
