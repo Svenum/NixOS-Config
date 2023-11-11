@@ -96,5 +96,10 @@
 | printerAttrs.*.pageSize | Default Size of Page | "A4" |  | string |
 | printerAttrs.*.description | Printer Name in GUI | none |  | string |
 | printerAttrs.*.isDefault | Set Printer as default | false | [ true false ] | boolean |
-
+| networkConfig.useDHCP | Enable DHCP | false | [ true false ] | boolean |
+| networkConfig.interface | Interface to use if DHCP is disabled | none |  | string |
+| networkConfig.address | IP for the interface  | none |  | string |
+| networkConfig.prefixLength | Prefix for the IP Address | none |  | integer |
+| networkConfig.defauiltGateway | DefaultGateway IP | none |  | string |
+| networkConfig.nameservers | List of nameservers | none |  | list |
 
