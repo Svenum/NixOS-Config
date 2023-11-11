@@ -38,7 +38,7 @@ in
     (
       libsForQt5.konsole.overrideAttrs (old: {
         postInstall = ''
-          cp ./config/plasma/konsole/* $out/share/konsole/
+          cp ./config/plasma/konsole/ $out/share/konsole/
         '';
       })
     )
