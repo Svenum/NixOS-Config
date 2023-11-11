@@ -9,7 +9,7 @@
     vimAlias = true;
     withNodeJs = true;
     configure = {
-      customRC = (builtins.readFile ../../configs/init.vim) + "colorscheme catppuccin-${themeFlavour}";
+      customRC = (builtins.readFile ./config/init.vim) + "colorscheme catppuccin-${themeFlavour}";
       packages.nix = {
         start = with pkgs.vimPlugins; [
           # Plugins

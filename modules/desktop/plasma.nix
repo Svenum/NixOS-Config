@@ -63,9 +63,6 @@ in
   # Enable partitionmanager
   programs.partition-manager.enable = true;
 
-  # Add Catppuccin wallpaper
-  environment.etc.wallpaper.source = ../../configs/wallpaper;
-
   # Enable Numlock
   services.xserver.displayManager.sddm.autoNumlock = true;
 
