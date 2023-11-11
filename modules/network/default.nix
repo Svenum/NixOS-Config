@@ -6,6 +6,7 @@ let
 in
 {
   networking = {
+    hostName = networkConfig.hostName;
     networkmanager.enable = true;
     interfaces = lib.mkIf static {
       ${networkConfig.interface}.ipv4.addresses = [{

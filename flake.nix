@@ -42,6 +42,7 @@
           inherit locale;
           inherit shell;
           networkConfig = {
+            hostName = "srv-nixostest";
             interface = "enp1s0";
             address = "172.16.0.111";
             prefixLength = 24;
