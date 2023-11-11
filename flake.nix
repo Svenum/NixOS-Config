@@ -4,47 +4,57 @@
   outputs = { self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }@inputs:
   let
     lib = nixpkgs.lib;
+    tz = "Europe/Berlin";
+    kbLayout = "de";
+    de = "plasma";
+    userAttrs = {
+      "sven" = {
+        isGuiUser = true;
+        isSudoUser = true;
+        git = {
+          userName = "Svenum";
+          userEmail = "s.ziegler@holypenguin.net";
+        };
+      };
+    };
+    printerAttrs =[
+      {
+        name = "Epson_ET-2720-Series";
+        deviceUri = "https://pr-epson.intra.holypenguin.net:631/ipp/print";
+        model = "epson-inkjet-printer-escpr/Epson-ET-2720_Series-epson-escpr-en.ppd";
+        description = "Epson ET-2720";
+        isDefault = true;
+      }
+    ]; 
+    locale = "en_DE";
+    shell = "zsh";
   in
   {
     nixosConfigurations = {
       srv-nixostest = lib.nixosSystem {
         specialArgs = {
+          inherit (inputs) home-manager;
+          inherit tz;
+          inherit kbLayout;
+          inherit de;
+          inherit userAttrs;
+          inherit printerAttrs;
+          inherit locale;
+          inherit shell;
+          networkConfig = {
+            interface = "enp1s0";
+            address = "172.16.0.111";
+            prefixLength = 24;
+            defaultGateway = "172.16.0.1";
+            nameservers = [ "172.16.0.3" "172.16.0.4" ];
+          };
           themeAccent = "teal";
           themeFlavour = "mocha";
           themeMode = "dark";
-          locale = "en_DE";
-          tz = "Europe/Berlin";
-          kbLayout = "de";
-          de = "plasma";
-          shell = "zsh";
-          userAttrs = {
-            "sven" = {
-              isGuiUser = true;
-              git = {
-                userName = "Svenum";
-                userEmail = "s.ziegler@holypenguin.net";
-              };
-            };
-            susven = {
-              isGuiUser = true;
-              isSudoUser = true;
-            };
-          };
-          printerAttrs =[
-            {
-              name = "Epson_ET-2720-Series";
-              deviceUri = "https://pr-epson.intra.holypenguin.net:631/ipp/print";
-              model = "epson-inkjet-printer-escpr/Epson-ET-2720_Series-epson-escpr-en.ppd";
-              description = "Epson ET-2720";
-              isDefault = true;
-            }
-          ]; 
-          inherit (inputs) home-manager;
         };
         system = "x86_64-linux";
         modules = [
-          ./hosts/srv-nixostest
-          ./hosts/default
+          ./hosts/srv-nixostest.nix
         ];
       };
     };

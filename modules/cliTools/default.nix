@@ -10,7 +10,6 @@ in
     enable = true;
     dates = "daily";
   };
-
   nixpkgs.config.allowUnfree = true;
   environment = {
     systemPackages = with pkgs; [
