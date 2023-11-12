@@ -62,7 +62,7 @@ EOF
 let g:airline_theme='luna'
 
 " Enable line number
-set number
+set number relativenumber
 set laststatus=2
 
 """"""""""""""""""""""""""""""
