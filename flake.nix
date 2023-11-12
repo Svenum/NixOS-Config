@@ -113,13 +113,12 @@
   };
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
     
     tuxedo-nixos = {
       url = "github:Svenum/tuxedo-nixos";
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     home-manager = {
