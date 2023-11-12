@@ -37,6 +37,9 @@ let
         XDG_GITHUB_DIR = "${config.home-manager.users.${name}.home.homeDirectory}/GitHub";
       };
     };
+
+    # Import user specific modues if needed
+    imports = if (builtins.pathExists ../../users/${name}/default.nix ) then [ ../../users/${name} ] else [];
   };
 in
 {
