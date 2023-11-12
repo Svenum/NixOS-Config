@@ -1,4 +1,4 @@
-{ ... }:
+{ tlpAttrs, ... }:
 
 {
   services.tlp = {
@@ -36,7 +36,7 @@
       PCIE_ASPM_ON_AC = "default";
       PCIE_ASPM_ON_BAT = "powersave";
       USB_AUTOSUSPEND = 1;
-      RUNTIME_PM_BLACKLIST="03:00.0";
+      RUNTIME_PM_BLACKLIST = if builtins.hasAttr "deviceBlacklist" tlpAttrs then tlpAttrs.deviceBlacklist else "";
     };
   };
   services.power-profiles-daemon.enable = false;

@@ -103,4 +103,8 @@
 | networkConfig.prefixLength | Prefix for the IP Address | none |  | integer |
 | networkConfig.defauiltGateway | DefaultGateway IP | none |  | string |
 | networkConfig.nameservers | List of nameservers | none |  | list |
+| tlpAttrs.deviceBlacklist | These devices are blacklisted from TLP | none |  | string |
+| nvidia.hybridGraphics | Enable if laptop has hybrid graphics (amd and nvidia) | false | [ true false ] | boolean |
+| nvidia.nvidiaBusId | PCI busid of the nvidia GPU in form of "PCI:X:0:0" | none | | string |
+| nvidia.amdgpuBusId | PCI busid of the amd GPU in form of "PCI:X:0:0" | none | | string |
 

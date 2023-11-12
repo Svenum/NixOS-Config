@@ -22,6 +22,9 @@ in
     ../modules/cliTools
     ../modules/network
     ../modules/bluetooth
+    ../modules/tlp
+    ../modules/kvm
+    ../modules/nvidia
   ];
 
   # Install Custom Scripts and system specific packages
@@ -32,6 +35,13 @@ in
 
   # Enable fwupd
   services.fwupd.enable = true;
+
+  # Logitech
+  hardware.logitech.wireless.enable = true;
+  # Steam
+  hardware.steam-hardware.enable = true;
+  # XBox Controller
+  hardware.xpadneo.enable = true;
 
   # Add AMD CPU driver 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;  
@@ -77,4 +87,5 @@ in
     dates = "daily";
   };
   system.stateVersion = "23.05";
+  nixpkgs.config.allowUnfree = true;
 }

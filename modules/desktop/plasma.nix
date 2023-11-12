@@ -74,6 +74,9 @@ in
   # Enable partitionmanager
   programs.partition-manager.enable = true;
 
+  # Enable KDEConnect
+  programs.kdeconnect.enable = true;
+
   # Enable Numlock
   services.xserver.displayManager.sddm.autoNumlock = true;
 
