@@ -119,7 +119,7 @@
     
     tuxedo-nixos = {
       url = "github:Svenum/tuxedo-nixos";
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     };
 
     home-manager = {
