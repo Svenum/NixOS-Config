@@ -1,7 +1,5 @@
-{ pkgs, flatpak, ... }:
+{ pkgs, ... }:
 
-let
-in
 {
   environment = {
     systemPackages = with pkgs; [

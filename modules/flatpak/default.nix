@@ -11,8 +11,21 @@ let
       '';
     };
   };
+
+  # Custom scripts
+  prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ./script/prepare_spotify.sh);
+  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.readFile ./script/prepare_discord.sh);
 in
 {
+  # Install cusotm scripts
+  environment.systemPackages = with pkgs; [
+    # Theming
+    (pkgs.writeShellScriptBin "spicetify" "exec -a $0 ${spicetify-cli}/bin/spicetify-cli $@")
+    betterdiscordctl
+    prepare_spotify
+    prepare_discord
+  ];
+
   # Install and enable flatpak
   services.flatpak.enable = true;
   xdg.portal.enable = true;

@@ -1,8 +1,6 @@
 { modulesPath, pkgs, ... }:
 
 let
-  prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ../scripts/prepare_spotify.sh);
-  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.readFile ../scripts/prepare_discord.sh);
   home-backup = pkgs.writeShellScriptBin "home-backup" (builtins.readFile ../scripts/home-backup.sh);
 in
 {
@@ -26,11 +24,6 @@ in
 
   # Install Custom Scripts and system specific packages
   environment.systemPackages = with pkgs; [
-      # Theming
-      (pkgs.writeShellScriptBin "spicetify" "exec -a $0 ${spicetify-cli}/bin/spicetify-cli $@")
-      betterdiscordctl
-      prepare_spotify
-      prepare_discord
       home-backup
   ];
 
