@@ -13,6 +13,9 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     mkdir -p $out/share/konsole
     cp -r $src/Catppuccin-*.colorscheme $out/share/konsole/
+    for scheme in $(ls $out/share/konsole); do
+      substituteInPlace $out/share/konsole/$scheme --replace "Opacity=1" "Opacity=0.95"
+    done
     cp ${./profile}/* $out/share/konsole/
   '';
 
