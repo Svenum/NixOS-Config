@@ -114,17 +114,21 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
     
     tuxedo-nixos = {
       url = "github:Svenum/tuxedo-nixos";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     solaar = {
       url = "github:Svenum/Solaar-Flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
