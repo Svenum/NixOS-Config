@@ -7,7 +7,9 @@ in
 {
   networking = {
     hostName = networkConfig.hostName;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+    };
     interfaces = lib.mkIf static {
       ${networkConfig.interface}.ipv4.addresses = [{
         address = networkConfig.address;
@@ -16,6 +18,6 @@ in
     };
     defaultGateway = lib.mkIf static networkConfig.defaultGateway;
     nameservers = lib.mkIf static networkConfig.nameservers;
-    useDHCP = lib.mkIf dynamic networkConfig.useDHCP;
+    useDHCP = lib.mkDefault false;
   };
 }

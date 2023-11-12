@@ -1,4 +1,4 @@
-{ pkgs, config, themeAccent, themeFlavour, userAttrs, ... }:
+{ pkgs, config, themeAccent, themeFlavour, userAttrs, de, lib, ... }:
 
 let
   # Get GUIUser
@@ -19,6 +19,7 @@ in
         theme = "breeze";
         wayland.enable = true;
       };
+      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" de then de.waylandDefault else false ) "plasmawayland";
     };
     desktopManager.plasma5.enable = true;
   };

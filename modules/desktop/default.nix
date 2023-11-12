@@ -20,7 +20,7 @@
   };
 
   # Import desktop environment
-  imports = [ ./${de}.nix ];
+  imports = [ ./${de.name}.nix ];
 
   # Add Catppuccin wallpaper
   environment.etc.wallpaper.source = ./image;

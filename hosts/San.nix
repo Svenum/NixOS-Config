@@ -1,4 +1,4 @@
-{ modulesPath, pkgs, ... }:
+{ lib, config, modulesPath, pkgs, tuxedo-nixos, solaar, ... }:
 
 let
   home-backup = pkgs.writeShellScriptBin "home-backup" (builtins.readFile ../scripts/home-backup.sh);
@@ -6,6 +6,8 @@ in
 {
   # Import Modules
   imports = [
+    # Load flake packages
+    tuxedo-nixos.nixosModules.default
     # Import modules
     ../modules/user
     ../modules/boot
@@ -16,15 +18,16 @@ in
     ../modules/tmux 
     ../modules/shell
     ../modules/flatpak
-    ../modules/rdp
     ../modules/printer
     ../modules/cliTools
     ../modules/network
+    ../modules/bluetooth
   ];
 
   # Install Custom Scripts and system specific packages
   environment.systemPackages = with pkgs; [
-      home-backup
+    home-backup
+    solaar.packages.${pkgs.system}.default
   ];
 
   # Enable fwupd
@@ -40,6 +43,7 @@ in
   boot.kernelModules = [ "kvm-amd" "sg" ];
   boot.kernelParams = [ "amd_iommu=pt" "vt.default_red=239,210,64,223,30,234,23,108,172,210,64,223,30,234,23,76" "vt.default_grn=241,15,160,142,102,118,146,111,176,15,160,142,102,118,146,79" "vt.default_blu=245,57,43,29,245,203,153,133,190,57,43,29,245,203,153,105" ];
 
+  
   # Tuxedo Control Center
   hardware.tuxedo-control-center.enable = true;
 
@@ -73,3 +77,4 @@ in
     dates = "daily";
   };
   system.stateVersion = "23.05";
+}

@@ -88,7 +88,8 @@
 | locale | locale to use | none | [ "de_DE" "en_DE" "en_US" ] | string |
 | tz | timezone of the system | none | | string |
 | kbLayout | Keyboard layout | none | | string |
-| de | Desctop Environment to use | none | [ "plasma" ] | string |
+| de.name | Desktop Environment to use | none | [ "plasma" ] | string |
+| de.waylandDefault | Enable Wayland session by default | none | [ true false ] | boolean |
 | shell | System default shell | none | [ "zsh" ] | string |
 | printerAttrs.*.name | Cups name for printer| none | | string |
 | printerAttrs.*.deviceUri | Uri of printer | none |  | string |

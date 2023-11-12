@@ -6,7 +6,10 @@
     lib = nixpkgs.lib;
     tz = "Europe/Berlin";
     kbLayout = "de";
-    de = "plasma";
+    de = {
+      name = "plasma";
+      defaultWayland = true;
+    };
     userAttrs = {
       "sven" = {
         isGuiUser = true;
@@ -36,7 +39,9 @@
           inherit (inputs) home-manager;
           inherit tz;
           inherit kbLayout;
-          inherit de;
+          de = {
+            name = "plasma";
+          };
           inherit userAttrs;
           inherit printerAttrs;
           inherit locale;
@@ -56,6 +61,31 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/srv-nixostest.nix
+        ];
+      };
+      San = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit (inputs) tuxedo-nixos;
+          inherit (inputs) solaar;
+          inherit tz;
+          inherit kbLayout;
+          inherit de;
+          inherit userAttrs;
+          inherit printerAttrs;
+          inherit locale;
+          inherit shell;
+          networkConfig = {
+            hostName = "San";
+            useDHCP = true;
+          };
+          themeAccent = "teal";
+          themeFlavour = "latte";
+          themeMode = "light";
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/San.nix
         ];
       };
     };
