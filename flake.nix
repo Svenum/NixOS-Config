@@ -1,7 +1,7 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, solaar, tuxedo-nixos, ... }@inputs:
   let
     lib = nixpkgs.lib;
     tz = "Europe/Berlin";
