@@ -1,4 +1,4 @@
-{ lib, config, modulesPath, pkgs, tuxedo-nixos, solaar, ... }:
+{ lib, config, modulesPath, pkgs, tuxedo-nixos, solaar, nixpkgs-stable, ... }:
 
 let
   home-backup = pkgs.writeShellScriptBin "home-backup" (builtins.readFile ../scripts/home-backup.sh);
@@ -7,7 +7,11 @@ in
   # Import Modules
   imports = [
     # Load flake packages
-    tuxedo-nixos.nixosModules.default
+    (let
+      pkgs = import nixpkgs-stable;
+     in
+     tuxedo-nixos.nixosModules.default
+    )
     # Import modules
     ../modules/user
     ../modules/boot
