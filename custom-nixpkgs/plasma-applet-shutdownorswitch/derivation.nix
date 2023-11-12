@@ -11,8 +11,8 @@ stdenvNoCC.mkDerivation {
   };
 
   installPhase = ''
-    mkdir -p $out/share/plasma/plasmoids/org.kde.shutdownorswitch
-    cp -r $src/plasmoid/* $out/share/plasma/plasmoids/org.kde.shutdownorswitch
+    mkdir -p $out/share/plasma/plasmoids/org.kde.shutdownOrSwitch
+    cp -r $src/plasmoid/* $out/share/plasma/plasmoids/org.kde.shutdownOrSwitch
   '';
 
   meta = with lib; {

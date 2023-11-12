@@ -7,6 +7,7 @@ let
   # Plasmoids
   plasma-applet-shutdownorswitch = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-shutdownorswitch {};
   plasma-applet-betterinlineclock = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-betterinlineclock {};
+  konsole-catppuccin = pkgs.callPackage ../../custom-nixpkgs/konsole-catppuccin {};
 in
 {
   # Enable SDDM and Plasma
@@ -40,11 +41,7 @@ in
     kup
     libsForQt5.sddm-kcm
     # Add Konsole profiles and colorshcemes
-    (libsForQt5.konsole.overrideAttrs (old: {
-      postInstall = ''
-        cp ${./config/plasma/konsole}/* $out/share/konsole/
-      '';
-    }))
+    konsole-catppuccin
     # Add plasmoids
     plasma-applet-shutdownorswitch
     plasma-applet-betterinlineclock
