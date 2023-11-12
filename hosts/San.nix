@@ -7,11 +7,8 @@ in
   # Import Modules
   imports = [
     # Load flake packages
-    (let
-      pkgs = import nixpkgs-stable;
-     in
-     tuxedo-nixos.nixosModules.default
-    )
+    tuxedo-nixos.nixosModules.default
+    
     # Import modules
     ../modules/user
     ../modules/boot
