@@ -87,6 +87,20 @@ inoremap <silent><expr> <A-CR> coc#pum#visible() ? coc#pum#confirm()
           \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 """"""""""""""""""""""""""""""
+"      catppuccin-nvim       "
+""""""""""""""""""""""""""""""
+lua << EOF
+  require("catppuccin").setup({
+    term_colors = true,
+    transparent_background = true,
+    integrations = {
+      coc_nvim = true,
+      gitgutter,
+    },
+  })
+EOF
+
+""""""""""""""""""""""""""""""
 "         gitgutter          "
 """"""""""""""""""""""""""""""
 " Plugin Config
