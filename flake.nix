@@ -1,7 +1,7 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, tuxedo-nixos, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, solaar, ... }@inputs:
   let
     lib = nixpkgs.lib;
     tz = "Europe/Berlin";
@@ -66,7 +66,6 @@
       San = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
-          inherit (inputs) tuxedo-nixos;
           inherit (inputs) solaar;
           inherit tz;
           inherit kbLayout;
@@ -114,12 +113,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
     
-    tuxedo-nixos = {
-      url = "github:Svenum/tuxedo-nixos";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
+    #tuxedo-nixos = {
+    #  url = "github:Svenum/tuxedo-nixos";
+    #  inputs.nixpkgs.follows = "nixpkgs-stable";
+    #};
 
     home-manager = {
       url = "github:nix-community/home-manager";
