@@ -3,7 +3,7 @@
 {
   # Configure xserver keyboard
   services.xserver = {
-    layout = "de";
+    layout = kbLayout;
     xkbVariant = "";
   };
 

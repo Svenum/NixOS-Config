@@ -8,7 +8,7 @@
     kbLayout = "de";
     de = {
       name = "plasma";
-      defaultWayland = true;
+      waylandDefault = true;
     };
     userAttrs = {
       "sven" = {
