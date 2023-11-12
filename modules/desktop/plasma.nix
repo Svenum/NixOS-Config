@@ -3,6 +3,10 @@
 let
   # Get GUIUser
   users = (builtins.partition (x: builtins.isString x) (builtins.attrValues (builtins.mapAttrs (name: user: if((if builtins.hasAttr "isGuiUser" user then user.isGuiUser else false)) then "${name}" else null) userAttrs))).right;
+
+  # Plasmoids
+  plasma-applet-shutdownorswitch = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-shutdownorswitch {};
+  plasma-applet-betterinlineclock = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-betterinlineclock {};
 in
 {
   # Enable SDDM and Plasma
@@ -35,13 +39,15 @@ in
     kate
     kup
     libsForQt5.sddm-kcm
-    (
-      libsForQt5.konsole.overrideAttrs (old: {
-        postInstall = ''
-          cp ${./config/plasma/konsole}/* $out/share/konsole/
-        '';
-      })
-    )
+    # Add Konsole profiles and colorshcemes
+    (libsForQt5.konsole.overrideAttrs (old: {
+      postInstall = ''
+        cp ${./config/plasma/konsole}/* $out/share/konsole/
+      '';
+    }))
+    # Add plasmoids
+    plasma-applet-shutdownorswitch
+    plasma-applet-betterinlineclock
     # Other
     glxinfo
     vulkan-tools
