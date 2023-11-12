@@ -116,11 +116,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1699818190,
-        "narHash": "sha256-v0Ohng/AYSPNL7nKDR0OZH5wa8PQrF46sScOyWq9TFU=",
+        "lastModified": 1699818446,
+        "narHash": "sha256-Dl2h00kOYJR1h+26D/C7pvEpKq85nsALFSMLzbOKJaM=",
         "owner": "Svenum",
         "repo": "tuxedo-nixos",
-        "rev": "2fdc3bb09b90bc8b37335b4bc60c0f5c7b98ca27",
+        "rev": "0946cd309290b960f11a3014aaf37529e481bf4a",
         "type": "github"
       },
       "original": {
