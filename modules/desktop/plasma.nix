@@ -16,10 +16,10 @@ in
     displayManager = {
       sddm = {
         enable = true;
-        theme = "breeze";
         wayland.enable = true;
+        autoNumlock = true;
       };
-      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" de then de.waylandDefault else false ) "plasmawayland";
+      #defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" de then de.waylandDefault else false ) "plasmawayland";
     };
     desktopManager.plasma5.enable = true;
   };
@@ -76,9 +76,6 @@ in
 
   # Enable KDEConnect
   programs.kdeconnect.enable = true;
-
-  # Enable Numlock
-  services.xserver.displayManager.sddm.autoNumlock = true;
 
   # Enable XWayland
   programs.xwayland.enable = true;
