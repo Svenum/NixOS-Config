@@ -49,13 +49,13 @@ in
 {
   # Load kernel Modules
   services.xserver.videoDrivers = [ "nvidia" ];
-  #boot.extraModprobeConfig = lib.mkIf isHybrid ''
-  #  blacklist vga16fb
-  #  blacklist nouveau
-  #  blacklist rivafb
-  #  blacklist nvidiafb
-  #  blacklist rivatv
-  #'';
+  boot.extraModprobeConfig = lib.mkIf isHybrid ''
+    blacklist vga16fb
+    blacklist nouveau
+    blacklist rivafb
+    blacklist nvidiafb
+    blacklist rivatv
+  '';
 
   # Configure nvidia driver
   hardware = {
@@ -63,13 +63,13 @@ in
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      #extraPackages = with pkgs; [
-      #  vaapiVdpau
-      #  libvdpau-va-gl
-      #];
-      #extraPackages32 = with pkgs.pkgsi686Linux; [
-      #  vaapiVdpau
-      #];
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        vaapiVdpau
+      ];
     };
     nvidia = {
       modesetting.enable = true;
