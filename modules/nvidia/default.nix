@@ -25,7 +25,6 @@ let
         echo "Unable to unbind GPU becouse it is in use!"
         exit 1
       fi
-      echo "nvidia" > /sys/bus/pci/devices/${pciAddress1}/driver_override
       echo 1 > /sys/bus/pci/devices/${pciAddress1}/remove 
       echo 1 > /sys/bus/pci/devices/${pciAddress2}/remove 
       sleep 1
@@ -97,7 +96,7 @@ in
   specialisation = lib.mkIf isHybrid {
     on-the-go.configuration = {
       system.nixos.tags = [ "on-the-go" ];
-      services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
+      services.xserver.videoDrivers = lib.mkForce [ "amdgpu" "nvidia" ];
       boot.postBootCommands = ''
         echo 0 > /sys/bus/pci/devices/${pciAddress1}/enable
         echo 0 > /sys/bus/pci/devices/${pciAddress1}/enable
