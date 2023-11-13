@@ -19,43 +19,43 @@ in
     ../modules/printer
     ../modules/cliTools
     ../modules/network
-    #../modules/bluetooth
-    #../modules/tlp
-    #../modules/kvm
+    ../modules/bluetooth
+    ../modules/tlp
+    ../modules/kvm
     ../modules/nvidia
   ];
 
   # Install Custom Scripts and system specific packages
-  #environment.systemPackages = with pkgs; [
-  #  home-backup
-  #  solaar.packages.${pkgs.system}.default
-  #];
+  environment.systemPackages = with pkgs; [
+    home-backup
+    solaar.packages.${pkgs.system}.default
+  ];
 
-  ## Enable fwupd
-  #services.fwupd.enable = true;
+  # Enable fwupd
+  services.fwupd.enable = true;
 
-  ## Logitech
-  #hardware.logitech.wireless.enable = true;
-  ## Steam
-  #hardware.steam-hardware.enable = true;
-  ## XBox Controller
-  #hardware.xpadneo.enable = true;
+  # Logitech
+  hardware.logitech.wireless.enable = true;
+  # Steam
+  hardware.steam-hardware.enable = true;
+  # XBox Controller
+  hardware.xpadneo.enable = true;
 
-  ## Add AMD CPU driver 
-  #hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;  
+  # Add AMD CPU driver 
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;  
 
-  ## Configure Kernel
-  #boot.initrd = {
-  #  availableKernelModules = [ "nvme" "xhci_pci" "ahci" "sd_mod" ];
-  #};
-  #boot.kernelModules = [ "kvm-amd" "sg" ];
-  #boot.kernelParams = [ "amd_iommu=pt" "vt.default_red=239,210,64,223,30,234,23,108,172,210,64,223,30,234,23,76" "vt.default_grn=241,15,160,142,102,118,146,111,176,15,160,142,102,118,146,79" "vt.default_blu=245,57,43,29,245,203,153,133,190,57,43,29,245,203,153,105" ];
+  # Configure Kernel
+  boot.initrd = {
+    availableKernelModules = [ "nvme" "xhci_pci" "ahci" "sd_mod" ];
+  };
+  boot.kernelModules = [ "kvm-amd" "sg" ];
+  boot.kernelParams = [ "amd_iommu=pt" "vt.default_red=239,210,64,223,30,234,23,108,172,210,64,223,30,234,23,76" "vt.default_grn=241,15,160,142,102,118,146,111,176,15,160,142,102,118,146,79" "vt.default_blu=245,57,43,29,245,203,153,133,190,57,43,29,245,203,153,105" ];
 
-  ## tuxedo-rs
-  #hardware.tuxedo-rs = {
-  #  enable = true;
-  #  tailor-gui.enable = true;
-  #};
+  # tuxedo-rs
+  hardware.tuxedo-rs = {
+    enable = true;
+    tailor-gui.enable = true;
+  };
 
   # Configure Filesystem
   fileSystems."/" =
