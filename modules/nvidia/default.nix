@@ -92,7 +92,7 @@ in
   };
 
   # Install ToggleScript
-  environment.systemPackages = with pkgs; if isHybrid then [ toggle_gpu ] else [] ++ [ nvtop ];
+  environment.systemPackages = with pkgs; (if isHybrid then [ toggle_gpu ] else []) ++ [ nvtop ];
 
   # Gamemode
   programs.gamemode.enable = true;
