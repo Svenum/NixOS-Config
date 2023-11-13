@@ -8,5 +8,5 @@
   time.timeZone = tz;
   
   # Configure Keyboard layout
-  console.keyMap = kbLayout;
+  console.useXkbConfig = true;
 }
