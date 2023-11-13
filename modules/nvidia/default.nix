@@ -48,7 +48,7 @@ let
 in
 {
   # Load kernel Modules
-  services.xserver.videoDrivers = if isHybrid then [ "amdgpu" ] else [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   #boot.extraModprobeConfig = lib.mkIf isHybrid ''
   #  blacklist vga16fb
   #  blacklist nouveau
