@@ -19,10 +19,10 @@ in
     ../modules/printer
     ../modules/cliTools
     ../modules/network
-    ../modules/bluetooth
-    ../modules/tlp
-    ../modules/kvm
-    #../modules/nvidia
+    #../modules/bluetooth
+    #../modules/tlp
+    #../modules/kvm
+    ../modules/nvidia
   ];
 
   # Install Custom Scripts and system specific packages
