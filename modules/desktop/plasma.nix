@@ -50,6 +50,7 @@ in
     glxinfo
     vulkan-tools
     playerctl
+    wayland-utils
     # Cursor
     catppuccin-cursors.latteTeal
     catppuccin-cursors.mochaTeal
