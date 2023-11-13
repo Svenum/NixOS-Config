@@ -22,7 +22,7 @@ in
     ../modules/bluetooth
     ../modules/tlp
     ../modules/kvm
-    ../modules/nvidia
+    #../modules/nvidia
   ];
 
   # Install Custom Scripts and system specific packages
