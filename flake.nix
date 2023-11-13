@@ -39,9 +39,7 @@
           inherit (inputs) home-manager;
           inherit tz;
           inherit kbLayout;
-          de = {
-            name = "plasma";
-          };
+          inherit de;
           inherit userAttrs;
           inherit printerAttrs;
           inherit locale;

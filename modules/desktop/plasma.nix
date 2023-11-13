@@ -19,7 +19,7 @@ in
         wayland.enable = true;
         autoNumlock = true;
       };
-      #defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" de then de.waylandDefault else false ) "plasmawayland";
+      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" de then de.waylandDefault else false ) "plasmawayland";
     };
     desktopManager.plasma5.enable = true;
   };
