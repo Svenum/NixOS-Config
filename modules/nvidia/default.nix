@@ -49,6 +49,7 @@ in
 {
   # Load kernel Modules
   services.xserver.videoDrivers = [ "nvidia" ];
+  boot.kernelParams = [ "module_blacklist=amdgpu" ];
   boot.extraModprobeConfig = lib.mkIf isHybrid ''
     blacklist vga16fb
     blacklist nouveau
