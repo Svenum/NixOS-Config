@@ -10,8 +10,6 @@ let
   pciAddress1Short = if isHybrid then (builtins.toString (builtins.replaceStrings [ "0000:" ] [ "" ] pciAddress1)) else "";
 
   script = ''
-    #!/usr/bin/env bash
-
     if [[ $(id -u) != 0 ]]; then
       sudo $0
       exit 0
@@ -27,6 +25,7 @@ let
         echo "Unable to unbind GPU becouse it is in use!"
         exit 1
       fi
+      echo "nvidia" > /sys/bus/pci/devices/${pciAddress1}/driver_override
       echo 1 > /sys/bus/pci/devices/${pciAddress1}/remove 
       echo 1 > /sys/bus/pci/devices/${pciAddress2}/remove 
       sleep 1
