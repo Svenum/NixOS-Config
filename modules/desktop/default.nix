@@ -9,7 +9,7 @@
 
   # Configure sound
   sound.enable = true;
-  sound.extraConfig = builtins.readFile ./config/asound.conf;
+  #sound.extraConfig = builtins.readFile ./config/asound.conf;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -20,16 +20,15 @@
   };
 
   # load alsaconfig at boot
-    systemd.services.alsa-restore = {
-      description = "Restore Sound Card State";
-      wantedBy = [ "multi-user.target" ];
-      unitConfig.RequiresMountsFor = "/var/lib/alsa";
-      unitConfig.ConditionVirtualization = "!systemd-nspawn";
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.alsa-utils}/sbin/alsactl restore -f ${./config/asound.conf}";
-      };
-    };
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="sound", KERNEL=="controlC*", KERNELS!="card*", TEST="${pkgs.alsa-utils}", TEST="/var/lib/alsa/asound.state, GOTO="alsa_restore_go", GOTO="alsa_restore_end"
+
+    LABEL="alsa_restore_go"
+    TEST!="/etc/alsa/state-daemon.conf",RUN+="${pkgs.alsa-utils}/bin/alsactl restore $attr{device/number}"
+    TEST=="/etc/alsa/state-daemon.conf",RUN+="${pkgs.alsa-utils}/bin/alsactl nrestore $attr{device/number}"
+
+    LABEL="alsa_restore_end"
+    '';
 
   # Import desktop environment
   imports = [ ./${de.name}.nix ];
