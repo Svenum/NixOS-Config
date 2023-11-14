@@ -34,25 +34,25 @@
   in
   {
     nixosConfigurations = {
-      srv-nixostest = lib.nixosSystem {
+      Ni = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
+          inherit (inputs) solaar;
           inherit tz;
           inherit kbLayout;
-          de = {
-            name = "plasma";
-          };
           inherit userAttrs;
           inherit printerAttrs;
           inherit locale;
           inherit shell;
+          de = {
+            name = "plasma";
+          };
+          nvidia ={
+            hybridGraphics = false;
+          };
           networkConfig = {
-            hostName = "srv-nixostest";
-            interface = "enp1s0";
-            address = "172.16.0.111";
-            prefixLength = 24;
-            defaultGateway = "172.16.0.1";
-            nameservers = [ "172.16.0.3" "172.16.0.4" ];
+            hostName = "Ni";
+            useDHCP = true;
           };
           themeAccent = "teal";
           themeFlavour = "mocha";
@@ -60,7 +60,7 @@
         };
         system = "x86_64-linux";
         modules = [
-          ./hosts/srv-nixostest.nix
+          ./hosts/Ni.nix
         ];
       };
       San = lib.nixosSystem {
@@ -93,6 +93,35 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/San.nix
+        ];
+      };
+      srv-nixostest = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit tz;
+          inherit kbLayout;
+          de = {
+            name = "plasma";
+          };
+          inherit userAttrs;
+          inherit printerAttrs;
+          inherit locale;
+          inherit shell;
+          networkConfig = {
+            hostName = "srv-nixostest";
+            interface = "enp1s0";
+            address = "172.16.0.111";
+            prefixLength = 24;
+            defaultGateway = "172.16.0.1";
+            nameservers = [ "172.16.0.3" "172.16.0.4" ];
+          };
+          themeAccent = "teal";
+          themeFlavour = "mocha";
+          themeMode = "dark";
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/srv-nixostest.nix
         ];
       };
     };
