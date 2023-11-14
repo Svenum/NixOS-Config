@@ -19,6 +19,18 @@
     pulse.enable = true;
   };
 
+  # load alsaconfig at boot
+  systemd.user.services."restore_asound" = {
+    description = "Restore alsa config";
+    serviceConfig = {
+      Type = "oneshot";
+    };
+    script = ''
+      alsactl restore -f ${./config/asound.conf} 
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
+
   # Import desktop environment
   imports = [ ./${de.name}.nix ];
 
