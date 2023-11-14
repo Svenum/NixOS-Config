@@ -27,7 +27,7 @@
       unitConfig.ConditionVirtualization = "!systemd-nspawn";
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "${pkgs.alsa-utils}/sbin/alsactl restore ${./config/asound.conf}";
+        ExecStart = "${pkgs.alsa-utils}/sbin/alsactl restore -f ${./config/asound.conf}";
       };
     };
 
