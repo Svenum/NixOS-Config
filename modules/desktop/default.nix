@@ -1,4 +1,4 @@
-{ lib, kbLayout, de, ... }:
+{ lib, kbLayout, de, pkgs, ... }:
 
 {
   # Configure xserver keyboard
@@ -27,7 +27,7 @@
       unitConfig.ConditionVirtualization = "!systemd-nspawn";
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "${alsa-utils}/sbin/alsactl restore ${./config/asound.conf}";
+        ExecStart = "${pkgs.alsa-utils}/sbin/alsactl restore ${./config/asound.conf}";
       };
     };
 
