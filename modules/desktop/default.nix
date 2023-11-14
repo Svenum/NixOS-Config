@@ -20,17 +20,16 @@
   };
 
   # load alsaconfig at boot
-  systemd.services."restore_asound" = {
-    description = "Restore alsa config";
-    enable = true;
-    serviceConfig = {
-      Type = "oneshot";
+    systemd.services.alsa-restore = {
+      description = "Restore Sound Card State";
+      wantedBy = [ "multi-user.target" ];
+      unitConfig.RequiresMountsFor = "/var/lib/alsa";
+      unitConfig.ConditionVirtualization = "!systemd-nspawn";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${alsa-utils}/sbin/alsactl restore ${./config/asound.conf}";
+      };
     };
-    script = ''
-      alsactl restore -f ${./config/asound.conf} 
-    '';
-    wantedBy = [ "multi-user.target" ];
-  };
 
   # Import desktop environment
   imports = [ ./${de.name}.nix ];
