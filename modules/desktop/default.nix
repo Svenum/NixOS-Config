@@ -20,8 +20,9 @@
   };
 
   # load alsaconfig at boot
-  systemd.user.services."restore_asound" = {
+  systemd.services."restore_asound" = {
     description = "Restore alsa config";
+    enable = true;
     serviceConfig = {
       Type = "oneshot";
     };
