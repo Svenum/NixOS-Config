@@ -15,7 +15,7 @@
   };
 
   boot.initrd.systemd.enable = true;
-  boot.kernelParams = [ "quiet" ];
+  #boot.kernelParams = [ "quiet" ];
 
   # Configure Plymouth
   boot.plymouth = {
