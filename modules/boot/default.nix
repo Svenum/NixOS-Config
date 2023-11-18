@@ -15,7 +15,7 @@
   };
 
   boot.initrd.systemd.enable = true;
-  #boot.kernelParams = [ "quiet" ];
+  boot.kernelParams = [ "quiet" "udev.log_level=3" ];
 
   # Configure Plymouth
   boot.plymouth = {
