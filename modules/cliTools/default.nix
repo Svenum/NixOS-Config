@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let 
+  backup = pkgs.writeShellScriptBin "backup" (builtins.readFile ./script/backup.sh);
+in
 {
   environment = {
     systemPackages = with pkgs; [
@@ -15,6 +18,9 @@
       cifs-utils
       btop
       dig
+      rclone
+      # Scripts
+      backup
     ];
   };
 }
