@@ -154,6 +154,11 @@ elif [[ $config_exists == "false" ]]; then
   echo "log_dir=$log_dir" >> $config_file
 fi
 
+if ! rclone listremotes | grep -q $backup_remote: ; then
+  rclone config create $backup_remote smb
+  rclone config update $backup_remote --all
+fi
+
 echo "Starting backup..."
 
 rclone sync $source_dir $backup_remote:$share$dest_dir --backup-dir $backup_remote:$share$backup_dir/$(date +%Y-%m-%d) -P --delete-excluded --filter-from $filter_file --transfers=30 --links --skip-links --checkers 30 --ignore-size --log-file=$log_dir/$(date +%Y-%m-%d).log --stats-log-level NOTICE --color ALWAYS
