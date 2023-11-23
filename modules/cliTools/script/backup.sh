@@ -161,4 +161,4 @@ fi
 
 echo "Starting backup..."
 
-rclone sync $source_dir $backup_remote:$share$dest_dir --backup-dir $backup_remote:$share$backup_dir/$(date +%Y-%m-%d) -P --delete-excluded --filter-from $filter_file --transfers=30 --links --skip-links --checkers 30 --ignore-size --log-file=$log_dir/$(date +%Y-%m-%d).log --stats-log-level NOTICE --color ALWAYS
+rclone sync $source_dir $backup_remote:$share$dest_dir --backup-dir $backup_remote:$share$backup_dir/$(date +%Y-%m-%d) -P --delete-excluded --filter-from $filter_file --transfers=30 --links --skip-links --checkers 30 --ignore-size --log-file=$log_dir/$i_config-$(date +%Y-%m-%d).log --stats-log-level NOTICE --color ALWAYS
