@@ -140,7 +140,7 @@
             };
           };
           inherit printerAttrs;
-          inherit locale;
+          locale = "de_DE";
           inherit shell;
           de = {
             name = "plasma";
