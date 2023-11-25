@@ -1,8 +1,5 @@
 { lib, config, pkgs, solaar, ... }:
 
-let
-  home-backup = pkgs.writeShellScriptBin "home-backup" (builtins.readFile ../scripts/home-backup.sh);
-in
 {
   # Import Modules
   imports = [
@@ -26,7 +23,6 @@ in
 
   # Install Custom Scripts and system specific packages
   environment.systemPackages = with pkgs; [
-    home-backup
     solaar.packages.${pkgs.system}.default
   ];
 

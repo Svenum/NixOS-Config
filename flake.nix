@@ -124,6 +124,40 @@
           ./hosts/srv-nixostest.nix
         ];
       };
+      Zeta = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit tz;
+          inherit kbLayout;
+          userAttrs = {
+            "martinn" = {
+              isGuiUser = true;
+              isSudoUser = false;
+            };
+            "sumartinn" = {
+              isGuiUser = true;
+              isSudoUser = true;
+            };
+          };
+          inherit printerAttrs;
+          inherit locale;
+          inherit shell;
+          de = {
+            name = "plasma";
+          };
+          networkConfig = {
+            hostName = "Zeta";
+            useDHCP = true;
+          };
+          themeAccent = "peach";
+          themeFlavour = "mocha";
+          themeMode = "dark";
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/Zeta.nix
+        ];
+      };
     };
   };
 
