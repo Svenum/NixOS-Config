@@ -6,7 +6,7 @@ let
     deviceUri = printer.deviceUri;
     description = printer.description;
     model = printer.model;
-    ppdOptions.PageSize = if builtins.hasAttr "pageSize" printer then printer.pageSize else "A4";
+    #ppdOptions.PageSize = if builtins.hasAttr "pageSize" printer then printer.pageSize else "A4";
   };
 
   defaultPrinter = (lib.lists.findFirst (printer: if builtins.hasAttr "isDefault" printer then printer.isDefault else false) (lib.lists.findFirst (printer: true) "none" printerAttrs) printerAttrs).name;
