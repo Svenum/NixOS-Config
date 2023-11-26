@@ -2,8 +2,8 @@
 flatpak install --user com.discordapp.Discord -y
 
 echo "Please login and then close discord"
-flatpak kill com.discordapp.Discord
-flatpak run com.discordapp.Discord
+flatpak kill com.discordapp.Discord > /dev/zero 2>&1
+flatpak run com.discordapp.Discord > /dev/zero 2>&1
 
 # install betterdiscord 
 echo "install betterdiscord ..."
