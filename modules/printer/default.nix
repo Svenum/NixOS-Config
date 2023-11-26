@@ -18,9 +18,10 @@ in
     enable = true;
     drivers = with pkgs; [ epson-escpr hplip ];
   };
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
-  services.avahi.openFirewall = true;
+  # Enable auto discovery
+  #services.avahi.enable = true;
+  #services.avahi.nssmdns = true;
+  #services.avahi.openFirewall = true;
 
   hardware.printers = {
     ensurePrinters = builtins.map mkPrinterConfig printerAttrs;
