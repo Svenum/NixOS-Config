@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
 # Install spotify
 flatpak install --user com.spotify.Client -y
 echo "Please login and then close Spotify"
-com.spotify.Client
+flatpak kill com.spotify.Client 
+flatpak run com.spotify.Client
 
 # Prepare backupe
 echo "prepare backup ..."

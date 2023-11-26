@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
 # Install spotify
 flatpak install --user com.discordapp.Discord -y
 
 echo "Please login and then close discord"
-com.discordapp.Discord
+flatpak kill com.discordapp.Discord
+flatpak run com.discordapp.Discord
 
 # install betterdiscord 
 echo "install betterdiscord ..."
