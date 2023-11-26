@@ -1,4 +1,4 @@
-{ userAttrs, lib, pkgs, config, home-manager, themeFlavour, ... }:
+{ userAttrs, lib, pkgs, config, home-manager, themeAccent, ... }:
 
 let
   mkUserConfig = name: user: {
@@ -15,7 +15,7 @@ let
 
   # Custom scripts
   prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ./script/prepare_spotify.sh);
-  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.replaceStrings ["@themeFlavour@"] [ themeFlavour ](builtins.readFile ./script/prepare_discord.sh));
+  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.replaceStrings ["@themeAccent@"] [ themeAccent ](builtins.readFile ./script/prepare_discord.sh));
 in
 {
   # Install cusotm scripts
