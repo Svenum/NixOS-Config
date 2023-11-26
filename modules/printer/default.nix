@@ -30,5 +30,6 @@ in
   environment.systemPackages = with pkgs; [
     libinklevel
     epson-escpr
+    hplip
   ];
 }
