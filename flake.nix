@@ -31,7 +31,7 @@
       {
         name = "HP_Officejet_5740-Series";
         deviceUri = "https://pr-hp.intra.holypenguin.net/ipp/printers";
-        model = "hp-officejet_5740_series.ppd";
+        model = "HP/hp-officejet_5740_series.ppd.gz";
         description = "HP Officejet 5740";
         isDefault = false;
       }
