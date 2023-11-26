@@ -140,10 +140,12 @@
             "martinn" = {
               isGuiUser = true;
               isSudoUser = false;
+              uid = 1001;
             };
             "sumartinn" = {
               isGuiUser = true;
               isSudoUser = true;
+              uid = 1000;
             };
           };
           inherit printerAttrs;
