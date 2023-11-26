@@ -44,7 +44,7 @@
       # definitions of existing MD arrays
       ARRAY /dev/md/1  metadata=1.2 UUID=b9c00b97:f6bcf7d4:d0660752:947755d1 name=Zeta:1
     '';
-  }
+  };
 
   # Configure Filesystem
   fileSystems."/" =
