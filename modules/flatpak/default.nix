@@ -1,4 +1,4 @@
-{ userAttrs, lib, pkgs, config, home-manager, ... }:
+{ userAttrs, lib, pkgs, config, home-manager, themeFlavour, ... }:
 
 let
   mkUserConfig = name: user: {
