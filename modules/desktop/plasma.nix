@@ -39,6 +39,7 @@ in
     bup
     # GUI Tools
     kate
+    libsForQt5.skanlite
     kup
     libsForQt5.sddm-kcm
     # Add Konsole profiles and colorshcemes
