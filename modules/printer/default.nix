@@ -16,7 +16,7 @@ in
   # Enable printer
   services.printing = {
     enable = true;
-    drivers = with pkgs; [ epson-escpr hplib ];
+    drivers = with pkgs; [ epson-escpr hplip ];
   };
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
