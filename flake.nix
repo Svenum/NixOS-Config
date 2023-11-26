@@ -28,6 +28,13 @@
         description = "Epson ET-2720";
         isDefault = true;
       }
+      #{
+      #  name = "HP_Officejet_5740-Series";
+      #  deviceUri = "https://pr-hp.intra.holypenguin.net:";
+      #  model = "";
+      #  description = "HP Officejet 5740";
+      #  isDefault = false;
+      #}
     ]; 
     locale = "en_DE";
     shell = "zsh";
