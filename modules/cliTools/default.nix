@@ -12,6 +12,7 @@ in
       tree
       unzip
       pciutils
+      usbutils
       clinfo
       killall
       neofetch
