@@ -20,18 +20,16 @@
     ../modules/tlp
     ../modules/kvm
     ../modules/nvidia
+
+    # Import flakes
+    solaar.nixosModules.default
   ];
 
-  # Install Custom Scripts and system specific packages
-  environment.systemPackages = with pkgs; [
-    solaar.packages.${pkgs.system}.default
-  ];
+  # enable solaar
+  programs.solaar.enable = true;
 
   # Enable fwupd
   services.fwupd.enable = true;
-
-  # Logitech
-  hardware.logitech.wireless.enable = true;
 
   # Steam
   hardware.steam-hardware.enable = true;
