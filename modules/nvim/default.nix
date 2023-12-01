@@ -36,6 +36,8 @@
           tmux-nvim
           # Git
           vim-gitgutter
+          # Markdown Preview
+          markdown-preview-nvim
         ];
       };
     };

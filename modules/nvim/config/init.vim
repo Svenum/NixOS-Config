@@ -119,6 +119,15 @@ nnoremap <silent> <C-g>u :GitGutterUndoHunk<CR>
 nnoremap <silent> <C-g>t :GitGutterToggle<CR>
 
 """"""""""""""""""""""""""""""
+"         gitgutter          "
+""""""""""""""""""""""""""""""
+" Plugin Config
+let g:mkdp_auto_close = 0
+
+" shotcuts
+nnoremap <M-m> :MarkdownPreview<CR>
+
+""""""""""""""""""""""""""""""
 "            other           "
 """"""""""""""""""""""""""""""
 " Cursor
