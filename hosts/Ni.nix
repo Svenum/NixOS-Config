@@ -73,36 +73,6 @@
     options = [ "subvol=/@games" "auto" "defaults" ];
   };
 
-  fileSystems."/mnt/sven" = {
-    device = "//srv-unraid.intra.holypenguin.net/sven";
-    fsType = "cifs";
-    options = let
-      automount_opts = ["x-systemd.automount" "noauto" "echo_interval=10" "x-systemd.idle-timeout=10" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s"];
-    in automount_opts ++ [ "uid=sven" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "_netdev" "credentials=${config.home-manager.users.sven.home.homeDirectory}/.smb"];
-  };
-
-  # enable mount cifs for normal user
-  security.wrappers = {
-    "mount.cifs" = {
-      setuid = true;
-      owner = "root";
-      group = "root";
-      source = "${pkgs.cifs-utils}/bin/mount.cifs";
-    };
-    "mount" = {
-      setuid = true;
-      owner = "root";
-      group = "root";
-      source = "${pkgs.utillinux}/bin/mount";
-    };
-    "umount" = {
-      setuid = true;
-      owner = "root";
-      group = "root";
-      source = "${pkgs.utillinux}/bin/umount";
-    };
-  };
-
   # Nix config
   system.autoUpgrade = {
     enable = true;

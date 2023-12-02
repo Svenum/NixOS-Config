@@ -1,9 +1,5 @@
 { lib, config, pkgs, ... }:
 
-let
-  autoMountOpts = ["x-systemd.automount" "noauto" "echo_interval=10" "x-systemd.idle-timeout=10" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s"];
-  smbMountOpts = autoMountOpts ++ [ "uid=martinn" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "_netdev" "credentials=${config.home-manager.users.martinn.home.homeDirectory}/.smb"];
-in
 {
   # Import Modules
   imports = [
@@ -69,40 +65,6 @@ in
     { device = "/dev/disk/by-uuid/971E-B902";
       fsType = "vfat";
     };
-
-
-  # Mount Unraid Shares
-  fileSystems."/mnt/martin" = {
-    device = "//srv-unraid.intra.holypenguin.net/martin";
-    fsType = "cifs";
-    options = smbMountOpts;
-  };
-
-  fileSystems."/mnt/Dokumente" = {
-    device = "//srv-unraid.intra.holypenguin.net/martin/Backup/Zeta/latest";
-    fsType = "cifs";
-    options = smbMountOpts;
-  };
-
-  fileSystems."/mnt/Bilder" = {
-    device = "//srv-unraid.intra.holypenguin.net/Pictures/latest";
-    fsType = "cifs";
-    options = smbMountOpts;
-  };
-
-  fileSystems."/mnt/Musik" = {
-    device = "//srv-unraid.intra.holypenguin.net/Music/latest";
-    fsType = "cifs";
-    options = smbMountOpts;
-  };
-
-  # enable mount cifs for normal user
-  security.wrappers."mount.cifs" = {
-    setuid = true;
-    owner = "root";
-    group = "root";
-    source = "${pkgs.cifs-utils}/bin/mount.cifs";
-  };
 
   # Nix config
   system.autoUpgrade = {
