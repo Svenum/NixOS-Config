@@ -97,7 +97,7 @@ in
   };
 
   # enable mount cifs for normal user
-  security.wrapper."mount.cifs" = {
+  security.wrappers."mount.cifs" = {
     setuid = true;
     owner = "root";
     group = "root";
