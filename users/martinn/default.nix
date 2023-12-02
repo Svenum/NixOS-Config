@@ -1,11 +1,11 @@
 { home, pkgs, ... }:
 
 let
-  tetris = pkgs.call
+  tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
 in
 {
-  # Add extgra packa
-  home.packages = wi
+  # Add extgra packages
+  home.packages = with pkgs; [
     caffeine-ng
     tetris
   ];
