@@ -154,9 +154,7 @@
           inherit printerAttrs;
           locale = "de_DE";
           inherit shell;
-          de = {
-            name = "plasma";
-          };
+          inherit de;
           networkConfig = {
             hostName = "Zeta";
             useDHCP = true;
