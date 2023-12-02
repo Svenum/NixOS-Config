@@ -96,6 +96,14 @@ in
     options = smbMountOpts;
   };
 
+  # enable mount cifs for normal user
+  security.wrapper."mount.cifs" = {
+    setuid = true;
+    owner = "root";
+    group = "root";
+    source = "${pkgs.cifs-utils}/bin/mount.cifs";
+  };
+
   # Nix config
   system.autoUpgrade = {
     enable = true;

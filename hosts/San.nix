@@ -72,6 +72,14 @@
     in automount_opts ++ [ "uid=sven" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "_netdev" "credentials=${config.home-manager.users.sven.home.homeDirectory}/.smb"];
   };
 
+  # enable mount cifs for normal user
+  security.wrapper."mount.cifs" = {
+    setuid = true;
+    owner = "root";
+    group = "root";
+    source = "${pkgs.cifs-utils}/bin/mount.cifs";
+  };
+
   # Nix config
   system.autoUpgrade = {
     enable = true;
