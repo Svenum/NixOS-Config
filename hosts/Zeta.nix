@@ -2,7 +2,7 @@
 
 let
   autoMountOpts = ["x-systemd.automount" "noauto" "echo_interval=10" "x-systemd.idle-timeout=10" "x-systemd.device-timeout=5s" "x-systemd.mount-timeout=5s"];
-  smbMountOpts = autoMountOpts ++ [ "uid=martin" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "_netdev" "credentials=${config.home-manager.users.martin.home.homeDirectory}/.smb"];
+  smbMountOpts = autoMountOpts ++ [ "uid=martinn" "gid=users" "mfsymlinks" "soft" "rsize=8192" "wsize=8192" "_netdev" "credentials=${config.home-manager.users.martinn.home.homeDirectory}/.smb"];
 in
 {
   # Import Modules
