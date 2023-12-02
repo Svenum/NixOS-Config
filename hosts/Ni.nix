@@ -91,14 +91,14 @@
     };
     "mount" = {
       setuid = true;
-      owner = root;
-      group = root;
+      owner = "root";
+      group = "root";
       source = "${pkgs.utillinux}/bin/mount";
     };
     "umount" = {
       setuid = true;
-      owner = root;
-      group = root;
+      owner = "root";
+      group = "root";
       source = "${pkgs.utillinux}/bin/umount";
     };
   };
