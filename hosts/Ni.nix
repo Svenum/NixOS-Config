@@ -82,11 +82,25 @@
   };
 
   # enable mount cifs for normal user
-  security.wrappers."mount.cifs" = {
-    setuid = true;
-    owner = "root";
-    group = "root";
-    source = "${pkgs.cifs-utils}/bin/mount.cifs";
+  security.wrappers = {
+    "mount.cifs" = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${pkgs.cifs-utils}/bin/mount.cifs";
+    };
+    "mount" = {
+      setuid = true;
+      owner = root;
+      group = root;
+      source = "${pkgs.utillinux}/bin/mount";
+    };
+    "umount" = {
+      setuid = true;
+      owner = root;
+      group = root;
+      source = "${pkgs.utillinux}/bin/umount";
+    };
   };
 
   # Nix config
