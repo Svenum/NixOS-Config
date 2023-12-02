@@ -85,6 +85,7 @@
 | userAttrs.\<name\>.git.userName | Git userName | none | | string |
 | userAttrs.\<name\>.git.userEmail | Git userEmail | none | | string |
 | userAttrs.\<name\>.shell | Shell for user | none | | string |
+| userAttrs.\<name\>.authorizedKeys | SSH authorized Keys for user | none | | list |
 | locale | locale to use | none | [ "de_DE" "en_DE" "en_US" ] | string |
 | tz | timezone of the system | none | | string |
 | kbLayout | Keyboard layout | none | | string |

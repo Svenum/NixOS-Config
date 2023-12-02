@@ -8,6 +8,7 @@ let
     extraGroups = [ "networkmanager" "libvirtd" "network" "video" "sys" "audio" "kvm" "optical" "scanner" "lp" (lib.mkIf (if builtins.hasAttr "isSudoUser" user then user.isSudoUser else false) "wheel")];
     useDefaultShell = true;
     uid = lib.mkIf (if builtins.hasAttr "uid" user then true else false) user.uid;
+    openssh.authorizedKeys.keys = lib.mkIf (if builtins.hasAttr "authorizedKeys" user then true else false) user.authorizedKeys;
   };
 
   mkUserConfig = name: user: {
