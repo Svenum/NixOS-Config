@@ -16,7 +16,7 @@ let
     home = {
       username = name;
       homeDirectory = "/home/${name}";
-      stateVersion = "23.05";
+      stateVersion = "23.11";
     };
     programs.home-manager.enable = true;
 

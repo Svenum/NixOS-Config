@@ -52,6 +52,6 @@ in
     enable = true;
     dates = "daily";
   };
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
