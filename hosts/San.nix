@@ -65,10 +65,6 @@
     };
 
   # Nix config
-  system.autoUpgrade = {
-    enable = true;
-    dates = "daily";
-  };
   system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
