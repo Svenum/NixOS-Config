@@ -12,7 +12,7 @@ default_share="/$USER"
 config_dir="$HOME/.backup/config"
 
 # Get new params
-while getopts hr:s:d:b:f:l:a:c: flag
+while getopts ghr:s:d:b:f:l:a:c: flag
 do
   case "${flag}" in
     h) help=true;;
@@ -24,6 +24,7 @@ do
     l) i_log_dir=${OPTARG};;
     a) i_share=${OPTARG};;
     c) i_config=${OPTARG};;
+    g) get=true;;
   esac
 done
 
@@ -40,7 +41,16 @@ if [[ $help == true ]]; then
 -l     Set log file (default: $default_log_dir)
 -a     Set share on remote (default: $default_share)
 -c     Set or create a new config
+-g     Get all configs
   "
+  exit 0
+fi
+
+# Get configs
+if [[ $get == true ]]; then
+  echo "Existing configs:"
+  echo "-----------------"
+  ls -1 $config_dir
   exit 0
 fi
 
