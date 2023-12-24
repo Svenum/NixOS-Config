@@ -1,6 +1,9 @@
 { pkgs, config, themeFlavour, ... }:
 
 {
+  # Filesystems
+  boot.supportedFilesystems = [ "ntfs" ];
+
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
