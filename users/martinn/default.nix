@@ -8,5 +8,6 @@ in
   home.packages = with pkgs; [
     caffeine-ng
     tetris
+    k3b
   ];
 }
