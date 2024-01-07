@@ -42,4 +42,7 @@ in
       epkowa
     ];
   };
+
+  # Enable usb scanner support
+  services.ipp-usb.enable = true;
 }
