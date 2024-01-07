@@ -38,8 +38,9 @@ in
   hardware.sane = {
     enable = enableScanner;
     extraBackends = with pkgs; [
-      hplipWithPlugin
-      epkowa
+      sane-airscan
+      #hplipWithPlugin
+      #epkowa
     ];
   };
 
