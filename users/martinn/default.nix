@@ -9,5 +9,6 @@ in
     caffeine-ng
     tetris
     k3b
+    skanpage
   ];
 }
