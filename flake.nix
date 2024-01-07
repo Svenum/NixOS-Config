@@ -20,6 +20,7 @@
         };
       };
     };
+    enableScanner = true;
     printerAttrs =[
       {
         name = "Epson_ET-2720-Series";
@@ -49,6 +50,7 @@
           inherit kbLayout;
           inherit userAttrs;
           inherit printerAttrs;
+          inherit enableScanner;
           inherit locale;
           inherit shell;
           de = {
@@ -79,6 +81,7 @@
           inherit de;
           inherit userAttrs;
           inherit printerAttrs;
+          inherit enableScanner;
           inherit locale;
           inherit shell;
           nvidia = {
@@ -112,6 +115,7 @@
           };
           inherit userAttrs;
           inherit printerAttrs;
+          inherit enableScanner;
           inherit locale;
           inherit shell;
           networkConfig = {
@@ -152,6 +156,7 @@
             };
           };
           inherit printerAttrs;
+          inherit enableScanner;
           locale = "de_DE";
           inherit shell;
           inherit de;

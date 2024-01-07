@@ -1,4 +1,4 @@
-{ printerAttrs, pkgs, lib, ... }:
+{ printerAttrs, pkgs, lib, enableScanner, ... }:
 
 let
   mkPrinterConfig = printer: {
@@ -33,4 +33,13 @@ in
     epson-escpr
     hplip
   ];
+
+  # Enable Scanner
+  hardware.sane = {
+    enable = enableScanner;
+    extraBackends = with pkgs; [
+      hplipWithPlugin
+      epkowa
+    ];
+  };
 }
