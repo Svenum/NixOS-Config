@@ -16,9 +16,9 @@ in
     enable = true;
     workspace = {
       clickItemTo = "select";
-      theme = "Catppuccin-${themeAccent}-${themeFlavour}";
-      colorScheme = "Catppuccin-${themeAccent}-${themeFlavour}";
-      wallpaper = "/etc/wallpaper/catppuccin-${themeAccent}.jpg";
+      theme = "Catppuccin-${themeFlavour}-${themeAccent}";
+      colorScheme = "Catppuccin-${themeFlavour}-${themeAccent}";
+      wallpaper = "/etc/wallpaper/catppuccin-${themeFlavour}.jpg";
     };
 
     hotkeys.commands."Launch Konsole" = {
