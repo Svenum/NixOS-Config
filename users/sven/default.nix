@@ -10,4 +10,9 @@ in
     tetris
     ccrypt
   ];
+
+
+  programs.plasma = {
+    enable = true;
+  };
 }

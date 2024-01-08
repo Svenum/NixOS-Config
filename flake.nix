@@ -1,7 +1,7 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, ... }@inputs:
   let
     lib = nixpkgs.lib;
     tz = "Europe/Berlin";
@@ -46,6 +46,7 @@
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
+          inherit (inputs) plasma-manager;
           inherit tz;
           inherit kbLayout;
           inherit userAttrs;
@@ -76,6 +77,7 @@
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
+          inherit (inputs) plasma-manager;
           inherit tz;
           inherit kbLayout;
           inherit de;
@@ -108,6 +110,7 @@
       srv-nixostest = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
+          inherit (inputs) plasma-manager;
           inherit tz;
           inherit kbLayout;
           de = {
@@ -138,6 +141,7 @@
       Zeta = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
+          inherit (inputs) plasma-manager;
           inherit tz;
           inherit kbLayout;
           userAttrs = {
@@ -200,6 +204,14 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
 
     solaar = {

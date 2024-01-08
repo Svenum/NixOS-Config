@@ -1,4 +1,4 @@
-{ userAttrs, lib, config, home-manager, pkgs, ... }:
+{ userAttrs, lib, config, home-manager, pkgs, de, plasma-manager, ... }:
 
 let
   mkUser = name: user: {
@@ -41,7 +41,7 @@ let
     };
 
     # Import user specific modues if needed
-    imports = if (builtins.pathExists ../../users/${name}/default.nix ) then [ ../../users/${name} ] else [];
+    imports = if (builtins.pathExists ../../users/${name}/default.nix ) then [ ../../users/${name} ] ++ (if de.name == "plasma" then [ plasma-manager.homeManagerModules.plasma-manager ] else []) else [];
   };
 in
 {
