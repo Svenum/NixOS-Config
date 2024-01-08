@@ -1,9 +1,9 @@
-{ home, pkgs, ... }:
+{ home, pkgs, lib, ... }:
 
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
-  themeFlavour = if builtins.getEnv "HOSTNAME"!= "San" then "mocha" else "latte";
-  themeAccent = "teal";
+  themeFlavour = if builtins.getEnv "HOSTNAME" != "San" then "Mocha" else "Latte";
+  themeAccent = "Teal";
 in
 {
   # Add extgra packages
@@ -20,7 +20,7 @@ in
       clickItemTo = "select";
       theme = "Catppuccin-${themeFlavour}-${themeAccent}";
       colorScheme = "Catppuccin-${themeFlavour}-${themeAccent}";
-      wallpaper = "/etc/wallpaper/catppuccin-${themeFlavour}.jpg";
+      wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower themeFlavour}.jpg";
     };
 
     hotkeys.commands."Launch Konsole" = {
