@@ -1,4 +1,4 @@
-{ home, pkgs, ... }:
+{ home, pkgs, themeAccent, themeFlavour, ... }:
 
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
@@ -14,6 +14,18 @@ in
 
   programs.plasma = {
     enable = true;
+    workspace = {
+      clickItemTo = "select";
+      theme = "Catppuccin-${themeAccent}-${themeFlavour}";
+      colorScheme = "Catppuccin-${themeAccent}-${themeFlavour}";
+      wallpaper = "/etc/wallpaper/catppuccin-${themeAccent}.jpg";
+    };
+
+    hotkeys.commands."Launch Konsole" = {
+      key = "Ctrl+T";
+      command = "konsole";
+    };
+
     shortcuts = {
       kwin = {
         # Switch Desktop
