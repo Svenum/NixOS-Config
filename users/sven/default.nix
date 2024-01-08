@@ -1,7 +1,9 @@
-{ home, pkgs, themeAccent, themeFlavour, ... }:
+{ home, pkgs, ... }:
 
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
+  themeFlavour = if builtins.getEnv "HOSTNAME"!= "San" then "mocha" else "latte";
+  themeAccent = "teal";
 in
 {
   # Add extgra packages

@@ -1,4 +1,4 @@
-{ userAttrs, lib, config, home-manager, pkgs, de, plasma-manager, ... }:
+{ userAttrs, lib, config, home-manager, pkgs, de, plasma-manager, themeAccent, themeFlavour, ... }:
 
 let
   mkUser = name: user: {
