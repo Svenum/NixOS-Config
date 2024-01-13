@@ -22,7 +22,7 @@ in
       #theme = "Catppuccin-${themeFlavour}-${themeAccent}";
       theme = "default";
       colorScheme = "Catppuccin${themeFlavour}${themeAccent}";
-      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}";
+      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}-Cursors";
       iconTheme = "Papirus";
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower themeFlavour}.jpg";
     };
