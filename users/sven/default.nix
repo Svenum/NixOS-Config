@@ -57,7 +57,7 @@ in
           "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemmonitor.memory"
           "org.kde.plasma.systemmonitor.cpucore"
-          "org.kde.plasma.systemtroy"
+          "org.kde.plasma.systemtray"
           "org.kde.shutdownOrSwitch"
         ];
         height = 30;
