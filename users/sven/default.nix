@@ -31,6 +31,35 @@ in
       command = "konsole";
     };
 
+    panels = [
+      {
+        location = "left";
+        hide = "windowscover";
+        alignment = "left";
+        widgets = [
+          "org.kde.plasma.icontasks"
+        ];
+        height = 50;
+        maxLength = 1410;
+        minLength = 1050;
+      }
+      {
+        location = "top"
+        hide = "windowscover";
+        alignment = "center";
+        widgets = [
+          "org.kde.plasma.appmenu"
+          "org.kde.plasma.panelspacer"
+          "org.kde.plasma.betterinlineclock"
+          "org.kde.plasma.pager"
+          "org.kde.plasma.panelspacer"
+        ];
+        height = 30;
+        maxLength = 3440;
+        minLength = 1920;
+      }
+    ];
+
     shortcuts = {
       kwin = {
         # Switch Desktop
