@@ -34,7 +34,7 @@ in
     panels = [
       {
         location = "left";
-        hide = "windowscover";
+        hiding = "windowscover";
         alignment = "left";
         widgets = [
           "org.kde.plasma.icontasks"
@@ -45,7 +45,7 @@ in
       }
       {
         location = "top";
-        hide = "windowscover";
+        hiding = "windowscover";
         alignment = "center";
         widgets = [
           "org.kde.plasma.appmenu"
