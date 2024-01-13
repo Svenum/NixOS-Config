@@ -44,7 +44,7 @@ in
         minLength = 1050;
       }
       {
-        location = "top"
+        location = "top";
         hide = "windowscover";
         alignment = "center";
         widgets = [
