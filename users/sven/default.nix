@@ -3,6 +3,7 @@
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
   themeFlavour = if builtins.getEnv "HOSTNAME" != "San" then "Mocha" else "Latte";
+  cursorFlavour = if builtins.getEnv "HOSTNAME" == "San" then "Mocha" else "Latte";
   themeAccent = "Teal";
 in
 {
@@ -18,8 +19,11 @@ in
     enable = true;
     workspace = {
       clickItemTo = "select";
-      theme = "Catppuccin-${themeFlavour}-${themeAccent}";
-      colorScheme = "Catppuccin-${themeFlavour}-${themeAccent}";
+      #theme = "Catppuccin-${themeFlavour}-${themeAccent}";
+      theme = "default"
+      colorScheme = "Catppuccin${themeFlavour}${themeAccent}";
+      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}";
+      iconTheme = "Papirus";
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower themeFlavour}.jpg";
     };
 
