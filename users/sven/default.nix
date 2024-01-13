@@ -19,10 +19,9 @@ in
     enable = true;
     workspace = {
       clickItemTo = "select";
-      #theme = "Catppuccin-${themeFlavour}-${themeAccent}";
       theme = "default";
       colorScheme = "Catppuccin${themeFlavour}${themeAccent}";
-      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}-Cursors";
+      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}";
       iconTheme = "Papirus";
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower themeFlavour}.jpg";
     };
