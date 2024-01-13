@@ -55,6 +55,10 @@ in
           "org.kde.plasma.betterinlineclock"
           "org.kde.plasma.pager"
           "org.kde.plasma.panelspacer"
+          "org.kde.plasma.systemmonitor.memory"
+          "org.kde.plasma.systemmonitor.cpucore"
+          "org.kde.plasma.systemtroy"
+          "org.kde.shutdownOrSwitch"
         ];
         height = 30;
         maxLength = 3440;
