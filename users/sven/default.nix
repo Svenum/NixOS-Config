@@ -20,7 +20,7 @@ in
     workspace = {
       clickItemTo = "select";
       #theme = "Catppuccin-${themeFlavour}-${themeAccent}";
-      theme = "default"
+      theme = "default";
       colorScheme = "Catppuccin${themeFlavour}${themeAccent}";
       cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}";
       iconTheme = "Papirus";
