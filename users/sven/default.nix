@@ -35,9 +35,11 @@ in
       {
         location = "left";
         hiding = "windowscover";
-        alignment = "left";
+        alignment = "right";
         widgets = [
+          "org.kde.plasma.panelspacer"
           "org.kde.plasma.icontasks"
+          "org.kde.plasma.panelspacer"
         ];
         height = 50;
         maxLength = 1410;
