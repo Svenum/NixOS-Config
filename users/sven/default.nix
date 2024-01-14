@@ -41,7 +41,7 @@ in
           "org.kde.plasma.icontasks"
           "org.kde.plasma.panelspacer"
         ];
-        iconTasksLauncher = [
+        iconTasksLaunchers = [
           "org.kde.dolphin.desktop"
           "com.brave.Browser.desktop"
           "com.valvesoftware.Steam.desktop"
