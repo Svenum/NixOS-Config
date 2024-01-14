@@ -41,6 +41,14 @@ in
           "org.kde.plasma.icontasks"
           "org.kde.plasma.panelspacer"
         ];
+        iconTasksLauncher = [
+          "org.kde.dolphin.desktop"
+          "com.brave.Browser.desktop"
+          "com.valvesoftware.Steam.desktop"
+          "net.lutris.Lutris.desktop"
+          "net.lutris.league-of-legends-1.desktop"
+          "org.remmina.Remmina.desktop"
+        ];
         height = 50;
         maxLength = 1410;
         minLength = 1050;
