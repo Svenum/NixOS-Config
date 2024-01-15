@@ -2,9 +2,12 @@
 
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
-  themeFlavour = if builtins.getEnv "HOSTNAME" != "San" then "Mocha" else "Latte";
-  cursorFlavour = if builtins.getEnv "HOSTNAME" == "San" then "Mocha" else "Latte";
+  
+  hostname = builtins.getEnv "HOSTNAME";
+  themeFlavour = if hostname != "San" then "Mocha" else "Latte";
+  cursorFlavour = if hostname == "San" then "Mocha" else "Latte";
   themeAccent = "Teal";
+  cpuCount = if hostname == "San" then 12 else if hostname == "Ni" then 8 else if hostname == "srv-nixos-test" then 4 else 1 
 in
 {
   # Add extgra packages
@@ -96,6 +99,9 @@ in
                 case "org.kde.plasma.systemmonitor.cpucore":
                   appletWidget.currentConfigGroup = ["Appearance"];
                   appletWidget.writeConfig("chartFace", "org.kde.ksysguard.piechart");
+                  appletWidget.currentConfigGroup = ["org.kde.ksysguard.piechart", "General"];
+                  appletWidget.writeConfig("rangeTo", ${cpuCount * 100});
+                  appletWidget.writeConfig("rangeAuto", false);
                   appletWidget.reloadConfig();
                   break;
               }
