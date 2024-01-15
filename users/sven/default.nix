@@ -98,7 +98,7 @@ in
                   appletWidget.currentConfigGroup = ["Appearance"];
                   appletWidget.writeConfig("chartFace", "org.kde.ksysguard.piechart");
                   appletWidget.currentConfigGroup = ["org.kde.ksysguard.piechart", "General"];
-                  appletWidget.writeConfig("rangeTo", ${ragne});
+                  appletWidget.writeConfig("rangeTo", ${range});
                   appletWidget.writeConfig("rangeAuto", false);
                   appletWidget.reloadConfig();
                   break;
