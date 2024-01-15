@@ -1,12 +1,10 @@
-{ home, pkgs, lib, ... }:
+{ home, pkgs, lib, systemConfig, themeAccent, themeFlavour, ... }:
 
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
   
-  hostname = builtins.getEnv "HOST";
-  themeFlavour = if hostname != "San" then "Mocha" else "Latte";
+  hostname = systemConfig.networking.hostName;
   cursorFlavour = if hostname == "San" then "Mocha" else "Latte";
-  themeAccent = "Teal";
   range = if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
 in
 {

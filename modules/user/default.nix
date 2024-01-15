@@ -51,4 +51,9 @@ in
   # Configure user
   imports = [ home-manager.nixosModules.home-manager ];
   home-manager.users = lib.mapAttrs mkUserConfig userAttrs;
+  home-manager.extraSpecialArgs = {
+    systemConfig = config;
+    inherit themeAccent;
+    inherit themeFlavour;
+  };
 }
