@@ -75,20 +75,27 @@ in
           panelIds.forEach((panel) => { //search through the panels
             panel = panelById(panel);
             if (!panel) {
-                return;
+              return;
             }
             panel.widgetIds.forEach((appletWidget) => {
-                appletWidget = panel.widgetById(appletWidget);
+              appletWidget = panel.widgetById(appletWidget);
 
-                if (appletWidget.type === "org.kde.shutdownOrSwitch") {
-                       appletWidget.currentConfigGroup = ["General"];
-                       appletWidget.writeConfig("showName", false);
-                       appletWidget.writeConfig("showExit", true);
-                       appletWidget.writeConfig("showNewSession", false);
-                       appletWidget.writeConfig("showSuspend", true);
-                       appletWidget.writeConfig("showUser", false);
-                       appletWidget.reloadConfig();
-                }
+              switch(appletWidget.type) {
+                case "org.kde.shutdownOrSwitch":
+                  appletWidget.currentConfigGroup = ["General"];
+                  appletWidget.writeConfig("showName", false);
+                  appletWidget.writeConfig("showExit", true);
+                  appletWidget.writeConfig("showNewSession", false);
+                  appletWidget.writeConfig("showSuspend", true);
+                  appletWidget.writeConfig("showUser", false);
+                  appletWidget.reloadConfig();
+                  break;
+                case: "org.kde.plasma.systemmonitor.cpucore":
+                  appletWidget.currentConfigGroup = ["Appearance"];
+                  appletWidget.writeConfig("chartFace", "org.kde.ksysguard.piechart");
+                  appletWidget.reloadConfig();
+                  break;
+              }
             });
           });
         '';
