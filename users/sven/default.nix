@@ -7,7 +7,7 @@ let
   themeFlavour = if hostname != "San" then "Mocha" else "Latte";
   cursorFlavour = if hostname == "San" then "Mocha" else "Latte";
   themeAccent = "Teal";
-  range = if hostname == "San" then 1200 else if hostname == "Ni" then 800 else if hostname == "srv-nixos-test" then 400 else 100; 
+  range = if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixos-test" then "400" else "100"; 
 in
 {
   # Add extgra packages
