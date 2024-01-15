@@ -21,7 +21,7 @@ in
       clickItemTo = "select";
       theme = "default";
       colorScheme = "Catppuccin${themeFlavour}${themeAccent}";
-      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}";
+      cursorTheme = "Catppuccin-${cursorFlavour}-${themeAccent}-Cursors";
       iconTheme = "Papirus";
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower themeFlavour}.jpg";
     };
@@ -88,10 +88,9 @@ in
                        appletWidget.writeConfig("showSuspend", true);
                        appletWidget.writeConfig("showUser", false);
                        appletWidget.reloadConfig();
-                    }
                 }
             });
-          });
+          };
         '';
       }
     ];
