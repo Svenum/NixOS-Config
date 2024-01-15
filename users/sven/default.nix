@@ -100,7 +100,7 @@ in
                   appletWidget.currentConfigGroup = ["Appearance"];
                   appletWidget.writeConfig("chartFace", "org.kde.ksysguard.piechart");
                   appletWidget.currentConfigGroup = ["org.kde.ksysguard.piechart", "General"];
-                  appletWidget.writeConfig("rangeTo", ${cpuCount * 100});
+                  appletWidget.writeConfig("rangeTo", ${range});
                   appletWidget.writeConfig("rangeAuto", false);
                   appletWidget.reloadConfig();
                   break;
