@@ -90,7 +90,7 @@ in
                        appletWidget.reloadConfig();
                 }
             });
-          };
+          });
         '';
       }
     ];
