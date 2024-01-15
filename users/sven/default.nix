@@ -85,13 +85,8 @@ in
                     if (systemtrayId) {
                        const widget = desktopById(systemtrayId);
                        widget.currentConfigGroup = ["General"];
-                       widget.writeConfig("", "");
-                       const extraItems = systray.readConfig("extraItems").split(",");
-                       if (extraItems.indexOf(widgetName) === -1) {
-                           extraItems.push(widgetName)
-                           systray.writeConfig("showName", false);
-                           systray.reloadConfig();
-                       }
+                       widget.writeConfig("showName", false);
+                       widget.reloadConfig();
                     }
                 }
             });
