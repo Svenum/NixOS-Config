@@ -3,7 +3,7 @@
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
   
-  hostname = builtins.getEnv "HOSTNAME";
+  hostname = builtins.getEnv "HOST";
   themeFlavour = if hostname != "San" then "Mocha" else "Latte";
   cursorFlavour = if hostname == "San" then "Mocha" else "Latte";
   themeAccent = "Teal";
