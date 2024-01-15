@@ -88,6 +88,9 @@ in
                   appletWidget.writeConfig("showNewSession", false);
                   appletWidget.writeConfig("showSuspend", true);
                   appletWidget.writeConfig("showUser", false);
+                  appletWidget.writeConfig("showUsers", false);
+                  appletWidget.currentConfigGroup = ["Appearance"];
+                  appletWidget.writeConfig("widgetListIconSize", 2);
                   appletWidget.reloadConfig();
                   break;
                 case "org.kde.plasma.systemmonitor.cpucore":
