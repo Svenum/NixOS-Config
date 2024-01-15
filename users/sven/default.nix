@@ -81,12 +81,13 @@ in
                 appletWidget = panel.widgetById(appletWidget);
 
                 if (appletWidget.type === "org.kde.shutdownOrSwitch") {
-                    systemtrayId = appletWidget.readConfig("SystrayContainmentId");
-                    if (systemtrayId) {
-                       const widget = desktopById(systemtrayId);
-                       widget.currentConfigGroup = ["General"];
-                       widget.writeConfig("showName", false);
-                       widget.reloadConfig();
+                       appletWidget.currentConfigGroup = ["General"];
+                       appletWidget.writeConfig("showName", false);
+                       appletWidget.writeConfig("showExit", true);
+                       appletWidget.writeConfig("showNewSession", false);
+                       appletWidget.writeConfig("showSuspend", true);
+                       appletWidget.writeConfig("showUser", false);
+                       appletWidget.reloadConfig();
                     }
                 }
             });
