@@ -71,6 +71,32 @@ in
         height = 30;
         maxLength = 3440;
         minLength = 1920;
+        extraSettings = ''
+          panelIds.forEach((panel) => { //search through the panels
+            panel = panelById(panel);
+            if (!panel) {
+                return;
+            }
+            panel.widgetIds.forEach((appletWidget) => {
+                appletWidget = panel.widgetById(appletWidget);
+
+                if (appletWidget.type === "org.kde.shutdownOrSwitch") {
+                    systemtrayId = appletWidget.readConfig("SystrayContainmentId");
+                    if (systemtrayId) {
+                       const widget = desktopById(systemtrayId);
+                       widget.currentConfigGroup = ["General"];
+                       widget.writeConfig("", "");
+                       const extraItems = systray.readConfig("extraItems").split(",");
+                       if (extraItems.indexOf(widgetName) === -1) {
+                           extraItems.push(widgetName)
+                           systray.writeConfig("showName", false);
+                           systray.reloadConfig();
+                       }
+                    }
+                }
+            });
+          });
+        '';
       }
     ];
 
