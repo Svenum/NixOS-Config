@@ -90,7 +90,7 @@ in
                   appletWidget.writeConfig("showUser", false);
                   appletWidget.reloadConfig();
                   break;
-                case: "org.kde.plasma.systemmonitor.cpucore":
+                case "org.kde.plasma.systemmonitor.cpucore":
                   appletWidget.currentConfigGroup = ["Appearance"];
                   appletWidget.writeConfig("chartFace", "org.kde.ksysguard.piechart");
                   appletWidget.reloadConfig();
