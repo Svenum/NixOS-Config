@@ -140,6 +140,9 @@
           inherit (inputs) home-manager;
           inherit tz;
           inherit kbLayout;
+          nvidia ={
+            hybridGraphics = false;
+          };
           userAttrs = {
             "martinn" = {
               isGuiUser = true;
