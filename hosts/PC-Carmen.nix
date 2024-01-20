@@ -33,17 +33,17 @@
 
   # Configure Filesystem
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/43beedfd-02d6-4865-8d2f-342848d7377e";
+    device = "/dev/disk/by-uuid/29037497-4c3e-48ae-9c18-4b100cfcf90f";
     fsType = "vfat";
   };
    
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/140A-391A";
+    device = "/dev/disk/by-uuid/D484-C573";
     fsType = "ext4";
   };
    
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/f78f8a4b-3c88-4166-85b1-724081956528";
+    device = "/dev/disk/by-uuid/9081fe75-7dec-4ca0-ad0d-aa13056751bb";
     fsType = "ext4";
   };
 
