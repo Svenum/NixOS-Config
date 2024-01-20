@@ -8,6 +8,9 @@ let
   plasma-applet-shutdownorswitch = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-shutdownorswitch {};
   plasma-applet-betterinlineclock = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-betterinlineclock {};
   konsole-catppuccin = pkgs.callPackage ../../custom-nixpkgs/konsole-catppuccin {};
+
+  cursor1 = pkgs.callPackage "${themeAccent}";
+  cursor2 = pkgs.callPackage "${themeAccent}";
 in
 {
   # Enable SDDM and Plasma
@@ -55,6 +58,10 @@ in
     # Cursor
     catppuccin-cursors.latteTeal
     catppuccin-cursors.mochaTeal
+    catppuccin-cursors.latteRed
+    catppuccin-cursors.mochaRed
+    catppuccin-cursors.lattePeach
+    catppuccin-cursors.mochaPeach
     # Icons
     (catppuccin-papirus-folders.override {
       flavor = "latte";
