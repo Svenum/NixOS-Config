@@ -176,6 +176,42 @@
           ./hosts/Zeta.nix
         ];
       };
+      PC-Carmen = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit tz;
+          inherit kbLayout;
+          userAttrs = {
+            "carmen" = {
+              isGuiUser = true;
+              isSudoUser = false;
+            };
+            "sudouser" = {
+              isGuiUser = true;
+              isSudoUser = true;
+              authorizedKeys = [
+                "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBABz8jUkUacu8PahA+mlDCCp3780yrcpAcNZIJ1CFswAbgbWoK+FZxdQ3P43X4cBjKVtz8tthf4xHhkGe6eNC1+ofgHq5bXfIP15ba7AEncdUvreQzPx2Aao7yZFw94piTiZqlQA193SZTw8ggbYPwn3hnXkFT/6ttIEr+18xUMGFM9c1A== sven@Ni"
+              ];
+            };
+          };
+          inherit printerAttrs;
+          inherit enableScanner;
+          locale = "de_DE";
+          inherit shell;
+          inherit de;
+          networkConfig = {
+            hostName = "PC-Carmen";
+            useDHCP = true;
+          };
+          themeAccent = "red";
+          themeFlavour = "latte";
+          themeMode = "light";
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/Zeta.nix
+        ];
+      };
     };
   };
 
