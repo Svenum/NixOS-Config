@@ -16,7 +16,13 @@
     ../modules/cliTools
     ../modules/network
     ../modules/bluetooth
+
+    # Import flakes
+    solaar.nixosModules.default
   ];
+
+  # enable solaar
+  programs.solaar.enable = true;
 
   # Enable ssh
   services.openssh.enable = true;
