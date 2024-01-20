@@ -4,6 +4,7 @@
   # Import Modules
   imports = [
     # Import modules
+    ../modules/nixos
     ../modules/user
     ../modules/boot
     ../modules/nvim
@@ -74,8 +75,6 @@
   };
 
   # Nix config
-  system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

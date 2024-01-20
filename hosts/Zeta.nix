@@ -4,6 +4,7 @@
   # Import Modules
   imports = [
     # Import modules
+    ../modules/nixos
     ../modules/rdp
     ../modules/user
     ../modules/boot
@@ -68,8 +69,6 @@
     };
 
   # Nix config
-  system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
