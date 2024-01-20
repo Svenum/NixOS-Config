@@ -34,12 +34,12 @@
   # Configure Filesystem
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/29037497-4c3e-48ae-9c18-4b100cfcf90f";
-    fsType = "vfat";
+    fsType = "ext4";
   };
    
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/D484-C573";
-    fsType = "ext4";
+    fsType = "vfat";
   };
    
   fileSystems."/home" = {
