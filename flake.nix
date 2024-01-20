@@ -209,7 +209,7 @@
         };
         system = "x86_64-linux";
         modules = [
-          ./hosts/Zeta.nix
+          ./hosts/PC-Carmen.nix
         ];
       };
     };
