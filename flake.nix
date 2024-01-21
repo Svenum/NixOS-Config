@@ -53,39 +53,17 @@
           ./hosts/Ni
         ];
       };
-      #San = lib.nixosSystem {
-      #  specialArgs = {
-      #    inherit (inputs) home-manager;
-      #    inherit (inputs) solaar;
-      #    inherit tz;
-      #    inherit kbLayout;
-      #    inherit de;
-      #    inherit userAttrs;
-      #    inherit printerAttrs;
-      #    inherit enableScanner;
-      #    inherit locale;
-      #    inherit shell;
-      #    nvidia = {
-      #      hybridGraphics = true;
-      #      nvidiaBusId = "PCI:1:0:0";
-      #      amdgpuBusId = "PCI:5:0:0";
-      #    };
-      #    tlpAttrs = {
-      #      deviceBlacklist = "03:00.0";
-      #    };
-      #    networkConfig = {
-      #      hostName = "San";
-      #      useDHCP = true;
-      #    };
-      #    themeAccent = "teal";
-      #    themeFlavour = "latte";
-      #    themeMode = "light";
-      #  };
-      #  system = "x86_64-linux";
-      #  modules = [
-      #    ./hosts/San.nix
-      #  ];
-      #};
+      San = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit (inputs) solaar;
+          settings = import ./hosts/San/settings.nix;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/San
+        ];
+      };
       #srv-nixostest = lib.nixosSystem {
       #  specialArgs = {
       #    inherit (inputs) home-manager;
