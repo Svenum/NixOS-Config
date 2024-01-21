@@ -179,6 +179,7 @@
       PC-Carmen = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
+          inherit (inputs) solaar;
           inherit tz;
           inherit kbLayout;
           userAttrs = {
