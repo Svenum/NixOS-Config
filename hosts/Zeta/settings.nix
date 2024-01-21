@@ -2,21 +2,21 @@
   # Language Settings
   tz = "Europe/Berlin";
   kbLayout = "de";
-  locale = "en_DE";
+  locale = "de_DE";
 
   # Desktop Settings
   de = {
     name = "plasma";
   };
   theme = {
-    accent = "teal";
+    accent = "peach";
     flavour = "mocha";
     mode = "dark";
   };
 
   # Network Settings
   networkConfig = {
-    hostName = "Ni";
+    hostName = "Zeta";
     useDHCP = true;
   };
 
@@ -27,13 +27,18 @@
 
   # User Settings
   userAttrs = {
-    "sven" = {
+    "martinn" = {
+      isGuiUser = true;
+      isSudoUser = false;
+      uid = 1001;
+    };
+    "sumartinn" = {
       isGuiUser = true;
       isSudoUser = true;
-      git = {
-        userName = "Svenum";
-        userEmail = "s.ziegler@holypenguin.net";
-      };
+      uid = 1000;
+      authorizedKeys = [
+        "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBABz8jUkUacu8PahA+mlDCCp3780yrcpAcNZIJ1CFswAbgbWoK+FZxdQ3P43X4cBjKVtz8tthf4xHhkGe6eNC1+ofgHq5bXfIP15ba7AEncdUvreQzPx2Aao7yZFw94piTiZqlQA193SZTw8ggbYPwn3hnXkFT/6ttIEr+18xUMGFM9c1A== sven@Ni"
+      ];
     };
   };
 

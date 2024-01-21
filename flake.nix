@@ -74,47 +74,16 @@
           ./hosts/srv-nixostest
         ];
       };
-      #Zeta = lib.nixosSystem {
-      #  specialArgs = {
-      #    inherit (inputs) home-manager;
-      #    inherit tz;
-      #    inherit kbLayout;
-      #    nvidia ={
-      #      hybridGraphics = false;
-      #    };
-      #    userAttrs = {
-      #      "martinn" = {
-      #        isGuiUser = true;
-      #        isSudoUser = false;
-      #        uid = 1001;
-      #      };
-      #      "sumartinn" = {
-      #        isGuiUser = true;
-      #        isSudoUser = true;
-      #        uid = 1000;
-      #        authorizedKeys = [
-      #          "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBABz8jUkUacu8PahA+mlDCCp3780yrcpAcNZIJ1CFswAbgbWoK+FZxdQ3P43X4cBjKVtz8tthf4xHhkGe6eNC1+ofgHq5bXfIP15ba7AEncdUvreQzPx2Aao7yZFw94piTiZqlQA193SZTw8ggbYPwn3hnXkFT/6ttIEr+18xUMGFM9c1A== sven@Ni"
-      #        ];
-      #      };
-      #    };
-      #    inherit printerAttrs;
-      #    inherit enableScanner;
-      #    locale = "de_DE";
-      #    inherit shell;
-      #    inherit de;
-      #    networkConfig = {
-      #      hostName = "Zeta";
-      #      useDHCP = true;
-      #    };
-      #    themeAccent = "peach";
-      #    themeFlavour = "mocha";
-      #    themeMode = "dark";
-      #  };
-      #  system = "x86_64-linux";
-      #  modules = [
-      #    ./hosts/Zeta.nix
-      #  ];
-      #};
+      Zeta = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          settings = import ./hosts/Zeta/settings.nix;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/Zeta
+        ];
+      };
       #PC-Carmen = lib.nixosSystem {
       #  specialArgs = {
       #    inherit (inputs) home-manager;

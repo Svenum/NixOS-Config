@@ -4,22 +4,22 @@
   # Import Modules
   imports = [
     # Import modules
-    ../modules/nixos
-    ../modules/rdp
-    ../modules/user
-    ../modules/boot
-    ../modules/nvim
-    ../modules/locale
-    ../modules/desktop
-    ../modules/tmux 
-    ../modules/shell
-    ../modules/flatpak
-    ../modules/printer
-    ../modules/cliTools
-    ../modules/network
-    ../modules/bluetooth
-    ../modules/kvm
-    ../modules/nvidia
+    ../../modules/nixos
+    ../../modules/rdp
+    ../../modules/user
+    ../../modules/boot
+    ../../modules/nvim
+    ../../modules/locale
+    ../../modules/desktop
+    ../../modules/tmux 
+    ../../modules/shell
+    ../../modules/flatpak
+    ../../modules/printer
+    ../../modules/cliTools
+    ../../modules/network
+    ../../modules/bluetooth
+    ../../modules/kvm
+    ../../modules/nvidia
   ];
 
   # Enable ssh
