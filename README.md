@@ -4,78 +4,114 @@
 
 ```
 /etc/nixos
-├── configs
-│   ├── asound.conf
-│   ├── catppuccin_frappe-zsh-syntax-highlighting.zsh
-│   ├── catppuccin_latte-zsh-syntax-highlighting.zsh
-│   ├── catppuccin_macchiato-zsh-syntax-highlighting.zsh
-│   ├── catppuccin_mocha-zsh-syntax-highlighting.zsh
-│   ├── init.vim
-│   └── wallpaper
-│       ├── catppuccin-latte.jpg
-│       └── catppuccin-mocha.jpg
 ├── custom-nixpkgs
+│   ├── konsole-catppuccin
+│   │   ├── default.nix
+│   │   ├── derivation.nix
+│   │   └── profile
+│   │       ├── Catppuccin-Latte.profile
+│   │       └── Catppuccin-Mocha.profile
+│   ├── plasma-applet-betterinlineclock
+│   │   ├── default.nix
+│   │   └── derivation.nix
+│   ├── plasma-applet-shutdownorswitch
+│   │   ├── default.nix
+│   │   └── derivation.nix
 │   └── tetris
 │       ├── default.nix
 │       └── derivation.nix
 ├── flake.lock
 ├── flake.nix
-├── flake.nix.bak
-├── homes
-│   └── sven
-│       ├── default.nix
-│       └── packages.nix
 ├── hosts
-│   ├── default
+│   ├── Ni
 │   │   ├── default.nix
-│   │   ├── desktop.nix
-│   │   ├── language.nix
-│   │   ├── network.nix
-│   │   ├── packages.nix
-│   │   ├── printer.nix
-│   │   ├── shell.nix
-│   │   ├── skel.nix
-│   │   └── tmux.nix
-│   └── srv-nixostest
+│   │   └── settings.nix
+│   ├── PC-Carmen
+│   │   ├── default.nix
+│   │   └── settings.nix
+│   ├── San
+│   │   ├── default.nix
+│   │   └── settings.nix
+│   ├── srv-nixostest
+│   │   ├── default.nix
+│   │   └── settings.nix
+│   └── Zeta
 │       ├── default.nix
-│       ├── desktop.nix
-│       ├── fs.nix
-│       ├── kernel.nix
-│       └── network.nix
+│       └── settings.nix
 ├── modules
+│   ├── bluetooth
+│   │   └── default.nix
 │   ├── boot
 │   │   └── default.nix
+│   ├── cliTools
+│   │   ├── default.nix
+│   │   └── script
+│   │       └── backup.sh
 │   ├── desktop
 │   │   ├── default.nix
+│   │   ├── image
+│   │   │   ├── catppuccin-latte.jpg
+│   │   │   └── catppuccin-mocha.jpg
 │   │   └── plasma.nix
 │   ├── flatpak
+│   │   ├── default.nix
+│   │   └── script
+│   │       ├── prepare_discord.sh
+│   │       └── prepare_spotify.sh
+│   ├── kvm
 │   │   └── default.nix
 │   ├── locale
 │   │   ├── de_DE.nix
 │   │   ├── default.nix
 │   │   ├── en_DE.nix
 │   │   └── en_US.nix
+│   ├── network
+│   │   └── default.nix
+│   ├── nixos
+│   │   └── default.nix
+│   ├── nvidia
+│   │   └── default.nix
 │   ├── nvim
+│   │   ├── config
+│   │   │   └── init.vim
+│   │   └── default.nix
+│   ├── printer
 │   │   └── default.nix
 │   ├── rdp
 │   │   └── default.nix
+│   ├── shell
+│   │   ├── config
+│   │   │   └── zsh
+│   │   │       ├── catppuccin_frappe-zsh-syntax-highlighting.zsh
+│   │   │       ├── catppuccin_latte-zsh-syntax-highlighting.zsh
+│   │   │       ├── catppuccin_macchiato-zsh-syntax-highlighting.zsh
+│   │   │       ├── catppuccin_mocha-zsh-syntax-highlighting.zsh
+│   │   │       ├── p10k.zsh
+│   │   │       └── zshrc
+│   │   ├── default.nix
+│   │   └── zsh.nix
+│   ├── tlp
+│   │   └── default.nix
 │   ├── tmux
-│   └── user
+│   │   └── default.nix
+│   ├── user
+│   │   └── default.nix
+│   └── wireguard
 │       └── default.nix
 ├── README.md
-├── scripts
-│   ├── home-backup.sh
-│   ├── prepare_discord.sh
-│   ├── prepare_spotify.sh
-│   └── san_toggle_gpu.sh
-└── skel
-    ├── template-dark
-    └── template-light
+└── users
+    ├── carmen
+    │   └── default.nix
+    ├── martinn
+    │   └── default.nix
+    └── sven
+        └── default.nix
 ```
 
 ## Variables
+This Variables must be layed in "/etc/hosts/COMPUTERNAME/settings.nix" and then loaded via "settings = import ./hosts/COMPUTERNAME/settings.nix" in the "specialArgs".
 
-| Variable | Description | Default | Valid Values | Type |
+| Variable | Description | Default | Valid Values | Type 
 | -------- | ----------- | ------- | ------------ | ---- |
 | themeAccent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] | string |
 | themeFlavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] | string |
@@ -109,4 +145,3 @@
 | nvidia.hybridGraphics | Enable if laptop has hybrid graphics (amd and nvidia) | false | [ true false ] | boolean |
 | nvidia.nvidiaBusId | PCI busid of the nvidia GPU in form of "PCI:X:0:0" | none | | string |
 | nvidia.amdgpuBusId | PCI busid of the amd GPU in form of "PCI:X:0:0" | none | | string |
-

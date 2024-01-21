@@ -53,6 +53,7 @@
           ./hosts/Ni
         ];
       };
+
       San = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
@@ -64,6 +65,7 @@
           ./hosts/San
         ];
       };
+
       srv-nixostest = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
@@ -74,6 +76,7 @@
           ./hosts/srv-nixostest
         ];
       };
+      
       Zeta = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
@@ -84,6 +87,7 @@
           ./hosts/Zeta
         ];
       };
+      
       PC-Carmen = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
