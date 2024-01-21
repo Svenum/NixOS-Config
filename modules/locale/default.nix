@@ -1,11 +1,11 @@
-{ locale, tz, kbLayout, ... }:
+{ settings, ... }:
 
 {
   # Load locales
-  imports = [ ./${locale}.nix ];
+  imports = [ ./${settings.locale}.nix ];
 
   # Configure Timezone
-  time.timeZone = tz;
+  time.timeZone = settings.tz;
   
   # Configure Keyboard layout
   console.useXkbConfig = true;

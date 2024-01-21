@@ -1,4 +1,4 @@
-{ userAttrs, lib, pkgs, config, home-manager, themeAccent, ... }:
+{ lib, pkgs, config, home-manager, settings, ... }:
 
 let
   mkUserConfig = name: user: {
@@ -15,7 +15,7 @@ let
 
   # Custom scripts
   prepare_spotify = pkgs.writeShellScriptBin "prepare_spotify" (builtins.readFile ./script/prepare_spotify.sh);
-  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.replaceStrings ["@themeAccent@"] [ themeAccent ](builtins.readFile ./script/prepare_discord.sh));
+  prepare_discord = pkgs.writeShellScriptBin "prepare_discord" (builtins.replaceStrings ["@themeAccent@"] [ settings.theme.accent ](builtins.readFile ./script/prepare_discord.sh));
 in
 {
   # Install cusotm scripts
@@ -53,7 +53,7 @@ in
 
   # Add repo and add overrides for guiUsers
   imports = [ home-manager.nixosModules.home-manager ];
-  home-manager.users = lib.mapAttrs mkUserConfig userAttrs;
+  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
 }
 
 

@@ -1,4 +1,4 @@
-{ pkgs, shell, ... }:
+{ pkgs, settings, ... }:
 
 {
   # Default alias
@@ -12,5 +12,5 @@
       }
     '';
 
-    imports = [ ./${shell}.nix ];
+    imports = [ ./${settings.shell}.nix ];
 }

@@ -1,4 +1,4 @@
-{ lib, pkgs, themeFlavour, home-manager, userAttrs, ... }:
+{ lib, pkgs, settings, home-manager, ... }:
 
 let
   mkUserConfig = name: user: {
@@ -14,7 +14,7 @@ in
     enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    shellInit = (builtins.readFile ./config/zsh/catppuccin_${themeFlavour}-zsh-syntax-highlighting.zsh);
+    shellInit = (builtins.readFile ./config/zsh/catppuccin_${settings.theme.flavour}-zsh-syntax-highlighting.zsh);
     promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     ohMyZsh = {
       enable = true;
@@ -24,5 +24,5 @@ in
   
   # Setup zshrc and p10k
   imports = [ home-manager.nixosModules.home-manager ];
-  home-manager.users = lib.mapAttrs mkUserConfig userAttrs;
+  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
 }

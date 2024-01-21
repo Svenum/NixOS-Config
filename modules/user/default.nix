@@ -1,4 +1,4 @@
-{ userAttrs, lib, config, home-manager, pkgs, ... }:
+{ settings, lib, config, home-manager, pkgs, ... }:
 
 let
   mkUser = name: user: {
@@ -46,9 +46,9 @@ let
 in
 {
   # Create user
-  users.users = lib.mkMerge [ (lib.mapAttrs mkUser userAttrs) { root.hashedPassword = "!"; } ];
+  users.users = lib.mkMerge [ (lib.mapAttrs mkUser settings.userAttrs) { root.hashedPassword = "!"; } ];
 
   # Configure user
   imports = [ home-manager.nixosModules.home-manager ];
-  home-manager.users = lib.mapAttrs mkUserConfig userAttrs;
+  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
 }

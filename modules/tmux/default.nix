@@ -1,4 +1,4 @@
-{ pkgs, themeFlavour, ... }:
+{ pkgs, settings, ... }:
 
 {
   programs.tmux = {
@@ -14,7 +14,7 @@
     extraConfigBeforePlugins = ''
       set -g repeat-time 700
       set -g mouse on
-      set -g @catppuccin_flavour '${themeFlavour}'
+      set -g @catppuccin_flavour '${settings.theme.flavour}'
       set -g @catppuccin_date_time_text "%d.%m.%Y %H:%M"
       set -g @catppuccin_status_modules "application user date_time"
       

@@ -1,4 +1,4 @@
-{ pkgs, config, themeFlavour, ... }:
+{ pkgs, config, settings, ... }:
 
 {
   # Install and Configure nvim
@@ -9,7 +9,7 @@
     vimAlias = true;
     withNodeJs = true;
     configure = {
-      customRC = (builtins.readFile ./config/init.vim) + "colorscheme catppuccin-${themeFlavour}";
+      customRC = (builtins.readFile ./config/init.vim) + "colorscheme catppuccin-${settings.theme.flavour}";
       packages.nix = {
         start = with pkgs.vimPlugins; [
           # Plugins

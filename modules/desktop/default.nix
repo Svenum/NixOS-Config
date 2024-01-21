@@ -1,9 +1,9 @@
-{ lib, kbLayout, de, pkgs, ... }:
+{ lib, settings, pkgs, ... }:
 
 {
   # Configure xserver keyboard
   services.xserver = {
-    layout = kbLayout;
+    layout = settings.kbLayout;
     xkbVariant = "";
   };
 
@@ -31,7 +31,7 @@
     '';
 
   # Import desktop environment
-  imports = [ ./${de.name}.nix ];
+  imports = [ ./${settings.de.name}.nix ];
 
   # Add Catppuccin wallpaper
   environment.etc.wallpaper.source = ./image;

@@ -1,4 +1,4 @@
-{ printerAttrs, pkgs, lib, enableScanner, ... }:
+{ pkgs, lib, settings, ... }:
 
 let
   mkPrinterConfig = printer: {
@@ -9,7 +9,7 @@ let
     #ppdOptions.PageSize = if builtins.hasAttr "pageSize" printer then printer.pageSize else "A4";
   };
 
-  defaultPrinter = (lib.lists.findFirst (printer: if builtins.hasAttr "isDefault" printer then printer.isDefault else false) (lib.lists.findFirst (printer: true) "none" printerAttrs) printerAttrs).name;
+  defaultPrinter = (lib.lists.findFirst (printer: if builtins.hasAttr "isDefault" printer then printer.isDefault else false) (lib.lists.findFirst (printer: true) "none" settings.printerAttrs) settings.printerAttrs).name;
 
 in
 {
@@ -24,7 +24,7 @@ in
   #services.avahi.openFirewall = true;
 
   hardware.printers = {
-    ensurePrinters = builtins.map mkPrinterConfig printerAttrs;
+    ensurePrinters = builtins.map mkPrinterConfig settings.printerAttrs;
     ensureDefaultPrinter = defaultPrinter;
   };
 
@@ -36,7 +36,7 @@ in
 
   # Enable Scanner
   hardware.sane = {
-    enable = enableScanner;
+    enable = settings.enableScanner;
     extraBackends = with pkgs; [
       sane-airscan
       #hplipWithPlugin
