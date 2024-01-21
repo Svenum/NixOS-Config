@@ -113,21 +113,26 @@ This Variables must be layed in "/etc/hosts/COMPUTERNAME/settings.nix" and then 
 
 | Variable | Description | Default | Valid Values | Type 
 | -------- | ----------- | ------- | ------------ | ---- |
-| themeAccent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] | string |
-| themeFlavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] | string |
-| themeMode | Mode of the Theme | none | [ "dark", "light" ] | string |
+| **DESKTOP** |||||
+| theme.accent | Accent of the Catppuccin theme | none | [ "mocha", "teal", "frappe", "macchiato" ] | string |
+| theme.flavour | Flavour of the Catppuccin Theme | none | [ "rosewater", "flamingo", "pink", "mauve", "red", "maroon", "peach", "yellow", "green", "teal", "sky", "sapphire", "blue", "lavender" ] | string |
+| theme.mode | Mode of the Theme | none | [ "dark", "light" ] | string |
+| de.name | Desktop Environment to use | none | [ "plasma" ] | string |
+| de.waylandDefault | Enable Wayland session by default | none | [ true false ] | boolean |
+| **USER** |||||
 | userAttrs.\<name\>.isGuiUser | Enable gui settings for user | false | [ false true ] | boolean |
 | userAttrs.\<name\>.isSudoUser | Enable sudo for this user | false | [ false true ] | boolean |
 | userAttrs.\<name\>.git.userName | Git userName | none | | string |
 | userAttrs.\<name\>.git.userEmail | Git userEmail | none | | string |
 | userAttrs.\<name\>.shell | Shell for user | none | | string |
 | userAttrs.\<name\>.authorizedKeys | SSH authorized Keys for user | none | | list |
+| **LANGUAGE** |||||
 | locale | locale to use | none | [ "de_DE" "en_DE" "en_US" ] | string |
 | tz | timezone of the system | none | | string |
 | kbLayout | Keyboard layout | none | | string |
-| de.name | Desktop Environment to use | none | [ "plasma" ] | string |
-| de.waylandDefault | Enable Wayland session by default | none | [ true false ] | boolean |
+| **SHELL** |||||
 | shell | System default shell | none | [ "zsh" ] | string |
+| **PRINTER/SCANNER** |||||
 | printerAttrs.*.name | Cups name for printer| none | | string |
 | printerAttrs.*.deviceUri | Uri of printer | none |  | string |
 | printerAttrs.*.model | Model of printer | none |  | string |
@@ -135,13 +140,16 @@ This Variables must be layed in "/etc/hosts/COMPUTERNAME/settings.nix" and then 
 | printerAttrs.*.description | Printer Name in GUI | none |  | string |
 | printerAttrs.*.isDefault | Set Printer as default | false | [ true false ] | boolean |
 | enableScanner | Enable Scanner | true |[ true false ] | boolean |
+| **NETWORK** |||||
 | networkConfig.useDHCP | Enable DHCP | false | [ true false ] | boolean |
 | networkConfig.interface | Interface to use if DHCP is disabled | none |  | string |
 | networkConfig.address | IP for the interface  | none |  | string |
 | networkConfig.prefixLength | Prefix for the IP Address | none |  | integer |
 | networkConfig.defauiltGateway | DefaultGateway IP | none |  | string |
 | networkConfig.nameservers | List of nameservers | none |  | list |
+| **POWERMANAGEMENT** |||||
 | tlpAttrs.deviceBlacklist | These devices are blacklisted from TLP | none |  | string |
+| **GPU** |||||
 | nvidia.hybridGraphics | Enable if laptop has hybrid graphics (amd and nvidia) | false | [ true false ] | boolean |
 | nvidia.nvidiaBusId | PCI busid of the nvidia GPU in form of "PCI:X:0:0" | none | | string |
 | nvidia.amdgpuBusId | PCI busid of the amd GPU in form of "PCI:X:0:0" | none | | string |
