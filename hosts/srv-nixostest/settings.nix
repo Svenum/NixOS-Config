@@ -16,8 +16,12 @@
 
   # Network Settings
   networkConfig = {
-    hostName = "Ni";
-    useDHCP = true;
+    hostName = "srv-nixostest";
+    interface = "enp1s0";
+    address = "172.16.0.111";
+    prefixLength = 24;
+    defaultGateway = "172.16.0.1";
+    nameservers = [ "172.16.0.3" "172.16.0.4" ];
   };
 
   # GPU Settings

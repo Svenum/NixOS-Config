@@ -1,8 +1,5 @@
 { modulesPath, pkgs, ... }:
 
-let
-  home-backup = pkgs.writeShellScriptBin "home-backup" (builtins.readFile ../scripts/home-backup.sh);
-in
 {
   # Import Modules
   imports = [
@@ -10,27 +7,21 @@ in
     (modulesPath + "/profiles/qemu-guest.nix")
 
     # Import modules
-    ../modules/nixos
-    ../modules/user
-    ../modules/boot
-    ../modules/nvim
-    ../modules/locale
-    ../modules/desktop
-    ../modules/wireguard
-    ../modules/tmux 
-    ../modules/shell
-    ../modules/flatpak
-    ../modules/rdp
-    ../modules/printer
-    ../modules/cliTools
-    ../modules/network
+    ../../modules/nixos
+    ../../modules/user
+    ../../modules/boot
+    ../../modules/nvim
+    ../../modules/locale
+    ../../modules/desktop
+    ../../modules/wireguard
+    ../../modules/tmux 
+    ../../modules/shell
+    ../../modules/flatpak
+    ../../modules/rdp
+    ../../modules/printer
+    ../../modules/cliTools
+    ../../modules/network
   ];
-
-  # Install Custom Scripts and system specific packages
-  environment.systemPackages = with pkgs; [
-      home-backup
-  ];
-
   # Enable fwupd
   services.fwupd.enable = true;
 

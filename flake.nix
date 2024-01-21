@@ -64,36 +64,16 @@
           ./hosts/San
         ];
       };
-      #srv-nixostest = lib.nixosSystem {
-      #  specialArgs = {
-      #    inherit (inputs) home-manager;
-      #    inherit tz;
-      #    inherit kbLayout;
-      #    de = {
-      #      name = "plasma";
-      #    };
-      #    inherit userAttrs;
-      #    inherit printerAttrs;
-      #    inherit enableScanner;
-      #    inherit locale;
-      #    inherit shell;
-      #    networkConfig = {
-      #      hostName = "srv-nixostest";
-      #      interface = "enp1s0";
-      #      address = "172.16.0.111";
-      #      prefixLength = 24;
-      #      defaultGateway = "172.16.0.1";
-      #      nameservers = [ "172.16.0.3" "172.16.0.4" ];
-      #    };
-      #    themeAccent = "teal";
-      #    themeFlavour = "mocha";
-      #    themeMode = "dark";
-      #  };
-      #  system = "x86_64-linux";
-      #  modules = [
-      #    ./hosts/srv-nixostest.nix
-      #  ];
-      #};
+      srv-nixostest = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          settings = import ./hosts/srv-nixostest/settings.nix;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/srv-nixostest
+        ];
+      };
       #Zeta = lib.nixosSystem {
       #  specialArgs = {
       #    inherit (inputs) home-manager;
