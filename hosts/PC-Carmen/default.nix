@@ -4,19 +4,19 @@
   # Import Modules
   imports = [
     # Import modules
-    ../modules/nixos
-    ../modules/user
-    ../modules/boot
-    ../modules/nvim
-    ../modules/locale
-    ../modules/desktop
-    ../modules/tmux 
-    ../modules/shell
-    ../modules/flatpak
-    ../modules/printer
-    ../modules/cliTools
-    ../modules/network
-    ../modules/bluetooth
+    ../../modules/nixos
+    ../../modules/user
+    ../../modules/boot
+    ../../modules/nvim
+    ../../modules/locale
+    ../../modules/desktop
+    ../../modules/tmux 
+    ../../modules/shell
+    ../../modules/flatpak
+    ../../modules/printer
+    ../../modules/cliTools
+    ../../modules/network
+    ../../modules/bluetooth
 
     # Import flakes
     solaar.nixosModules.default
