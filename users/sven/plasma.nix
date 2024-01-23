@@ -13,7 +13,7 @@ in
       clickItemTo = "select";
       theme = "default";
       colorScheme = "Catppuccin${settings.theme.flavour}${settings.theme.accent}";
-      cursorTheme = "Catppuccin-${cursorFlavour}-${curosrAccent}-Cursors";
+      cursorTheme = "Catppuccin-${cursorFlavour}-${cursorAccent}-Cursors";
       iconTheme = "Papirus";
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower settings.theme.flavour}.jpg";
     };
