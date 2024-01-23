@@ -53,5 +53,6 @@ in
   home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
   home-manager.extraSpecialArgs = {
     inherit settings;
+    systemConfig = config;
   };
 }

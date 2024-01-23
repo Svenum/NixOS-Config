@@ -1,4 +1,4 @@
-{ lib, settings,  ... }:
+{ lib, settings, systemConfig, ... }:
 
 let
   hostname = settings.networkConfig.hostName;
@@ -67,7 +67,7 @@ in
               };
             };
           }
-          {
+          ( if (builtins.elem "modesetting" systemConfig.services.xserver.videoDrivers) then {
             name = "org.kde.plasma.systemmonitor";
             config = {
               Sensors = {
@@ -75,7 +75,7 @@ in
                 totalSensors = ''[\"gpu/gpu0/usage\"]'';
               };
             };
-          }
+          } else "" )
           {
             name = "org.kde.plasma.panelspacer";
             config = {
