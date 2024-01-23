@@ -60,6 +60,7 @@
       PC-Carmen = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
+          inherit (inputs) plasma-manager;
           inherit (inputs) solaar;
           settings = import ./hosts/PC-Carmen/settings.nix;
         };

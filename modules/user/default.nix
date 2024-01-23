@@ -41,7 +41,7 @@ let
     };
 
     # Import user specific modues if needed
-    imports = if (builtins.pathExists ../../users/${name}/default.nix ) then [ ../../users/${name} ] ++ (if de.name == "plasma" then [ plasma-manager.homeManagerModules.plasma-manager ] else []) else [];
+    imports = if (builtins.pathExists ../../users/${name}/default.nix ) then [ ../../users/${name} ] ++ (if settings.de.name == "plasma" then [ plasma-manager.homeManagerModules.plasma-manager ] else []) else [];
   };
 in
 {
@@ -50,7 +50,7 @@ in
 
   # Configure user
   imports = [ home-manager.nixosModules.home-manager ];
-  home-manager.users = lib.mapAttrs mkUserConfig userAttrs;
+  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
   home-manager.extraSpecialArgs = {
     inherit settings;
   };
