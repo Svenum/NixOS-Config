@@ -72,7 +72,9 @@ in
       variant = settings.theme.flavour;
       accents = [ settings.theme.accent ];
     })
-  ] ++ (if settings.theme.flavour == "teal" then [catppuccin-cursors.latteTeal catppuccin-cursors.mochaTeal] else if settings.theme.flavour == "red" then [catppuccin-cursors.latteRed catppuccin-cursors.mochaRed] else if settings.theme.flavour == "peach" then [catppuccin-cursors.lattePeach catppuccin-cursors.mochaPeach] else []);
+  ] ++ (if settings.theme.accent == "teal" then [catppuccin-cursors.latteTeal catppuccin-cursors.mochaTeal] else
+        if settings.theme.accent == "red" then [catppuccin-cursors.latteRed catppuccin-cursors.mochaRed] else
+        if settings.theme.accent == "peach" then [catppuccin-cursors.lattePeach catppuccin-cursors.mochaPeach] else []);
 
   # Enable partitionmanager
   programs.partition-manager.enable = true;
