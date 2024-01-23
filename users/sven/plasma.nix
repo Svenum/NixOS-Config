@@ -67,6 +67,15 @@ in
               };
             };
           }
+          {
+            name = "org.kde.plasma.systemmonitor";
+            config = {
+              Sensors = {
+                highPrioritySensorIds= ''["gpu/gpu0/usage"]'';
+                totalSensors = ''["gpu/gpu0/usage"]'';
+              };
+            };
+          }
           "org.kde.plasma.systemtray"
           {
             name = "org.kde.shutdownOrSwitch";
