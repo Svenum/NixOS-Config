@@ -81,6 +81,7 @@ in
             config = {
               General = {
                 length = "10";
+                expanding = "false";
               };
             };
           }
