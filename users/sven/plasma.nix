@@ -3,6 +3,7 @@
 let
   hostname = settings.networkConfig.hostName;
   cursorFlavour = if settings.theme.flavour == "latte" then "Mocha" else "Latte";
+  cursorAccent = if settings.theme.accent == "teal" then "Teal" else "";
   range = if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
 in
 {
@@ -12,7 +13,7 @@ in
       clickItemTo = "select";
       theme = "default";
       colorScheme = "Catppuccin${settings.theme.flavour}${settings.theme.accent}";
-      cursorTheme = "Catppuccin-${cursorFlavour}-${settings.theme.accent}-Cursors";
+      cursorTheme = "Catppuccin-${cursorFlavour}-${curosrAccent}-Cursors";
       iconTheme = "Papirus";
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower settings.theme.flavour}.jpg";
     };
