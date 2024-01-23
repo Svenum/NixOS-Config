@@ -1,11 +1,11 @@
-{ config, pkgs, lib, nvidia, ... }:
+{ config, pkgs, lib, settings, ... }:
 
 let
   # Check if is hybrid
-  isHybrid = if builtins.hasAttr "hybridGraphics" nvidia then nvidia.hybridGraphics else false;
+  isHybrid = if builtins.hasAttr "hybridGraphics" settings.nvidia then settings.nvidia.hybridGraphics else false;
 
   # Create nvidia pciAddresses
-  pciAddress1 = if isHybrid then (builtins.toString ("0000:0" + ( builtins.replaceStrings [ "PCI:" "0:" ] [ "" "00." ] nvidia.nvidiaBusId))) else "";
+  pciAddress1 = if isHybrid then (builtins.toString ("0000:0" + ( builtins.replaceStrings [ "PCI:" "0:" ] [ "" "00." ] settings.nvidia.nvidiaBusId))) else "";
   pciAddress2 = if isHybrid then (builtins.toString (builtins.replaceStrings [ ".0" ] [ ".1" ] pciAddress1)) else "";
   pciAddress1Short = if isHybrid then (builtins.toString (builtins.replaceStrings [ "0000:" ] [ "" ] pciAddress1)) else "";
 
@@ -80,8 +80,8 @@ in
           enableOffloadCmd = true;
         };
         reverseSync.enable = true;
-        amdgpuBusId = nvidia.amdgpuBusId;
-        nvidiaBusId = nvidia.nvidiaBusId;
+        amdgpuBusId = settings.nvidia.amdgpuBusId;
+        nvidiaBusId = settings.nvidia.nvidiaBusId;
       };
     };
   };

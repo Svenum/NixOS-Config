@@ -1,4 +1,4 @@
-{ de, ... }:
+{ settings, ... }:
 
 {
   # Configure RDP
@@ -6,7 +6,7 @@
     enable = true;
     openFirewall = true;
     defaultWindowManager = (
-      if de == "plasma" then
+      if settings.de == "plasma" then
         "startplasma-x11"
         else
         ""

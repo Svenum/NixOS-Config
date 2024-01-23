@@ -4,20 +4,22 @@
   # Import Modules
   imports = [
     # Import modules
-    ../modules/rdp
-    ../modules/user
-    ../modules/boot
-    ../modules/nvim
-    ../modules/locale
-    ../modules/desktop
-    ../modules/tmux 
-    ../modules/shell
-    ../modules/flatpak
-    ../modules/printer
-    ../modules/cliTools
-    ../modules/network
-    ../modules/bluetooth
-    ../modules/kvm
+    ../../modules/nixos
+    ../../modules/rdp
+    ../../modules/user
+    ../../modules/boot
+    ../../modules/nvim
+    ../../modules/locale
+    ../../modules/desktop
+    ../../modules/tmux 
+    ../../modules/shell
+    ../../modules/flatpak
+    ../../modules/printer
+    ../../modules/cliTools
+    ../../modules/network
+    ../../modules/bluetooth
+    ../../modules/kvm
+    ../../modules/nvidia
   ];
 
   # Enable ssh
@@ -67,7 +69,6 @@
     };
 
   # Nix config
-  system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.nvidia.acceptLicense = true;
 }

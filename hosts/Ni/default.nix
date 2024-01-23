@@ -4,21 +4,22 @@
   # Import Modules
   imports = [
     # Import modules
-    ../modules/user
-    ../modules/boot
-    ../modules/nvim
-    ../modules/locale
-    ../modules/desktop
-    ../modules/wireguard
-    ../modules/tmux 
-    ../modules/shell
-    ../modules/flatpak
-    ../modules/printer
-    ../modules/cliTools
-    ../modules/network
-    ../modules/bluetooth
-    ../modules/kvm
-    ../modules/nvidia
+    ../../modules/nixos
+    ../../modules/user
+    ../../modules/boot
+    ../../modules/nvim
+    ../../modules/locale
+    ../../modules/desktop
+    ../../modules/wireguard
+    ../../modules/tmux 
+    ../../modules/shell
+    ../../modules/flatpak
+    ../../modules/printer
+    ../../modules/cliTools
+    ../../modules/network
+    ../../modules/bluetooth
+    ../../modules/kvm
+    ../../modules/nvidia
 
     # Import flakes
     solaar.nixosModules.default
@@ -74,8 +75,6 @@
   };
 
   # Nix config
-  system.stateVersion = "23.11";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.nvidia.acceptLicense = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

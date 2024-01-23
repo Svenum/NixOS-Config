@@ -1,23 +1,23 @@
-{ networkConfig, lib, ... }:
+{ settings, lib, ... }:
 
 let
-  static = if builtins.hasAttr "useDHCP" networkConfig then !networkConfig.useDHCP else true;
-  dynamic = if builtins.hasAttr "useDHCP" networkConfig then networkConfig.useDHCP else false;
+  static = if builtins.hasAttr "useDHCP" settings.networkConfig then !settings.networkConfig.useDHCP else true;
+  dynamic = if builtins.hasAttr "useDHCP" settings.networkConfig then settings.networkConfig.useDHCP else false;
 in
 {
   networking = {
-    hostName = networkConfig.hostName;
+    hostName = settings.networkConfig.hostName;
     networkmanager = {
       enable = true;
     };
     interfaces = lib.mkIf static {
-      ${networkConfig.interface}.ipv4.addresses = [{
-        address = networkConfig.address;
-        prefixLength = networkConfig.prefixLength;
+      ${settings.networkConfig.interface}.ipv4.addresses = [{
+        address = settings.networkConfig.address;
+        prefixLength = settings.networkConfig.prefixLength;
       }];
     };
-    defaultGateway = lib.mkIf static networkConfig.defaultGateway;
-    nameservers = lib.mkIf static networkConfig.nameservers;
+    defaultGateway = lib.mkIf static settings.networkConfig.defaultGateway;
+    nameservers = lib.mkIf static settings.networkConfig.nameservers;
     useDHCP = lib.mkDefault false;
   };
 }

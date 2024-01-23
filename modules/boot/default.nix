@@ -1,4 +1,4 @@
-{ pkgs, config, themeFlavour, ... }:
+{ pkgs, config, settings, ... }:
 
 {
   # Filesystems
@@ -23,10 +23,10 @@
   # Configure Plymouth
   boot.plymouth = {
     enable = true;
-    theme = "catppuccin-${themeFlavour}";
+    theme = "catppuccin-${settings.theme.flavour}";
     themePackages = with pkgs; [
       (catppuccin-plymouth.override {
-        variant = themeFlavour;
+        variant = settings.theme.flavour;
       })
     ];
   };
