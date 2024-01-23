@@ -13,8 +13,7 @@ in
       clickItemTo = "select";
       theme = "default";
       colorScheme = "Catppuccin${settings.theme.flavour}${settings.theme.accent}";
-      cursorTheme = "Catppuccin-${cursorFlavour}-${cursorAccent}-Cursors";
-      iconTheme = "Papirus";
+
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower settings.theme.flavour}.jpg";
     };
 
@@ -34,7 +33,7 @@ in
             name = "org.kde.plasma.icontasks";
             config = {
               General = {
-                launchers = "applications:org.kde.dolphin.desktop,applications:org.kde.dolphin.desktop,applications:com.brave.Browser.desktop,applications:com.valvesoftware.Steam.desktop,applications:net.lutris.Lutris.desktop,applications:net.lutris.league-of-legends-1.desktop,applications:org.remmina.Remmina.desktop";
+                launchers = "applications:org.kde.dolphin.desktop,preferred://browser,applications:com.valvesoftware.Steam.desktop,applications:net.lutris.Lutris.desktop,applications:net.lutris.league-of-legends-1.desktop,applications:org.remmina.Remmina.desktop";
               };
             };
           }
