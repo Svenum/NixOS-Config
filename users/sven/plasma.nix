@@ -69,10 +69,10 @@ in
               Appearance = {
                 chartFace = "org.kde.ksysguard.piechart";
               };
-              "org.kde.ksysguard.piechart.General" = {
-                rangeTo = range;
-                rangeAuto = "false";
-              };
+              #"org.kde.ksysguard.piechart.General" = {
+              #  rangeTo = range;
+              #  rangeAuto = "false";
+              #};
             };
           }
           "org.kde.plasma.systemtray"

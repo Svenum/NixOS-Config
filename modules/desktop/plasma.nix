@@ -55,10 +55,6 @@ in
     vulkan-tools
     playerctl
     wayland-utils
-    # Cursors
-    (lib.mkIf (settings.theme.flavour == "teal") [catppuccin-cursors.latteTeal catppuccin-cursors.mochaTeal])
-    (lib.mkIf (settings.theme.flavour == "red") [catppuccin-cursors.latteRed catppuccin-cursors.mochaRed])
-    (lib.mkIf (settings.theme.flavour == "peach") [catppuccin-cursors.lattePeach catppuccin-cursors.mochaPeach])
 
     # Icons
     (catppuccin-papirus-folders.override {
@@ -76,7 +72,7 @@ in
       variant = settings.theme.flavour;
       accents = [ settings.theme.accent ];
     })
-  ];
+  ] ++ (if settings.theme.flavour == "teal" [catppuccin-cursors.latteTeal catppuccin-cursors.mochaTeal] else if settings.theme.flavour == "red" [catppuccin-cursors.latteRed catppuccin-cursors.mochaRed] else if settings.theme.flavour == "peach" [catppuccin-cursors.lattePeach catppuccin-cursors.mochaPeach] else []);
 
   # Enable partitionmanager
   programs.partition-manager.enable = true;
