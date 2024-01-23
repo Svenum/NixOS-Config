@@ -33,16 +33,7 @@ in
             name = "org.kde.plasma.icontasks";
             config = {
               General = {
-                launchers = "
-                  applications:
-                  org.kde.dolphin.desktop,
-                  org.kde.dolphin.desktop,
-                  com.brave.Browser.desktop,
-                  com.valvesoftware.Steam.desktop,
-                  net.lutris.Lutris.desktop,
-                  net.lutris.league-of-legends-1.desktop,
-                  org.remmina.Remmina.desktop
-                ";
+                launchers = "applications:org.kde.dolphin.desktop,org.kde.dolphin.desktop,com.brave.Browser.desktop,com.valvesoftware.Steam.desktop,net.lutris.Lutris.desktop,net.lutris.league-of-legends-1.desktop,org.remmina.Remmina.desktop";
               };
             };
           }
@@ -69,10 +60,10 @@ in
               Appearance = {
                 chartFace = "org.kde.ksysguard.piechart";
               };
-              #"org.kde.ksysguard.piechart.General" = {
-              #  rangeTo = range;
-              #  rangeAuto = "false";
-              #};
+              "org.kde.ksysguard.piechart.General" = {
+                rangeTo = range;
+                rangeAuto = "false";
+              };
             };
           }
           "org.kde.plasma.systemtray"
