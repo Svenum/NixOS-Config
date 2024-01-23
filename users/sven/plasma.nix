@@ -67,7 +67,7 @@ in
               };
             };
           }
-          ( if (builtins.elem "modesetting" systemConfig.services.xserver.videoDrivers) then {
+          ( if (!builtins.elem "modesetting" systemConfig.services.xserver.videoDrivers) then {
             name = "org.kde.plasma.systemmonitor";
             config = {
               Sensors = {
