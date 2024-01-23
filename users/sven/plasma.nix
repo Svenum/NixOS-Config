@@ -71,8 +71,16 @@ in
             name = "org.kde.plasma.systemmonitor";
             config = {
               Sensors = {
-                highPrioritySensorIds= ''["gpu/gpu0/usage"]'';
-                totalSensors = ''["gpu/gpu0/usage"]'';
+                highPrioritySensorIds= ''[\"gpu/gpu0/usage\"]'';
+                totalSensors = ''[\"gpu/gpu0/usage\"]'';
+              };
+            };
+          }
+          {
+            name = "org.kde.plasma.panelspacer";
+            config = {
+              General = {
+                length = "10";
               };
             };
           }
