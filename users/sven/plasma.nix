@@ -34,7 +34,14 @@ in
             name = "org.kde.plasma.icontasks";
             config = {
               General = {
-                launchers = "applications:org.kde.dolphin.desktop,preferred://browser,applications:com.valvesoftware.Steam.desktop,applications:net.lutris.Lutris.desktop,applications:net.lutris.league-of-legends-1.desktop,applications:org.remmina.Remmina.desktop";
+                launchers = [
+                  "applications:org.kde.dolphin.desktop"
+                  "preferred://browser"
+                  "applications:com.valvesoftware.Steam.desktop"
+                  "applications:net.lutris.Lutris.desktop"
+                  "applications:net.lutris.league-of-legends-1.desktop"
+                  "applications:org.remmina.Remmina.desktop"
+                ];
               };
             };
           }
