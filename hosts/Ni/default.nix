@@ -36,6 +36,7 @@
 
   # XBox Controller
   hardware.xpadneo.enable = true;
+  hardware.xone.enable = true;
 
   # Intel CPU Driver
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
