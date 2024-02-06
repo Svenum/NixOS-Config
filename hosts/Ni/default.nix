@@ -25,6 +25,9 @@
     solaar.nixosModules.default
   ];
 
+  # enable ratbagd
+  services.ratbagd.enable = true;
+
   # enable solaar
   programs.solaar.enable = true;
 
