@@ -11,7 +11,10 @@ in
       enable = true;
       wifi.backend = "iwd";
     };
-    wireless.iwd.enable = true;
+    wireless = {
+      iwd.enable = true;
+      dbusControlled = true;
+    };
     interfaces = lib.mkIf static {
       ${settings.networkConfig.interface}.ipv4.addresses = [{
         address = settings.networkConfig.address;
