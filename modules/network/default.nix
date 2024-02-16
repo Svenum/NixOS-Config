@@ -9,7 +9,9 @@ in
     hostName = settings.networkConfig.hostName;
     networkmanager = {
       enable = true;
+      wifi.backend = "iwd";
     };
+    wireless.iwd.enable = true;
     interfaces = lib.mkIf static {
       ${settings.networkConfig.interface}.ipv4.addresses = [{
         address = settings.networkConfig.address;
