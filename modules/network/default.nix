@@ -13,7 +13,6 @@ in
     };
     wireless = {
       iwd.enable = true;
-      dbusControlled = true;
     };
     interfaces = lib.mkIf static {
       ${settings.networkConfig.interface}.ipv4.addresses = [{
