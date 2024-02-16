@@ -7,6 +7,7 @@
   # Desktop Settings
   de = {
     name = "plasma";
+    waylandDefault = true;
   };
   theme = {
     accent = "red";
