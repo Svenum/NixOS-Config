@@ -2,9 +2,9 @@
 
 {
   # Configure xserver keyboard
-  services.xserver = {
+  services.xserver.xkb = {
     layout = settings.kbLayout;
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure sound
