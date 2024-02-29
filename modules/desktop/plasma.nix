@@ -27,7 +27,7 @@ in
     desktopManager.plasma6 = {
       enableQt5Integration = true;
       enable = true;
-    }
+    };
   };
 
   # Disable packages
