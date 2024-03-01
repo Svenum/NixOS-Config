@@ -25,7 +25,7 @@ in
       defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasmawayland";
     };
     desktopManager.plasma6 = {
-      enableQt5Integration = true;
+      enableQt5Integration = false;
       enable = true;
     };
   };

@@ -1,13 +1,14 @@
-{ lib, stdenvNoCC, fetchgit, ... }:
+{ lib, stdenvNoCC, fetchFromGitHub, ... }:
 
 stdenvNoCC.mkDerivation {
   pname = "plasma-applet-betterinlineclock";
-  version = "24.07.2020";
+  version = "01.03.2024";
 
-  src = fetchgit {
-    url = "https://github.com/MarianArlt/kde-plasmoid-betterinlineclock.git";
-    rev = "bbad71b48073879f16b484788d01831ad53316b5";
-    sha256 = "sha256-BNHM6B/FViEcXaQfaygPkze8KrEhXrKhGUe93cAJMx0=";
+  src = fetchFromGitHub {
+    owner = "Svenum";
+    repo = "kde-plasmoid-betterinlineclock";
+    rev = "plasma6";
+    sha256 = "sha256-e1K1QYbIHzgjs0PlFGmJcrlPwZ/kLqKfQGOCh52ZAJs=";
   };
 
   installPhase = ''
