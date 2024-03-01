@@ -22,6 +22,11 @@
     ../../modules/cliTools
     ../../modules/network
   ];
+  # additional packages
+  environment.systemPackages = with pkgs; [
+    kdePackages.plasma-sdk
+  ];
+
   # Enable fwupd
   services.fwupd.enable = true;
 
