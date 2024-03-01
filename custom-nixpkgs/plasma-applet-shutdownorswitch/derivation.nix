@@ -1,13 +1,14 @@
-{ lib, stdenvNoCC, fetchgit, ... }:
+{ lib, stdenvNoCC, fetchFromGitHub, ... }:
 
 stdenvNoCC.mkDerivation {
   pname = "plasma-applet-shutdownorswitch";
-  version = "09.06.2021";
+  version = "01.03.2024";
 
-  src = fetchgit {
-    url = "https://github.com/Davide-sd/shutdown_or_switch.git";
-    rev = "8174e71c666a86eae3118f0a6d81ec67d37cb0d5";
-    sha256 = "sha256-e+sta0YptBKdvc6/76TE5WLSi/Ac2AZrJKKCm/klKew=";
+  src = fetchFromGitHub {
+    owner = "Svenum";
+    repo = "shutdown_or_switch";
+    rev = "plasma6";
+    sha256 = "sha256-ElfbICZkJbVG/oZEG6Lh50QRM0FXr4f8n7rbu5Gb1jY=";
   };
 
   installPhase = ''
