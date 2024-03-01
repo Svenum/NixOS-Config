@@ -41,15 +41,14 @@ in
 
   # Install Needed packages
   environment.systemPackages = with pkgs; [
+    # Plasma5 compability
+    libsForQt5.kcoreaddons
     # Bup for kup
     bup
     # GUI Tools
-    kate
     kdePackages.skanlite
     kup
-    kdePackages.kbackup
     kdePackages.sddm-kcm
-    kdePackages.kcoreaddons
     # Add Konsole profiles and colorshcemes
     konsole-catppuccin
     # Add plasmoids
