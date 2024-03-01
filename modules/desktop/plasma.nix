@@ -22,7 +22,7 @@ in
         wayland.enable = true;
         autoNumlock = true;
       };
-      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasmawayland";
+      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasma";
     };
     desktopManager.plasma6 = {
       enableQt5Integration = false;
