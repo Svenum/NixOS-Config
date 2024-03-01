@@ -25,7 +25,7 @@ in
       defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasma";
     };
     desktopManager.plasma6 = {
-      enableQt5Integration = false;
+      enableQt5Integration = true;
       enable = true;
     };
   };
@@ -45,9 +45,11 @@ in
     bup
     # GUI Tools
     kate
-    libsForQt5.skanlite
+    kdePackages.skanlite
     kup
-    libsForQt5.sddm-kcm
+    kdePackages.kbackup
+    kdePackages.sddm-kcm
+    kdePackages.kcoreaddons
     # Add Konsole profiles and colorshcemes
     konsole-catppuccin
     # Add plasmoids
