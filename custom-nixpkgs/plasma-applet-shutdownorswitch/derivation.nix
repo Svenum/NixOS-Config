@@ -8,7 +8,7 @@ stdenvNoCC.mkDerivation {
     owner = "Svenum";
     repo = "shutdown_or_switch";
     rev = "plasma6";
-    sha256 = "sha256-ElfbICZkJbVG/oZEG6Lh50QRM0FXr4f8n7rbu5Gb1jY=";
+    sha256 = "sha256-0MEnoNvrdL+BkrFUntVzt/WwXhUOGU7Gc8VGbGzp/DI=";
   };
 
   installPhase = ''
