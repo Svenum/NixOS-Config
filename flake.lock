@@ -76,6 +76,7 @@
       },
       "original": {
         "owner": "Svenum",
+        "ref": "latest",
         "repo": "Solaar-Flake",
         "type": "github"
       }
