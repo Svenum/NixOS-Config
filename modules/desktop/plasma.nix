@@ -23,13 +23,13 @@ in
       };
       defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasma";
     };
-    desktopManager.plasma5 = {
+    desktopManager.plasma6 = {
       enable = true;
     };
   };
 
   # Disable packages
-  environment.plasma5.excludePackages = with pkgs; [
+  environment.plasma6.excludePackages = with pkgs; [
     oxygen
     elisa
     khelpcenter
