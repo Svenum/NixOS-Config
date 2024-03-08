@@ -28,6 +28,7 @@ in
         location = "left";
         hiding = "windowscover";
         alignment = "right";
+        floating = false;
         widgets = [
           "org.kde.plasma.panelspacer"
           {
@@ -55,10 +56,20 @@ in
         location = "top";
         hiding = "windowscover";
         alignment = "center";
+        floating = false;
         widgets = [
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
-          "org.kde.plasma.betterinlineclock"
+          "org.kde.plasma.digitalclock"
+          {
+            name = "org.kde.plasma.digitalclock";
+            config = {
+              Apperance = {
+                dateDisplayFormat = "BesideTime";
+                dateFormat = "longDate";
+              };
+            };
+          }
           "org.kde.plasma.pager"
           "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemmonitor.memory"

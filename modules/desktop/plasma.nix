@@ -6,7 +6,6 @@ let
 
   # Plasmoids
   plasma-applet-shutdownorswitch = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-shutdownorswitch {};
-  plasma-applet-betterinlineclock = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-betterinlineclock {};
   konsole-catppuccin = pkgs.callPackage ../../custom-nixpkgs/konsole-catppuccin {};
 
   cursor1 = pkgs.callPackage "${settings.theme.accent}";
@@ -52,7 +51,6 @@ in
     konsole-catppuccin
     # Add plasmoids
     plasma-applet-shutdownorswitch
-    plasma-applet-betterinlineclock
     # Other
     glxinfo
     vulkan-tools
