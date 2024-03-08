@@ -50,7 +50,7 @@ in
     # Add Konsole profiles and colorshcemes
     konsole-catppuccin
     # Add plasmoids
-    plasma-applet-shutdownorswitch
+    #plasma-applet-shutdownorswitch
     # Other
     glxinfo
     vulkan-tools

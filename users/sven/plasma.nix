@@ -103,22 +103,22 @@ in
             };
           }
           "org.kde.plasma.systemtray"
-          {
-            name = "org.kde.shutdownOrSwitch";
-            config = {
-              General = {
-                showName = "false";
-                showExit = "true";
-                showNewSession = "false";
-                showSuspend = "true";
-                showUser = "false";
-                showUsers = "false";
-              };
-              Appearance = {
-                widgetListIconSize = "2";
-              };
-            };
-          }
+          #{
+          #  name = "org.kde.shutdownOrSwitch";
+          #  config = {
+          #    General = {
+          #      showName = "false";
+          #      showExit = "true";
+          #      showNewSession = "false";
+          #      showSuspend = "true";
+          #      showUser = "false";
+          #      showUsers = "false";
+          #    };
+          #    Appearance = {
+          #      widgetListIconSize = "2";
+          #    };
+          #  };
+          #}
         ];
         height = 30;
         maxLength = 3440;
