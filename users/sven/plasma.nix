@@ -63,7 +63,7 @@ in
           {
             name = "org.kde.plasma.digitalclock";
             config = {
-              Apperance = {
+              Appearance = {
                 dateDisplayFormat = "BesideTime";
                 dateFormat = "longDate";
               };
