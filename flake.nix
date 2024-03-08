@@ -107,7 +107,7 @@
     };
 
     solaar = {
-      url = "github:Svenum/Solaar-Flake";
+      url = "github:Svenum/Solaar-Flake/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
