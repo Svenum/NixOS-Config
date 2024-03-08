@@ -60,7 +60,6 @@ in
         widgets = [
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
-          "org.kde.plasma.digitalclock"
           {
             name = "org.kde.plasma.digitalclock";
             config = {
