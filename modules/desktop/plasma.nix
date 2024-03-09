@@ -39,13 +39,11 @@ in
 
   # Install Needed packages
   environment.systemPackages = with pkgs; [
-    # Plasma5 compability
-    libsForQt5.kcoreaddons
-    # Bup for kup
-    bup
+    # KDE BACKUP wait for qt6 implementation
+    #bup
+    #kup
     # GUI Tools
     kdePackages.skanlite
-    kup
     kdePackages.sddm-kcm
     # Add Konsole profiles and colorshcemes
     konsole-catppuccin
@@ -81,7 +79,10 @@ in
   programs.partition-manager.enable = true;
 
   # Enable KDEConnect
-  programs.kdeconnect.enable = true;
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.kdePackages.kdeconnect-kde
+  };
 
   # Enable XWayland
   programs.xwayland.enable = true;
