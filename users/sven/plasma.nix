@@ -111,7 +111,6 @@ in
                 showNewSessionButton = "false";
                 showLockScreenButton = "false";
                 showLogOutButton = "false";
-                showNewSessionButton = "false";
               };
               Appearance = {
                 widgetListIconSize = "2";
