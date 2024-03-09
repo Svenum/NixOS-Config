@@ -81,7 +81,7 @@ in
   # Enable KDEConnect
   programs.kdeconnect = {
     enable = true;
-    package = pkgs.kdePackages.kdeconnect-kde
+    package = pkgs.kdePackages.kdeconnect-kde;
   };
 
   # Enable XWayland
