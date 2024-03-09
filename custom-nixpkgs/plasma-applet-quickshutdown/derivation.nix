@@ -7,8 +7,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "Svenum";
     repo = "quick_shutdown";
-    rev = "dd5695522472894bbc76bcd101f8039b10d9633e";
-    sha256 = "sha256-S+CCbYvUUniHEzX7EpLbWSZ372zoUmlanhF86/y4iXY=";
+    rev = "80a69adf3bd402dd8680bcbc7704b27401dfd410";
+    sha256 = "sha256-CCjZ74YFIGA3cUFLvg85iTNNiKpz8eLKYswWHBHbars=";
   };
 
   installPhase = ''
