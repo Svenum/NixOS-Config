@@ -26,7 +26,7 @@ in
     panels = [
       {
         location = "left";
-        hiding = "windowscover";
+        hiding = "dodgewindows";
         alignment = "right";
         floating = false;
         widgets = [
@@ -54,7 +54,7 @@ in
       }
       {
         location = "top";
-        hiding = "windowscover";
+        hiding = "dodgewindows";
         alignment = "center";
         floating = false;
         widgets = [
@@ -109,7 +109,9 @@ in
               General = {
                 showName = "false";
                 showNewSessionButton = "false";
-                showSuspendButton = "true";
+                showLockScreenButton = "false";
+                showLogOutButton = "false";
+                showNewSessionButton = "false";
               };
               Appearance = {
                 widgetListIconSize = "2";
