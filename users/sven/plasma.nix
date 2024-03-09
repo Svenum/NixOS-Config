@@ -6,10 +6,11 @@ let
   themeAccent = if settings.theme.accent == "teal" then "Teal" else "";
   themeFlavour = if settings.theme.flavour == "latte" then "Latte" else "Mocha";
   range = if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
+  enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
 in
 {
   programs.plasma = {
-    enable = true;
+    enable = enablePlasma;
     workspace = {
       clickItemTo = "select";
       theme = "default";
