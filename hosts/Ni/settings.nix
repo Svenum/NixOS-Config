@@ -7,7 +7,6 @@
   # Desktop Settings
   de = {
     name = "plasma";
-    waylandDefault = true;
   };
   theme = {
     accent = "teal";
@@ -35,6 +34,10 @@
         userName = "Svenum";
         userEmail = "s.ziegler@holypenguin.net";
       };
+    };
+    "testuser" = {
+      isGuiUser = true;
+      isSudoUser = false;
     };
   };
 
