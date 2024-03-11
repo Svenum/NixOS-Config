@@ -35,10 +35,6 @@
         userEmail = "s.ziegler@holypenguin.net";
       };
     };
-    "testuser" = {
-      isGuiUser = true;
-      isSudoUser = false;
-    };
   };
 
   # Printer Settings
