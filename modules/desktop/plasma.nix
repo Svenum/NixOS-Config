@@ -23,9 +23,9 @@ in
       };
       defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasma";
     };
-    desktopManager.plasma6 = {
-      enable = true;
-    };
+  };
+  services.desktopManager.plasma6 = {
+    enable = true;
   };
 
   # Disable packages
