@@ -14,7 +14,7 @@
     ../../modules/tmux 
     ../../modules/shell
     ../../modules/flatpak
-    ../../modules/printer
+    #../../modules/printer
     ../../modules/cliTools
     ../../modules/network
     ../../modules/bluetooth
