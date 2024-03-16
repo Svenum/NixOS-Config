@@ -21,7 +21,7 @@ in
         wayland.enable = true;
         autoNumlock = true;
       };
-      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then settings.de.waylandDefault else false ) "plasma";
+      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then false else true ) "plasmax11";
     };
   };
   services.desktopManager.plasma6 = {

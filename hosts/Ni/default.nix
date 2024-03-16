@@ -14,12 +14,12 @@
     ../../modules/tmux 
     ../../modules/shell
     ../../modules/flatpak
-    #../../modules/printer
+    ../../modules/printer
     ../../modules/cliTools
     ../../modules/network
     ../../modules/bluetooth
     ../../modules/kvm
-    ../../modules/nvidia
+    #../../modules/nvidia
 
     # Import flakes
     solaar.nixosModules.default
