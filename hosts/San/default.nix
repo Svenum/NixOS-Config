@@ -1,4 +1,4 @@
-{ lib, config, pkgs, solaar, ... }:
+{ lib, config, pkgs, solaar, envycontrol, ... }:
 
 {
   # Import Modules
@@ -24,6 +24,10 @@
 
     # Import flakes
     solaar.nixosModules.default
+  ];
+
+  environtment.systemPackages = with pkgs; [
+    envycontrol.packages.x86_64-linux.default
   ];
 
   # enable solaar
