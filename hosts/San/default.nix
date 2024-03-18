@@ -26,7 +26,7 @@
     solaar.nixosModules.default
   ];
 
-  environtment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     envycontrol.packages.x86_64-linux.default
   ];
 
