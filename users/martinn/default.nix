@@ -7,7 +7,7 @@ in
   # Add extgra packages
   home.packages = with pkgs; [
     caffeine-ng
-    tetris
+    #tetris
     k3b
     skanpage
   ];
