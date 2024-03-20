@@ -24,10 +24,6 @@
     # Import flakes
     solaar.nixosModules.default
   ];
-
-  # enable ratbagd
-  #services.ratbagd.enable = true;
-
   # enable solaar
   programs.solaar.enable = true;
 
@@ -40,7 +36,7 @@
   # XBox Controller
   hardware.xpadneo.enable = true;
   
-  #BROKEN hardware.xone.enable = true;
+  hardware.xone.enable = true;
 
   # Intel CPU Driver
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

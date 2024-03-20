@@ -41,7 +41,7 @@
 
   # XBox Controller
   hardware.xpadneo.enable = true;
-  #hardware.xone.enable = true;
+  hardware.xone.enable = true;
 
   # Add AMD CPU driver 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;  
