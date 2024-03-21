@@ -114,6 +114,7 @@ in
                 showLockScreen = "false"; 
                 showLogOut = "false";
                 showHibernate = "true";
+                showSuspend = "true";
                 showNewSession = "false";
                 showUsers = "false";
                 showText = "true";
@@ -124,24 +125,6 @@ in
         height = 30;
         maxLength = 3440;
         minLength = 1920;
-        #extraSettings = ''
-        #  panelIds.forEach((panel) => { //search through the panels
-        #    panel = panelById(panel);
-        #    if (!panel) {
-        #      return;
-        #    }
-        #    panel.widgetIds.forEach((appletWidget) => {
-        #      appletWidget = panel.widgetById(appletWidget);
-        #        case "org.kde.plasma.systemmonitor.cpucore":
-        #          appletWidget.currentConfigGroup = ["org.kde.ksysguard.piechart", "General"];
-        #          appletWidget.writeConfig("rangeTo", ${range});
-        #          appletWidget.writeConfig("rangeAuto", false);
-        #          appletWidget.reloadConfig();
-        #          break;
-        #      }
-        #    });
-        #  });
-        #'';
       }
     ];
 
