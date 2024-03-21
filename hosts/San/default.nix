@@ -26,10 +26,6 @@
     solaar.nixosModules.default
   ];
 
-  environment.systemPackages = with pkgs; [
-    envycontrol.packages.x86_64-linux.default
-  ];
-
   # enable solaar
   programs.solaar.enable = true;
 

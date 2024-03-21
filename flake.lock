@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "envycontrol": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1709746583,
-        "narHash": "sha256-5JlHB8DCEswwcTPdjZPh+jeR2WgZDuaXMEtiMfITAmo=",
-        "owner": "bayasdev",
-        "repo": "envycontrol",
-        "rev": "e10ac7e566b77a15dd7129be3c55a0e49878b8ff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bayasdev",
-        "repo": "envycontrol",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -97,7 +77,6 @@
     },
     "root": {
       "inputs": {
-        "envycontrol": "envycontrol",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager",

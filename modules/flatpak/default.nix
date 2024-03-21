@@ -25,7 +25,7 @@ in
     betterdiscordctl
     prepare_spotify
     prepare_discord
-  ];
+  ] ++ (if settings.de.name == "plasma" then [ pkgs.kdePackages.discover ] else []);
 
   # Install and enable flatpak
   services.flatpak.enable = true;

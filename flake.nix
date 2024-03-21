@@ -25,7 +25,6 @@
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
           inherit (inputs) plasma-manager;
-          inherit (inputs) envycontrol;
           settings = import ./hosts/San/settings.nix;
         };
         system = "x86_64-linux";
@@ -109,11 +108,6 @@
 
     solaar = {
       url = "github:Svenum/Solaar-Flake/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    envycontrol = {
-      url = github:bayasdev/envycontrol;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
