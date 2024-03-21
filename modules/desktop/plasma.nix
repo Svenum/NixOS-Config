@@ -5,7 +5,7 @@ let
   users = (builtins.partition (x: builtins.isString x) (builtins.attrValues (builtins.mapAttrs (name: user: if((if builtins.hasAttr "isGuiUser" user then user.isGuiUser else false)) then "${name}" else null) settings.userAttrs))).right;
 
   # Plasmoids
-  plasma-applet-quickshutdown = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-quickshutdown {};
+  plasma-applet-shutdown_or_switch = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-shutdown_or_switch {};
   konsole-catppuccin = pkgs.callPackage ../../custom-nixpkgs/konsole-catppuccin {};
 
   cursor1 = pkgs.callPackage "${settings.theme.accent}";
@@ -48,7 +48,7 @@ in
     # Add Konsole profiles and colorshcemes
     konsole-catppuccin
     # Add plasmoids
-    plasma-applet-quickshutdown
+    plasma-applet-shutdown_or_switch
     # Other
     glxinfo
     vulkan-tools

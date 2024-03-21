@@ -108,10 +108,15 @@ in
             name = "org.kde.plasma.quickshutdown";
             config = {
               General = {
-                showName = "false";
-                showNewSessionButton = "false";
-                showLockScreenButton = "false";
-                showLogOutButton = "false";
+                showIcon = false;
+                showName = false;
+                showFullName = false;
+                showLockScreen = false; 
+                showLogOut = false;
+                showHibernate = true;
+                showNewSession = false;
+                showUsers = false;
+                showText = false;
               };
               Appearance = {
                 widgetListIconSize = "2";
