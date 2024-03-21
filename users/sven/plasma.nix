@@ -109,7 +109,7 @@ in
             config = {
               General = {
                 showIcon = "true";
-                showName = "true";
+                showName = "false";
                 showFullName = "false";
                 showLockScreen = "false"; 
                 showLogOut = "false";
@@ -117,9 +117,6 @@ in
                 showNewSession = "false";
                 showUsers = "false";
                 showText = "true";
-              };
-              Appearance = {
-                widgetListIconSize = "2";
               };
             };
           }
