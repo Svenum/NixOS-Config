@@ -108,15 +108,15 @@ in
             name = "org.kde.plasma.shutdownorswitch";
             config = {
               General = {
-                showIcon = false;
-                showName = false;
-                showFullName = false;
-                showLockScreen = false; 
-                showLogOut = false;
-                showHibernate = true;
-                showNewSession = false;
-                showUsers = false;
-                showText = false;
+                showIcon = "false";
+                showName = "false";
+                showFullName = "false";
+                showLockScreen = "false"; 
+                showLogOut = "false";
+                showHibernate = "true";
+                showNewSession = "false";
+                showUsers = "false";
+                showText = "false";
               };
               Appearance = {
                 widgetListIconSize = "2";
