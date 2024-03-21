@@ -105,7 +105,7 @@ in
           }
           "org.kde.plasma.systemtray"
           {
-            name = "org.kde.plasma.quickshutdown";
+            name = "org.kde.plasma.shutdownorswitch";
             config = {
               General = {
                 showIcon = false;
