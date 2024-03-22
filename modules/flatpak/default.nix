@@ -31,7 +31,6 @@ in
   services.flatpak.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  services.packagekit.enable = if settings.de.name == "plasma" then true else false;
 
   # Fix Icons and fonts for Flatpak
   system.fsPackages = [ pkgs.bindfs ];
