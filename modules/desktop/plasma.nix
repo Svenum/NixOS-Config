@@ -18,7 +18,10 @@ in
     displayManager = {
       sddm = {
         enable = true;
-        wayland.enable = true;
+        wayland = {
+          enable = true;
+          compositor = "kwin";
+        };
         autoNumlock = true;
       };
       defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then false else true ) "plasmax11";
