@@ -40,6 +40,13 @@ let
       };
     };
 
+    dconf.settings = lib.mkIf  {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
+      };
+    };
+
     # Import user specific modues if needed
     imports = if (builtins.pathExists ../../users/${name}/default.nix ) then [ ../../users/${name} ] ++ (if settings.de.name == "plasma" then [ plasma-manager.homeManagerModules.plasma-manager ] else []) else [];
   };

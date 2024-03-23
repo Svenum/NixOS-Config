@@ -27,6 +27,9 @@
     kdePackages.plasma-sdk
   ];
 
+  # Enable guest settings.
+  services.qemuGuest.enable = true;
+
   # Enable fwupd
   services.fwupd.enable = true;
 
