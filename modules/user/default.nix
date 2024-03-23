@@ -40,7 +40,7 @@ let
       };
     };
 
-    dconf.settings = lib.mkIf  {
+    dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
         uris = ["qemu:///system"];
