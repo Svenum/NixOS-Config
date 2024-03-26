@@ -7,6 +7,15 @@
     variant = "";
   };
 
+  # Configure Fonts
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts-cjk-sans
+      noto-fonts-lgc-plus
+    ];
+    enableDefaultPackages = true;
+  };
+
   # Configure sound
   sound.enable = true;
   #sound.extraConfig = builtins.readFile ./config/asound.conf;
