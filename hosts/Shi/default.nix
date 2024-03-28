@@ -34,8 +34,10 @@
 
   # XBox Controller
   hardware.xpadneo.enable = true;
-  
   hardware.xone.enable = true;
+
+  # Enable Fingerprintreader
+  services.fprintd.enable = lib.mkDefault true;
 
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
