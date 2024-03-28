@@ -19,7 +19,7 @@ in
       wallpaper = "/etc/wallpaper/catppuccin-${lib.strings.toLower settings.theme.flavour}.jpg";
     };
 
-    hotkeys.commands."Launch Konsole" = {
+    hotkeys.commands."Launch-Konsole" = {
       key = "Ctrl+T";
       command = "konsole";
     };

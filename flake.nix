@@ -20,6 +20,19 @@
         ];
       };
 
+      Shi = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit (inputs) solaar;
+          inherit (inputs) plasma-manager;
+          settings = import ./hosts/Shi/settings.nix;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/Shi
+        ];
+      };
+
       San = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
