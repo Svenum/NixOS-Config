@@ -18,6 +18,7 @@
     ../../modules/cliTools
     ../../modules/network
     ../../modules/bluetooth
+    ../../modules/kvm
 
     # Import flakes
     solaar.nixosModules.default
