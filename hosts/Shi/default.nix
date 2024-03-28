@@ -19,6 +19,7 @@
     ../../modules/network
     ../../modules/bluetooth
     ../../modules/kvm
+    ../../modules/amdgpu
 
     # Import flakes
     solaar.nixosModules.default
