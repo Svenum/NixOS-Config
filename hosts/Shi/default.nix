@@ -39,12 +39,6 @@
 
   # Enable Fingerprintreader
   services.fprintd.enable = lib.mkDefault true;
-  
-  # Bind amdgpu on sddm start
-  services.xserver.displayManager.setupCommands = ''
-    echo 0000:03:00.0 > /sys/bus/pci/drivers/vfio-pci/unbind
-    echo 0000:03:00.0 > /sys/bus/pci/drivers/amdgpu/bind
-  '';
 
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -52,8 +46,6 @@
 
   # Configure Kernel
   boot.extraModprobeConfig = ''
-    #softdep amdgpu pre: vfio-pci
-    #options vfio-pci ids=1002:7480,1002:ab30
     options kvm ignore_msrs=1
   '';
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "thunderbolt" ];
