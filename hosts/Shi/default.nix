@@ -20,6 +20,7 @@
     ../../modules/bluetooth
     ../../modules/kvm
     ../../modules/amdgpu
+    ../../modules/controller
 
     # Import flakes
     solaar.nixosModules.default
@@ -30,34 +31,16 @@
   # Enable fwupd
   services.fwupd.enable = true;
 
-  # Steam
-  hardware.steam-hardware.enable = true;
-
-  # XBox Controller
-  hardware.xpadneo.enable = true;
-  hardware.xone.enable = true;
-
   # Enable Fingerprintreader
   services.fprintd.enable = lib.mkDefault true;
 
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
 
-  # Configure Kernel
-  boot.extraModprobeConfig = ''
-    options softdep amdgpu pre: vfio-pci
-    options vfio_pci ids=1002:7480,1002:ab30
-    options vfio_iommu_type1 allow_unsafe_interrupts=1
-    options vfio_pci disable_vga=1
-    options vfio_pci enable_sriov=1
-    options kvm ignore_msrs=1
-    options kvm report_ignored_msrs=0
-  '';
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "thunderbolt" ];
-  boot.kernelModules = [ "kvm-amd" "sg" "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
+  boot.kernelModules = [ "kvm-amd" "sg" ];
   # Maybe mds=full,nosmt
-  boot.kernelParams = ["mds=full" "efi=runtime" "kvm_amd.avic=1" "kvm_amd.npt=1" "iommu=pt" "amd_iommu=on" "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166" "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173" "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200" ];
+  boot.kernelParams = ["mds=full" "efi=runtime" "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166" "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173" "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200" ];
 
   # Configure Filesystem
   fileSystems."/" =
@@ -77,5 +60,4 @@
 
   # Nix config
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.nvidia.acceptLicense = true;
 }

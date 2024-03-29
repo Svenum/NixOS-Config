@@ -44,6 +44,9 @@
       };
     };
   };
+  
+  # Virtualisation
+  pciPassthrough.enable = false;
 
   # Printer Settings
   enableScanner = true;

@@ -20,6 +20,7 @@
     ../../modules/bluetooth
     ../../modules/kvm
     ../../modules/nvidia
+    ../../modules/controller
 
     # Import flakes
     solaar.nixosModules.default
@@ -30,14 +31,6 @@
   # Enable fwupd
   services.fwupd.enable = true;
 
-  # Steam
-  hardware.steam-hardware.enable = true;
-
-  # XBox Controller
-  hardware.xpadneo.enable = true;
-  
-  hardware.xone.enable = true;
-
   # Intel CPU Driver
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
@@ -45,7 +38,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.kernelModules = [ "kvm-intel" "sg" ];
   # Maybe mds=full,nosmt
-  boot.kernelParams = ["mds=full" "efi=runtime" "iommu=pt" "intel_iommu=on" "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166" "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173" "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200" ];
+  boot.kernelParams = ["mds=full" "efi=runtime" "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166" "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173" "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200" ];
 
   # Configure Filesystem
   fileSystems."/" =

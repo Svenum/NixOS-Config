@@ -153,3 +153,7 @@ This Variables must be layed in "/etc/hosts/COMPUTERNAME/settings.nix" and then 
 | nvidia.hybridGraphics | Enable if laptop has hybrid graphics (amd and nvidia) | false | [ true false ] | boolean |
 | nvidia.nvidiaBusId | PCI busid of the nvidia GPU in form of "PCI:X:0:0" | none | | string |
 | nvidia.amdgpuBusId | PCI busid of the amd GPU in form of "PCI:X:0:0" | none | | string |
+| **VIRTUALISATION** ||||||
+| pciPassthrough.enable | Enable PCI Passthrough | none | [ true false ] | bool |
+| pciPassthrough.isolatedDevices | List of isolated devices | none | | list |
+

@@ -33,6 +33,14 @@
     };
   };
 
+  pciPassthrough = {
+    enable = true;
+    isolatedDevices = [
+      "1002:ab30"
+      "1002:7480"
+    ];
+  };
+
   # Printer Settings
   enableScanner = true;
   printerAttrs =[
