@@ -39,6 +39,12 @@
 
   # Enable Fingerprintreader
   services.fprintd.enable = lib.mkDefault true;
+  
+  # Bind amdgpu on sddm start
+  services.xserver.displayManager.setupCommands = ''
+    echo 0000:03:00.0 > /sys/bus/pci/devices/0000\:03\:00.0/driver/unbind
+    echo 0000:03:00.0 > /sys/bus/pci/drivers/amdgpu/bind
+  '';
 
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
