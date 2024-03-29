@@ -47,7 +47,7 @@ in
     owner = "root";
     group = "root";
     setuid = true;
-    source = toggle_vfio;
+    source = "${toggle_vfio}/bin/toggle_vfio";
     permissions = "g+rx,o+rx";
   };
 
