@@ -40,6 +40,7 @@ in
 
   environment.systemPackages = with pkgs; [
     libguestfs
+    toggle_vfio
   ];
 
   security.wrappers."toggle_vfio" = {
