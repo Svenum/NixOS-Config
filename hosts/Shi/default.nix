@@ -46,6 +46,8 @@
 
   # Configure Kernel
   boot.extraModprobeConfig = ''
+    options softdep amdgpu pre: vfio-pci
+    options vfio_pci ids=1002:7480,1002:ab30
     options vfio_iommu_type1 allow_unsafe_interrupts=1
     options vfio_pci disable_vga=1
     options vfio_pci enable_sriov=1
