@@ -3,38 +3,33 @@
 let
   script = ''
     #!${pkgs.bash}
-    gpu="0000:03:00.0"
-    aif="0000:03:00.1"
+    list="${lib.strings.concatMapStrings (x: " " + x) settings.pciPassthrough.isolatedDevices}"
 
-    gpu_driver=$(lspci -s $gpu -k | grep "Kernel driver in use:" | awk '{print $NF}')
-    aif_driver=$(lspci -s $aif -k | grep "Kernel driver in use:" | awk '{print $NF}')
+    for item in $list; do                                                           
+      driver_in_use=$(lspci -d $item -k | grep "Kernel driver in use:" | awk '{print $NF}')
+      kernel_module=$(lspci -d $item -k | grep "Kernel modules:" | awk '{print $NF}')
+      pci_slot=$(lspci -d $item -D | awk '{print $1}')
 
-    if [[ $gpu_driver == "vfio-pci" ]]; then
-      echo "Switching GPU to amdgpu!"
-      echo $gpu > /sys/bus/pci/drivers/vfio-pci/unbind
-      echo $gpu > /sys/bus/pci/drivers/amdgpu/bind
-    elif [[ $gpu_driver == "amdgpu" ]]; then 
-      echo "Switching GPU to vfio-pci!"
-      echo $gpu > /sys/bus/pci/drivers/amdgpu/unbind
-      echo $gpu > /sys/bus/pci/drivers/vfio-pci/bind
-    else
-      echo "GPU: Driver $gpu_driver not known!"
-      exit 1
-    fi
-
-    if [[ $aif_driver == "vfio-pci" ]]; then
-      echo "Switching audio interface to snd_hda_intel!"
-      echo $aif > /sys/bus/pci/drivers/vfio-pci/unbind
-      echo $aif > /sys/bus/pci/drivers/snd_hda_intel/bind
-    elif [[ $aif_driver == "snd_hda_intel" ]]; then 
-      echo "Switching audio interface to vfio-pci!"
-      echo $aif > /sys/bus/pci/drivers/snd_hda_intel/unbind
-      echo $aif > /sys/bus/pci/drivers/vfio-pci/bind
-    else
-      echo "audio interface: Driver $aif_driver not known!"
-      exit 1
-    fi
+      if [[ $driver_in_use == $kernel_module ]]; then
+        echo "Bind $pci_slot to vfio-pci!"
+        echo $pci_slot > /sys/bus/pci/drivers/$kernel_module/unbind
+        echo $pci_slot > /sys/bus/pci/drivers/vfio-pci/bind
+      elif [[ $driver_in_use == "vifo-pci" ]]; then
+        echo "Bind $pci_slot to $kernel_module!"
+        echo $pci_slot > /sys/bus/pci/drivers/vfio-pci/unbind
+        echo $pci_slot > /sys/bus/pci/drivers/$kernel_module/bind
+      elif [[ $driver_in_use == "" ]]; then
+        echo "Bind $pci_slot to $kernel_module"
+        echo $pci_slot > /sys/bus/pci/drivers/$kernel_module/bind
+      else
+        echo "Something is wront with $pci_slot. It uses not $kernel_module or vfio-pci!"
+        exit 1
+      fi
+    done
   '';
+  toggle_vfio = lib.mkIf settings.pciPassthrough.enable (
+    pkgs.writeShellScriptBin "toggle_vfio" script
+  );
 in
 {
   virtualisation = {
@@ -45,7 +40,16 @@ in
 
   environment.systemPackages = with pkgs; [
     libguestfs
+    toggle_vfio
   ];
+
+  security.wrappers.toggle_vfio = {
+    owner = "root";
+    group = "root";
+    setuid = true;
+    source = toggle_vfio;
+    permissions = "4511";
+  };
 
   boot.extraModprobeConfig = lib.mkIf settings.pciPassthrough.enable ''
     options vfio_pci ids=${lib.strings.concatMapStrings (x: "," + x) settings.pciPassthrough.isolatedDevices}
