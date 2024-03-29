@@ -18,5 +18,6 @@
   # install needed tools
   environment.systemPackages = with pkgs; [
     clinfo
+    nvtopPackages.amd
   ];
 }
