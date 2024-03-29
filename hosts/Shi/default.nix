@@ -45,6 +45,11 @@
   hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   # Configure Kernel
+  boot.extraModprobeConfig = ''
+    softdep amdgpu pre: vfio-pci
+    options vfio-pci ids=1002:7480,1002:ab30
+    options kvm ignore_msrs=1
+  '';
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "thunderbolt" ];
   boot.kernelModules = [ "kvm-amd" "sg" ];
   # Maybe mds=full,nosmt
