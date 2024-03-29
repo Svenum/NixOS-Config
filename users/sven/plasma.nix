@@ -112,7 +112,7 @@ in
                 showName = "false";
                 showFullName = "false";
                 showLockScreen = "false"; 
-                showLogOut = "false";
+                showLogOut = "true";
                 showHibernate = "true";
                 showSuspend = "true";
                 showNewSession = "false";
