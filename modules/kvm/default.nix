@@ -48,6 +48,7 @@ in
     group = "root";
     setuid = true;
     source = toggle_vfio;
+    permissions = "g+rx,o+rx";
   };
 
   boot.extraModprobeConfig = lib.mkIf settings.pciPassthrough.enable ''
