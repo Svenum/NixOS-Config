@@ -42,7 +42,7 @@
   
   # Bind amdgpu on sddm start
   services.xserver.displayManager.setupCommands = ''
-    echo 0000:03:00.0 > /sys/bus/pci/devices/0000\:03\:00.0/driver/unbind
+    echo 0000:03:00.0 > /sys/bus/pci/drivers/vfio-pci/unbind
     echo 0000:03:00.0 > /sys/bus/pci/drivers/amdgpu/bind
   '';
 
