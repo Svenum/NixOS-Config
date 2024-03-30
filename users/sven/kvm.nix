@@ -22,13 +22,19 @@ in
       {
         definition = nixvirt.lib.pool.writeXML {
           name = "isos";
-          path = "/home/sven/.local/share/libvirt/isos";
+          uuid = "5217ddb8-29c2-4a4d-b976-73b9dde59e43";
+          target = {
+            path = "/home/sven/.local/share/libvirt/isos";
+          };
         };
       }
       {
         definition = nixvirt.lib.pool.writeXML {
           name = "qemu";
-          path = "/home/sven/.local/share/libvirt/qemu";
+          uuid = "be62978e-1d96-466f-bfaf-acc01c9fae76";
+          target = {
+            path = "/home/sven/.local/share/libvirt/qemu";
+          };
         };
       }
     ];
