@@ -82,15 +82,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1711799416,
-        "narHash": "sha256-BM3aduxJjvSL0jTYG1ixWDhBvIWuouycvprKQYP0FnM=",
-        "owner": "pjones",
+        "lastModified": 1711814544,
+        "narHash": "sha256-fI/S5bJYbrvfQn3zni8griof5soOhhpqR/qBYYkICEI=",
+        "owner": "magnouvean",
         "repo": "plasma-manager",
-        "rev": "25b222a95a764bb76b7082746e8a1115c46ae2d8",
+        "rev": "4471ee9eac5fc67258be75e3a90da663da845b0b",
         "type": "github"
       },
       "original": {
-        "owner": "pjones",
+        "owner": "magnouvean",
+        "ref": "panels-multiscreen",
         "repo": "plasma-manager",
         "type": "github"
       }

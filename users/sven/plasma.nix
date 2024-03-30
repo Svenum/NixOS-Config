@@ -119,28 +119,28 @@ in
         ];
         height = 30;
       }
-      #{
-      #  location = "top";
-      #  hiding = "dodgewindows";
-      #  screen = 1;
-      #  alignment = "center";
-      #  floating = false;
-      #  widgets = [
-      #    "org.kde.plasma.appmenu"
-      #    "org.kde.plasma.panelspacer"
-      #    {
-      #      name = "org.kde.plasma.digitalclock";
-      #      config = {
-      #        Appearance = {
-      #          dateDisplayFormat = "BesideTime";
-      #          dateFormat = "longDate";
-      #        };
-      #      };
-      #    }
-      #    "org.kde.plasma.panelspacer"
-      #  ];
-      #  height = 30;
-      #}
+      {
+        location = "top";
+        hiding = "dodgewindows";
+        screen = 1;
+        alignment = "center";
+        floating = false;
+        widgets = [
+          "org.kde.plasma.appmenu"
+          "org.kde.plasma.panelspacer"
+          {
+            name = "org.kde.plasma.digitalclock";
+            config = {
+              Appearance = {
+                dateDisplayFormat = "BesideTime";
+                dateFormat = "longDate";
+              };
+            };
+          }
+          "org.kde.plasma.panelspacer"
+        ];
+        height = 30;
+      }
     ];
 
     shortcuts = {
