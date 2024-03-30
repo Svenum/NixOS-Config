@@ -8,7 +8,10 @@
     # Add isos pool
     pools = [
       {
-        definition = ./virsh/isos.xml;
+        definition = nixvirt.lib.pool.writeXML {
+          name = "isos";
+          path = "/home/sven/.local/share/libvirt/isos";
+        };
       }
     ];
     # Add windows Domain
@@ -16,7 +19,10 @@
     #  (
     #    lib.mkIf (systemConfig.networking.hostName == "Shi")
     #    {
-    #      definition = ./virsh/win10.xml;
+    #      definition = nixvirt.lib.pool.writeXML {
+    #        vcpu.count = 12;
+    #        os = 
+    #      };
     #    }
     #  )
     #]

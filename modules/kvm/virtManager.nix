@@ -1,4 +1,4 @@
-{ lib, settings, nixVirt, ... }:
+{ lib, settings, nixVirt, system, ... }:
 
 let
   mkUserConfig = name: user: {
@@ -21,6 +21,7 @@ in
   # Enable spiceUSBRedirection
   virtualisation = {
     spiceUSBRedirection.enable = true;
+    nixVirt.packages.x86_64.default
   };
   programs.virt-manager.enable = true;
 
