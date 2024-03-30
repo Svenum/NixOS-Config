@@ -20,6 +20,7 @@ in
 {
   # Enable spiceUSBRedirection
   virtualisation = {
+    libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
   programs.virt-manager.enable = true;
@@ -36,8 +37,4 @@ in
   environment.systemPackages = with pkgs; [
     nixVirt.packages.x86_64-linux.default
   ];
-
-  virtualisation.libvirt = {
-    enable = true;
-  };
 }
