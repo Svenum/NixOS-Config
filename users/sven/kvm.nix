@@ -41,49 +41,49 @@ in
       }
     ];
     # Add windows Domain
-    domains = [
-      (
-        lib.mkIf (systemConfig.networking.hostName == "Shi")
-        {
-          definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
-            {
-              name = "win10";
-              uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
-              memory = { count = 24; unit = "GiB"; };
-              storage_vol = { pool = "default"; volume = "win10.qcow2"; };
-              nvram_path = nvramDefaultPath + /win10.nvram;
-              virtio_net = true;
-              virtio_drive = true;
-              install_virtio = true;
-            }
-          );
-        }
+    #domains = [
+    #  (
+    #    lib.mkIf (systemConfig.networking.hostName == "Shi")
+    #    {
+    #      definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
+    #        {
+    #          name = "win10";
+    #          uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
+    #          memory = { count = 24; unit = "GiB"; };
+    #          storage_vol = { pool = "default"; volume = "win10.qcow2"; };
+    #          nvram_path = nvramDefaultPath + /win10.nvram;
+    #          virtio_net = true;
+    #          virtio_drive = true;
+    #          install_virtio = true;
+    #        }
+    #      );
+    #    }
 
 
 
 
 
 
-        #{
-        #  definition = nixvirt.lib.pool.writeXML {
-        #    vcpu.count = 12;
-        #    os = {
-        #      type = "pc-q35-8.2"
-        #      arch = "x86_64";
-        #      machine = "qt5"
-        #      boot = [ { dev = "hd"; } ];
-        #      loader = {
-        #        readonly = true;
-        #        type = "pflash";
-        #        path = "${nixvirt.lib.nixpkgs-ovmf.OVMFFull.fd}/FV/OVMF_CODE.ms.fd";
-        #      };
-        #      nvram = {
-        #        
-        #      };
-        #    };
-        #  };
-        #}
-      )
-    ];
+    #    #{
+    #    #  definition = nixvirt.lib.pool.writeXML {
+    #    #    vcpu.count = 12;
+    #    #    os = {
+    #    #      type = "pc-q35-8.2"
+    #    #      arch = "x86_64";
+    #    #      machine = "qt5"
+    #    #      boot = [ { dev = "hd"; } ];
+    #    #      loader = {
+    #    #        readonly = true;
+    #    #        type = "pflash";
+    #    #        path = "${nixvirt.lib.nixpkgs-ovmf.OVMFFull.fd}/FV/OVMF_CODE.ms.fd";
+    #    #      };
+    #    #      nvram = {
+    #    #        
+    #    #      };
+    #    #    };
+    #    #  };
+    #    #}
+    #  )
+    #];
   };
 }
