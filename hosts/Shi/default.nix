@@ -34,6 +34,16 @@
   # Enable Fingerprintreader
   services.fprintd.enable = lib.mkDefault true;
 
+  # Fix Wlan after suspend or Hibernate
+  powerManagement.resumeCommands = ''
+    ${pkgs.uutils-coreutils-noprefix}/bin/echo $(${pkgs.uutils-coreutils-noprefix}/bin/id -u) >> /home/sven/test
+    ${pkgs.uutils-coreutils-noprefix}/bin/echo $(${pkgs.uutils-coreutils-noprefix}/bin/date) >> /home/sven/test
+    ${pkgs.uutils-coreutils-noprefix}/bin/echo "" >> /home/sven/test
+
+    echo 0000:04:00.0 > /sys/bus/pci/drivers/mt7921e/unbind
+    echo 0000:04:00.0 > /sys/bus/pci/drivers/mt7921e/bind
+  '';
+
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
