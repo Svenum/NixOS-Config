@@ -48,7 +48,7 @@ in
       f = {
         group = "kvm";
         user = "root";
-        mode = "0755";
+        mode = "0660";
       };
     };
   };
