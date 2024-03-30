@@ -4,6 +4,7 @@ let
   nvramDefaultPath = /home/sven/.local/share/libvirt/qemu;
 in
 {
+  # Enable virtualisation
   virtualisation.libvirt.swtpm.enable = true;
   virtualisation.libvirt.enable = true;
   virtualisation.libvirt.connections."qemu:///session" = {
@@ -84,5 +85,12 @@ in
         #}
       )
     ];
+  };
+
+  # Prepare folder:
+  home.activation = {
+    prepare_libvirt_dirs = ''
+      mkdir -p /home/sven/.local/share/libvirt/qemu
+    '';
   };
 }
