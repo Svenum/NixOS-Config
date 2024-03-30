@@ -58,6 +58,11 @@
     { device = "/dev/disk/by-uuid/142B-16BD";
       fsType = "vfat";
     };
+    swapDevices = [
+      {
+        label = "Swap";
+      }
+    ];
 
   # Nix config
   nixpkgs.config.allowUnfree = true;
