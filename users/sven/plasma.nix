@@ -41,8 +41,6 @@ in
                   "preferred://browser"
                   "applications:com.valvesoftware.Steam.desktop"
                   "applications:net.lutris.Lutris.desktop"
-                  "applications:net.lutris.league-of-legends-1.desktop"
-                  "applications:org.remmina.Remmina.desktop"
                 ];
               };
             };
@@ -50,8 +48,6 @@ in
           "org.kde.plasma.panelspacer"
         ];
         height = 50;
-        maxLength = 1410;
-        minLength = 1050;
       }
       {
         location = "top";
@@ -122,8 +118,27 @@ in
           }
         ];
         height = 30;
-        maxLength = 3440;
-        minLength = 1920;
+      }
+      {
+        location = "top";
+        hiding = "dodgewindows";
+        screen = 1;
+        alignment = "center";
+        floating = false;
+        widgets = [
+          "org.kde.plasma.appmenu"
+          "org.kde.plasma.panelspacer"
+          {
+            name = "org.kde.plasma.digitalclock";
+            config = {
+              Appearance = {
+                dateDisplayFormat = "BesideTime";
+                dateFormat = "longDate";
+              };
+            };
+          }
+        ];
+        height = 30;
       }
     ];
 
