@@ -4,6 +4,7 @@
   imports = [
     auto-cpufreq.nixosModules.default
   ];
+
   # Enable NixOS powermanagement + powertop
   powerManagement = {
     enable = true;
@@ -26,4 +27,5 @@
       };
     };
   };
+  systemd.services.auto-cpufreq.enable = true;
 }
