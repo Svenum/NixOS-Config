@@ -51,7 +51,7 @@ in
               uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
               memory = { count = 24; unit = "GiB"; };
               storage_vol = { pool = "default"; volume = "win10.qcow2"; };
-              nvram_path = "${nvramDefaultPath}/win10.nvram";
+              nvram_path = nvramDefaultPath + /win10.nvram;
               virtio_net = true;
               virtio_drive = true;
               install_virtio = true;
@@ -85,12 +85,5 @@ in
         #}
       )
     ];
-  };
-
-  # Prepare folder:
-  home.activation = {
-    prepare_libvirt_dirs = ''
-      mkdir -p /home/sven/.local/share/libvirt/qemu
-    '';
   };
 }
