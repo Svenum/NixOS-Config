@@ -30,15 +30,13 @@
     "sven" = {
       isGuiUser = true;
       isSudoUser = true;
+      isKvmUser = true;
       git = {
         userName = "Svenum";
         userEmail = "s.ziegler@holypenguin.net";
       };
     };
   };
-  
-  # Virtualisation
-  pciPassthrough.enable = false;
 
   # Printer Settings
   enableScanner = true;

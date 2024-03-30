@@ -122,6 +122,7 @@ This Variables must be layed in "/etc/hosts/COMPUTERNAME/settings.nix" and then 
 | **USER** |||||
 | userAttrs.\<name\>.isGuiUser | Enable gui settings for user | false | [ false true ] | boolean |
 | userAttrs.\<name\>.isSudoUser | Enable sudo for this user | false | [ false true ] | boolean |
+| userAttrs.\<name\>.isKvmUser | Enable libvirt and kvm feature for the user | false | [ false true ] | boolean |
 | userAttrs.\<name\>.git.userName | Git userName | none | | string |
 | userAttrs.\<name\>.git.userEmail | Git userEmail | none | | string |
 | userAttrs.\<name\>.shell | Shell for user | none | | string |
