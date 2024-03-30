@@ -5,6 +5,7 @@ let
 in
 {
   virtualisation.libvirt.swtpm.enable = true;
+  virtualisation.libvirt.enable = true;
   virtualisation.libvirt.connections."qemu:///session" = {
     # Add networks
     networks = [
