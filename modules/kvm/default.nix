@@ -32,7 +32,7 @@ let
   #);
 
   mkShimMapping = name: user: {
-    "10-looking-glass-${name}" = lib.mkIf user.isKvmUser or false {
+    "/dev/shm/looking-glass-${name}" = lib.mkIf user.isKvmUser or false {
       f = {
         group = "kvm";
         user = name;
@@ -71,7 +71,7 @@ in
   ];
 
   # Prepare Shim permissions
-  systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (lib.mapAttrs mkShimMapping settings.userAttrs);
+  systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (builtins.mapAttrs mkShimMapping settings.userAttrs);
 
   # Add user to group
   users.users = lib.mapAttrs mkUser settings.userAttrs;
