@@ -43,6 +43,16 @@ in
     #toggle_vfio
   ] ++ (if settings.pciPassthrough.enable then [ pkgs.looking-glass-client ] else []);
 
+  systemd.tmpfiles.settings."10-looking-glass" = lib.mkIf settings.pciPassthrough.enable {
+    "/dev/shm/looking-glass" = {
+      f = {
+        group = "kvm";
+        user = "root";
+        mode = "0755";
+      };
+    };
+  };
+
   #security.wrappers."toggle_vfio" = {
   #  owner = "root";
   #  group = "root";
