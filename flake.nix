@@ -1,7 +1,7 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, auto-cpufreq, ... }@inputs:
   let
     lib = nixpkgs.lib;
   in
@@ -25,6 +25,7 @@
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
           inherit (inputs) plasma-manager;
+          inherit (inputs) auto-cpufreq;
           settings = import ./hosts/Shi/settings.nix;
         };
         system = "x86_64-linux";
@@ -121,6 +122,11 @@
     solaar = {
       url = "github:Svenum/Solaar-Flake/latest";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+     inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
