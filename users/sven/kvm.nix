@@ -13,6 +13,8 @@ in
           name = "isos";
           path = "/home/sven/.local/share/libvirt/isos";
         };
+      }
+      {
         definition = nixvirt.lib.pool.writeXML {
           name = "qemu";
           path = "/home/sven/.local/share/libvirt/qemu";
