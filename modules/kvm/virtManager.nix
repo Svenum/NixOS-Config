@@ -4,8 +4,8 @@ let
   mkUserConfig = name: user: {
     dconf.settings = lib.mkIf user.isKvmUser or false {
       "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
+        autoconnect = ["qemu:///system" "qemu:///session"];
+        uris = ["qemu:///system" "qemu:///session"];
       };
     };
   };
