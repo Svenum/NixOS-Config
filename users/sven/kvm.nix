@@ -1,9 +1,9 @@
-{ nixVirt, systemConfig, ... }:
+{ lib, systemConfig, nixvirt, ... }:
 
+let
+  nvramDefaultPath = /home/sven/.local/share/libvirt/qemu;
+in
 {
-  # import home-manager module
-  imports = [ nixVirt.homeModules.default ];
-
   virtualisation.libvirt.swtpm.enable = true;
   virtualisation.libvirt.connections."qemu:///session" = {
     # Add isos pool
@@ -12,6 +12,10 @@
         definition = nixvirt.lib.pool.writeXML {
           name = "isos";
           path = "/home/sven/.local/share/libvirt/isos";
+        };
+        definition = nixvirt.lib.pool.writeXML {
+          name = "qemu";
+          path = "/home/sven/.local/share/libvirt/qemu";
         };
       }
     ];
@@ -23,8 +27,10 @@
           definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
             {
               name = "win10";
-              memory = { count = 24; unit = "GiB" };
-              storage_vol = { pool = "default"; volume = "win10.qcow2" };
+              uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
+              memory = { count = 24; unit = "GiB"; };
+              storage_vol = { pool = "default"; volume = "win10.qcow2"; };
+              nvram_path = "${nvramDefaultPath}/win10.nvram";
               virtio_net = true;
               virtio_drive = true;
               install_virtio = true;
@@ -48,7 +54,7 @@
         #      loader = {
         #        readonly = true;
         #        type = "pflash";
-        #        path = "${nixVirt.nixpkgs-ovmf.OVMFFull.fd}/FV/OVMF_CODE.ms.fd";
+        #        path = "${nixvirt.lib.nixpkgs-ovmf.OVMFFull.fd}/FV/OVMF_CODE.ms.fd";
         #      };
         #      nvram = {
         #        
@@ -57,6 +63,6 @@
         #  };
         #}
       )
-    ]
+    ];
   };
 }

@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./plasma.nix
+    ./kvm.nix
   ];
 
   # Add extgra packages
