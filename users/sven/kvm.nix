@@ -25,6 +25,7 @@ in
         definition = nixvirt.lib.pool.writeXML {
           name = "isos";
           uuid = "5217ddb8-29c2-4a4d-b976-73b9dde59e43";
+          type = "dir";
           target = {
             path = "/home/sven/.local/share/libvirt/isos";
           };
@@ -33,6 +34,7 @@ in
       {
         definition = nixvirt.lib.pool.writeXML {
           name = "qemu";
+          type = "dir";
           uuid = "be62978e-1d96-466f-bfaf-acc01c9fae76";
           target = {
             path = "/home/sven/.local/share/libvirt/qemu";
