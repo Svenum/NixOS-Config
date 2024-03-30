@@ -27,9 +27,35 @@ let
   #    fi
   #  done
   #'';
-  #toggle_vfio = lib.mkIf settings.pciPassthrough.enable (
+  #toggle_vfio = lib.mkIf settings.pciPassthrough.enable or false (
   #  pkgs.writeShellScriptBin "toggle_vfio" script
   #);
+
+  mkShimMapping = name: user: {
+    "10-looking-glass-${name}" = lib.mkIf user.isKvmUser or false {
+      f = {
+        group = "kvm";
+        user = name;
+        mode = "0660";
+      };
+    };
+  };
+
+  mkUserConfig = name: user: {
+    dconf.settings = lib.mkIf user.isKvmUser or false {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
+      };
+    };
+  };
+
+  mkUser = name: user: {
+    extraGroups = lib.mkIf user.isKvmUser or false [
+      "kvm"
+      "libvirtd"
+    ];
+  };
 in
 {
   virtualisation = {
@@ -41,17 +67,18 @@ in
   environment.systemPackages = with pkgs; [
     libguestfs
     #toggle_vfio
-  ] ++ (if settings.pciPassthrough.enable then [ pkgs.looking-glass-client ] else []);
+    (lib.mkIf settings.pciPassthrough.enable or false looking-glass-client)
+  ];
 
-  systemd.tmpfiles.settings."10-looking-glass" = lib.mkIf settings.pciPassthrough.enable {
-    "/dev/shm/looking-glass" = {
-      f = {
-        group = "kvm";
-        user = "root";
-        mode = "0660";
-      };
-    };
-  };
+  # Prepare Shim permissions
+  systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (lib.mapAttrs mkShimMapping settings.userAttrs);
+
+  # Add user to group
+  users.users = lib.mapAttrs mkUser settings.userAttrs;
+
+  # Connect to QEMU
+  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
+
 
   #security.wrappers."toggle_vfio" = {
   #  owner = "root";
@@ -61,7 +88,7 @@ in
   #  permissions = "g+rx,o+rx";
   #};
 
-  boot.extraModprobeConfig = lib.mkIf settings.pciPassthrough.enable ''
+  boot.extraModprobeConfig = lib.mkIf settings.pciPassthrough.enable or false ''
     #options vfio_pci ids=${lib.strings.concatMapStrings (x: "," + x) settings.pciPassthrough.isolatedDevices}
     options vfio_iommu_type1 allow_unsafe_interrupts=1
     options vfio_pci disable_vga=1
