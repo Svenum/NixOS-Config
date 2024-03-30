@@ -34,7 +34,7 @@ in
   imports = [ nixVirt.nixosModules.default ];
 
   environment.systemPackages = with pkgs; [
-    nixVirt.packages.x86_64.default
+    nixVirt.packages.default
   ];
 
   virtualisation.libvirt = {
