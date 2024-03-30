@@ -1,31 +1,19 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, auto-cpufreq, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, auto-cpufreq, nixVirt, ... }@inputs:
   let
     lib = nixpkgs.lib;
   in
   {
     nixosConfigurations = {
-      Ni = lib.nixosSystem {
-        specialArgs = {
-          inherit (inputs) home-manager;
-          inherit (inputs) solaar;
-          inherit (inputs) plasma-manager;
-          settings = import ./hosts/Ni/settings.nix;
-        };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/Ni
-        ];
-      };
-
       Shi = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
           inherit (inputs) plasma-manager;
           inherit (inputs) auto-cpufreq;
+          inherit (inputs) nixVirt;
           settings = import ./hosts/Shi/settings.nix;
         };
         system = "x86_64-linux";
@@ -34,11 +22,26 @@
         ];
       };
 
+      Ni = lib.nixosSystem {
+        specialArgs = {
+          inherit (inputs) home-manager;
+          inherit (inputs) solaar;
+          inherit (inputs) plasma-manager;
+          inherit (inputs) nixVirt;
+          settings = import ./hosts/Ni/settings.nix;
+        };
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/Ni
+        ];
+      };
+
       San = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
           inherit (inputs) plasma-manager;
+          inherit (inputs) nixVirt;
           settings = import ./hosts/San/settings.nix;
         };
         system = "x86_64-linux";
@@ -63,6 +66,7 @@
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) plasma-manager;
+          inherit (inputs) nixVirt;
           settings = import ./hosts/Zeta/settings.nix;
         };
         system = "x86_64-linux";
@@ -101,11 +105,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     
-    #tuxedo-nixos = {
-    #  url = "github:Svenum/tuxedo-nixos";
-    #  inputs.nixpkgs.follows = "nixpkgs-stable";
-    #};
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -127,7 +126,12 @@
 
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
-     inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixVirt = {
+      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }

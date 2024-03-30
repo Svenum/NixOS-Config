@@ -30,54 +30,14 @@ let
   #toggle_vfio = lib.mkIf settings.pciPassthrough.enable or false (
   #  pkgs.writeShellScriptBin "toggle_vfio" script
   #);
-
-  mkShimMapping = name: user: {
-    "/dev/shm/looking-glass-${name}" = lib.mkIf user.isKvmUser or false {
-      f = {
-        group = "kvm";
-        user = name;
-        mode = "0660";
-      };
-    };
-  };
-
-  mkUserConfig = name: user: {
-    dconf.settings = lib.mkIf user.isKvmUser or false {
-      "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
-      };
-    };
-  };
-
-  mkUser = name: user: {
-    extraGroups = lib.mkIf user.isKvmUser or false [
-      "kvm"
-      "libvirtd"
-    ];
-  };
 in
 {
-  virtualisation = {
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
-  };
-  programs.virt-manager.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    libguestfs
-    #toggle_vfio
-    (lib.mkIf settings.pciPassthrough.enable or false looking-glass-client)
+  # Import required modules
+  imports = [
+    ./lookingGlass.nix
+    ./virtManager.nix
   ];
-
-  # Prepare Shim permissions
-  systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (builtins.mapAttrs mkShimMapping settings.userAttrs);
-
-  # Add user to group
-  users.users = lib.mapAttrs mkUser settings.userAttrs;
-
-  # Connect to QEMU
-  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
 
 
   #security.wrappers."toggle_vfio" = {
@@ -88,6 +48,7 @@ in
   #  permissions = "g+rx,o+rx";
   #};
 
+  # Prepare Kernel
   boot.extraModprobeConfig = lib.mkIf settings.pciPassthrough.enable or false ''
     #options vfio_pci ids=${lib.strings.concatMapStrings (x: "," + x) settings.pciPassthrough.isolatedDevices}
     options vfio_iommu_type1 allow_unsafe_interrupts=1

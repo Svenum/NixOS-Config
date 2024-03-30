@@ -56,6 +56,26 @@
         "type": "github"
       }
     },
+    "nixVirt": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-ovmf": "nixpkgs-ovmf"
+      },
+      "locked": {
+        "lastModified": 1711491004,
+        "narHash": "sha256-jEDXUqgXPIz1efb3SbQpHsWI/Vw59uV8A1f6EEEP4DA=",
+        "rev": "3bd0a8100114b56536e7bb65619e3a3e5c726e31",
+        "revCount": 256,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/AshleyYakeley/NixVirt/0.4.1/018e7cd1-9913-7cc8-ade9-4bd01c7b1245/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/AshleyYakeley/NixVirt/%2A.tar.gz"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1711703276,
@@ -63,6 +83,22 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "d8fe5e6c92d0d190646fb9f1056741a229980089",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-ovmf": {
+      "locked": {
+        "lastModified": 1708984720,
+        "narHash": "sha256-gJctErLbXx4QZBBbGp78PxtOOzsDaQ+yw1ylNQBuSUY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "13aff9b34cc32e59d35c62ac9356e4a41198a538",
         "type": "github"
       },
       "original": {
@@ -100,6 +136,7 @@
       "inputs": {
         "auto-cpufreq": "auto-cpufreq",
         "home-manager": "home-manager",
+        "nixVirt": "nixVirt",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager",
         "solaar": "solaar"
