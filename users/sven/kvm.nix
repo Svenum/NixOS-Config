@@ -4,6 +4,7 @@
   # import home-manager module
   imports = [ nixVirt.homeModules.default ];
 
+  virtualisation.libvirt.swtpm.enable = true;
   virtualisation.libvirt.connections."qemu:///session" = {
     # Add isos pool
     pools = [
