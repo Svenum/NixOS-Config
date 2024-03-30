@@ -11,6 +11,9 @@
     powertop.enable = true;
   };
 
+  # Enable powerpfiles
+  services.power-profiles-daemon.enable = true;
+
   # Enable auto-cpufreq
   programs.auto-cpufreq = {
     enable = true;
@@ -27,5 +30,4 @@
       };
     };
   };
-  systemd.services.auto-cpufreq.enable = true;
 }
