@@ -41,7 +41,7 @@ in
   environment.systemPackages = with pkgs; [
     libguestfs
     #toggle_vfio
-  ];
+  ] ++ (if settings.pciPassthrough.enable then [ pkgs.looking-glass-client ] else []);
 
   #security.wrappers."toggle_vfio" = {
   #  owner = "root";
