@@ -1,8 +1,5 @@
 { lib, systemConfig, nixvirt, ... }:
 
-let
-  nvramDefaultPath = /home/sven/.local/share/libvirt/qemu;
-in
 {
   # Enable virtualisation
   virtualisation.libvirt.swtpm.enable = true;
@@ -18,8 +15,8 @@ in
           target = {
             path = "/home/sven/.local/share/libvirt/images";
           };
-          active = true;
         };
+        active = true;
       }
       {
         definition = nixvirt.lib.pool.writeXML {
@@ -29,8 +26,8 @@ in
           target = {
             path = "/home/sven/.local/share/libvirt/isos";
           };
-          active = true;
         };
+        active = true;
       }
       {
         definition = nixvirt.lib.pool.writeXML {
@@ -40,10 +37,11 @@ in
           target = {
             path = "/home/sven/.local/share/libvirt/qemu";
           };
-          active = true;
         };
+        active = true;
       }
     ];
+
     # Add windows Domain
     domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
       {
@@ -52,11 +50,8 @@ in
             name = "win10";
             uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
             memory = { count = 24; unit = "GiB"; };
-            storage_vol = { pool = "default"; volume = "win10.qcow2"; };
-            nvram_path = nvramDefaultPath + /win10.nvram;
-            virtio_net = true;
-            virtio_drive = true;
-            install_virtio = true;
+            storage_vol = "win10.qcow2";
+            nvram_path = /home/sven/.local/share/libvirt/qemu/win10.nvram;
           }
         );
 
