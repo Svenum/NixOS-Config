@@ -22,7 +22,7 @@
               name = "win10.qcow2";
               capacity = { count = 250; unit = "GiB"; };
               target = {
-                type = "qcow2";
+                format = "qcow2";
               };
             };
           }
