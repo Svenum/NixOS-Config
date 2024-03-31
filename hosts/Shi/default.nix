@@ -20,7 +20,7 @@
     ../../modules/bluetooth
     ../../modules/kvm
     ../../modules/amdgpu
-    ../../modules/controller
+    #../../modules/controller
     ../../modules/powerManagement
 
     # Import flakes
