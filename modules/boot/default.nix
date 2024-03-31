@@ -1,11 +1,11 @@
-{ pkgs, config, settings, ... }:
+{ pkgs, config, settings, lib, ... }:
 
 {
   # Filesystems
   boot.supportedFilesystems = [ "ntfs" ];
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
   # Bootloader
   boot.loader = {
