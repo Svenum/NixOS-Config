@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Enable opengl
@@ -18,6 +18,15 @@
   };
 
   services.xserver.videoDrivers = ["amdgpu-pro"];
+
+  boot.kernelPackages = lib.mkForce (pkgs.linuxKernel.packagesFor
+  (pkgs.linuxKernel.kernels.linux_6_8.override {
+    structuredExtraConfig = {
+      DEVICE_PRIVATE = lib.kernel.yes;
+      KALLSYMS_ALL = lib.kernel.yes;
+    };
+  }));
+
 
   # install needed tools
   environment.systemPackages = with pkgs; [
