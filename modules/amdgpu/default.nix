@@ -32,6 +32,5 @@
   environment.systemPackages = with pkgs; [
     clinfo
     nvtopPackages.amd
-    amf-headers
   ];
 }

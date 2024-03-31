@@ -35,6 +35,22 @@
   # Enable Fingerprintreader
   services.fprintd.enable = lib.mkDefault true;
 
+
+  # try handbrake overlay
+  nixpkgs.overlays = [
+    (final: prev: {
+      handbrake = prev.handbrake.overrideAttrs (old: {
+        buildInputs = (old.buildInputs or []) ++ [
+          pkgs.amf-headers
+        ];
+      });
+    })
+  ];
+  environment.systemPackages = with pkgs; [
+    handbrake
+  ];
+
+
   # Fix Wlan after suspend or Hibernate
   powerManagement.powerUpCommands = ''
     echo 0000:04:00.0 > /sys/bus/pci/drivers/mt7921e/unbind
