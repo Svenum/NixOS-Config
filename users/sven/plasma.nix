@@ -11,6 +11,14 @@ in
 {
   programs.plasma = {
     enable = enablePlasma;
+
+    # Add Virtual Desktops
+    configFile.kwinrc."Desktop" = {
+      "Number" = 4;
+      "Rows".value = "2";
+    };
+
+    # Theming
     workspace = {
       clickItemTo = "select";
       theme = "default";
