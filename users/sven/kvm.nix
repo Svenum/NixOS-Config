@@ -45,9 +45,9 @@ in
       }
     ];
     # Add windows Domain
-    domains = [
+    domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
       {
-        definition = lib.mkIf (systemConfig.networking.hostName == "Shi") nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
+        definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
           {
             name = "win10";
             uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
