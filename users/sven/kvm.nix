@@ -22,7 +22,7 @@
                 capacity = { count = 250; unit = "GiB"; };
                 target = {
                   type = "qcow2";
-                }
+                };
               }
             }
           ];
