@@ -8,17 +8,6 @@ in
   virtualisation.libvirt.swtpm.enable = true;
   virtualisation.libvirt.enable = true;
   virtualisation.libvirt.connections."qemu:///session" = {
-    # Add networks
-    networks = [
-      {
-        definition = nixvirt.lib.network.writeXML (nixvirt.lib.network.templates.bridge
-          {
-            uuid = "309c435b-5b7e-4dd7-921c-fd24e4e30951";
-            subnet_byte = 71;
-          });
-        active = true;
-      }
-    ]; 
     # Add pools
     pools = [
       {
