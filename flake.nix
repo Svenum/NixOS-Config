@@ -111,8 +111,7 @@
     };
 
     plasma-manager = {
-      #url = "github:pjones/plasma-manager";
-      url = "github:magnouvean/plasma-manager/panels-multiscreen";
+      url = "github:pjones/plasma-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
