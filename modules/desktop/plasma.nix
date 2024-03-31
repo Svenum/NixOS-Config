@@ -57,6 +57,7 @@ in
     vulkan-tools
     playerctl
     wayland-utils
+    aha
 
     # Icons
     (catppuccin-papirus-folders.override {

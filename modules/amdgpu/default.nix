@@ -6,15 +6,15 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-      amdvlk
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
-    ];
+    #extraPackages = with pkgs; [
+    #  rocmPackages.clr.icd
+    #  amdvlk
+    #  vaapiVdpau
+    #  libvdpau-va-gl
+    #];
+    #extraPackages32 = with pkgs; [
+    #  driversi686Linux.amdvlk
+    #];
   };
 
   services.xserver.videoDrivers = ["amdgpu-pro"];
