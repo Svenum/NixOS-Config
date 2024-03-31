@@ -17,7 +17,7 @@
     ];
   };
 
-  #services.xserver.videoDrivers = ["amdgpu-pro"];
+  services.xserver.videoDrivers = ["amdgpu-pro"];
 
   # install needed tools
   environment.systemPackages = with pkgs; [
