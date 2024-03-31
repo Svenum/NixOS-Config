@@ -16,6 +16,7 @@
             path = "/home/sven/.local/share/libvirt/images";
           };
         };
+        # Workaround untils https://github.com/AshleyYakeley/NixVirt/issues/16 is fixed
         volumes = [
           {
             definition = nixvirt.lib.volume.writeXML {
@@ -56,6 +57,7 @@
     # Add windows Domain
     domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
       {
+        # Does not work https://github.com/AshleyYakeley/NixVirt/issues/17
         definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
           {
             name = "win10";
