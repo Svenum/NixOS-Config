@@ -50,7 +50,7 @@
             name = "win10";
             uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
             memory = { count = 24; unit = "GiB"; };
-            storage_vol = "win10.qcow2";
+            storage_vol = /home/sven/.local/share/libvirt/images/win10.qcow2;
             nvram_path = /home/sven/.local/share/libvirt/qemu/win10.nvram;
           }
         );
