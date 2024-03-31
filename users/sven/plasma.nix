@@ -13,9 +13,9 @@ in
     enable = enablePlasma;
 
     # Add Virtual Desktops
-    configFile.kwinrc."Desktop" = {
-      "Number" = 4;
-      "Rows".value = "2";
+    configFile."kwinrc"."Desktop" = {
+      "Number".value = 4;
+      "Rows".value = 2;
     };
 
     # Theming
