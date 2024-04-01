@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711868868,
-        "narHash": "sha256-QpZanlbVu6Gb2K96u3vgu0F2BvZD74+fOsIFWcYEXoY=",
+        "lastModified": 1711915616,
+        "narHash": "sha256-co6LoFA+j6BZEeJNSR8nZ4oOort5qYPskjrDHBaJgmo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "30f2ec39519f4f5a8a96af808c439e730c15aeab",
+        "rev": "820be197ccf3adaad9a8856ef255c13b6cc561a6",
         "type": "github"
       },
       "original": {
@@ -64,16 +64,17 @@
         "nixpkgs-ovmf": "nixpkgs-ovmf"
       },
       "locked": {
-        "lastModified": 1711491004,
-        "narHash": "sha256-jEDXUqgXPIz1efb3SbQpHsWI/Vw59uV8A1f6EEEP4DA=",
-        "rev": "3bd0a8100114b56536e7bb65619e3a3e5c726e31",
-        "revCount": 256,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/AshleyYakeley/NixVirt/0.4.1/018e7cd1-9913-7cc8-ade9-4bd01c7b1245/source.tar.gz"
+        "lastModified": 1711937385,
+        "narHash": "sha256-nGb/2PbWn1XqJuR0MZ9ajIA/wx/eIjkjRtOeNS29xU8=",
+        "owner": "AshleyYakeley",
+        "repo": "NixVirt",
+        "rev": "0af44a398de6df9966f938c9fb4d573eb51a8755",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/AshleyYakeley/NixVirt/%2A.tar.gz"
+        "owner": "AshleyYakeley",
+        "repo": "NixVirt",
+        "type": "github"
       }
     },
     "nixpkgs": {
@@ -118,11 +119,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711880258,
-        "narHash": "sha256-4lcNTaKYxKXqAD+OrTC68T2W/Cr69VSogS+R5tjdn+M=",
+        "lastModified": 1711920558,
+        "narHash": "sha256-F8ESttizNOXsLfv9PeTen3lvq3cnxG9RV2RiHgGzA2Q=",
         "owner": "pjones",
         "repo": "plasma-manager",
-        "rev": "22b423b9c6f157373d56413835d1d65ea4c5f481",
+        "rev": "88cf932923835c05f26176a8a4df30a0dd1e7775",
         "type": "github"
       },
       "original": {
