@@ -52,6 +52,7 @@ in
     # GUI Tools
     kdePackages.skanlite
     kdePackages.sddm-kcm
+    xwaylandvideobridge
     # Add Konsole profiles and colorshcemes
     konsole-catppuccin
     # Add plasmoids
