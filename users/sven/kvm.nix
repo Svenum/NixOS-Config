@@ -19,7 +19,7 @@
         volumes = [
           {
             definition = nixvirt.lib.volume.writeXML {
-              name = "win10.qcow2";
+              name = "win10gpu.qcow2";
               capacity = { count = 250; unit = "GiB"; };
               target = {
                 format = { type = "qcow2"; };
@@ -40,55 +40,12 @@
         };
         active = true;
       }
-      {
-        definition = nixvirt.lib.pool.writeXML {
-          name = "qemu";
-          type = "dir";
-          uuid = "be62978e-1d96-466f-bfaf-acc01c9fae76";
-          target = {
-            path = "/home/sven/.local/share/libvirt/qemu";
-          };
-        };
-        active = true;
-      }
     ];
 
     # Add windows Domain
     domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
       {
-        # Does not work https://github.com/AshleyYakeley/NixVirt/issues/17
-        definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
-          {
-            name = "win10";
-            uuid = "a9329510-9185-4849-a4ed-0b52aa2f4d47";
-            memory = { count = 24; unit = "GiB"; };
-            storage_vol = { pool = "default"; volume = "win10.qcow2"; };
-            nvram_path = /home/sven/.local/share/libvirt/qemu/win10.nvram;
-            virtio_drive = true;
-          }
-        );
-
-
-
-        #{
-        #  definition = nixvirt.lib.pool.writeXML {
-        #    vcpu.count = 12;
-        #    os = {
-        #      type = "pc-q35-8.2"
-        #      arch = "x86_64";
-        #      machine = "qt5"
-        #      boot = [ { dev = "hd"; } ];
-        #      loader = {
-        #        readonly = true;
-        #        type = "pflash";
-        #        path = "${nixvirt.lib.nixpkgs-ovmf.OVMFFull.fd}/FV/OVMF_CODE.ms.fd";
-        #      };
-        #      nvram = {
-        #        
-        #      };
-        #    };
-        #  };
-        #}
+        definition = ./kvm/win10gpu.xml;
       }
     ];
   };
