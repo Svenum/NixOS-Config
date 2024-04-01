@@ -1,4 +1,4 @@
-{ auto-cpufreq, ... }:
+{ auto-cpufreq, lib, ... }:
 
 {
   imports = [
@@ -11,8 +11,8 @@
     powertop.enable = true;
   };
 
-  # Enable powerpfiles
-  #services.power-profiles-daemon.enable = true;
+  # Disable powerpfiles
+  services.power-profiles-daemon.enable = lib.mkForce false;
 
   # Enable auto-cpufreq
   #programs.auto-cpufreq = {
