@@ -58,6 +58,9 @@
       {
         definition = ./kvm/win10gpu.xml;
       }
+      {
+        definition = ./kvm/win10.xml;
+      }
     ];
   };
 }

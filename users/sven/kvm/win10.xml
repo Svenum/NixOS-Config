@@ -1,6 +1,6 @@
 <domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
-  <name>Windows 10 GPU</name>
-  <uuid>849e92ae-11a3-45da-acde-5e8a0d135a40</uuid>
+  <name>Windows 10</name>
+  <uuid>aca87c10-eeca-4ca0-8dd2-6236acf9c1c6</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://microsoft.com/win/10"/>
@@ -180,25 +180,8 @@
       <model type="vga" vram="16384" heads="1" primary="yes" resolution="1920x1080"/>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
     </video>
-    <hostdev mode="subsystem" type="pci" managed="yes">
-      <source>
-        <address domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
-      </source>
-      <address type="pci" domain="0x0000" bus="0x05" slot="0x00" function="0x0"/>
-    </hostdev>
-    <hostdev mode="subsystem" type="pci" managed="yes">
-      <source>
-        <address domain="0x0000" bus="0x03" slot="0x00" function="0x1"/>
-      </source>
-      <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
-    </hostdev>
     <watchdog model="itco" action="reset"/>
     <memballoon model="none"/>
-    <shmem name="looking-glass">
-      <model type="ivshmem-plain"/>
-      <size unit="M">128</size>
-      <address type="pci" domain="0x0000" bus="0x10" slot="0x01" function="0x0"/>
-    </shmem>
   </devices>
   <qemu:commandline>
     <qemu:arg value="-cpu"/>
