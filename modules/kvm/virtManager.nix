@@ -8,6 +8,8 @@ let
         uris = ["qemu:///system" "qemu:///session"];
       };
     };
+
+    imports = (if user.isKvmUser or false then [ nixVirt.homeModules.default ] else []);
   };
 
   mkUser = name: user: {
@@ -31,10 +33,13 @@ in
   # Connect to QEMU
   home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
 
-  # Import nixVirt
-  imports = [ nixVirt.nixosModules.default ];
-
+  # install package virtdeclare
   environment.systemPackages = with pkgs; [
     nixVirt.packages.x86_64-linux.default
   ];
+
+  # Import into home-manager
+  home-manager.extraSpecialArgs = {
+    nixvirt.lib = nixVirt.lib;
+  };
 }

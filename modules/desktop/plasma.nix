@@ -1,8 +1,8 @@
-{ pkgs, config, settings, lib, ... }:
+{ pkgs, config, settings, lib, plasma-manager, ... }:
 
 let
   # Get GUIUser
-  users = (builtins.partition (x: builtins.isString x) (builtins.attrValues (builtins.mapAttrs (name: user: if((if builtins.hasAttr "isGuiUser" user then user.isGuiUser else false)) then "${name}" else null) settings.userAttrs))).right;
+  #users = (builtins.partition (x: builtins.isString x) (builtins.attrValues (builtins.mapAttrs (name: user: if((if builtins.hasAttr "isGuiUser" user then user.isGuiUser else false)) then "${name}" else null) settings.userAttrs))).right;
 
   # Plasmoids
   plasma-applet-shutdown_or_switch = pkgs.callPackage ../../custom-nixpkgs/plasma-applet-shutdown_or_switch {};
@@ -10,6 +10,10 @@ let
 
   cursor1 = pkgs.callPackage "${settings.theme.accent}";
   cursor2 = pkgs.callPackage "${settings.theme.accent}";
+
+  mkUserConfig = name: user: {
+    imports = (if user.isGuiUser or false then [plasma-manager.homeManagerModules.plasma-manager] else []);
+  };
 in
 {
   # Enable SDDM and Plasma
@@ -90,4 +94,7 @@ in
 
   # Enable XWayland
   programs.xwayland.enable = true;
+
+  # Enable plasma-manager for user
+  home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
 }

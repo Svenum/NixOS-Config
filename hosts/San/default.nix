@@ -1,4 +1,4 @@
-{ lib, config, pkgs, solaar, envycontrol, ... }:
+{ lib, config, pkgs, solaar, home-manager, nixVirt, ... }:
 
 {
   # Import Modules
@@ -23,7 +23,9 @@
     ../../modules/nvidia
     ../../modules/controller
 
-    # Import flakes
+    # Import system flakes
+    nixVirt.nixosModules.default
+    home-manager.nixosModules.home-manager
     solaar.nixosModules.default
   ];
 

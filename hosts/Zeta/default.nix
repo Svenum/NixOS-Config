@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, nixVirt, home-manager, ... }:
 
 {
   # Import Modules
@@ -20,6 +20,10 @@
     ../../modules/bluetooth
     ../../modules/kvm
     ../../modules/nvidia
+
+    # Import system flakes
+    nixVirt.nixosModules.default
+    home-manager.nixosModules.home-manager
   ];
 
   # Enable ssh

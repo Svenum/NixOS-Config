@@ -1,4 +1,6 @@
-{ lib, config, pkgs, solaar, ... }:
+{ solaar, home-manager, nixVirt,
+  lib, config, pkgs, ...
+}:
 
 {
   # Import Modules
@@ -20,10 +22,12 @@
     ../../modules/bluetooth
     ../../modules/kvm
     ../../modules/amdgpu
-    #../../modules/controller
+    ../../modules/controller
     ../../modules/powerManagement
 
-    # Import flakes
+    # Import system flakes
+    nixVirt.nixosModules.default
+    home-manager.nixosModules.home-manager
     solaar.nixosModules.default
   ];
   # enable solaar
@@ -33,23 +37,7 @@
   services.fwupd.enable = true;
 
   # Enable Fingerprintreader
-  services.fprintd.enable = lib.mkDefault true;
-
-
-  # try handbrake overlay
-  nixpkgs.overlays = [
-    (final: prev: {
-      handbrake = prev.handbrake.overrideAttrs (old: {
-        buildInputs = (old.buildInputs or []) ++ [
-          pkgs.amf-headers
-        ];
-      });
-    })
-  ];
-  environment.systemPackages = with pkgs; [
-    handbrake
-  ];
-
+  services.fprintd.enable = true;
 
   # Fix Wlan after suspend or Hibernate
   powerManagement.powerUpCommands = ''

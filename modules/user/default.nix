@@ -1,4 +1,4 @@
-{ settings, lib, config, home-manager, plasma-manager, nixVirt, pkgs, ... }:
+{ settings, lib, config, pkgs, ... }:
 
 let
   mkUser = name: user: {
@@ -52,11 +52,7 @@ let
     };
 
     # Import user specific modues if needed
-    imports = [
-      (if builtins.pathExists ../../users/${name}/default.nix then ../../users/${name} else "")
-      (if settings.de.name == "plasma" then plasma-manager.homeManagerModules.plasma-manager else "")
-      (if user.isKvmUser or false then nixVirt.homeModules.default else "")
-    ];
+    imports = (if builtins.pathExists ../../users/${name}/default.nix then [ ../../users/${name} ] else []);
   };
 in
 {
@@ -64,11 +60,9 @@ in
   users.users = lib.mkMerge [ (lib.mapAttrs mkUser settings.userAttrs) { root.hashedPassword = "!"; } ];
 
   # Configure user
-  imports = [ home-manager.nixosModules.home-manager ];
   home-manager.users = lib.mapAttrs mkUserConfig settings.userAttrs;
   home-manager.extraSpecialArgs = {
     inherit settings;
     systemConfig = config;
-    nixvirt.lib = nixVirt.lib;
   };
 }
