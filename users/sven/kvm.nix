@@ -4,13 +4,24 @@
   # Enable virtualisation
   virtualisation.libvirt.swtpm.enable = true;
   virtualisation.libvirt.enable = true;
-  virtualisation.libvirt.connections."qemu:///session" = {
+  virtualisation.libvirt.connections."qemu:///system" = {
     # Add pools
     pools = [
       {
         definition = nixvirt.lib.pool.writeXML {
           name = "default";
-          uuid = "a72e2000-ab5e-4c2d-a571-daf611fc77a4";
+          uuid = "689ba4f2-da57-43e4-9723-a0551e871c8a";
+          type = "dir";
+          target = {
+            path = "/var/lib/libvirt/images";
+          };
+        };
+        active = true;
+      }
+      {
+        definition = nixvirt.lib.pool.writeXML {
+          name = "images";
+          uuid = "464a4f52-bbf4-479e-9b2b-ed27116aab7b";
           type = "dir";
           target = {
             path = "/home/sven/.local/share/libvirt/images";
