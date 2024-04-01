@@ -6,16 +6,28 @@ let
   themeAccent = if settings.theme.accent == "teal" then "Teal" else "";
   themeFlavour = if settings.theme.flavour == "latte" then "Latte" else "Mocha";
   range = if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
-  enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
 in
 {
   programs.plasma = {
-    enable = enablePlasma;
+    enable = true;
 
     # Add Virtual Desktops
     configFile."kwinrc"."Desktop" = {
       "Number".value = 4;
       "Rows".value = 2;
+    };
+
+    # Configure Spectacle
+    configFile."spectaclerc" = {
+      "Desktop" = {
+        "clipboardGroup".value = "PostScreenshotCopyImage";
+        "launchAction".value = "UseLastUsedCapturemode";
+        "rememberSelectionRect".value = "Always";
+      };
+      "GuiConfig" = {
+        "captureMode".value = 0;
+        "quitAfterSaveCopyExport".value = true;
+      };
     };
 
     # Theming
