@@ -12,7 +12,7 @@
   };
 
   # Enable powerpfiles
-  services.power-profiles-daemon.enable = true;
+  #services.power-profiles-daemon.enable = true;
 
   # Enable auto-cpufreq
   #programs.auto-cpufreq = {
