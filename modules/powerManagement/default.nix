@@ -5,9 +5,6 @@
     auto-cpufreq.nixosModules.default
   ];
 
-  # Enable Fan control
-  programs.coolercontrol.enable = true; 
-
   # Enable NixOS powermanagement + powertop
   powerManagement = {
     enable = true;
