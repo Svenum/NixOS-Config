@@ -9,16 +9,12 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       amdvlk
-      vaapiVdpau
-      libvdpau-va-gl
-      amf-headers
     ];
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
     ];
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" "modesetting" "fbdev" ];
   #services.xserver.videoDrivers = ["amdgpu-pro"];
 
   #boot.kernelPackages = lib.mkForce (pkgs.linuxKernel.packagesFor
