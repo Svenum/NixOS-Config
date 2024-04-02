@@ -16,13 +16,13 @@ with lib;
     ];
   };
 
-  boot.kernelPackages = mkForce pkgs.linuxKernel.packagesFor
+  boot.kernelPackages = mkForce (pkgs.linuxKernel.packagesFor
   (pkgs.linuxKernel.kernels.linux_6_8.override {
     structuredExtraConfig = {
       DEVICE_PRIVATE = kernel.yes;
       KALLSYMS_ALL = kernel.yes;
     };
-  });
+  }));
 
   services.xserver.videoDrivers = ["amdgpu-pro"];
 
