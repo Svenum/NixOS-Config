@@ -17,7 +17,7 @@ with lib;
   };
 
   boot.kernelPackages = pkgs.linuxKernel.packagesFor
-  (pkgs.linuxPackages_latest.override {
+  (pkgs.linuxKernel.kernels.linux_6_8.override {
     structuredExtraConfig = {
       DEVICE_PRIVATE = kernel.yes;
       KALLSYMS_ALL = kernel.yes;
