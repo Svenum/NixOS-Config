@@ -17,7 +17,7 @@ with lib;
   };
 
   boot.kernelPackages = mkForce (pkgs.linuxKernel.packagesFor
-  (pkgs.linuxKernel.kernels.linux_6_8.override {
+  (pkgs.linuxKernel.kernels.linux_6_6.override {
     structuredExtraConfig = {
       DEVICE_PRIVATE = kernel.yes;
       KALLSYMS_ALL = kernel.yes;
