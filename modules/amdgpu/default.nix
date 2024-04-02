@@ -16,7 +16,7 @@ with lib;
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxKernel.packagesFor
+  boot.kernelPackages = mkForce pkgs.linuxKernel.packagesFor
   (pkgs.linuxKernel.kernels.linux_6_8.override {
     structuredExtraConfig = {
       DEVICE_PRIVATE = kernel.yes;
