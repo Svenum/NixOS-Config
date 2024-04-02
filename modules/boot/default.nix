@@ -5,7 +5,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   # Kernel
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_8;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
   # Bootloader
   boot.loader = {
