@@ -5,7 +5,7 @@ let
   cursorFlavour = if settings.theme.flavour == "latte" then "Mocha" else "Latte";
   themeAccent = if settings.theme.accent == "teal" then "Teal" else "";
   themeFlavour = if settings.theme.flavour == "latte" then "Latte" else "Mocha";
-  range = if hostname == "Shi" then "1600" else hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
+  range = if hostname == "Shi" then "1600" else if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
 in
 {
   programs.plasma = {
