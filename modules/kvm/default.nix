@@ -59,5 +59,5 @@ in
   '';
 
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" ];
-  boot.kernelParams = [ "iommu=pt" ] ++ (if config.hardware.cpu.amd.updateMicrocode == true then [ "amd_iommu=on" "kvm_amd.avic=1" "kvm_amd.npt=1" "kvm_amd.nested=0" "kvm_amd.sev=0" "x2apic=off" ] else (if config.hardware.cpu.intel.updateMicrocode == true then [ "intel_iommu=on" ] else []));
+  boot.kernelParams = [ "iommu=pt" ] ++ (if config.hardware.cpu.amd.updateMicrocode == true then [ "amd_iommu=on" "kvm_amd.avic=1" "kvm_amd.npt=1"  ] else (if config.hardware.cpu.intel.updateMicrocode == true then [ "intel_iommu=on" ] else []));
 }
