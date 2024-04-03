@@ -41,17 +41,16 @@
 
   # Fix Wlan after suspend or Hibernate
   powerManagement.powerUpCommands = ''
-    echo 0000:04:00.0 > /sys/bus/pci/drivers/mt7921e/unbind
-    echo 0000:04:00.0 > /sys/bus/pci/drivers/mt7921e/bind
+    modprobe mt7921e mt792x_lib mt76
+  '';
+  powerManagement.powerDownCommands = ''
+    modprobe -r mt7921e mt792x_lib mt76
+    sleep 1
   '';
 
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
-
-  boot.extraModprobeConfig = ''
-    blacklist ideapad_laptop
-  '';
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "thunderbolt" ];
   boot.kernelModules = [ "kvm-amd" "sg" ];
