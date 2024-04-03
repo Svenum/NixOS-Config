@@ -38,10 +38,13 @@
 
   # Enable Fingerprintreader
   services.fprintd.enable = true;
+  security.pam.services.sudo.fprintAuth = false;
 
   # Fix Wlan after suspend or Hibernate
   powerManagement.powerUpCommands = ''
     modprobe mt7921e mt792x_lib mt76
+    sleep 5
+    systemctl restart NetworkManager.service
   '';
   powerManagement.powerDownCommands = ''
     modprobe -r mt7921e mt792x_lib mt76
