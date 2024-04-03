@@ -49,6 +49,10 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
 
+  boot.extraModprobeConfig = ''
+    blacklist ideapad_laptop
+  '';
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "thunderbolt" ];
   boot.kernelModules = [ "kvm-amd" "sg" ];
   # Maybe mds=full,nosmt
