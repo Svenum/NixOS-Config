@@ -46,12 +46,11 @@
     pkgs.writeShellScript "fix-wifi.sh" ''
       case $1/$2 in
         pre/*)
-          modprobe -r mt7921e mt792x_lib mt76
-          sleep 1
+          ${pkgs.kmod}/bin/modprobe -r mt7921e mt792x_lib mt76
           ;;
 
         post/*)
-          modprobe mt7921e mt792x_lib mt76
+          ${pkgs.kmod}/bin/modprobe mt7921e mt792x_lib mt76
           ;;
       esac
     '';
