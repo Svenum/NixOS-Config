@@ -16,15 +16,15 @@ with lib;
     ];
   };
 
-  boot.kernelPackages = mkForce (pkgs.linuxKernel.packagesFor
-  (pkgs.linuxKernel.kernels.linux_6_6.override {
-    structuredExtraConfig = {
-      DEVICE_PRIVATE = kernel.yes;
-      KALLSYMS_ALL = kernel.yes;
-    };
-  }));
+  #boot.kernelPackages = mkForce (pkgs.linuxKernel.packagesFor
+  #(pkgs.linuxKernel.kernels.linux_6_6.override {
+  #  structuredExtraConfig = {
+  #    DEVICE_PRIVATE = kernel.yes;
+  #    KALLSYMS_ALL = kernel.yes;
+  #  };
+  #}));
 
-  services.xserver.videoDrivers = ["amdgpu-pro"];
+  #services.xserver.videoDrivers = ["amdgpu-pro"];
 
   # install needed tools
   environment.systemPackages = with pkgs; [
