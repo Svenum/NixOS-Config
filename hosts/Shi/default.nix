@@ -40,17 +40,28 @@
   services.fprintd.enable = true;
   security.pam.services.sudo.fprintAuth = false;
   security.pam.services.login.fprintAuth = false;
+  security.pam.services.sddm.text = lib.mkForce ''
+    auth      [success=1 new_authtok_reqd=1 default=ignore] pam_unix.so try_first_pass likeauth nullok
+    auth      substack      login
+    account   include       login
+    password  substack      login
+    session   include       login
+  '';
 
   # Fix Wlan after suspend or Hibernate
-  powerManagement.powerUpCommands = ''
-    modprobe mt7921e mt792x_lib mt76
-    sleep 5
-    systemctl restart NetworkManager.service
-  '';
-  powerManagement.powerDownCommands = ''
-    modprobe -r mt7921e mt792x_lib mt76
-    sleep 1
-  '';
+  environment.etc."systemd/system-sleep/fix-wifi.sh".source =
+    pkgs.writeShellScript "fix-wifi.sh" ''
+      case $1/$2 in
+        pre/*)
+          modprobe -r mt7921e mt792x_lib mt76
+          sleep 1
+          ;;
+
+        post/*)
+          modprobe mt7921e mt792x_lib mt76
+          ;;
+      esac
+    '';
 
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
