@@ -39,7 +39,6 @@
   # Enable Fingerprintreader
   services.fprintd.enable = true;
   security.pam.services.sudo.fprintAuth = false;
-  security.pam.services.login.fprintAuth = false;
   security.pam.services.sddm.text = lib.mkForce ''
     auth      [success=1 new_authtok_reqd=1 default=ignore] pam_unix.so try_first_pass likeauth nullok
     auth      substack      login
