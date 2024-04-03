@@ -39,7 +39,7 @@
   # Enable Fingerprintreader
   services.fprintd.enable = true;
   security.pam.services.sudo.fprintAuth = false;
-  security.pam.services.login.fprintAuth = true;
+  security.pam.services.login.fprintAuth = false;
 
   # Fix Wlan after suspend or Hibernate
   powerManagement.powerUpCommands = ''
