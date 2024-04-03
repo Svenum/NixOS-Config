@@ -39,7 +39,7 @@
   # Enable Fingerprintreader
   services.fprintd.enable = true;
   security.pam.services.sudo.fprintAuth = false;
-  security.pam.services.sddm.text = ''
+  security.pam.services.sddm.text = lib.mkForce ''
     auth 			[success=1 new_authtok_reqd=1 default=ignore]  	pam_unix.so try_first_pass likeauth nullok
     auth 			sufficient  	${config.services.fprintd.package}/lib/security/pam_fprintd.so
     auth optional ${pkgs.kdePackages.kwallet-pam}/lib/security/pam_kwallet5.so # kwallet (order 12000)
