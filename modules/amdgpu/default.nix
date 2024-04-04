@@ -16,6 +16,9 @@ with lib;
     ];
   };
 
+  # Enable gui software
+  programs.corectrl.enable = true;
+
   #boot.kernelPackages = mkForce (pkgs.linuxKernel.packagesFor
   #(pkgs.linuxKernel.kernels.linux_6_6.override {
   #  structuredExtraConfig = {
