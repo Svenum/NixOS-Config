@@ -39,17 +39,17 @@
   # Enable Fingerprintreader
   services.fprintd.enable = true;
   security.pam.services.sudo.fprintAuth = false;
-  security.pam.services.sddm.text = lib.mkForce ''
-    auth 			[success=1 new_authtok_reqd=1 default=ignore]  	pam_unix.so try_first_pass likeauth nullok
-    auth 			sufficient  	${config.services.fprintd.package}/lib/security/pam_fprintd.so
-    auth optional ${pkgs.kdePackages.kwallet-pam}/lib/security/pam_kwallet5.so # kwallet (order 12000)
-    auth sufficient pam_unix.so likeauth nullok try_first_pass # unix (order 12800)
-    auth required pam_deny.so # deny (order 13600)
+  #security.pam.services.sddm.text = lib.mkForce ''
+  #  auth 			[success=1 new_authtok_reqd=1 default=ignore]  	pam_unix.so try_first_pass likeauth nullok
+  #  auth 			sufficient  	${config.services.fprintd.package}/lib/security/pam_fprintd.so
+  #  auth optional ${pkgs.kdePackages.kwallet-pam}/lib/security/pam_kwallet5.so # kwallet (order 12000)
+  #  auth sufficient pam_unix.so likeauth nullok try_first_pass # unix (order 12800)
+  #  auth required pam_deny.so # deny (order 13600)
 
-    account   include       login
-    password  substack      login
-    session   include       login
-  '';
+  #  account   include       login
+  #  password  substack      login
+  #  session   include       login
+  #'';
 
   # Fix Wlan after suspend or Hibernate
   environment.etc."systemd/system-sleep/fix-wifi.sh".source =
@@ -57,10 +57,11 @@
       case $1/$2 in
         pre/*)
           ${pkgs.kmod}/bin/modprobe -r mt7921e mt792x_lib mt76
+          sleep 1
           ;;
 
         post/*)
-          ${pkgs.kmod}/bin/modprobe mt7921e mt792x_lib mt76
+          ${pkgs.kmod}/bin/modprobe mt7921e
           ;;
       esac
     '';
