@@ -1,6 +1,7 @@
 { disk_path, nvram_path, pkgs }:
 
 {
+  type = "kvm";
   # VM Infos
   name = "Windows GPU Nix";
   uuid = "c08333dc-33f9-4117-969a-ac46e19ba81f";
@@ -180,25 +181,25 @@
           function = 0;
         };
       }
-  #    {
-  #      mode = "subsystem";
-  #      type = "pci";
-  #      managed = true;
-  #      source.address = {
-  #        domain = 0;
-  #        bus = 3;
-  #        slot = 0;
-  #        function = 1;
-  #      };
-  #    }
+      {
+        mode = "subsystem";
+        type = "pci";
+        managed = true;
+        source.address = {
+          domain = 0;
+          bus = 3;
+          slot = 0;
+          function = 1;
+        };
+      }
     ];
   };
-  #qemu-commandline = {
-  #  arg = [
-  #    { value = "-cpu"; }
-  #    { value = "host,kvm=off,hv_vendor_id=null"; }
-  #    { value = "-machine"; }
-  #    { value = "q35"; }
-  #  ]; 
-  #};
+  qemu-commandline = {
+    arg = [
+      { value = "-cpu"; }
+      { value = "host,kvm=off,hv_vendor_id=null"; }
+      { value = "-machine"; }
+      { value = "q35"; }
+    ]; 
+  };
 }
