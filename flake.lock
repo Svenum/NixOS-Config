@@ -64,11 +64,11 @@
         "nixpkgs-ovmf": "nixpkgs-ovmf"
       },
       "locked": {
-        "lastModified": 1712435296,
-        "narHash": "sha256-KwyvUDr5fT7H9Md1eiGaohRKCYSyDvlhuCt3WzQQOXs=",
+        "lastModified": 1712436063,
+        "narHash": "sha256-+J4mFjuhc2usVNVwMcfJH0YQl+1LJLHnswTXTUmuaos=",
         "owner": "Svenum",
         "repo": "NixVirt",
-        "rev": "63fe0083246ccf10bf11af5e80df3444e856b857",
+        "rev": "08cbf1d9d885294d26af3229d1fa3ab7528511e4",
         "type": "github"
       },
       "original": {
