@@ -160,38 +160,38 @@
     memballoon.model = "none";
 
     # GPU passthrough
-  #  shmem = [
-  #    {
-  #      name = "looking-glass-sven";
-  #      model.type = "ivshmem-plain";
-  #      size = { unit = "M"; count = 128; };
-  #    }
-  #  ];
+    shmem = [
+      {
+        name = "looking-glass-sven";
+        model.type = "ivshmem-plain";
+        size = { unit = "M"; count = 128; };
+      }
+    ];
 
-  #  hostdev = [
-  #    {
-  #      mode = "subsystem";
-  #      type = "pci";
-  #      managed = true;
-  #      source.address = {
-  #        domain = "0x0000";
-  #        bus = "0x03";
-  #        slot = "0x00";
-  #        function = "0x0";
-  #      };
-  #    }
-  #    {
-  #      mode = "subsystem";
-  #      type = "pci";
-  #      managed = true;
-  #      source.address = {
-  #        domain = "0x0000";
-  #        bus = "0x03";
-  #        slot = "0x00";
-  #        function = "0x1";
-  #      };
-  #    }
-  #  ];
+    hostdev = [
+      {
+        mode = "subsystem";
+        type = "pci";
+        managed = true;
+        source.address = {
+          domain = "0x0000";
+          bus = "0x03";
+          slot = "0x00";
+          function = "0x0";
+        };
+      }
+      {
+        mode = "subsystem";
+        type = "pci";
+        managed = true;
+        source.address = {
+          domain = "0x0000";
+          bus = "0x03";
+          slot = "0x00";
+          function = "0x1";
+        };
+      }
+    ];
   };
   qemu-commandline = {
     arg = [

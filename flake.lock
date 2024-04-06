@@ -64,16 +64,16 @@
         "nixpkgs-ovmf": "nixpkgs-ovmf"
       },
       "locked": {
-        "lastModified": 1712419680,
-        "narHash": "sha256-BsxLreee0iueAEjW943Js+x5S3T/zrQBSexzv5VhgvY=",
+        "lastModified": 1712421453,
+        "narHash": "sha256-Ol2d+NdaXIT/UOChej7ajDBTDQ9pYcDxCzDQfkRy6M8=",
         "owner": "Svenum",
         "repo": "NixVirt",
-        "rev": "b48e5d91588b441fc9f8af474bc4eb62d7163f01",
+        "rev": "55bf68667068e104e6b4162941ee8a35b4cb4256",
         "type": "github"
       },
       "original": {
         "owner": "Svenum",
-        "ref": "add-devices",
+        "ref": "fix-qemucommands",
         "repo": "NixVirt",
         "type": "github"
       }

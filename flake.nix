@@ -130,7 +130,7 @@
 
     nixVirt = {
       #url = "github:AshleyYakeley/NixVirt";
-      url = "github:Svenum/NixVirt/add-devices";
+      url = "github:Svenum/NixVirt/fix-qemucommands";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
