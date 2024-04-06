@@ -18,7 +18,7 @@ in
       final: prev: {
         looking-glass-client = prev.looking-glass-client.overrideAttrs ( old: {
           postInstall = old.postInstall + ''
-            sed -i 's/Terminal=true/Terminal=false/g' $out/share/applications/looking-glass-client.desktop
+            substituteInPlace $out/share/applications/looking-glass-client.desktop --replace 'Terminal=true' 'Terminal=false' 
           '';
         });
       }
