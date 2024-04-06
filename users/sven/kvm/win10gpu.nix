@@ -174,10 +174,10 @@
         type = "pci";
         managed = true;
         source.address = {
-          domain = "0x0000";
-          bus = "0x03";
-          slot = "0x00";
-          function = "0x0";
+          domain = 0;
+          bus = 3;
+          slot = 0;
+          function = 0;
         };
       }
       {
@@ -185,20 +185,20 @@
         type = "pci";
         managed = true;
         source.address = {
-          domain = "0x0000";
-          bus = "0x03";
-          slot = "0x00";
-          function = "0x1";
+          domain = 0;
+          bus = 3;
+          slot = 0;
+          function = 1;
         };
       }
     ];
   };
-  qemu-commandline = {
-    arg = [
-      { value = "-cpu"; }
-      { value = "host,kvm=off,hv_vendor_id=null"; }
-      { value = "-machine"; }
-      { value = "q35"; }
-    ]; 
-  };
+  #qemu-commandline = {
+  #  arg = [
+  #    { value = "-cpu"; }
+  #    { value = "host,kvm=off,hv_vendor_id=null"; }
+  #    { value = "-machine"; }
+  #    { value = "q35"; }
+  #  ]; 
+  #};
 }
