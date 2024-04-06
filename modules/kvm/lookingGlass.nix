@@ -12,6 +12,19 @@ let
   };
 in
 {
+  # disable terminal in looking-glass.desktop
+  nixpkgs.overlays = [
+    (
+      final: prev: {
+        looking-glass-client = prev.looking-glass-client // {
+          desktopItem = prev.looking-glass-client.desktopItem // {
+            terminal = false;
+          };
+        };
+      }
+    )
+  ];
+
   # install looking-glass-client
   environment.systemPackages = with pkgs; [
     (lib.mkIf settings.pciPassthrough.enable or false looking-glass-client)
