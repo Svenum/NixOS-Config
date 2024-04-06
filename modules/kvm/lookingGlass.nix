@@ -18,7 +18,7 @@ in
       final: prev: {
         looking-glass-client = prev.looking-glass-client // {
           desktopItem = prev.looking-glass-client.desktopItem // {
-            terminal = false;
+            terminal = lib.mkForce false;
           };
         };
       }

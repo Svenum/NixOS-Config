@@ -6,6 +6,24 @@ let
   win10gpu_config = import ./kvm/win10gpu.nix {inherit disk_path; inherit nvram_path; inherit pkgs;};
 in
 {
+  # looking-glass config
+  xdg.configFile."looking-glass/client.ini" = {
+     text = lib.generators.toINI {}{
+      wayland = { fractionScaling = "yes"; };
+      opengl = { amdPinnedMem = "yes"; };
+      input = {
+        rawMouse = "yes";
+        autoCapture = "yes";
+      };
+      spice = {
+        enable = "yes";
+        clipboard = "yes";
+        audio = "yes";
+      };
+      app = { shmFile = "/dev/shm/looking-glass-sven"; };
+    };
+  };
+
   # Enable virtualisation
   virtualisation.libvirt.swtpm.enable = true;
   virtualisation.libvirt.enable = true;
