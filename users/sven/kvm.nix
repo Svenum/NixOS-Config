@@ -1,5 +1,10 @@
-{ lib, systemConfig, nixvirt, ... }:
+{ lib, systemConfig, nixvirt, pkgs, ... }:
 
+let
+  nvram_path = /home/sven/.local/share/libvirt/qemu;
+  disk_path = /home/sven/.local/share/libvirt/images;
+  win10gpu_config = import ./kvm/win10gpu.nix {inherit disk_path; inherit nvram_path; inherit pkgs;};
+in
 {
   # Enable virtualisation
   virtualisation.libvirt.swtpm.enable = true;
@@ -16,7 +21,7 @@
             path = "/var/lib/libvirt/images";
           };
         };
-        active = true;
+            path = "/var/lib/libvirt/images";
       }
       {
         definition = nixvirt.lib.pool.writeXML {
@@ -24,7 +29,7 @@
           uuid = "464a4f52-bbf4-479e-9b2b-ed27116aab7b";
           type = "dir";
           target = {
-            path = "/home/sven/.local/share/libvirt/images";
+            path = "${disk_path}";
           };
         };
         volumes = [
@@ -55,12 +60,9 @@
 
     # Add windows Domain
     domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
-      {
-        definition = ./kvm/win10gpu.xml;
-      }
-      {
-        definition = ./kvm/win10.xml;
-      }
+      { definition = nixvirt.lib.domain.writeXML win10gpu_config; }
+      { definition = ./kvm/win10gpu.xml; }
+      { definition = ./kvm/win10.xml; }
     ];
   };
 }

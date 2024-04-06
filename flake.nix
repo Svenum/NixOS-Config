@@ -129,7 +129,8 @@
     };
 
     nixVirt = {
-      url = "github:AshleyYakeley/NixVirt";
+      #url = "github:AshleyYakeley/NixVirt";
+      url = "github:Svenum/NixVirt/add-devices";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

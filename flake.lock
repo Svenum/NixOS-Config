@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712266167,
-        "narHash": "sha256-gr2CBgT8t+utDqzWSp2vSjX/c39Q0BNtrWE6/cDhhEE=",
+        "lastModified": 1712317700,
+        "narHash": "sha256-rnkQ6qMhlxfjpCECkTMlFXHU/88QvC5KpdJWq5H6F1E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0c73c1b8da28a24c4fe842ced3f2548d5828b550",
+        "rev": "782eed8bb64b27acaeb7c17be4a095c85e65717f",
         "type": "github"
       },
       "original": {
@@ -64,15 +64,16 @@
         "nixpkgs-ovmf": "nixpkgs-ovmf"
       },
       "locked": {
-        "lastModified": 1712090747,
-        "narHash": "sha256-Z84MsM2H3H6b1O94YeDZ74pwK4MHE4Pv+0XSTe7uVis=",
-        "owner": "AshleyYakeley",
+        "lastModified": 1712390262,
+        "narHash": "sha256-hhnkj1l9yfQMK5gFJGnCfWA3vUODrAxkRmbhze1FjMU=",
+        "owner": "Svenum",
         "repo": "NixVirt",
-        "rev": "f8eea71f1831f8d26e0b896cf6f21c1217aaf187",
+        "rev": "4613d0e34d78f0235a94f363f4bed68398a7b125",
         "type": "github"
       },
       "original": {
-        "owner": "AshleyYakeley",
+        "owner": "Svenum",
+        "ref": "add-devices",
         "repo": "NixVirt",
         "type": "github"
       }
