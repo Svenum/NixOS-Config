@@ -1,8 +1,8 @@
 { lib, systemConfig, nixvirt, pkgs, ... }:
 
 let
-  nvram_path = /home/sven/.local/share/libvirt/qemu;
-  disk_path = /home/sven/.local/share/libvirt/images;
+  nvram_path = "/home/sven/.local/share/libvirt/qemu";
+  disk_path = "/home/sven/.local/share/libvirt/images";
   win10gpu_config = import ./kvm/win10gpu.nix {inherit disk_path; inherit nvram_path; inherit pkgs;};
 in
 {
@@ -21,7 +21,6 @@ in
             path = "/var/lib/libvirt/images";
           };
         };
-            path = "/var/lib/libvirt/images";
       }
       {
         definition = nixvirt.lib.pool.writeXML {

@@ -62,12 +62,12 @@
     ];
   };
 
-  # PowerManagement
+  ## PowerManagement
 
-  # MISSING
-  # <on_poweroff>destroy</on_poweroff>
-  # <on_reboot>restart</on_reboot>
-  # <on_crash>destroy</on_crash>
+  ## MISSING
+  ## <on_poweroff>destroy</on_poweroff>
+  ## <on_reboot>restart</on_reboot>
+  ## <on_crash>destroy</on_crash>
 
   pm = {
     suspend-to-mem = { enabled = false; };
@@ -157,61 +157,41 @@
 
     # Other
     watchdog = { model = "itco"; action = "reset"; };
-
     memballoon.model = "none";
 
-    shmem = [
-      {
-        name = "looking-glass-sven";
-        model.type = "ivshmem-plain";
-        size = { unit = "M"; count = 128; };
-      }
-    ];
+    # GPU passthrough
+  #  shmem = [
+  #    {
+  #      name = "looking-glass-sven";
+  #      model.type = "ivshmem-plain";
+  #      size = { unit = "M"; count = 128; };
+  #    }
+  #  ];
 
-    hostdev = [
-      {
-        mode = "subsystem";
-        type = "pci";
-        managed = true;
-        source.address = {
-          domain = "0x0000";
-          bus = "0x03";
-          slot = "0x00";
-          function = "0x0";
-        };
-      }
-      {
-        mode = "subsystem";
-        type = "pci";
-        managed = true;
-        source.address = {
-          domain = "0x0000";
-          bus = "0x03";
-          slot = "0x00";
-          function = "0x1";
-        };
-      }
-    ];
-
-    # MISSING
-    # <shmem name="looking-glass-sven">
-    #   <model type="ivshmem-plain"/>
-    #   <size unit="M">128</size>
-    # </shmem>
-    #
-    # <hostdev mode="subsystem" type="pci" managed="yes">
-    #   <source>
-    #     <address domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
-    #   </source>
-    #   <address type="pci" domain="0x0000" bus="0x05" slot="0x00" function="0x0"/>
-    # </hostdev>
-    # <hostdev mode="subsystem" type="pci" managed="yes">
-    #   <source>
-    #     <address domain="0x0000" bus="0x03" slot="0x00" function="0x1"/>
-    #   </source>
-    #   <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
-    # </hostdev>
-
+  #  hostdev = [
+  #    {
+  #      mode = "subsystem";
+  #      type = "pci";
+  #      managed = true;
+  #      source.address = {
+  #        domain = "0x0000";
+  #        bus = "0x03";
+  #        slot = "0x00";
+  #        function = "0x0";
+  #      };
+  #    }
+  #    {
+  #      mode = "subsystem";
+  #      type = "pci";
+  #      managed = true;
+  #      source.address = {
+  #        domain = "0x0000";
+  #        bus = "0x03";
+  #        slot = "0x00";
+  #        function = "0x1";
+  #      };
+  #    }
+  #  ];
   };
   qemu-commandline = {
     arg = [
