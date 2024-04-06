@@ -16,11 +16,11 @@ in
   nixpkgs.overlays = [
     (
       final: prev: {
-        looking-glass-client = prev.looking-glass-client // {
-          desktopItem = prev.looking-glass-client.desktopItem // {
-            terminal = lib.mkForce false;
-          };
-        };
+        looking-glass-client = prev.looking-glass-client.overrideAttrs ( old: {
+          postInstall = old.postInstall + ''
+            sed -i 's/Terminal=true/Terminal=false/g' $out/share/applications/looking-glass-client.desktop
+          '';
+        });
       }
     )
   ];
