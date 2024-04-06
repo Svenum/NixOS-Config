@@ -180,17 +180,17 @@
           function = 0;
         };
       }
-      {
-        mode = "subsystem";
-        type = "pci";
-        managed = true;
-        source.address = {
-          domain = 0;
-          bus = 3;
-          slot = 0;
-          function = 1;
-        };
-      }
+  #    {
+  #      mode = "subsystem";
+  #      type = "pci";
+  #      managed = true;
+  #      source.address = {
+  #        domain = 0;
+  #        bus = 3;
+  #        slot = 0;
+  #        function = 1;
+  #      };
+  #    }
     ];
   };
   #qemu-commandline = {
