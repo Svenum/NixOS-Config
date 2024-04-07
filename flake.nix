@@ -129,8 +129,8 @@
     };
 
     nixVirt = {
-      #url = "github:AshleyYakeley/NixVirt";
-      url = "github:Svenum/NixVirt/add-sysinfo";
+      url = "github:AshleyYakeley/NixVirt";
+      #url = "github:Svenum/NixVirt/add-sysinfo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

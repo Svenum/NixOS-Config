@@ -40,6 +40,9 @@ in
       };
     };
 
+    # Enable NumLock
+    configFile."kcminputrc".Keyboard.NumLock.value = 0;
+
     # Theming
     workspace = {
       clickItemTo = "select";
