@@ -189,7 +189,7 @@
   qemu-commandline = {
     arg = [
       { value = "-global"; }
-      { value = "kvm-pit.lock_tick_policy=discard"; }
+      { value = "kvm-pit.lost_tick_policy=discard"; }
       { value = "-rtc"; }
       { value = "base=localtime"; }
       { value = "-cpu"; }
