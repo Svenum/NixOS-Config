@@ -9,7 +9,7 @@
   
   # CPU and RAM
   vcpu = { count = 12; placement = "static"; };
-  memory = { count = 24; unit = "GiB"; };
+  memory = { count = 20; unit = "GiB"; };
   cpu = {
     mode = "host-passthrough";
     check = "none";
