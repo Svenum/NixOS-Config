@@ -15,6 +15,7 @@ in
       input = {
         rawMouse = "yes";
         autoCapture = "yes";
+        captureOnly= "yes";
       };
       spice = {
         enable = "yes";

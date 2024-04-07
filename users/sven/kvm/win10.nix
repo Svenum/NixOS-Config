@@ -188,10 +188,13 @@
 
   qemu-commandline = {
     arg = [
+      { value = "-global"; }
+      { value = "kvm-pit.lock_tick_policy=discard"; }
+      { value = "-rtc"; }
+      { value = "base=localtime"; }
       { value = "-cpu"; }
-      { value = "host,kvm=off,hv_time,hv_vendor_id=null,-hypervisor"; }
-      { value = "-machine"; }
-      { value = "q35"; }
+      { value = "host,host-cache-info=on,kvm=off,l3-cache=on,kvm-hint-dedicated=on,migratable=no,h
+v_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vendor_id=Nvidia43FIX,+invtsc,+topoext"; }
     ]; 
   };
 }
