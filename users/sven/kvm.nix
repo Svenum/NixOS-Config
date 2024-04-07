@@ -3,6 +3,7 @@
 let
   nvram_path = "/home/sven/.local/share/libvirt/qemu";
   disk_path = "/home/sven/.local/share/libvirt/images";
+  win10_config = import ./kvm/win10.nix {inherit disk_path; inherit nvram_path; inherit pkgs;};
   win10gpu_config = import ./kvm/win10gpu.nix {inherit disk_path; inherit nvram_path; inherit pkgs;};
 in
 {
@@ -78,8 +79,9 @@ in
     # Add windows Domain
     domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
       { definition = nixvirt.lib.domain.writeXML win10gpu_config; }
-      { definition = ./kvm/win10gpu.xml; }
-      { definition = ./kvm/win10.xml; }
+      { definition = nixvirt.lib.domain.writeXML win10_config; }
+      #{ definition = ./kvm/win10gpu.xml; }
+      #{ definition = ./kvm/win10.xml; }
     ];
   };
 }
