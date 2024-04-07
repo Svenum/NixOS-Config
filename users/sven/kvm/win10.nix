@@ -1,10 +1,10 @@
-{ disk_path, nvram_path, pkgs }:
+{ disk_path, nvram_path, pkgs, uuid }:
 
 {
   type = "kvm";
   # VM Infos
   name = "Windows Nix";
-  uuid = "c08333dc-33f9-4117-969a-ac46e19ba81f";
+  uuid = uuid;
   description = "A Windows 10 vm define in nix";
 
   sysinfo = {
@@ -19,7 +19,7 @@
       { name = "product"; value = "Laptop 16 (AMD Ryzen 7040 Series)"; }
       { name = "version"; value = "AG"; }
       { name = "serial"; value = "FRAGADDPAG4096006K"; }
-      { name = "uuid"; value = "d3d46058-bcff-499e-9d6b-c6fa6e4e64b0"; }
+      { name = "uuid"; value = uuid; }
       { name = "sku"; value = "FRAGACCP0G"; }
       { name = "family"; value = "16in"; }
     ];
