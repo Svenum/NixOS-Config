@@ -12,9 +12,19 @@ in
     enable = true;
 
     # Add Virtual Desktops
-    configFile."kwinrc"."Desktop" = {
-      "Number".value = 4;
-      "Rows".value = 2;
+    kwin = {
+      effects.shakeCursor.enable = true;
+      virtualDesktops = {
+        animation = "slide";
+        rows = 2;
+        names = [
+          "MAIN TOP"
+          "SEC TOP"
+          "MAIN BOT"
+          "SEC BOT"
+        ];
+        number = 4;
+      };
     };
 
     # Configure Spectacle

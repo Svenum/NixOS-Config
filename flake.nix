@@ -111,7 +111,7 @@
     };
 
     plasma-manager = {
-      url = "github:pjones/plasma-manager";
+      url = "github:magnouvean/plasma-manager/kwin-features";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
