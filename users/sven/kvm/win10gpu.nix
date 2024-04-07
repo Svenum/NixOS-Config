@@ -1,6 +1,9 @@
 { disk_path, nvram_path, pkgs }:
 
 import ./win10.nix {inherit disk_path; inherit nvram_path; inherit pkgs;} // {
+  name = "Windows GPU Nix";
+  uuid = "3af8cded-1545-4ff2-87d6-d647119aa0e3";
+  description = "A Windows 10 vm define in nix with gpu passthrough";
   devices = {
     # GPU passthrough
     shmem = [

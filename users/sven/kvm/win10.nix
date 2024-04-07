@@ -5,7 +5,7 @@
   # VM Infos
   name = "Windows Nix";
   uuid = "c08333dc-33f9-4117-969a-ac46e19ba81f";
-  description = "A Windows VM";
+  description = "A Windows 10 vm define in nix";
   
   # CPU and RAM
   vcpu = { count = 12; placement = "static"; };
