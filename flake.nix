@@ -111,7 +111,7 @@
     };
 
     plasma-manager = {
-      url = "github:magnouvean/plasma-manager/kwin-features";
+      url = "github:magnouvean/plasma-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
@@ -129,7 +129,8 @@
     };
 
     nixVirt = {
-      url = "github:AshleyYakeley/NixVirt";
+      #url = "github:AshleyYakeley/NixVirt";
+      url = "github:Svenum/NixVirt/add-sysinfo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

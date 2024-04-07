@@ -64,26 +64,27 @@
         "nixpkgs-ovmf": "nixpkgs-ovmf"
       },
       "locked": {
-        "lastModified": 1712439808,
-        "narHash": "sha256-QoONoZPBpNTw5cia05QSvDlaxXo3moKAJQOw7c5hMXA=",
-        "owner": "AshleyYakeley",
+        "lastModified": 1712506228,
+        "narHash": "sha256-7s9QNF2ACwLb2pyZ+CZDFuAifa9GOcw13u/BwJQnY7Y=",
+        "owner": "Svenum",
         "repo": "NixVirt",
-        "rev": "9f1cdca730d92461075709e867c1e9ad93d58a8d",
+        "rev": "e4e894b831c5b486a1c087f92a4079e4a1f8ce25",
         "type": "github"
       },
       "original": {
-        "owner": "AshleyYakeley",
+        "owner": "Svenum",
+        "ref": "add-sysinfo",
         "repo": "NixVirt",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1712163089,
-        "narHash": "sha256-Um+8kTIrC19vD4/lUCN9/cU9kcOsD1O1m+axJqQPyMM=",
+        "lastModified": 1712439257,
+        "narHash": "sha256-aSpiNepFOMk9932HOax0XwNxbA38GOUVOiXfUVPOrck=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fd281bd6b7d3e32ddfa399853946f782553163b5",
+        "rev": "ff0dbd94265ac470dda06a657d5fe49de93b4599",
         "type": "github"
       },
       "original": {
@@ -119,16 +120,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1712447587,
-        "narHash": "sha256-4FT+7kGVMTFXlxL/4cnXpqd+97CVB3MonhKUU34fW4Q=",
+        "lastModified": 1712481704,
+        "narHash": "sha256-CeGW18GtFeH8nA9BPxRlNaH52y2OsU2fkDd5UWhcMBc=",
         "owner": "magnouvean",
         "repo": "plasma-manager",
-        "rev": "71099435d3899e2111876720a39b1ca23900e827",
+        "rev": "3ed06351858113b19b08f1f767d4006c8a720630",
         "type": "github"
       },
       "original": {
         "owner": "magnouvean",
-        "ref": "kwin-features",
         "repo": "plasma-manager",
         "type": "github"
       }

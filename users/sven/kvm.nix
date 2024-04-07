@@ -80,8 +80,6 @@ in
     domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
       { definition = nixvirt.lib.domain.writeXML win10gpu_config; }
       { definition = nixvirt.lib.domain.writeXML win10_config; }
-      #{ definition = ./kvm/win10gpu.xml; }
-      #{ definition = ./kvm/win10.xml; }
     ];
   };
 }

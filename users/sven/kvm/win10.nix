@@ -6,6 +6,24 @@
   name = "Windows Nix";
   uuid = "c08333dc-33f9-4117-969a-ac46e19ba81f";
   description = "A Windows 10 vm define in nix";
+
+  sysinfo = {
+    type = "smbios";
+    bios.entry = [
+      { name = "vendor"; value = "INSYDE Corp."; }
+      { name = "version"; value = "03.02"; }
+      { name = "date"; value = "01/23/2024"; }
+    ];
+    system.entry = [
+      { name = "manufacturer"; value = "Framework"; }
+      { name = "product"; value = "Laptop 16 (AMD Ryzen 7040 Series)"; }
+      { name = "version"; value = "AG"; }
+      { name = "serial"; value = "FRAGADDPAG4096006K"; }
+      { name = "uuid"; value = "d3d46058-bcff-499e-9d6b-c6fa6e4e64b0"; }
+      { name = "sku"; value = "FRAGACCP0G"; }
+      { name = "family"; value = "16in"; }
+    ];
+  };
   
   # CPU and RAM
   vcpu = { count = 12; placement = "static"; };
@@ -14,6 +32,12 @@
     mode = "host-passthrough";
     check = "none";
     migratable = true;
+    cache = { level = 3; mode = "emulate"; };
+    feature = [
+      { policy = "disable"; name = "hypervisor"; }
+      { policy = "require"; name = "svm"; }
+      { policy = "require"; name = "topoext"; }
+    ];
     topology = {
       sockets = 1;
       dies = 1;
@@ -37,6 +61,7 @@
       template = "${pkgs.OVMFFull.fd}/FV/OVMF_VARS.ms.fd";
       path = "${nvram_path}/win10gpu.nvram";
     };
+    smbios.mode = "sysinfo";
   };
 
   features = {
@@ -164,7 +189,7 @@
   qemu-commandline = {
     arg = [
       { value = "-cpu"; }
-      { value = "host,kvm=off,hv_vendor_id=null"; }
+      { value = "host,kvm=off,hv_time,hv_vendor_id=null,-hypervisor"; }
       { value = "-machine"; }
       { value = "q35"; }
     ]; 
