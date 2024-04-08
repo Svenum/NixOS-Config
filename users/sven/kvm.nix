@@ -10,7 +10,7 @@ in
   # looking-glass config
   xdg.configFile."looking-glass/client.ini" = {
      text = lib.generators.toINI {}{
-      wayland = { fractionScaling = "yes"; };
+      wayland = { fractionScale = "yes"; };
       opengl = { amdPinnedMem = "yes"; };
       input = {
         rawMouse = "yes";
