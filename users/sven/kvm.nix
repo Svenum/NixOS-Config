@@ -15,7 +15,8 @@ in
       input = {
         rawMouse = "yes";
         autoCapture = "yes";
-        captureOnly= "yes";
+        captureOnly = "yes";
+        escapeKey = "KEY_F12";
       };
       spice = {
         enable = "yes";

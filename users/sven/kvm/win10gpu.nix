@@ -16,6 +16,12 @@ vmConf // {
         size = { unit = "M"; count = 128; };
       }
     ];
+    
+    video = {
+      model = {
+        type = "none";
+      };
+    };
 
     hostdev = [
       {
