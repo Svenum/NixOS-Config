@@ -1,4 +1,4 @@
-{ lib, pkgs, settings, ... }:
+{ lib, pkgs, settings, config, ... }:
 
 let
   mkShimMapping = name: user: {
@@ -20,4 +20,6 @@ in
   # Prepare Shim permissions
   systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (builtins.mapAttrs mkShimMapping settings.userAttrs);
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
+  boot.kernelModules = [ "kvmfr" ]
 }

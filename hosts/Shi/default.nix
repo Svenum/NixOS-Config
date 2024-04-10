@@ -36,20 +36,6 @@
   # Enable fwupd
   services.fwupd.enable = true;
 
-  # Enable Fingerprintreader
-  #services.fprintd.enable = true;
-  #security.pam.services.sudo.fprintAuth = false;
-  #security.pam.services.sddm.text = lib.mkForce ''
-  #  auth 			[success=1 new_authtok_reqd=1 default=ignore]  	pam_unix.so try_first_pass likeauth nullok
-  #  auth 			sufficient  	${config.services.fprintd.package}/lib/security/pam_fprintd.so
-  #  auth optional ${pkgs.kdePackages.kwallet-pam}/lib/security/pam_kwallet5.so # kwallet (order 12000)
-  #  auth required pam_deny.so # deny (order 13600)
-
-  #  account   include       login
-  #  password  substack      login
-  #  session   include       login
-  #'';
-
   # Fix Wlan after suspend or Hibernate
   environment.etc."systemd/system-sleep/fix-wifi.sh".source =
     pkgs.writeShellScript "fix-wifi.sh" ''
@@ -70,10 +56,51 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "thunderbolt" ];
-  boot.kernelModules = [ "kvm-amd" "sg" ];
+  boot = {
+    initrd= {
+      availableKernelModules = [
+        "xhci_pci"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+        "thunderbolt"
+      ];
+     kernelModules = [
+        "vfio"
+        "vfio-pci"
+        "amdgpu"
+      ];
+      preDeviceCommands = ''
+        DEVS="0000:03:00.0 0000:03:00.1"
+        for DEV in $DEVS; do
+          echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+        done
+        modprobe -i vfio-pci
+      '';
+    };
+    kernelModules = [
+      "kvm-amd"
+      "pci_stub"
+      "vfio_pci"
+      "vfio"
+      "vfio_iommu_type1"
+      "sg"
+    ];
+    kernelParams = [
+      "iommu=pt"
+      "amd_iommu=on"
+      "vfio-pci.ids=1002:7480,1002:ab30"
+      "pci-stub.ids=1002:7480,1002:ab30"
+      "mem_sleep_default=deep"
+
+      "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166"
+      "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173"
+      "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200"
+    ];
+  };
   # Maybe mds=full,nosmt
-  boot.kernelParams = [ "mem_sleep_default=deep" "amdgpu.sg_display=0" "amdgpu.reset_method=4" "mds=full" "efi=runtime" "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166" "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173" "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200" ];
+  #boot.kernelParams = [ "mem_sleep_default=deep" "amdgpu.sg_display=0" "amdgpu.reset_method=4" "mds=full" "efi=runtime" "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166" "vt.default_grn=30,139,227,226,180,194,226,194,91,139,227,226,180,194,226,173" "vt.default_blu=46,168,161,175,250,231,213,222,112,168,161,175,250,231,213,200" ];
 
   # Configure Filesystem
   fileSystems."/" =
