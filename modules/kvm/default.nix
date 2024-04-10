@@ -28,7 +28,7 @@ in
     ];
     runAs = "ALL:ALL";
     commands = [{
-      command = toggle_gpu + /bin/toggle_gpu;
+      command = (lib.getBin toggle_gpu) + /bin/toggle_gpu;
       options = [ "NOPASSWD" ];
     }];
   }];
