@@ -5,7 +5,7 @@ let
     if [[ $1 == "Windows GPU Nix" ]]; then
       if [[ $2 == "prepare" ]]; then
         /run/current-system/sw/bin/toggle_gpu vfio
-      elif [[ $2 == "release" ]]; then
+      elif [[ $2 == "stopped" ]]; then
         /run/current-system/sw/bin/toggle_gpu amd
       fi
     fi
