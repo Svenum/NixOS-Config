@@ -10,7 +10,7 @@
 
   # Prepare Kernel
   boot.extraModprobeConfig = lib.mkIf settings.pciPassthrough.enable or false ''
-    options vfio_pci ids=${lib.strings.concatMapStrings (x: "," + x) settings.pciPassthrough.isolatedDevices}
+    #options vfio_pci ids=${lib.strings.concatMapStrings (x: "," + x) settings.pciPassthrough.isolatedDevices}
     options kvm ignore_msrs=1
     options kvm report_ignored_msrs=0
     ${if config.hardware.cpu.amd.updateMicrocode then "options kvm_amd nested=1" else ""}

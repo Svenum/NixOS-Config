@@ -53,6 +53,10 @@
       esac
     '';
 
+    environment.variables = {
+      KWIN_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1";
+    };
+
   # Add AMD CPU driver
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
