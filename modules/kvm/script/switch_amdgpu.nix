@@ -2,7 +2,7 @@
 
 let
   script = ''
-    if [[ $(uid -u) -ne 0 ]]; then
+    if [[ $(id -u) -ne 0 ]]; then
       sudo $0 $@
       exit 0
     fi
