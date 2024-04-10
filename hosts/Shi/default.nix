@@ -67,23 +67,9 @@
         "sd_mod"
         "thunderbolt"
       ];
-     kernelModules = [
-        "amdgpu"
-        "vfio"
-        "vfio-pci"
-      ];
     };
-    kernelModules = [
-      "kvm-amd"
-      "pci_stub"
-      "vfio_pci"
-      "vfio"
-      "vfio_iommu_type1"
-      "sg"
-    ];
+    kernelModules = [ "sg" ];
     kernelParams = [
-      "iommu=pt"
-      "amd_iommu=on"
       "mem_sleep_default=deep"
 
       "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166"
