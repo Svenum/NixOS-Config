@@ -9,7 +9,7 @@ let
 
     DEVICES="${lib.strings.concatMapStrings (x: " " + x ) dgpuPCI}"
     for DEVICE in $DEVICES; do
-      MODULE=$(lspci -d $DEVICE -k | grep "Kernel modules:" | awk '{print $NF}')
+      MODULE=$(${pkgs.busybox}/bin/lspci -d $DEVICE -k | grep "Kernel modules:" | ${pkgs.busybox}/bin/awk '{print $NF}')
       if [[ $MODULE == "amdgpu" ]]; then
         DGPU=$(lspci -d $DEVICE -kD | cut -d "." -f 1 | head -n1)
         break
