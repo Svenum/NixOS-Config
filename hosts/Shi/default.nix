@@ -35,6 +35,7 @@
 
   # Enable fwupd
   services.fwupd.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   # Fix Wlan after suspend or Hibernate
   environment.etc."systemd/system-sleep/fix-wifi.sh".source =
@@ -57,6 +58,7 @@
   hardware.enableRedistributableFirmware = true;
 
   boot = {
+    extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
     initrd= {
       availableKernelModules = [
         "xhci_pci"
@@ -71,13 +73,6 @@
         "vfio-pci"
         "amdgpu"
       ];
-      preDeviceCommands = ''
-        DEVS="0000:03:00.0 0000:03:00.1"
-        for DEV in $DEVS; do
-          echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
-        done
-        modprobe -i vfio-pci
-      '';
     };
     kernelModules = [
       "kvm-amd"
