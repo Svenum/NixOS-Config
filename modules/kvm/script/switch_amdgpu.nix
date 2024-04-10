@@ -62,4 +62,4 @@ let
 
   '';
 in
-pkgs.writeShellScriptBin "switch_amdgpu.sh" script
+pkgs.writeShellScriptBin "toggle_gpu" script

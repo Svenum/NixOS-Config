@@ -16,12 +16,17 @@
     ${if config.hardware.cpu.amd.updateMicrocode then "options kvm_amd nested=1" else ""}
   '';
 
-  security.wrappers."toggle-gpu.sh" = lib.mkIf settings.pciPassthrough.enable or false {
-    setuid = true;
-    owner = "root";
-    group = "root";
-    source = (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; }) + /bin/switch_amdgpu.sh;
-  };
+  security.sudo.extraRules = [{
+    groups = [
+      "kvm"
+      "libvirtd"
+    ];
+    runAs = "ALL:ALL";
+    commands = [{
+      command = (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; }) + /bin/switch_amdgpu.sh;
+      options = [ "NOPASSWD" ];
+    }];
+  }];
 
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "pci_stub" ]
     ++ lib.lists.optionals config.hardware.cpu.amd.updateMicrocode [ "kvm-amd" ];
