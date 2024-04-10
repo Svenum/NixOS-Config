@@ -1,19 +1,18 @@
 { pkgs, ... }:
 
 let
-  load_amd = pkgs.writeShellScriptBin "load_amd" ''
-    #/run/current-system/sw/bin/toggle_gpu amd
-    echo $@ > /tmp/MESSAGE.txt
-  '';
-
-  load_vfio = pkgs.writeShellScriptBin "load_vfio" ''
-    #/run/current-system/sw/bin/toggle_gpu vfio
-    echo $@ > /tmp/MESSAGE.txt
+  toggle_gpu = pkgs.writeShellScriptBin "toggle_gpu" ''
+    if [[ $1 == "Windows GPU Nix" ]]; then
+      if [[ §2 == "prepare" ]]; then
+        /run/current-system/sw/bin/toggle_gpu vfio
+      elif [[ $2 == "release" ]]; then
+        /run/current-system/sw/bin/toggle_gpu amd
+      fi
+    fi
   '';
 in
 {
   virtualisation.libvirtd.hooks.qemu = {
-    "load_vfio" = "${load_vfio}/bin/load_vfio";
-    #"Windows GPU Nix/stopped/end/load_amd" = load_amd;
+    "toggle_gpu" = "${toggle_gpu}/bin/toggle_gpu";
   };
 }
