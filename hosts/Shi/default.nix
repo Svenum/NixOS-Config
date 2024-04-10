@@ -58,7 +58,6 @@
   hardware.enableRedistributableFirmware = true;
 
   boot = {
-    extraModprobeConfig = "options vfio-pci ids=1002:7480,1002:ab30";
     initrd= {
       availableKernelModules = [
         "xhci_pci"
@@ -69,9 +68,9 @@
         "thunderbolt"
       ];
      kernelModules = [
+        "amdgpu"
         "vfio"
         "vfio-pci"
-        "amdgpu"
       ];
     };
     kernelModules = [
@@ -85,8 +84,6 @@
     kernelParams = [
       "iommu=pt"
       "amd_iommu=on"
-      "vfio-pci.ids=1002:7480,1002:ab30"
-      "pci-stub.ids=1002:7480,1002:ab30"
       "mem_sleep_default=deep"
 
       "vt.default_red=30,243,166,249,137,245,148,186,88,243,166,249,137,245,148,166"
