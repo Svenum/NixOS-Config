@@ -10,7 +10,6 @@ let
         break
       fi
     done
-    DGPU=${lib.strings.concatMapStrings (x: " " + x ) dgpuPCI}
     GPU=''${DGPU}.0
     AUDIO=''${DGPU}.1
     GPU_VD="$(cat /sys/bus/pci/devices/''${GPU}/vendor) $(cat /sys/bus/pci/devices/''${GPU}/device)"
