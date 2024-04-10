@@ -29,6 +29,9 @@
     nixVirt.nixosModules.default
     home-manager.nixosModules.home-manager
     solaar.nixosModules.default
+
+    # Import specific modules
+    ./kvm.nix
   ];
   # enable solaar
   programs.solaar.enable = true;
