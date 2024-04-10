@@ -11,7 +11,7 @@ let
     for DEVICE in $DEVICES; do
       MODULE=$(${pkgs.busybox}/bin/lspci -d $DEVICE -k | grep "Kernel modules:" | ${pkgs.busybox}/bin/awk '{print $NF}')
       if [[ $MODULE == "amdgpu" ]]; then
-        DGPU=$(lspci -d $DEVICE -kD | cut -d "." -f 1 | head -n1)
+        DGPU=$(${pkgs.busybox}/bin/lspci -d $DEVICE -kD | ${pkgs.busybox}/bin/cut -d "." -f 1 | ${pkgs.busybox}/bin/head -n1)
         break
       fi
     done
