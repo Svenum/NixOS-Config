@@ -53,6 +53,14 @@
       esac
     '';
 
+    services.xserver.displayManager.sddm.wayland.compositorCommand = (builtins.concatStringsSep " " [
+      "export KWIN_DRM_DEVICES=/dev/dri/card2"
+      "${lib.getBin pkgs.kdePackages.kwin}/bin/kwin_wayland"
+      "--no-global-short"
+      "--no-kactivities"
+      "--no-lockscreen"
+      "--locale1"
+    ]);
     environment.variables = {
       KWIN_DRM_DEVICES = "/dev/dri/card2";
     };
