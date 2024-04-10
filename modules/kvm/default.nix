@@ -33,5 +33,5 @@
       "vfio"
       "vfio-pci"
     ]
-    ++ lib.lists.optional config.hardware.cpu.amd.updateMicrocode [ "amdgpu" ];
+    ++ lib.lists.optionals config.hardware.cpu.amd.updateMicrocode [ "amdgpu" ];
 }
