@@ -1,7 +1,7 @@
 { lib, pkgs, settings, config, ... }:
 
 let
-  toggle_gpu = (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; });
+  toggle_gpu = lib.mkIf settings.pciPassthrough.enable or false (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; });
 in
 {
 
