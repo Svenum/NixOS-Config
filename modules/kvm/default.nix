@@ -28,7 +28,7 @@ in
     ];
     runAs = "ALL:ALL";
     commands = [{
-      command = toggle_gpu + /bin/switch_amdgpu.sh;
+      command = toggle_gpu + /bin/toggle_gpu;
       options = [ "NOPASSWD" ];
     }];
   }];
