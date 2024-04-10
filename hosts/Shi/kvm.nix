@@ -3,7 +3,7 @@
 let
   toggle_gpu = pkgs.writeShellScriptBin "toggle_gpu" ''
     if [[ $1 == "Windows GPU Nix" ]]; then
-      if [[ §2 == "prepare" ]]; then
+      if [[ $2 == "prepare" ]]; then
         /run/current-system/sw/bin/toggle_gpu vfio
       elif [[ $2 == "release" ]]; then
         /run/current-system/sw/bin/toggle_gpu amd
