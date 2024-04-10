@@ -20,7 +20,7 @@
     setuid = true;
     owner = "root";
     group = "root";
-    source = import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; };
+    source = (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; })/bin/switch_amdgpu.sh;
   };
 
   boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "pci_stub" ]
