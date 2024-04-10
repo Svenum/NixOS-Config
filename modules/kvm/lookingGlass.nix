@@ -21,5 +21,5 @@ in
   systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (builtins.mapAttrs mkShimMapping settings.userAttrs);
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
-  boot.kernelModules = [ "kvmfr" ]
+  boot.kernelModules = [ "kvmfr" ];
 }
