@@ -1,5 +1,8 @@
 { lib, pkgs, settings, config, ... }:
 
+let
+  toggle_gpu = (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; });
+in
 {
 
   # Import required modules
@@ -16,6 +19,8 @@
     ${if config.hardware.cpu.amd.updateMicrocode then "options kvm_amd nested=1" else ""}
   '';
 
+  environment.systemPackages = [ toggle_gpu ];
+
   security.sudo.extraRules = [{
     groups = [
       "kvm"
@@ -23,7 +28,7 @@
     ];
     runAs = "ALL:ALL";
     commands = [{
-      command = (import ./script/switch_amdgpu.nix {dgpuPCI = settings.pciPassthrough.isolatedDevices; inherit lib; inherit pkgs; }) + /bin/switch_amdgpu.sh;
+      command = toggle_gpu + /bin/switch_amdgpu.sh;
       options = [ "NOPASSWD" ];
     }];
   }];
