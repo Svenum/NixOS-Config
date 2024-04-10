@@ -12,7 +12,7 @@ let
   '';
 in
 {
-  virtualisation.libvirtd.qemu.daemon = {
+  virtualisation.libvirtd.hooks.qemu = {
     "load_vfio" = "${load_vfio}/bin/load_vfio";
     #"Windows GPU Nix/stopped/end/load_amd" = load_amd;
   };
