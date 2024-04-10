@@ -54,7 +54,7 @@
     '';
 
     environment.variables = {
-      KWIN_DRM_DEVICES = "/dev/dri/card2:/dev/dri/card1";
+      KWIN_DRM_DEVICES = "/dev/dri/card2";
     };
 
   # Add AMD CPU driver
