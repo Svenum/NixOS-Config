@@ -2,6 +2,11 @@
 
 let
   script = ''
+    if [[ $(uid -u) -ne 0 ]]; then
+      sudo $0 $@
+      exit 0
+    fi
+
     DEVICES="${lib.strings.concatMapStrings (x: " " + x ) dgpuPCI}"
     for DEVICE in $DEVICES; do
       MODULE=$(lspci -d $DEVICE -k | grep "Kernel modules:" | awk '{print $NF}')
