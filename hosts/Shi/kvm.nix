@@ -5,7 +5,7 @@ let
     if [[ $1 == "Windows GPU Nix" ]]; then
       if [[ $2 == "prepare" ]]; then
         /run/current-system/sw/bin/toggle_gpu vfio
-      elif [[ $2 == "stopped" ]]; then
+      elif [[ $2 == "release" ]]; then
         ${pkgs.busybox}/bin/sleep 10
         /run/current-system/sw/bin/toggle_gpu amd
       fi
