@@ -31,7 +31,7 @@
     solaar.nixosModules.default
 
     # Import specific modules
-    ./kvm.nix
+    #./kvm.nix
   ];
   # enable solaar
   programs.solaar.enable = true;
