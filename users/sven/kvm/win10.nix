@@ -51,7 +51,6 @@
     type = "hvm";
     arch = "x86_64";
     machine = "pc-q35-8.2";
-    boot = { dev = "hd"; };
     loader = {
       readonly = true;
       type = "pflash";
