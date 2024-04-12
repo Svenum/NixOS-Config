@@ -87,13 +87,7 @@
     ];
   };
 
-  ## PowerManagement
-
-  ## MISSING
-  ## <on_poweroff>destroy</on_poweroff>
-  ## <on_reboot>restart</on_reboot>
-  ## <on_crash>destroy</on_crash>
-
+  # PowerManagement
   pm = {
     suspend-to-mem = { enabled = false; };
     suspend-to-disk = { enabled = false; };
@@ -111,7 +105,7 @@
         managed = true;
         source.address = {
           domain = 0;
-          bus = 6;
+          bus = 4;
           slot = 0;
           function = 0;
         };
