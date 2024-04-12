@@ -17,19 +17,16 @@ let
 in
 {
   # Enable SDDM and Plasma
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      sddm = {
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland = {
         enable = true;
-        wayland = {
-          enable = true;
-          compositor = "kwin";
-        };
-        autoNumlock = true;
+        compositor = "kwin";
       };
-      defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then false else true ) "plasmax11";
+      autoNumlock = true;
     };
+    defaultSession = lib.mkIf ( if builtins.hasAttr "waylandDefault" settings.de then false else true ) "plasmax11";
   };
   services.desktopManager.plasma6 = {
     enable = true;
