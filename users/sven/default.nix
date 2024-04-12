@@ -9,8 +9,7 @@ let
 in
 {
   imports = []
-    ++ lib.optional enablePlasma ./plasma.nix
-    ++ lib.optional enableNixVirt ./kvm.nix;
+    ++ lib.optional enablePlasma ./plasma.nix;
 
   # Add extgra packages
   home.packages = with pkgs; [
@@ -19,4 +18,23 @@ in
     ccrypt
   ];
 
+  # looking-glass config
+  xdg.configFile."looking-glass/client.ini" = lib.mkIf (if hostname == "Shi" then true else false) {
+     text = lib.generators.toINI {}{
+      wayland = { fractionScale = "yes"; };
+      opengl = { amdPinnedMem = "yes"; };
+      input = {
+        rawMouse = "yes";
+        autoCapture = "yes";
+        captureOnly = "yes";
+        escapeKey = "KEY_F12";
+      };
+      spice = {
+        enable = "yes";
+        clipboard = "yes";
+        audio = "yes";
+      };
+      app = { shmFile = "/dev/shm/looking-glass-sven"; };
+    };
+  };
 }

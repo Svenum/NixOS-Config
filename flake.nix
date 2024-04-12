@@ -22,33 +22,33 @@
         ];
       };
 
-      Ni = lib.nixosSystem {
-        specialArgs = {
-          inherit (inputs) home-manager;
-          inherit (inputs) solaar;
-          inherit (inputs) plasma-manager;
-          inherit (inputs) nixVirt;
-          settings = import ./hosts/Ni/settings.nix;
-        };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/Ni
-        ];
-      };
+      #Ni = lib.nixosSystem {
+      #  specialArgs = {
+      #    inherit (inputs) home-manager;
+      #    inherit (inputs) solaar;
+      #    inherit (inputs) plasma-manager;
+      #    inherit (inputs) nixVirt;
+      #    settings = import ./hosts/Ni/settings.nix;
+      #  };
+      #  system = "x86_64-linux";
+      #  modules = [
+      #    ./hosts/Ni
+      #  ];
+      #};
 
-      San = lib.nixosSystem {
-        specialArgs = {
-          inherit (inputs) home-manager;
-          inherit (inputs) solaar;
-          inherit (inputs) plasma-manager;
-          inherit (inputs) nixVirt;
-          settings = import ./hosts/San/settings.nix;
-        };
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/San
-        ];
-      };
+      #San = lib.nixosSystem {
+      #  specialArgs = {
+      #    inherit (inputs) home-manager;
+      #    inherit (inputs) solaar;
+      #    inherit (inputs) plasma-manager;
+      #    inherit (inputs) nixVirt;
+      #    settings = import ./hosts/San/settings.nix;
+      #  };
+      #  system = "x86_64-linux";
+      #  modules = [
+      #    ./hosts/San
+      #  ];
+      #};
 
       srv-nixostest = lib.nixosSystem {
         specialArgs = {
