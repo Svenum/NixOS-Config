@@ -105,19 +105,19 @@
     emulator = "${pkgs.qemu}/bin/qemu-system-x86_64";
 
     # Disks
-    disk = [
-      {
-        type = "file";
-        device = "disk";
-        driver = {
-          name = "qemu";
-          type = "qcow2";
-          discard = "unmap";
-        };
-        source.file = "${disk_path}/win10gpu.qcow2";
-        target = { dev = "sda"; bus = "sata"; };
-      }
-    ];
+    #disk = [
+    #  {
+    #    type = "file";
+    #    device = "disk";
+    #    driver = {
+    #      name = "qemu";
+    #      type = "qcow2";
+    #      discard = "unmap";
+    #    };
+    #    source.file = "${disk_path}/win10gpu.qcow2";
+    #    target = { dev = "sda"; bus = "sata"; };
+    #  }
+    #];
     
     hostdev = [
       {
