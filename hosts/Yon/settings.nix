@@ -17,7 +17,7 @@
 
   # Network Settings
   networkConfig = {
-    hostName = "Shi";
+    hostName = "Yon";
     useDHCP = true;
   };
 

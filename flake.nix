@@ -7,18 +7,18 @@
   in
   {
     nixosConfigurations = {
-      Shi = lib.nixosSystem {
+      Yon = lib.nixosSystem {
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) solaar;
           inherit (inputs) plasma-manager;
           inherit (inputs) auto-cpufreq;
           inherit (inputs) nixVirt;
-          settings = import ./hosts/Shi/settings.nix;
+          settings = import ./hosts/Yon/settings.nix;
         };
         system = "x86_64-linux";
         modules = [
-          ./hosts/Shi
+          ./hosts/Yon
         ];
       };
 

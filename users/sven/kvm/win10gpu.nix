@@ -23,7 +23,7 @@ vmConf // {
       };
     };
 
-    hostdev = [
+    hostdev = vmConf.devices.hostdev ++ [
       {
         mode = "subsystem";
         type = "pci";

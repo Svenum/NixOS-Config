@@ -79,7 +79,7 @@ in
     ];
 
     # Add windows Domain
-    domains = lib.mkIf (systemConfig.networking.hostName == "Shi") [
+    domains = lib.mkIf (systemConfig.networking.hostName == "Yon") [
       { definition = nixvirt.lib.domain.writeXML win10gpu_config; }
       { definition = nixvirt.lib.domain.writeXML win10_config; }
     ];

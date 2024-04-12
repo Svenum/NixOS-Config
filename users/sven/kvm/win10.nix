@@ -118,6 +118,21 @@
         target = { dev = "sda"; bus = "sata"; };
       }
     ];
+    
+    hostdev = [
+      {
+        mode = "subsystem";
+        type = "pci";
+        managed = true;
+        source.address = {
+          domain = 0;
+          bus = 6;
+          slot = 0;
+          function = 0;
+        };
+        boot.order = 1;
+      }
+    ];
 
     # Network
     interface = {

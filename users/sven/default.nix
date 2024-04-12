@@ -5,7 +5,7 @@ let
 
   hostname = settings.networkConfig.hostName;
   enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
-  enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Shi" then true else false;
+  enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Yon" then true else false;
 in
 {
   imports = []
