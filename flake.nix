@@ -66,6 +66,7 @@
         specialArgs = {
           inherit (inputs) home-manager;
           inherit (inputs) plasma-manager;
+          inherit (inputs) solaar;
           inherit (inputs) nixVirt;
           settings = import ./hosts/Zeta/settings.nix;
         };
@@ -129,8 +130,8 @@
     };
 
     nixVirt = {
-      #url = "github:AshleyYakeley/NixVirt";
-      url = "github:Svenum/NixVirt/add-boot-options-for-hostdev";
+      url = "github:AshleyYakeley/NixVirt";
+      #url = "github:Svenum/NixVirt/add-boot-options-for-hostdev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

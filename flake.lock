@@ -64,16 +64,15 @@
         "nixpkgs-ovmf": "nixpkgs-ovmf"
       },
       "locked": {
-        "lastModified": 1712922373,
-        "narHash": "sha256-DCGw5KWzWssCe6gMj7z4t6LiaJpGx7FcTtX4q3RMzek=",
-        "owner": "Svenum",
+        "lastModified": 1712952185,
+        "narHash": "sha256-hMIEqNxM+YPxJD10Cp+TL3AVdmrLxZBZpIlw2GR0mTs=",
+        "owner": "AshleyYakeley",
         "repo": "NixVirt",
-        "rev": "a8c094d168f3915aa6950d42df6b7f73cfdbd46e",
+        "rev": "8f8f61f055bef3f27c1a57ab4c3850b3a98ff397",
         "type": "github"
       },
       "original": {
-        "owner": "Svenum",
-        "ref": "add-boot-options-for-hostdev",
+        "owner": "AshleyYakeley",
         "repo": "NixVirt",
         "type": "github"
       }

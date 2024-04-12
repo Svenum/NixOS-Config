@@ -1,4 +1,4 @@
-{ lib, config, pkgs, nixVirt, home-manager, ... }:
+{ lib, config, pkgs, solaar, nixVirt, home-manager, ... }:
 
 {
   # Import Modules
@@ -24,7 +24,10 @@
     # Import system flakes
     nixVirt.nixosModules.default
     home-manager.nixosModules.home-manager
+    solaar.nixosModules.default
   ];
+  # enable solaar
+  programs.solaar.enable = true;
 
   # Enable ssh
   services.openssh.enable = true;
