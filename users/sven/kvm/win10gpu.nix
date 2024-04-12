@@ -1,7 +1,7 @@
-{ disk_path, nvram_path, pkgs, uuid }:
+{ nvram_path, pkgs, uuid }:
 
 let
-  vmConf = import ./win10.nix {inherit disk_path; inherit nvram_path; inherit pkgs; inherit uuid; };
+  vmConf = import ./win10.nix { inherit nvram_path; inherit pkgs; inherit uuid; };
 in
 vmConf // {
   name = "Windows GPU Nix";

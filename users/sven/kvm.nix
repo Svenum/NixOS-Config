@@ -3,8 +3,8 @@
 let
   nvram_path = "/home/sven/.local/share/libvirt/qemu";
   disk_path = "/home/sven/.local/share/libvirt/images";
-  win10_config = import ./kvm/win10.nix {inherit disk_path; inherit nvram_path; inherit pkgs; uuid = "c08333dc-33f9-4117-969a-ac46e19ba81f"; };
-  win10gpu_config = import ./kvm/win10gpu.nix {inherit disk_path; inherit nvram_path; inherit pkgs; uuid = "3af8cded-1545-4ff2-87d6-d647119aa0e3"; };
+  win10_config = import ./kvm/win10.nix { inherit nvram_path; inherit pkgs; uuid = "c08333dc-33f9-4117-969a-ac46e19ba81f"; };
+  win10gpu_config = import ./kvm/win10gpu.nix { inherit nvram_path; inherit pkgs; uuid = "3af8cded-1545-4ff2-87d6-d647119aa0e3"; };
 in
 {
   # looking-glass config
