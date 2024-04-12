@@ -19,7 +19,7 @@ in
   ];
 
   # looking-glass config
-  xdg.configFile."looking-glass/client.ini" = lib.mkIf (if hostname == "Shi" then true else false) {
+  xdg.configFile."looking-glass/client.ini" = lib.mkIf (if hostname == "Yon" then true else false) {
      text = lib.generators.toINI {}{
       wayland = { fractionScale = "yes"; };
       opengl = { amdPinnedMem = "yes"; };
