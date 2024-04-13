@@ -1,11 +1,30 @@
 { lib, settings, systemConfig, ... }:
 
 let
+  # Checks
   hostname = settings.networkConfig.hostName;
-  cursorFlavour = if settings.theme.flavour == "latte" then "Mocha" else "Latte";
-  themeAccent = if settings.theme.accent == "teal" then "Teal" else "";
-  themeFlavour = if settings.theme.flavour == "latte" then "Latte" else "Mocha";
-  range = if hostname == "Yon" then "1600" else if hostname == "San" then "1200" else if hostname == "Ni" then "800" else if hostname == "srv-nixostest" then "400" else "100"; 
+  isYon = if hostname == "Yon" then true else false;
+  isSan = if hostname == "San" then true else false;
+  isNi = if hostname == "Ni" then true else false;
+  issrv-nixostest = if hostname == "srv-nixostest" then true else false;
+  isLatte = if settings.theme.flavour == "latte" then true else false;
+  isMocha = if settings.theme.flavour == "mocha" then true else false;
+  isTeal = if settings.theme.flavour == "teal" then true else false;
+  
+  # Vars
+  cursorFlavour = if isLatte then "Mocha" else "Latte";
+  themeAccent = if isTeal == "teal" then "Teal" else "";
+  themeFlavour = if isLatte == "latte" then "Latte" else "Mocha";
+  range = if isYon then
+      "1600"
+    else if isSan then
+      "1200"
+    else if isNi then
+      "800"
+    else if issrv-nixostest then
+      "400"
+    else
+      "100"; 
 in
 {
   programs.plasma = {
@@ -108,18 +127,18 @@ in
               Appearance = {
                 chartFace = "org.kde.ksysguard.piechart";
               };
-              "org.kde.ksysguard.piechart.General" = {
-                rangeTo = range;
-                rangeAuto = "false";
-              };
+              # ISSUE https://github.com/pjones/plasma-manager/issues/62#issuecomment-2053556693
+              #org.kde.ksysguard.piechart.General = {
+              #  rangeTo = range;
+              #  rangeAuto = "false";
+              #};
             };
           }
-          ( if (!builtins.elem "modesetting" systemConfig.services.xserver.videoDrivers) then {
+          ( if !issrv-nixostest then {
             name = "org.kde.plasma.systemmonitor";
             config = {
               Sensors = {
-                highPrioritySensorIds= ''[\"gpu/gpu0/usage\"]'';
-                totalSensors = ''[\"gpu/gpu0/usage\"]'';
+                highPrioritySensorIds= ''[\"gpu/all/usage\"]'';
               };
             };
           } else "" )
