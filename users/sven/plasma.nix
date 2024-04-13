@@ -138,7 +138,8 @@ in
             name = "org.kde.plasma.systemmonitor";
             config = {
               Sensors = {
-                highPrioritySensorIds= ''[\"gpu/all/usage\"]'';
+                highPrioritySensorIds = ''[\"gpu/all/usage\"]'';
+                totalSensors = ''[\"gpu/all/usage\"]'';
               };
             };
           } else "" )

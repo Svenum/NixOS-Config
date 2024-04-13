@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712759992,
-        "narHash": "sha256-2APpO3ZW4idlgtlb8hB04u/rmIcKA8O7pYqxF66xbNY=",
+        "lastModified": 1712989663,
+        "narHash": "sha256-r2X/DIAyKOLiHoncjcxUk1TENWDTTaigRBaY53Cts/w=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "31357486b0ef6f4e161e002b6893eeb4fafc3ca9",
+        "rev": "40ab43ae98cb3e6f07eaeaa3f3ed56d589da21b0",
         "type": "github"
       },
       "original": {
@@ -119,15 +119,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1712481704,
-        "narHash": "sha256-CeGW18GtFeH8nA9BPxRlNaH52y2OsU2fkDd5UWhcMBc=",
-        "owner": "magnouvean",
+        "lastModified": 1712907244,
+        "narHash": "sha256-uLNzw3ZRWob9/FfOXUNhlzKNCPWNtWfF4QYoc3Hs1Fw=",
+        "owner": "pjones",
         "repo": "plasma-manager",
-        "rev": "3ed06351858113b19b08f1f767d4006c8a720630",
+        "rev": "27014d611e79bba47d5ee12f5790baf121045506",
         "type": "github"
       },
       "original": {
-        "owner": "magnouvean",
+        "owner": "pjones",
         "repo": "plasma-manager",
         "type": "github"
       }
