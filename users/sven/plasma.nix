@@ -127,7 +127,7 @@ in
               Appearance = {
                 chartFace = "org.kde.ksysguard.piechart";
               };
-              "org/kde/ksysguard/piechart/General" = {
+              "org.kde.ksysguard.piechart/General" = {
                 rangeTo = range;
                 rangeAuto = "false";
               };
