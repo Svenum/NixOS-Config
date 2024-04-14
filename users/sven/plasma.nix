@@ -127,11 +127,10 @@ in
               Appearance = {
                 chartFace = "org.kde.ksysguard.piechart";
               };
-              # ISSUE https://github.com/pjones/plasma-manager/issues/62#issuecomment-2053556693
-              #org.kde.ksysguard.piechart.General = {
-              #  rangeTo = range;
-              #  rangeAuto = "false";
-              #};
+              "org/kde/ksysguard/piechart/General" = {
+                rangeTo = range;
+                rangeAuto = "false";
+              };
             };
           }
           ( if !issrv-nixostest then {
