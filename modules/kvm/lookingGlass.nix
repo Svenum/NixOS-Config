@@ -28,7 +28,10 @@
 
   virtualisation.libvirtd.qemu.verbatimConfig = ''
     namespaces = []
-    cgroup_device_acl = [ "/dev/kvmfr0", "/dev/ptmx", "/dev/null" ]
+    cgroup_device_acl = [
+      "/dev/kvmfr0", "/dev/ptmx", "/dev/null",
+      "/dev/kvm"
+    ]
   '';
   
   boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
