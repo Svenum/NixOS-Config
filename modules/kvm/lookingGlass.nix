@@ -28,21 +28,12 @@
 
   virtualisation.libvirtd.qemu.verbatimConfig = ''
     namespaces = []
-    cgroup_device_acl = [ "/dev/kvmfr0" ]
+    cgroup_device_acl = [ "/dev/kvmfr0", "/dev/ptmx" ]
   '';
   
   boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
   boot.kernelModules = [ "kvmfr" ];
 
-  fileSystems."/dev/pts" = {
-    device = "devpts";
-    fsType = "devpts";
-    options = [
-      "gid=5"
-      "mode=620"
-    ];
-    noCheck = true;
-  };
   # Prepare Shim permissions
   #systemd.tmpfiles.settings = lib.mkIf settings.pciPassthrough.enable or false (builtins.mapAttrs mkShimMapping settings.userAttrs);
 
