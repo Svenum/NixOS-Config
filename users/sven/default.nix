@@ -8,7 +8,7 @@ let
   start_windows_vm = pkgs.writeShellScriptBin "start_windows_vm" ''
     virsh -c qemu:///system start "Windows GPU Nix" &
 
-    while [[ -f /dev/kvmfr0 ]]; do
+    while [[ ! -c /dev/kvmfr0 ]]; do
       sleep 1
     done
     sleep 5
