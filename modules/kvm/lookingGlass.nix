@@ -37,7 +37,10 @@
   fileSystems."/dev/pts" = {
     device = "devpts";
     fsType = "devpts";
-    options = "gid=5,mode=620";
+    options = [
+      "gid=5"
+      "mode=620"
+    ];
     noCheck = true;
   };
   # Prepare Shim permissions
