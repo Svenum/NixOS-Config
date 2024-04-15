@@ -50,7 +50,7 @@ vmConf // {
   };
 
   qemu-commandline = {
-    arg = vmConf.qemu-commandline.args ++ [
+    arg = vmConf.qemu-commandline.arg ++ [
       { value = "-device" }
       { value = ''{"driver":"ivshmem-plain","id":"shmem0","memdev":"looking-glass"}'' }
       { value = "-object" }
