@@ -2,10 +2,13 @@
 
 let
   tetris = pkgs.callPackage ../../custom-nixpkgs/tetris {};
-
   hostname = settings.networkConfig.hostName;
   enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
   enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Yon" then true else false;
+  start_windows_vm = pkgs.writeShellScriptBin "start_windows_vm" ''
+    virsh -c qemu:///system -d 4 start "Windows GPU Nix"
+    looking-glass-client
+  '';
 in
 {
   imports = []
@@ -39,8 +42,8 @@ in
   };
 
   # windows.desktop
-  xdg.desktopEntries.Windows = {
-    exec = ''virsh -c qemu:///system -d 4 start "Windows GPU Nix" && looking-glass-client'';
+  xdg.desktopEntries.Windows = lib.mkIf (if hostname == "Yon" then true else false) {
+    exec = "${start_windows_vm}/bin/start_windows_vm";
     icon = "distributor-logo-windows";
     name = "Windows";
     type = "Application";
