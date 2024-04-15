@@ -1,6 +1,7 @@
-{ pkgs, nixvirt, ... }:
+{ pkgs, nixVirt, ... }:
 
 let
+  nixvirt.lib = nixVirt.lib;
   toggle_gpu = pkgs.writeShellScriptBin "toggle_gpu" ''
     if [[ $1 == "Windows GPU Nix" ]]; then
       if [[ $2 == "prepare" ]]; then
@@ -22,6 +23,7 @@ in
     "toggle_gpu" = "${toggle_gpu}/bin/toggle_gpu";
   };
 
+  virtualisation.libvirt.enable = true;
   virtualisation.libvirt.connections."qemu:///system" = {
     # Add pools
     pools = [
