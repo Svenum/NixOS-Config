@@ -37,4 +37,13 @@ in
       app = { shmFile = "/dev/shm/looking-glass-sven"; };
     };
   };
+
+  # windows.desktop
+  xdg.desktopEntries.Windows = {
+    exec = ''virsh -c qemu:///system -d 4 start "Windows GPU Nix" && looking-glass-client'';
+    icon = "distributor-logo-windows";
+    name = "Windows";
+    type = "Application";
+    terminal = false;
+  };
 }
