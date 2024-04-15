@@ -25,6 +25,11 @@
   boot.extraModprobeConfig = ''
     options kvmfr static_size_mb=128
   '';
+
+  virtualisation.libvirtd.qemu.verbatimConfig = ''
+    namespaces = []
+    cgroup_device_acl = [ "/dev/kvmfr0" ]
+  '';
   
   boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
   boot.kernelModules = [ "kvmfr" ];
