@@ -39,6 +39,9 @@
   # Enable fwupd
   services.fwupd.enable = true;
   hardware.keyboard.qmk.enable = true;
+  
+  # Enable Waydroid
+  virtualisation.waydroid.enable = true;
 
   # Fix Wlan after suspend or Hibernate
   environment.etc."systemd/system-sleep/fix-wifi.sh".source =
