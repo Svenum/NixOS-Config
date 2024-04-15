@@ -6,8 +6,15 @@ let
   enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
   enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Yon" then true else false;
   start_windows_vm = pkgs.writeShellScriptBin "start_windows_vm" ''
-    virsh -c qemu:///system start "Windows GPU Nix"
+    virsh -c qemu:///system start "Windows GPU Nix" &
+
+    while [[ -f /dev/shm/looking-glass-sven ]]; do 
+      sleep 1
+    done
+
     looking-glass-client
+
+    exit 0
   '';
 in
 {
