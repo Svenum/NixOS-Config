@@ -9,13 +9,13 @@ vmConf // {
   description = "A Windows 10 vm define in nix with gpu passthrough";
   devices = vmConf.devices // {
     # GPU passthrough
-    shmem = [
-      {
-        name = "looking-glass-sven";
-        model.type = "ivshmem-plain";
-        size = { unit = "M"; count = 128; };
-      }
-    ];
+    #shmem = [
+    #  {
+    #    name = "looking-glass-sven";
+    #    model.type = "ivshmem-plain";
+    #    size = { unit = "M"; count = 128; };
+    #  }
+    #];
     
     video = {
       model = {
@@ -46,6 +46,15 @@ vmConf // {
           function = 1;
         };
       }
+    ];
+  };
+
+  qemu-commandline = {
+    arg = vmConf.qemu-commandline.args ++ [
+      { value = "-device" }
+      { value = ''{"driver":"ivshmem-plain","id":"shmem0","memdev":"looking-glass"}'' }
+      { value = "-object" }
+      { value = ''{"qom-type":"memory-backend-file","id":"looking-glass","mem-path":"/dev/kvmfr0","size":134217728,"share":true}'' }
     ];
   };
 }

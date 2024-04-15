@@ -44,7 +44,8 @@ in
         clipboard = "yes";
         audio = "yes";
       };
-      app = { shmFile = "/dev/shm/looking-glass-sven"; };
+      #app = { shmFile = "/dev/shm/looking-glass-sven"; };
+      app = { shmFile = "/dev/kvmfr0"; };
     };
   };
 
