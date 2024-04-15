@@ -11,7 +11,7 @@ let
     while [[ -f /dev/kvmfr0 ]]; do
       sleep 1
     done
-      sleep 5
+    sleep 5
     looking-glass-client
     exit 0
   '';
