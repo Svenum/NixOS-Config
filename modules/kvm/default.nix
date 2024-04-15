@@ -20,10 +20,6 @@ in
     ${if config.hardware.cpu.amd.updateMicrocode then "options kvm_amd nested=1" else ""}
   '';
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="kvmfr", OWNER="root", GROUP="kvm", MODE="0660"
-  '';
-
   environment.systemPackages = [ toggle_gpu ];
 
   security.sudo.extraRules = [{
@@ -38,7 +34,7 @@ in
     }];
   }];
 
-  boot.kernelModules = [ "kvmfr" "vfio" "vfio_iommu_type1" "vfio_pci" "pci_stub" ]
+  boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "pci_stub" ]
     ++ lib.lists.optionals config.hardware.cpu.amd.updateMicrocode [ "kvm-amd" ];
   boot.kernelParams = [ "iommu=pt" ]
     ++ lib.lists.optionals config.hardware.cpu.amd.updateMicrocode [ "amd_iommu=on" "kvm_amd.avic=1" "kvm_amd.npt=1"  ]
