@@ -55,10 +55,10 @@ in
 
   # windows.desktop
   xdg.desktopEntries.Windows = lib.mkIf (if hostname == "Yon" then true else false) {
-    #exec = "${start_win_vm}/bin/start_win_vm";
-    #icon = "distributor-logo-windows";
-    #name = "Windows";
-    #type = "Application";
-    #terminal = false;
+    exec = "${start_win_vm}/bin/start_win_vm";
+    icon = "distributor-logo-windows";
+    name = "Windows";
+    type = "Application";
+    terminal = false;
   };
 }
