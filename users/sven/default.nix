@@ -7,8 +7,12 @@ let
   enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Yon" then true else false;
   start_windows_vm = pkgs.writeShellScriptBin "start_windows_vm" ''
     virsh -c qemu:///system start "Windows GPU Nix" &
-
-    while [[ ! -c /dev/kvmfr0 || ! $(nc -z 127.0.0.1 5900) ]]; do
+    
+    nc -z 127.0.0.1 5900
+    nc=$?
+    while [[ ! -c /dev/kvmfr0 || $nc -ne 0 ]]; do
+      nc -z 127.0.0.1 5900
+      nc=$?
       sleep 1
     done
     sleep 5
