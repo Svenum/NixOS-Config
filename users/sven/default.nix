@@ -47,13 +47,12 @@ in
         clipboard = "yes";
         audio = "yes";
       };
-      #app = { shmFile = "/dev/shm/looking-glass-sven"; };
       app = { shmFile = "/dev/kvmfr0"; };
     };
   };
 
   # windows.desktop
-  xdg.desktopEntries.Windows = lib.mkIf (if hostname == "Yon" then true else false) {
+  xdg.desktopEntries."Windows" = lib.mkIf (if hostname == "Yon" then true else false) {
     exec = "${start_win_vm}/bin/start_win_vm";
     icon = "distributor-logo-windows";
     name = "Windows";
