@@ -5,7 +5,7 @@ let
   hostname = settings.networkConfig.hostName;
   enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
   enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Yon" then true else false;
-  start_windows_vm = pkgs.writeShellScriptBin "start_windows_vm" ''
+  start_win_vm = pkgs.writeShellScriptBin "start_win_vm" ''
     virsh -c qemu:///system start "Windows GPU Nix" &
     
     nc -z 127.0.0.1 5900
@@ -54,7 +54,7 @@ in
 
   # windows.desktop
   xdg.desktopEntries.Windows = lib.mkIf (if hostname == "Yon" then true else false) {
-    exec = "${start_windows_vm}/bin/start_windows_vm";
+    exec = "${start_win_vm}/bin/start_win_vm";
     icon = "distributor-logo-windows";
     name = "Windows";
     type = "Application";
