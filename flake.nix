@@ -1,7 +1,7 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, auto-cpufreq, nixVirt, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, auto-cpufreq, nixVirt, lanzaboote, ... }@inputs:
   let
     lib = nixpkgs.lib;
   in
@@ -14,6 +14,7 @@
           inherit (inputs) plasma-manager;
           inherit (inputs) auto-cpufreq;
           inherit (inputs) nixVirt;
+          inherit (inputs) lanzaboote;
           settings = import ./hosts/Yon/settings.nix;
         };
         system = "x86_64-linux";
@@ -132,6 +133,11 @@
     nixVirt = {
       url = "github:AshleyYakeley/NixVirt";
       #url = "github:Svenum/NixVirt/add-boot-options-for-hostdev";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
