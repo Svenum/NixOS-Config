@@ -1,2 +1,2 @@
 { pkgs ? import <nixpkgs> {} }:
-pkgs.haskellPackages.callPackage ./derivation.nix {}
+pkgs.haskell.packages.ghc92.callPackage ./derivation.nix {}
