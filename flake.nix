@@ -153,7 +153,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master"
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 }
 
