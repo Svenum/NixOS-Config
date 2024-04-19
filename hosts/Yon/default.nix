@@ -31,7 +31,7 @@
     home-manager.nixosModules.home-manager
     solaar.nixosModules.default
     lanzaboote.nixosModules.lanzaboote
-    nixos-hardware.nixosModules.framework16-7040-amd
+    nixos-hardware.nixosModules.framework-16-7040-amd
 
     # Import specific modules
     ./kvm.nix
