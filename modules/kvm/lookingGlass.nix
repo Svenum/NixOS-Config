@@ -1,9 +1,9 @@
-{ lib, pkgs, pkgs-stable, settings, config, ... }:
+{ lib, pkgs, settings, config, ... }:
 
 {
   # install looking-glass-client
   environment.systemPackages = with pkgs; [
-    (lib.mkIf settings.pciPassthrough.enable or false pkgs-stable.looking-glass-client)
+    (lib.mkIf settings.pciPassthrough.enable or false looking-glass-client)
   ];
 
   # Prepare kvmfr
@@ -23,6 +23,6 @@
     ]
   '';
   
-  boot.extraModulePackages = [ pkgs-stable.linuxPackages_latest.kvmfr ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
   boot.kernelModules = [ "kvmfr" ];
 }
