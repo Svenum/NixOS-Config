@@ -23,6 +23,6 @@
     ]
   '';
   
-  boot.extraModulePackages = with config.boot.kernelPackages; [ pkgs-stable.kvmfr ];
+  boot.extraModulePackages = [ pkgs-stable.linuxPackages_latest.kvmfr ];
   boot.kernelModules = [ "kvmfr" ];
 }
