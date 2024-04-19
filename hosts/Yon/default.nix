@@ -1,5 +1,5 @@
 { solaar, home-manager, nixVirt, lanzaboote,
-  lib, config, pkgs, ...
+  lib, config, pkgs, nixos-hardware, ...
 }:
 
 {
@@ -31,6 +31,7 @@
     home-manager.nixosModules.home-manager
     solaar.nixosModules.default
     lanzaboote.nixosModules.lanzaboote
+    nixos-hardware.nixosModules.framework16-7040-amd
 
     # Import specific modules
     ./kvm.nix

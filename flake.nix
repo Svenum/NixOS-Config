@@ -1,7 +1,7 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs-unstable, nixpkgs-stable, home-manager, solaar, plasma-manager, auto-cpufreq, nixVirt, lanzaboote, ... }@inputs:
+  outputs = { self, nixpkgs-unstable, nixpkgs-stable, home-manager, nixos-hardware, solaar, plasma-manager, auto-cpufreq, nixVirt, lanzaboote, ... }@inputs:
   let
     lib = nixpkgs-unstable.lib;
     pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
@@ -16,6 +16,7 @@
           inherit (inputs) auto-cpufreq;
           inherit (inputs) nixVirt;
           inherit (inputs) lanzaboote;
+          inherit (inputs) nixos-hardware;
           inherit pkgs-stable;
           settings = import ./hosts/Yon/settings.nix;
         };
@@ -151,6 +152,8 @@
       url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master"
   };
 }
 
