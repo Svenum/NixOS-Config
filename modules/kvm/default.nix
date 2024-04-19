@@ -7,7 +7,7 @@ in
 
   # Import required modules
   imports = [
-    #./lookingGlass.nix
+    ./lookingGlass.nix
     ./virtManager.nix
   ];
 
