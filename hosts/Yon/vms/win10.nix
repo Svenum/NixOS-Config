@@ -137,11 +137,14 @@
 
     video = {
       model = {
-        type = "vga";
-        vram = 65536;
-        heads  = 1;
-        primary = true;
+        type = "none";
       };
+      #model = {
+      #  type = "vga";
+      #  vram = 65536;
+      #  heads  = 1;
+      #  primary = true;
+      #};
     };
 
     sound = { model = "ich9"; };
@@ -186,6 +189,10 @@
       { value = "host,kvm=off,hv_time,hv_vendor_id=null,-hypervisor"; }
       { value = "-machine"; }
       { value = "q35"; }
+      { value = "-device"; }
+      { value = "{\"driver\":\"ivshmem-plain\",\"id\":\"shmem0\",\"memdev\":\"looking-glass\"}"; }
+      { value = "-object"; }
+      { value = "{\"qom-type\":\"memory-backend-file\",\"id\":\"looking-glass\",\"mem-path\":\"/dev/kvmfr0\",\"size\":134217728,\"share\":true}"; }
     ];
   };
 }
