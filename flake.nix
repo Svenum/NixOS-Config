@@ -1,9 +1,10 @@
 {
   description = "Sven's NixOS Flake";
 
-  outputs = { self, nixpkgs, home-manager, solaar, plasma-manager, auto-cpufreq, nixVirt, lanzaboote, ... }@inputs:
+  outputs = { self, nixpkgs-unstable, nixpkgs-stable, home-manager, solaar, plasma-manager, auto-cpufreq, nixVirt, lanzaboote, ... }@inputs:
   let
-    lib = nixpkgs.lib;
+    lib = nixpkgs-unstable.lib;
+    pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
   in
   {
     nixosConfigurations = {
@@ -15,6 +16,7 @@
           inherit (inputs) auto-cpufreq;
           inherit (inputs) nixVirt;
           inherit (inputs) lanzaboote;
+          inherit pkgs-stable;
           settings = import ./hosts/Yon/settings.nix;
         };
         system = "x86_64-linux";
@@ -90,6 +92,14 @@
         ];
       };
     };
+
+    overlays = {
+      pkgs-set = (
+        final: prev: {
+          stable = import inputs.nixpkgs-stable { system = final.system; };
+        }
+      );
+    };
   };
 
   nixConfig = {
@@ -105,40 +115,41 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     plasma-manager = {
       url = "github:pjones/plasma-manager";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         home-manager.follows = "home-manager";
       };
     };
 
     solaar = {
       url = "github:Svenum/Solaar-Flake/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nixVirt = {
       url = "github:AshleyYakeley/NixVirt";
       #url = "github:Svenum/NixVirt/add-boot-options-for-hostdev";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 }
