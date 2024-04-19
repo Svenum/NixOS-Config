@@ -111,4 +111,5 @@
 
   # Nix config
   nixpkgs.config.allowUnfree = true;
+  nix.settings.sandbox = "relaxed";
 }
