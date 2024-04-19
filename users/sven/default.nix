@@ -49,7 +49,13 @@ in
         clipboard = "yes";
         audio = "yes";
       };
-      app = { shmFile = "/dev/kvmfr0"; };
+      app = {
+        shmFile = "/dev/kvmfr0";
+        allowDMA = "yes";
+      };
+      win = {
+        alerts = "no"; 
+      };
     };
   };
 

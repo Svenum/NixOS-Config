@@ -137,14 +137,11 @@
 
     video = {
       model = {
-        type = "none";
+        type = "vga";
+        vram = 65536;
+        heads  = 1;
+        primary = true;
       };
-      #model = {
-      #  type = "vga";
-      #  vram = 65536;
-      #  heads  = 1;
-      #  primary = true;
-      #};
     };
 
     sound = { model = "ich9"; };

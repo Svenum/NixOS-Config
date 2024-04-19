@@ -9,6 +9,12 @@ vmConf // {
   description = "A Windows 10 vm define in nix with gpu passthrough";
   devices = vmConf.devices // {
     # GPU passthrough
+    video = {
+      model = {
+        type = "none";
+      };
+    };
+
     hostdev = vmConf.devices.hostdev ++ [
       {
         mode = "subsystem";
