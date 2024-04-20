@@ -5,20 +5,20 @@ let
   hostname = settings.networkConfig.hostName;
   enablePlasma = if systemConfig.networking.hostName != "Ni" then true else false;
   enableNixVirt = if hostname == "Ni" || hostname == "San" || hostname == "Yon" then true else false;
-  start_win_vm = pkgs.writeShellScriptBin "start_win_vm" ''
-    virsh -c qemu:///system start "Windows GPU Nix" &
-    
-    nc -z 127.0.0.1 5900
-    nc=$?
-    while [[ ! -c /dev/kvmfr0 || $nc -ne 0 ]]; do
-      nc -z 127.0.0.1 5900
-      nc=$?
-      sleep 1
-    done
-    sleep 5
-    looking-glass-client
-    exit 0
-  '';
+  #start_win_vm = pkgs.writeShellScriptBin "start_win_vm" ''
+  #  virsh -c qemu:///system start "Windows GPU Nix" &
+  #  
+  #  nc -z 127.0.0.1 5900
+  #  nc=$?
+  #  while [[ ! -c /dev/kvmfr0 || $nc -ne 0 ]]; do
+  #    nc -z 127.0.0.1 5900
+  #    nc=$?
+  #    sleep 1
+  #  done
+  #  sleep 5
+  #  looking-glass-client
+  #  exit 0
+  #'';
 in
 {
   imports = []
@@ -30,8 +30,6 @@ in
     #tetris
     ccrypt
   ];
-
-  xdg.enable = true;
 
   # looking-glass config
   xdg.configFile."looking-glass/client.ini" = lib.mkIf (if hostname == "Yon" then true else false) {
@@ -60,11 +58,11 @@ in
   };
 
   # windows.desktop
-  xdg.desktopEntries.Windows = lib.mkIf (if hostname == "Yon" then true else false) {
-    exec = "${start_win_vm}/bin/start_win_vm";
-    icon = "distributor-logo-windows";
-    name = "Windows";
-    type = "Application";
-    terminal = false;
-  };
+  #xdg.desktopEntries.Windows = lib.mkIf (if hostname == "Yon" then true else false) {
+  #  exec = "${start_win_vm}/bin/start_win_vm";
+  #  icon = "distributor-logo-windows";
+  #  name = "Windows";
+  #  type = "Application";
+  #  terminal = false;
+  #};
 }
