@@ -23,6 +23,8 @@
     ]
   '';
   
-  boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ (kvmfr.overrideAttrs (final: prev: {
+    patches = [];
+  })) ];
   boot.kernelModules = [ "kvmfr" ];
 }
