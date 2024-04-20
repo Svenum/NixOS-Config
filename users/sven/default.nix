@@ -50,11 +50,9 @@ in
       app = {
         shmFile = "/dev/kvmfr0";
         allowDMA = "yes";
-        capture = "d12";
       };
       win = {
         alerts = "no"; 
-        fullScreen = "yes";
       };
     };
   };
